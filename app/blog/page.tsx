@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface BlogPost {
   slug: string;
@@ -75,6 +75,55 @@ export default function Blog() {
   
   const featuredPost = filteredPosts[0];
   const regularPosts = filteredPosts.slice(1);
+
+  // Send iframe context to parent window (scroll position and page)
+  useEffect(() => {
+    const sendContext = () => {
+      window.parent.postMessage({
+        type: 'IFRAME_CONTEXT',
+        page: window.location.pathname,
+        scroll: window.scrollY
+      }, '*');
+    };
+
+    // Send initial context
+    sendContext();
+
+    // Update on scroll
+    const handleScroll = () => {
+      sendContext();
+    };
+
+    // Update on navigation
+    const handlePopState = () => {
+      sendContext();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+  // Listen for navigation commands from parent
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data?.type === 'NAVIGATE_TO') {
+        if (event.data.page && event.data.page !== window.location.pathname) {
+          window.history.pushState({}, '', event.data.page);
+        }
+        if (typeof event.data.scroll === 'number') {
+          window.scrollTo(0, event.data.scroll);
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
