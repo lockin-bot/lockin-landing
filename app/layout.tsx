@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./layouts/Navbar/Navbar";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const hedvig = localFont({
+  src: [
+    {
+      path: "../public/fonts/HedvigLettersSerif-Regular-VariableFont_opsz.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-hedvig",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,10 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
+    <html lang="en" className={`${inter.variable} ${hedvig.variable}`}>
+      <body className="font-sans antialiased">
+        <Navbar />
         {children}
       </body>
     </html>

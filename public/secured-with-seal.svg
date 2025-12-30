@@ -1,0 +1,7 @@
+<svg width="111" height="50" viewBox="0 0 111 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="111" height="50" rx="25" transform="matrix(-1 0 0 1 111 0)" fill="black"/>
+<rect x="-0.5" y="0.5" width="110" height="49" rx="24.5" transform="matrix(-1 0 0 1 110 0)" stroke="white" stroke-opacity="0.22"/>
+<circle cx="79" cy="25" r="7" fill="white"/>
+<circle cx="55" cy="25" r="7" fill="white"/>
+<circle cx="31" cy="25" r="7" fill="white"/>
+</svg>

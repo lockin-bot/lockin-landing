@@ -464,7 +464,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 sm:py-32 lg:py-40 px-4 sm:px-6">
+      {/* <section className="py-24 sm:py-32 lg:py-40 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal mb-6 sm:mb-8">
             Ready to Lock In More Deals?
@@ -476,7 +476,7 @@ export default function Home() {
             Get Started
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="py-8 sm:py-12 px-4 sm:px-6">
