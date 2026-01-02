@@ -20,30 +20,30 @@ export default function Navbar() {
             }}
          >
             <div className='relative flex items-center justify-end lg:justify-between w-full'>
-               {/* LEft Nav */}
+               {/* Left Nav */}
                <div className='hidden lg:flex items-center gap-[24px]'>
                   <div className='flex items-center group'>
-                     <Link href={'#features'}>
+                     <Link href='/v1#features'>
                         <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Features</span>
                      </Link>
                   </div>
 
                   <div className='flex items-center group'>
-                     <Link href={'#pricing'}>
+                     <Link href='/v1#pricing'>
                         <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Pricing</span>
                      </Link>
                   </div>
 
                   <div className='flex items-center group'>
-                     <Link href={'#security'}>
-                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Security</span>
+                     <Link href='/blog'>
+                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
                      </Link>
                   </div>
                </div>
 
                {/* Logo */}
                <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64px] h-[26px]'>
-                  <Link href={'/'}>
+                  <Link href='/v1'>
                      <Image
                         src={'/logo.svg'}
                         width={76}
@@ -57,7 +57,7 @@ export default function Navbar() {
                {/* Right Nav */}
                <div className='hidden lg:flex items-center gap-[20px]'>
                   <div className='flex items-center group'>
-                     <Link href={'/pricing'}>
+                     <Link href='/v1#pricing'>
                         <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Book a Demo</span>
                      </Link>
                   </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
                         backdropFilter: 'blur(162px)'
                      }}
                   >
-                     <Link href={'/pricing'} className='flex items-center justify-center w-full h-full'>
+                     <Link href='/v1#pricing' className='flex items-center justify-center w-full h-full'>
                         <span className='text-[15px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Get Started</span>
                      </Link>
                   </div>
@@ -114,14 +114,14 @@ export default function Navbar() {
                <div className='w-full max-w-[500px] mx-auto h-full flex flex-col gap-[24px] pt-[24px]'>
                   {/* Navs */}
                   <div className='flex flex-col gap-[14px] pl-[8px]'>
-                     <Link href={'#features'}>
+                     <Link href='/v1#features'>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Features</span>
                      </Link>
-                     <Link href={'#pricing'}>
+                     <Link href='/v1#pricing'>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Pricing</span>
                      </Link>
-                     <Link href={'#security'}>
-                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Security</span>
+                     <Link href='/blog'>
+                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
                      </Link>
                   </div>
 
@@ -134,7 +134,7 @@ export default function Navbar() {
                         backdropFilter: 'blur(162px)'
                      }}
                   >
-                     <Link href={'/pricing'} className='flex items-center justify-center w-full h-full'>
+                     <Link href='/v1#pricing' className='flex items-center justify-center w-full h-full'>
                         <span className='text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Get Started</span>
                      </Link>
                   </div>
