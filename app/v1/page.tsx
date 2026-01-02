@@ -609,12 +609,13 @@ export default function page() {
                   <div className='w-full h-[230px] md:h-[360px] flex relative left-[16px] md:left-[28px] lg:left-[35px]'>
                      <Image
                         src={'/hero/owl.png'}
-                        width={1761}
-                        height={1425}
+                        width={2935}
+                        height={2375}
                         alt='Owl'
                         className='w-full h-full object-contain'
                         priority
                         draggable={false}
+                        // quality={100}
                      />
                   </div>
 
@@ -666,12 +667,13 @@ export default function page() {
                      {/* Main Layer */}
                      <div className='w-[270px] md:w-[480px] lg:w-[550px] h-[180px] md:h-[310px] lg:h-[360px] px-[14px] md:px-[24px] lg:px-[20px] pt-[12px] md:pt-[20px] lg:pt-[24px] flex items-start absolute left-1/2 -translate-x-1/2 -bottom-[40px] md:-bottom-[65px] lg:-bottom-[72px] bg-black border border-[#272727] rounded-[15px] md:rounded-[24px] lg:rounded-[28px]'>
                         <Image
-                           src={'/find-the-strongest-path.svg'}
-                           width={592}
-                           height={282}
+                           src={'/find-the-strongest-path.png'}
+                           width={2371}
+                           height={1128}
                            alt='Founder & CEO'
                            className='w-full h-auto'
                            priority
+                           quality={100}
                            draggable={false}
                         />
                      </div>
@@ -953,12 +955,13 @@ export default function page() {
                      <div className='w-full min-w-[620px] md:min-w-[875px] lg:min-w-[1016px] max-w-[1016px] h-auto absolute left-1/2 -translate-x-1/2 bottom-0 flex'>
                         <Image
                            src={'/globe-expand-beyond.png'}
-                           width={1110}
-                           height={419}
+                           width={4440}
+                           height={1676}
                            alt='Globe'
                            className='w-full h-auto'
                            priority
                            draggable={false}
+                           quality={100}
                         />
                      </div>
 
@@ -1128,10 +1131,10 @@ export default function page() {
                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none">
                               <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" className='group-hover:stroke-[#429DED]/80 transition-all duration-300' stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="url(#paint0_linear_32_3952)" stroke-opacity="0.4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="url(#paint0_linear_32_3952)" strokeOpacity="0.4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <defs>
                                  <linearGradient id="paint0_linear_32_3952" x1="3.99479" y1="12.3853" x2="3.99479" y2="17.3307" gradientUnits="userSpaceOnUse">
-                                    <stop stopColor="white" stop-opacity="0" />
+                                    <stop stopColor="white" stopOpacity="0" />
                                     <stop offset="1" stopColor="white" />
                                  </linearGradient>
                               </defs>
