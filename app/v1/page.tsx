@@ -45,24 +45,28 @@ const carouselData = [
 
 const faqData = [
    {
-      question: 'What exactly does LockIn do with my Telegram?',
-      desc: 'Collectibles.com provides tools to showcase your collection, connect with other enthusiasts, and securely trade items. The platform may also offer services like authentication, storage, and redemption for physical goods.'
+      question: 'How does LockIn know which conversations are sales-related?',
+      desc: 'LockIn uses AI to automatically identify and categorize conversations relevant to your business from all your Telegram chats. It analyzes message content, context, and patterns to distinguish sales opportunities from casual conversations.'
    },
    {
-      question: 'How does a LockIn bot work on Telegram chats?',
-      desc: 'Collectibles.com provides tools to showcase your collection, connect with other enthusiasts, and securely trade items. The platform may also offer services like authentication, storage, and redemption for physical goods.'
+      question: 'Do I need to add the bot to each Telegram chat?',
+      desc: 'No, LockIn works seamlessly in the background across all your Telegram conversations. Once set up, it automatically monitors and tracks relevant conversations without requiring manual configuration for each chat.'
    },
    {
-      question: 'Is this actually secure (we see “trusted” everywhere)?',
-      desc: 'Collectibles.com provides tools to showcase your collection, connect with other enthusiasts, and securely trade items. The platform may also offer services like authentication, storage, and redemption for physical goods.'
+      question: 'Is my business data private and secure?',
+      desc: 'Absolutely. All your data is encrypted inside a Trusted Execution Environment (TEE), meaning your messages, deal flow, and private group chats stay completely private. We never send your conversations to third-party AI providers.'
    },
    {
-      question: 'What are the privacy features?',
-      desc: 'Collectibles.com provides tools to showcase your collection, connect with other enthusiasts, and securely trade items. The platform may also offer services like authentication, storage, and redemption for physical goods.'
+      question: 'Can I customize the sales pipeline stages?',
+      desc: 'Yes, Pro plan users can create custom sales pipeline stages to match their specific workflow. You can define your own stages, labels, and criteria for how deals progress through your pipeline.'
    },
    {
-      question: 'How quickly can I be up and running with LockIn?',
-      desc: 'Collectibles.com provides tools to showcase your collection, connect with other enthusiasts, and securely trade items. The platform may also offer services like authentication, storage, and redemption for physical goods.'
+      question: 'How accurate is the AI in detecting sales opportunities?',
+      desc: 'Our AI has been trained specifically on sales and BD conversations in Web3 and tech industries. Users report high accuracy in identifying leads and deal progress, with continuous improvements based on feedback.'
+   },
+   {
+      question: 'Can I export my data to other CRM systems?',
+      desc: 'Yes, you can export your deal data, contact lists, and conversation history. We support CSV exports and are working on direct integrations with popular CRM platforms.'
    }
 ]
 
@@ -352,97 +356,92 @@ export default function page() {
       });
    }, []);
 
-   //// Hero Anim
-   useEffect(() => {
-      gsap.set(".hero-cluster-svg", { autoAlpha: 0 });
+   //// Hero Anim - TEMPORARILY DISABLED
+   // useEffect(() => {
+   //    gsap.set(".hero-cluster-svg", { autoAlpha: 0 });
 
-      const tl = gsap.timeline({
+   //    const tl = gsap.timeline({
+   //       repeat: -1,
+   //       defaults: { ease: "power2.inOut" }
+   //    });
+
+   //    // 1. grup
+   //    tl.to([".hero-cluster-svg-1", ".hero-cluster-svg-2"], {
+   //       autoAlpha: 1,
+   //       duration: 1.5
+   //    })
+   //       .to({}, { duration: 2.5 }) // 3 saniye bekle
+   //       .to([".hero-cluster-svg-1", ".hero-cluster-svg-2"], {
+   //          autoAlpha: 0,
+   //          duration: 1.5
+   //       });
+
+   //    // 2. grup
+   //    tl.to([".hero-cluster-svg-3", ".hero-cluster-svg-4"], {
+   //       autoAlpha: 1,
+   //       duration: 1.5
+   //    })
+   //       .to({}, { duration: 2.5 })
+   //       .to([".hero-cluster-svg-3", ".hero-cluster-svg-4"], {
+   //          autoAlpha: 0,
+   //          duration: 1.5
+   //       });
+
+   //    // 3. grup
+   //    tl.to([".hero-cluster-svg-5", ".hero-cluster-svg-6"], {
+   //       autoAlpha: 1,
+   //       duration: 1.5
+   //    })
+   //       .to({}, { duration: 2.5 })
+   //       .to([".hero-cluster-svg-5", ".hero-cluster-svg-6"], {
+   //          autoAlpha: 0,
+   //          duration: 1.5
+   //       });
+   // }, []);
+
+   // Aurora Borealis-style animation - smooth, constant, visible
+   useEffect(() => {
+      // Start with visible base opacity
+      gsap.set(".hero-tail-gradient-1", { autoAlpha: 0.15 });
+      gsap.set(".hero-tail-gradient-2", { autoAlpha: 0.1 });
+      gsap.set(".hero-tail-gradient-3", { autoAlpha: 0.1 });
+
+      // Layer 1 - primary glow, most visible
+      gsap.to(".hero-tail-gradient-1", {
+         autoAlpha: 0.75,
+         duration: 2,
+         ease: "sine.inOut",
          repeat: -1,
-         defaults: { ease: "power2.inOut" }
+         yoyo: true,
       });
 
-      // 1. grup
-      tl.to([".hero-cluster-svg-1", ".hero-cluster-svg-2"], {
-         autoAlpha: 1,
-         duration: 1.5
-      })
-         .to({}, { duration: 2.5 }) // 3 saniye bekle
-         .to([".hero-cluster-svg-1", ".hero-cluster-svg-2"], {
-            autoAlpha: 0,
-            duration: 1.5
-         });
-
-      // 2. grup
-      tl.to([".hero-cluster-svg-3", ".hero-cluster-svg-4"], {
-         autoAlpha: 1,
-         duration: 1.5
-      })
-         .to({}, { duration: 2.5 })
-         .to([".hero-cluster-svg-3", ".hero-cluster-svg-4"], {
-            autoAlpha: 0,
-            duration: 1.5
-         });
-
-      // 3. grup
-      tl.to([".hero-cluster-svg-5", ".hero-cluster-svg-6"], {
-         autoAlpha: 1,
-         duration: 1.5
-      })
-         .to({}, { duration: 2.5 })
-         .to([".hero-cluster-svg-5", ".hero-cluster-svg-6"], {
-            autoAlpha: 0,
-            duration: 1.5
-         });
-   }, []);
-
-   useEffect(() => {
-      gsap.set(".hero-tail-gradient", { autoAlpha: 0 });
-
-      const tl = gsap.timeline({
+      // Layer 2 - offset timing
+      gsap.to(".hero-tail-gradient-2", {
+         autoAlpha: 0.7,
+         duration: 2.5,
+         ease: "sine.inOut",
          repeat: -1,
-         defaults: { ease: "power2.inOut" }
+         yoyo: true,
+         delay: 0.7,
       });
 
-      // 1. grup
-      tl.to([".hero-tail-gradient-1"], {
-         autoAlpha: 1,
-         duration: 1.5
-      })
-         .to({}, { duration: 2.5 }) // 3 saniye bekle
-         .to([".hero-tail-gradient-1"], {
-            autoAlpha: 0,
-            duration: 1.5
-         });
-
-      // 2. grup
-      tl.to([".hero-tail-gradient-2"], {
-         autoAlpha: 1,
-         duration: 1.5
-      })
-         .to({}, { duration: 2.5 })
-         .to([".hero-tail-gradient-2"], {
-            autoAlpha: 0,
-            duration: 1.5
-         });
-
-      // 3. grup
-      tl.to([".hero-tail-gradient-3"], {
-         autoAlpha: 1,
-         duration: 1.5
-      })
-         .to({}, { duration: 2.5 })
-         .to([".hero-tail-gradient-3"], {
-            autoAlpha: 0,
-            duration: 1.5
-         });
+      // Layer 3 - creates depth variation
+      gsap.to(".hero-tail-gradient-3", {
+         autoAlpha: 0.65,
+         duration: 3,
+         ease: "sine.inOut",
+         repeat: -1,
+         yoyo: true,
+         delay: 1.3,
+      });
    }, []);
 
    return (
       <div className="min-h-screen bg-black">
          {/* Hero */}
          <div className='w-full h-[700px] md:h-[850px] lg:h-[900px] relative overflow-hidden'>
-            {/* Cluster 1 */}
-            <div className='hero-cluster-svg hero-cluster-svg-1 w-[280px] h-[320px] absolute top-[220px] md:top-[340px] -left-[237px] md:left-[48px] lg:left-[113px] z-2 opacity-0'>
+            {/* Cluster SVGs - TEMPORARILY DISABLED */}
+            {/* <div className='hero-cluster-svg hero-cluster-svg-1 w-[280px] h-[320px] absolute top-[220px] md:top-[340px] -left-[237px] md:left-[48px] lg:left-[113px] z-2 opacity-0'>
                <Image
                   src={'/hero/cluster-1.svg'}
                   width={317}
@@ -454,7 +453,6 @@ export default function page() {
                />
             </div>
 
-            {/* Cluster 2 */}
             <div className='hero-cluster-svg hero-cluster-svg-2 w-[180px] h-[250px] absolute top-[200px] -right-[150px] md:right-[28px] lg:right-[90px] z-2 opacity-0'>
                <Image
                   src={'/hero/cluster-2.svg'}
@@ -467,7 +465,6 @@ export default function page() {
                />
             </div>
 
-            {/* Cluster 3 */}
             <div className='hero-cluster-svg hero-cluster-svg-3 w-[130px] h-[160px] absolute top-[260px] md:top-[300px] -left-[60px] md:left-[28px] lg:left-[159px] z-2 opacity-0'>
                <Image
                   src={'/hero/cluster-3.svg'}
@@ -480,7 +477,6 @@ export default function page() {
                />
             </div>
 
-            {/* Cluster 4 */}
             <div className='hero-cluster-svg hero-cluster-svg-4 w-[420px] h-[400px] absolute top-[90px] md:top-[130px] -right-[380px] md:-right-[228px] lg:-right-[49px] z-2 opacity-0'>
                <Image
                   src={'/hero/cluster-4.svg'}
@@ -493,7 +489,6 @@ export default function page() {
                />
             </div>
 
-            {/* Cluster 5 */}
             <div className='hero-cluster-svg hero-cluster-svg-5 w-[220px] h-[185px] absolute top-[220px] md:top-[300px] -left-[120px] md:left-[28px] lg:left-[190px] z-2'>
                <Image
                   src={'/hero/cluster-5.svg'}
@@ -506,7 +501,6 @@ export default function page() {
                />
             </div>
 
-            {/* Cluster 6 */}
             <div className='hero-cluster-svg hero-cluster-svg-6 w-[200px] h-[135px] absolute top-[350px] md:top-[460px] -right-[120px] md:right-[49px] lg:right-[139px] z-2'>
                <Image
                   src={'/hero/cluster-6.svg'}
@@ -517,7 +511,7 @@ export default function page() {
                   priority
                   draggable={false}
                />
-            </div>
+            </div> */}
 
             {/* Stars Left */}
             <div className='w-[411px] md:w-[650px] h-[500px] md:h-[650px] absolute top-0 -left-[221px] md:-left-[322px] lg:left-0 z-3'>
@@ -594,7 +588,7 @@ export default function page() {
                {/* Main Content */}
                <div className='w-full max-w-[587px] mx-auto flex flex-col items-center'>
                   {/* Hero Title */}
-                  <h1 className='text-[44px] md:text-[68px] lg:text-[76px] leading-[50px] md:leading-[72px] lg:leading-[84px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>Warm Paths, Right Timing</h1>
+                  <h1 className='text-[44px] md:text-[68px] lg:text-[76px] leading-[50px] md:leading-[72px] lg:leading-[84px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>Warm Paths,<br />Right Timing</h1>
 
                   {/* Desc */}
                   <span className='flex max-w-[300px] md:max-w-[480px] mx-auto text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] lg:leading-[28px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-normal opacity-[.8]'>Unify your team's Telegram and X networks—revealing warm paths, buying signals, and more deals</span>
@@ -642,7 +636,7 @@ export default function page() {
          </div>
 
          {/* Find the Strongest Path to Any Deal */}
-         <div className='w-full h-auto flex relative z-1'>
+         <div id="features" className='w-full h-auto flex relative z-1'>
             {/* Top Gradient Fade - blends hero section into this section */}
             <div className='absolute top-0 left-0 w-full h-[500px] md:h-[650px] lg:h-[800px] -translate-y-[75%] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 1) 100%)', filter: 'blur(80px)' }}></div>
             <div className='w-full max-w-full mx-auto flex flex-col bg-black' style={{ borderBlock: '1px solid rgba(255, 255, 255, 0.10)' }}>
@@ -717,7 +711,7 @@ export default function page() {
                      {/* Bottom Left Icon */}
                      <div className='single-progress-block-2-bottom-left-icon w-[173px] md:w-[223px] h-[173px] md:h-[223px] absolute bottom-[70px] md:-bottom-[27px] -left-[70px] md:-left-[34px] flex items-center justify-center z-2 rounded-full overflow-hidden border-2 border-[#272727] bg-[#0E0E0E] opacity-[.2] blur-[10px]' style={{ boxShadow: '0 8.751px 380.665px 0 rgba(255, 255, 255, 0.11)' }}>
                         <Image
-                           src={'/find-the-strongest-path/bottom-left-image.png'}
+                           src={'/find-the-strongest-path/bottom-left-image.jpg'}
                            width={400}
                            height={400}
                            alt='Bottom Left Icon'
@@ -1277,7 +1271,7 @@ export default function page() {
          </div>
 
          {/* Private & Security */}
-         <div className='w-full h-auto flex flex-col items-center gap-[36px] md:gap-[48px] lg:gap-[60px] pt-[36px] md:pt-[80px] pb-[40px] md:pb-[90px] lg:pb-[140px] relative z-1'>
+         <div id="security" className='w-full h-auto flex flex-col items-center gap-[36px] md:gap-[48px] lg:gap-[60px] pt-[36px] md:pt-[80px] pb-[40px] md:pb-[90px] lg:pb-[140px] relative z-1'>
             {/* Cards Row 1 */}
             <div className='w-full max-w-[1050px] mx-auto flex flex-col lg:flex-row gap-[14px] lg:gap-[20px] px-[16px] md:px-[20px]'>
                {/* Single Card */}
@@ -1401,7 +1395,7 @@ export default function page() {
          </div>
 
          {/* Transparent Pricing */}
-         <div className='w-full h-auto flex flex-col items-center relative px-[16px] md:px-[24px] pt-[50px] md:pt-[80px] lg:pt-[110px] overflow-x-clip'>
+         <div id="pricing" className='w-full h-auto flex flex-col items-center relative px-[16px] md:px-[24px] pt-[50px] md:pt-[80px] lg:pt-[110px] overflow-x-clip'>
             {/* Content Block */}
             <div className='w-full max-w-[760px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[24px] md:mb-[40px] lg:mb-[56px] relative z-1'>
                <h2 className='flex max-md:max-w-[260px] text-[24px] md:text-[42px] lg:text-[44px] leading-[32px] md:leading-[54px] lg:leading-[58px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-center text-white font-hedvig font-normal'>Transparent Pricing</h2>
@@ -1756,9 +1750,9 @@ export default function page() {
 
                      {/* Social Icons */}
                      <div className='hidden md:flex items-center gap-[14px] md:mt-[14px] lg:mt-[30px]'>
-                        {/* single social */}
+                        {/* Telegram */}
                         <div className='w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
-                           <Link href='https://x.com/lockin_io' target='_blank' className='absolute inset-0'></Link>
+                           <Link href='https://t.me/lockinbot' target='_blank' className='absolute inset-0'></Link>
                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                               <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                               <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
@@ -1772,21 +1766,12 @@ export default function page() {
                            </svg>
                         </div>
 
-                        {/* single social */}
+                        {/* X (Twitter) */}
                         <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
-                           <Link href='https://x.com/lockin_io' target='_blank' className='absolute inset-0'></Link>
+                           <Link href='https://x.com/thelockinbot' target='_blank' className='absolute inset-0'></Link>
 
                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
                               <path d="M10.6944 7L17.2222 0H15.5556L9.94444 6L5.55556 0H0L6.83333 9.33333L0 16.6667H1.66667L7.58333 10.3333L12.2222 16.6667H17.7778L10.6944 7ZM2.47222 1.11111H4.69444L15.2778 15.5556H13.0556L2.47222 1.11111Z" fill="white" />
-                           </svg>
-                        </div>
-
-                        {/* single social */}
-                        <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
-                           <Link href='https://x.com/lockin_io' target='_blank' className='absolute inset-0'></Link>
-
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
-                              <path d="M16.9419 1.29661C15.6473 0.690882 14.263 0.250664 12.8157 0C12.638 0.321342 12.4304 0.753555 12.2872 1.09738C10.7487 0.866015 9.22445 0.866015 7.7143 1.09738C7.57116 0.753555 7.3588 0.321342 7.17947 0C5.73067 0.250664 4.3448 0.692499 3.05016 1.29982C0.438869 5.24582 -0.269009 9.09381 0.0849305 12.8872C1.81688 14.1805 3.49534 14.9662 5.14548 15.4804C5.55291 14.9196 5.91628 14.3235 6.22931 13.6953C5.63313 13.4688 5.06211 13.1892 4.52256 12.8647C4.6657 12.7586 4.80571 12.6478 4.94098 12.5337C8.23183 14.0729 11.8074 14.0729 15.0589 12.5337C15.1958 12.6478 15.3358 12.7586 15.4774 12.8647C14.9362 13.1908 14.3637 13.4704 13.7675 13.697C14.0805 14.3235 14.4423 14.9212 14.8513 15.4819C16.503 14.9678 18.183 14.1822 19.915 12.8872C20.3303 8.4897 19.2056 4.67705 16.9419 1.29661ZM6.67765 10.5543C5.68977 10.5543 4.87963 9.63204 4.87963 8.50898C4.87963 7.38591 5.67247 6.46208 6.67765 6.46208C7.68285 6.46208 8.49297 7.38429 8.47567 8.50898C8.47723 9.63204 7.68285 10.5543 6.67765 10.5543ZM13.3223 10.5543C12.3344 10.5543 11.5243 9.63204 11.5243 8.50898C11.5243 7.38591 12.3171 6.46208 13.3223 6.46208C14.3275 6.46208 15.1376 7.38429 15.1203 8.50898C15.1203 9.63204 14.3275 10.5543 13.3223 10.5543Z" fill="white" />
                            </svg>
                         </div>
                      </div>
@@ -1798,9 +1783,9 @@ export default function page() {
                         <h5 className='w-full text-[14px] lg:text-[20px] leading-[20px] lg:leading-[36px] -tracking-[0.2px] lg:-tracking-[0.24px] text-white font-hedvig'>Product</h5>
 
                         <div className='flex flex-col gap-[10px] lg:gap-[12px]'>
-                           <Link href='/' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Features</Link>
-                           <Link href='/' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Pricing</Link>
-                           <Link href='/' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Security</Link>
+                           <Link href='#features' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Features</Link>
+                           <Link href='#pricing' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Pricing</Link>
+                           <Link href='#security' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Security</Link>
                         </div>
                      </div>
 
@@ -1826,8 +1811,9 @@ export default function page() {
 
                   {/* Social Icons */}
                   <div className='flex md:hidden items-center gap-[16px] mt-[28px]'>
-                     {/* single social */}
-                     <div className='whitespace-nowrap w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center'>
+                     {/* Telegram */}
+                     <div className='whitespace-nowrap w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
+                        <Link href='https://t.me/lockinbot' target='_blank' className='absolute inset-0'></Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                            <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                            <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
@@ -1841,17 +1827,11 @@ export default function page() {
                         </svg>
                      </div>
 
-                     {/* single social */}
-                     <div className='w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center'>
+                     {/* X (Twitter) */}
+                     <div className='w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
+                        <Link href='https://x.com/thelockinbot' target='_blank' className='absolute inset-0'></Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
                            <path d="M10.6944 7L17.2222 0H15.5556L9.94444 6L5.55556 0H0L6.83333 9.33333L0 16.6667H1.66667L7.58333 10.3333L12.2222 16.6667H17.7778L10.6944 7ZM2.47222 1.11111H4.69444L15.2778 15.5556H13.0556L2.47222 1.11111Z" fill="white" />
-                        </svg>
-                     </div>
-
-                     {/* single social */}
-                     <div className='w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
-                           <path d="M16.9419 1.29661C15.6473 0.690882 14.263 0.250664 12.8157 0C12.638 0.321342 12.4304 0.753555 12.2872 1.09738C10.7487 0.866015 9.22445 0.866015 7.7143 1.09738C7.57116 0.753555 7.3588 0.321342 7.17947 0C5.73067 0.250664 4.3448 0.692499 3.05016 1.29982C0.438869 5.24582 -0.269009 9.09381 0.0849305 12.8872C1.81688 14.1805 3.49534 14.9662 5.14548 15.4804C5.55291 14.9196 5.91628 14.3235 6.22931 13.6953C5.63313 13.4688 5.06211 13.1892 4.52256 12.8647C4.6657 12.7586 4.80571 12.6478 4.94098 12.5337C8.23183 14.0729 11.8074 14.0729 15.0589 12.5337C15.1958 12.6478 15.3358 12.7586 15.4774 12.8647C14.9362 13.1908 14.3637 13.4704 13.7675 13.697C14.0805 14.3235 14.4423 14.9212 14.8513 15.4819C16.503 14.9678 18.183 14.1822 19.915 12.8872C20.3303 8.4897 19.2056 4.67705 16.9419 1.29661ZM6.67765 10.5543C5.68977 10.5543 4.87963 9.63204 4.87963 8.50898C4.87963 7.38591 5.67247 6.46208 6.67765 6.46208C7.68285 6.46208 8.49297 7.38429 8.47567 8.50898C8.47723 9.63204 7.68285 10.5543 6.67765 10.5543ZM13.3223 10.5543C12.3344 10.5543 11.5243 9.63204 11.5243 8.50898C11.5243 7.38591 12.3171 6.46208 13.3223 6.46208C14.3275 6.46208 15.1376 7.38429 15.1203 8.50898C15.1203 9.63204 14.3275 10.5543 13.3223 10.5543Z" fill="white" />
                         </svg>
                      </div>
                   </div>

@@ -23,14 +23,20 @@ export default function Navbar() {
                {/* LEft Nav */}
                <div className='hidden lg:flex items-center gap-[24px]'>
                   <div className='flex items-center group'>
-                     <Link href={'/pricing'}>
+                     <Link href={'#features'}>
+                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Features</span>
+                     </Link>
+                  </div>
+
+                  <div className='flex items-center group'>
+                     <Link href={'#pricing'}>
                         <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Pricing</span>
                      </Link>
                   </div>
 
                   <div className='flex items-center group'>
-                     <Link href={'/blogs'}>
-                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
+                     <Link href={'#security'}>
+                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Security</span>
                      </Link>
                   </div>
                </div>
@@ -108,14 +114,14 @@ export default function Navbar() {
                <div className='w-full max-w-[500px] mx-auto h-full flex flex-col gap-[24px] pt-[24px]'>
                   {/* Navs */}
                   <div className='flex flex-col gap-[14px] pl-[8px]'>
-                     <Link href={'/pricing'}>
+                     <Link href={'#features'}>
+                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Features</span>
+                     </Link>
+                     <Link href={'#pricing'}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Pricing</span>
                      </Link>
-                     <Link href={'/blogs'}>
-                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
-                     </Link>
-                     <Link href={'/pricing'}>
-                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Book a Demo</span>
+                     <Link href={'#security'}>
+                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Security</span>
                      </Link>
                   </div>
 

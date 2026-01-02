@@ -24,7 +24,7 @@ const hedvig = localFont({
 
 export const metadata: Metadata = {
   title: "LockIn | Lead Intelligence for Web3",
-  description: "Surface lead signals from the noise of your networks on Telegram and X",
+  description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
 };
 
 export default function RootLayout({
