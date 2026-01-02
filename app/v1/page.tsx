@@ -638,7 +638,7 @@ export default function page() {
          {/* Find the Strongest Path to Any Deal */}
          <div id="features" className='w-full h-auto flex relative z-1'>
             {/* Top Gradient Fade - blends hero section into this section */}
-            <div className='absolute top-0 left-0 w-full h-[500px] md:h-[650px] lg:h-[800px] -translate-y-[75%] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 1) 100%)', filter: 'blur(80px)' }}></div>
+            <div className='absolute top-0 left-0 w-full h-[500px] md:h-[650px] lg:h-[800px] -translate-y-[75%] pointer-events-none z-3' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 1) 100%)', filter: 'blur(80px)' }}></div>
             <div className='w-full max-w-full mx-auto flex flex-col bg-black' style={{ borderBlock: '1px solid rgba(255, 255, 255, 0.10)' }}>
                {/* Find the Strongest Path to Any Deal Block */}
                <div className='single-progress-block-1 w-full h-[300vh] relative'>
@@ -1001,9 +1001,9 @@ export default function page() {
          </div>
 
          {/* Your Messages Are None Of Our Business */}
-         <div className='w-full h-auto px-[12px] md:px-[36px] pt-[100px] md:pt-[140px] lg:pt-[180px] pb-[50px] md:pb-[60px] lg:pb-[70px] bg-black overflow-visible relative'>
+         <div className='w-full h-auto px-[12px] md:px-[36px] pt-[100px] md:pt-[140px] lg:pt-[180px] pb-[50px] md:pb-[60px] lg:pb-[70px] bg-black overflow-x-clip relative'>
             {/* Top Gradient Fade - bleeds into previous section for smooth transition */}
-            <div className='absolute top-0 left-0 w-full h-[450px] md:h-[550px] lg:h-[650px] -translate-y-[85%] pointer-events-none z-[2]' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(15, 14, 56, 0.05) 20%, rgba(15, 14, 56, 0.15) 40%, rgba(15, 14, 56, 0.35) 60%, rgba(15, 14, 56, 0.6) 80%, rgba(15, 14, 56, 0.85) 100%)', filter: 'blur(60px)' }}></div>
+            <div className='absolute top-0 left-0 w-full h-[450px] md:h-[550px] lg:h-[650px] -translate-y-[85%] pointer-events-none z-2' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(15, 14, 56, 0.05) 20%, rgba(15, 14, 56, 0.15) 40%, rgba(15, 14, 56, 0.35) 60%, rgba(15, 14, 56, 0.6) 80%, rgba(15, 14, 56, 0.85) 100%)', filter: 'blur(60px)' }}></div>
             
             {/* Circle Gradient - moved higher for better blending */}
             <div className='absolute left-1/2 -translate-x-1/2 -top-[100px] md:-top-[50px] lg:-top-[280px] w-[814px] md:w-[1222px] lg:w-[1443px] h-[662px] md:h-[994px] lg:h-[1174px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px]'></div>
