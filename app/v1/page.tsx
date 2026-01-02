@@ -9,33 +9,33 @@ gsap.registerPlugin(ScrollTrigger);
 
 const carouselData = [
    {
-      logo: '/carousel/logo-1.svg',
+      logo: '/testimonials/logo-1.svg',
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/carousel/ceo-image.png',
+      avatar: '/testimonials/ceo-image.png',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
       role: 'CEO at Goldman Sachs'
    },
    {
-      logo: '/carousel/logo-1.svg',
+      logo: '/testimonials/logo-1.svg',
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/carousel/ceo-image.png',
+      avatar: '/testimonials/ceo-image.png',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
       role: 'CEO at Goldman Sachs'
    },
    {
-      logo: '/carousel/logo-1.svg',
+      logo: '/testimonials/logo-1.svg',
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/carousel/ceo-image.png',
+      avatar: '/testimonials/ceo-image.png',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -516,7 +516,7 @@ export default function page() {
             {/* Stars Left */}
             <div className='w-[411px] md:w-[650px] h-[500px] md:h-[650px] absolute top-0 -left-[221px] md:-left-[322px] lg:left-0 z-3'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -529,7 +529,7 @@ export default function page() {
             {/* Stars Right */}
             <div className='w-[411px] md:w-[650px] h-[500px] md:h-[650px] absolute top-0 -right-[221px] md:-right-[322px] lg:right-0 z-3'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -547,7 +547,7 @@ export default function page() {
             {/* Tail Gradient Layer 1 */}
             <div className='hero-tail-gradient hero-tail-gradient-1 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/hero/glows-png-1.png'
+                  src='/backgrounds/glows/glows-png-1.png'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 1'
@@ -560,7 +560,7 @@ export default function page() {
             {/* Tail Gradient Layer 2 */}
             <div className='hero-tail-gradient hero-tail-gradient-2 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/hero/glows-png-2.png'
+                  src='/backgrounds/glows/glows-png-2.png'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 2'
@@ -573,7 +573,7 @@ export default function page() {
             {/* Tail Gradient Layer 3 */}
             <div className='hero-tail-gradient hero-tail-gradient-3 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/hero/glows-png-3.png'
+                  src='/backgrounds/glows/glows-png-3.png'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 3'
@@ -667,7 +667,7 @@ export default function page() {
                      {/* Main Layer */}
                      <div className='w-[270px] md:w-[480px] lg:w-[550px] h-[180px] md:h-[310px] lg:h-[360px] px-[14px] md:px-[24px] lg:px-[20px] pt-[12px] md:pt-[20px] lg:pt-[24px] flex items-start absolute left-1/2 -translate-x-1/2 -bottom-[40px] md:-bottom-[65px] lg:-bottom-[72px] bg-black border border-[#272727] rounded-[15px] md:rounded-[24px] lg:rounded-[28px]'>
                         <Image
-                           src={'/find-the-strongest-path.png'}
+                           src={'/features/find-the-strongest-path/find-the-strongest-path.png'}
                            width={2371}
                            height={1128}
                            alt='Founder & CEO'
@@ -713,7 +713,7 @@ export default function page() {
                      {/* Bottom Left Icon */}
                      <div className='single-progress-block-2-bottom-left-icon w-[173px] md:w-[223px] h-[173px] md:h-[223px] absolute bottom-[70px] md:-bottom-[27px] -left-[70px] md:-left-[34px] flex items-center justify-center z-2 rounded-full overflow-hidden border-2 border-[#272727] bg-[#0E0E0E] opacity-[.2] blur-[10px]' style={{ boxShadow: '0 8.751px 380.665px 0 rgba(255, 255, 255, 0.11)' }}>
                         <Image
-                           src={'/find-the-strongest-path/bottom-left-image.jpg'}
+                           src={'/features/find-the-strongest-path/bottom-left-image.jpg'}
                            width={400}
                            height={400}
                            alt='Bottom Left Icon'
@@ -756,7 +756,7 @@ export default function page() {
                               <h5 className='whitespace-nowrap text-[8.7px] md:text-[18px] lg:text-[21px] leading-[10.2px] md:leading-[21px] lg:leading-[24.4px] -tracking-[0.175px] md:-tracking-[0.36px] lg:-tracking-[0.419px] text-white font-medium inline-block'>
                                  When <p className='inline-block text-[#7796F1] relative'>anyone
                                     <Image
-                                       src={'/find-the-strongest-path/text-line-1.svg'}
+                                       src={'/features/find-the-strongest-path/text-line-1.svg'}
                                        width={71}
                                        height={1.7}
                                        alt='Text Line 1'
@@ -766,7 +766,7 @@ export default function page() {
                                     />
                                  </p> <p className='inline-block text-[#CC77F1] relative'>in my ICP
                                     <Image
-                                       src={'/find-the-strongest-path/text-line-2.svg'}
+                                       src={'/features/find-the-strongest-path/text-line-2.svg'}
                                        width={87}
                                        height={1.7}
                                        alt='Text Line 1'
@@ -776,7 +776,7 @@ export default function page() {
                                     />
                                  </p> is <p className='inline-block text-[#77F1D9] relative'>active
                                     <Image
-                                       src={'/find-the-strongest-path/text-line-3.svg'}
+                                       src={'/features/find-the-strongest-path/text-line-3.svg'}
                                        width={56}
                                        height={1.7}
                                        alt='Text Line 1'
@@ -786,7 +786,7 @@ export default function page() {
                                     />
                                  </p> in <p className='inline-block text-[#F1C477] relative'>any of my groups
                                     <Image
-                                       src={'/find-the-strongest-path/text-line-4.svg'}
+                                       src={'/features/find-the-strongest-path/text-line-4.svg'}
                                        width={165}
                                        height={1.7}
                                        alt='Text Line 1'
@@ -796,7 +796,7 @@ export default function page() {
                                     />
                                  </p> on <p className='inline-block text-[#F177BE] relative'>Telegram
                                     <Image
-                                       src={'/find-the-strongest-path/text-line-5.svg'}
+                                       src={'/features/find-the-strongest-path/text-line-5.svg'}
                                        width={88}
                                        height={1.7}
                                        alt='Text Line 1'
@@ -855,7 +855,7 @@ export default function page() {
                               {/* Logo */}
                               <div className='w-[23px] md:w-[42px] lg:w-[49px] min-w-[23px] md:min-w-[42px] lg:min-w-[49px] h-[23px] md:h-[42px] lg:h-[49px] p-[3px] md:p-[5px] lg:p-[6px] flex items-center justify-center rounded-[7px] md:rounded-[13px] lg:rounded-[15px] border-[.5px] border-[rgba(255,255,255,0.20)] bg-black'>
                                  <Image
-                                    src={'/know-the-right-moment/logo-1.png'}
+                                    src={'/features/know-the-right-moment/logo-1.png'}
                                     width={38}
                                     height={38}
                                     alt='Logo 1'
@@ -882,7 +882,7 @@ export default function page() {
                               {/* Logo */}
                               <div className='w-[23px] md:w-[42px] lg:w-[49px] min-w-[23px] md:min-w-[42px] lg:min-w-[49px] h-[23px] md:h-[42px] lg:h-[49px] p-[3px] md:p-[5px] lg:p-[6px] flex items-center justify-center rounded-[7px] md:rounded-[13px] lg:rounded-[15px] border-[.5px] border-[rgba(255,255,255,0.20)] bg-[#090E21]'>
                                  <Image
-                                    src={'/know-the-right-moment/logo-2.png'}
+                                    src={'/features/know-the-right-moment/logo-2.png'}
                                     width={24}
                                     height={31}
                                     alt='Logo 2'
@@ -909,7 +909,7 @@ export default function page() {
                               {/* Logo */}
                               <div className='w-[23px] md:w-[42px] lg:w-[49px] min-w-[23px] md:min-w-[42px] lg:min-w-[49px] h-[23px] md:h-[42px] lg:h-[49px] p-[3px] md:p-[5px] lg:p-[6px] flex items-center justify-center rounded-[7px] md:rounded-[13px] lg:rounded-[15px] border-[.5px] border-[rgba(255,255,255,0.20)]' style={{ background: 'linear-gradient(180deg, #825AA0 17.19%, #F2878A 84.38%), #090E21' }}>
                                  <Image
-                                    src={'/know-the-right-moment/logo-3.png'}
+                                    src={'/features/know-the-right-moment/logo-3.png'}
                                     width={39}
                                     height={38}
                                     alt='Logo 2'
@@ -954,7 +954,7 @@ export default function page() {
                      {/* Globe image block */}
                      <div className='w-full min-w-[620px] md:min-w-[875px] lg:min-w-[1016px] max-w-[1016px] h-auto absolute left-1/2 -translate-x-1/2 bottom-0 flex'>
                         <Image
-                           src={'/globe-expand-beyond.png'}
+                           src={'/features/expand-beyond/globe-expand-beyond.png'}
                            width={4440}
                            height={1676}
                            alt='Globe'
@@ -1014,7 +1014,7 @@ export default function page() {
             {/* Stars Left */}
             <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -1027,7 +1027,7 @@ export default function page() {
             {/* Stars Left */}
             <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -1055,7 +1055,7 @@ export default function page() {
                   {/* Icon Wrapper */}
                   <div className='w-[120px] h-[60px] flex items-center justify-center'>
                      <Image
-                        src={'/trusted-execution-environment-icon.svg'}
+                        src={'/security/trusted-execution-environment-icon.svg'}
                         width={110}
                         height={55}
                         alt='Trusted Execution Environment Icon'
@@ -1077,7 +1077,7 @@ export default function page() {
                   {/* Icon Wrapper */}
                   <div className='w-[120px] h-[60px] flex items-center justify-center'>
                      <Image
-                        src={'/secured-with-seal.svg'}
+                        src={'/security/secured-with-seal.svg'}
                         width={95}
                         height={44}
                         alt='Trusted Execution Environment Icon'
@@ -1103,7 +1103,7 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-full max-w-full lg:min-w-[450px] lg:max-w-[450px] h-auto rounded-[12px] md:rounded-[22px] lg:rounded-[18px] overflow-hidden'>
                      <Image
-                        src={'/case-study.png'}
+                        src={'/testimonials/case-study.png'}
                         width={1310}
                         height={804}
                         alt='Case Study'
@@ -1282,7 +1282,7 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-[173px] md:w-[302px] h-[179px] md:h-[312px] flex absolute top-[18px] md:-top-[20px] lg:top-[14px] -right-[26px] md:right-[42px] lg:right-1/2 lg:translate-x-1/2 max-md:z-1'>
                      <Image
-                        src={'/private-secure-1.svg'}
+                        src={'/security/private-secure-1.svg'}
                         width={302}
                         height={312}
                         alt='Trusted Execution Environment Icon'
@@ -1305,7 +1305,7 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-[180px] md:w-[350px] lg:w-[300px] h-[55px] md:h-[105px] flex absolute top-[32px] md:top-[24px] lg:top-[55px] -right-[46px] md:right-0 lg:right-1/2 lg:translate-x-1/2 max-md:z-1'>
                      <Image
-                        src={'/private-secure-2.svg'}
+                        src={'/security/private-secure-2.svg'}
                         width={349}
                         height={121}
                         alt='Trusted Execution Environment Icon'
@@ -1328,7 +1328,7 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-[150px] md:w-[250px] h-[145px] md:h-[242px] flex absolute top-[16px] md:top-[24px] lg:top-[12px] -right-[45px] md:right-[42px] lg:right-1/2 lg:translate-x-1/2 rounded-[13px] md:rounded-[18px] overflow-hidden shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] max-md:z-1'>
                      <Image
-                        src={'/private-secure-3.svg'}
+                        src={'/security/private-secure-3.svg'}
                         width={888}
                         height={861}
                         alt='Trusted Execution Environment Icon'
@@ -1356,7 +1356,7 @@ export default function page() {
                      {/* Icon Wrapper */}
                      <div className='w-[140px] h-[71px] flex items-center justify-center'>
                         <Image
-                           src={'/private-secure-card-icon.svg'}
+                           src={'/security/private-secure-card-icon.svg'}
                            width={122}
                            height={50}
                            alt='Trusted Execution Environment Icon'
@@ -1378,7 +1378,7 @@ export default function page() {
                      {/* Icon Wrapper */}
                      <div className='w-[140px] h-[71px] flex items-center justify-center'>
                         <Image
-                           src={'/build-for-web-3-card-icon.svg'}
+                           src={'/features/build-for-web3/build-for-web-3-card-icon.svg'}
                            width={98}
                            height={66}
                            alt='Trusted Execution Environment Icon'
@@ -1413,7 +1413,7 @@ export default function page() {
             {/* Stars Left */}
             <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -1426,7 +1426,7 @@ export default function page() {
             {/* Stars Left */}
             <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -1536,7 +1536,7 @@ export default function page() {
                   {/* Owl Image */}
                   <div className='w-[100px] md:w-[105px] lg:w-[170px] h-[63px] md:h-[67px] lg:h-[108px] flex items-center justify-center absolute top-[76px] md:top-[70px] lg:top-[72px] right-[10px] md:right-[16px] lg:right-[24px]'>
                      <Image
-                        src={'/pro-plan-owl.png'}
+                        src={'/pricing/pro-plan-owl.png'}
                         width={210}
                         height={134}
                         alt='Pro Plan Owl'
@@ -1707,7 +1707,7 @@ export default function page() {
             {/* Stars */}
             <div className='w-[348px] md:w-[728px] h-[660px] md:h-[1380px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90'>
                <Image
-                  src={'/stars.svg'}
+                  src={'/backgrounds/stars.svg'}
                   width={1380}
                   height={728}
                   alt='Stars Left'
@@ -1741,7 +1741,7 @@ export default function page() {
                      {/* Logo */}
                      <Link href='/v1' className='flex max-w-[64px] h-auto mb-[8px] md:mb-[14px] lg:mb-[20px]'>
                         <Image
-                           src={'/logo.svg'}
+                           src={'/brand/logo.svg'}
                            width={64}
                            height={26}
                            alt={'logo'}
@@ -1778,6 +1778,22 @@ export default function page() {
                               <path d="M10.6944 7L17.2222 0H15.5556L9.94444 6L5.55556 0H0L6.83333 9.33333L0 16.6667H1.66667L7.58333 10.3333L12.2222 16.6667H17.7778L10.6944 7ZM2.47222 1.11111H4.69444L15.2778 15.5556H13.0556L2.47222 1.11111Z" fill="white" />
                            </svg>
                         </div>
+
+                        {/* LinkedIn */}
+                        <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
+                           <Link href='https://www.linkedin.com/company/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/>
+                           </svg>
+                        </div>
+
+                        {/* Instagram */}
+                        <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
+                           <Link href='https://www.instagram.com/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="white"/>
+                           </svg>
+                        </div>
                      </div>
                   </div>
 
@@ -1806,18 +1822,19 @@ export default function page() {
                         <h5 className='w-full text-[14px] lg:text-[20px] leading-[20px] lg:leading-[36px] -tracking-[0.2px] lg:-tracking-[0.24px] text-white font-hedvig'>Legal</h5>
 
                         <div className='flex flex-col gap-[10px] lg:gap-[12px]'>
-                           <Link href='/v1' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Privacy</Link>
-                           <Link href='/v1' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Terms</Link>
+                           <Link href='/privacy' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Privacy</Link>
+                           <Link href='/terms' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Terms</Link>
+                           <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookie Policy</Link>
                         </div>
                      </div>
                   </div>
 
                   {/* Social Icons */}
-                  <div className='flex md:hidden items-center gap-[16px] mt-[28px]'>
+                  <div className='flex md:hidden items-center gap-[12px] mt-[28px] flex-wrap'>
                      {/* Telegram */}
-                     <div className='whitespace-nowrap w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
+                     <div className='whitespace-nowrap w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
                         <Link href='https://t.me/lockinbot' target='_blank' className='absolute inset-0'></Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 18" fill="none">
                            <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                            <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
                            <path d="M7.0411 11.4029L13.7081 16.3205C14.4657 16.7338 15.0167 16.5271 15.2095 15.618L17.9231 2.83507C18.1986 1.71932 17.4961 1.22343 16.766 1.55402L0.84248 7.69754C-0.245722 8.13833 -0.231947 8.74442 0.649634 9.00614L4.74072 10.2872L14.204 4.32274C14.6447 4.04724 15.058 4.19877 14.7274 4.50181L7.0411 11.4029Z" fill="url(#paint0_linear_32_2465-new)" />
@@ -1831,10 +1848,26 @@ export default function page() {
                      </div>
 
                      {/* X (Twitter) */}
-                     <div className='w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
+                     <div className='w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
                         <Link href='https://x.com/thelockinbot' target='_blank' className='absolute inset-0'></Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 18 17" fill="none">
                            <path d="M10.6944 7L17.2222 0H15.5556L9.94444 6L5.55556 0H0L6.83333 9.33333L0 16.6667H1.66667L7.58333 10.3333L12.2222 16.6667H17.7778L10.6944 7ZM2.47222 1.11111H4.69444L15.2778 15.5556H13.0556L2.47222 1.11111Z" fill="white" />
+                        </svg>
+                     </div>
+
+                     {/* LinkedIn */}
+                     <div className='w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
+                        <Link href='https://www.linkedin.com/company/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/>
+                        </svg>
+                     </div>
+
+                     {/* Instagram */}
+                     <div className='w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
+                        <Link href='https://www.instagram.com/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="white"/>
                         </svg>
                      </div>
                   </div>

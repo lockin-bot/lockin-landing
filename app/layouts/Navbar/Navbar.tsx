@@ -45,7 +45,7 @@ export default function Navbar() {
                <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64px] h-[26px]'>
                   <Link href='/v1'>
                      <Image
-                        src={'/logo.svg'}
+                        src={'/brand/logo.svg'}
                         width={76}
                         height={30}
                         alt='Logo'
