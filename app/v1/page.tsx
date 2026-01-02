@@ -1329,12 +1329,13 @@ export default function page() {
                   <div className='w-[150px] md:w-[250px] h-[145px] md:h-[242px] flex absolute top-[16px] md:top-[24px] lg:top-[12px] -right-[45px] md:right-[42px] lg:right-1/2 lg:translate-x-1/2 rounded-[13px] md:rounded-[18px] overflow-hidden shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] max-md:z-1'>
                      <Image
                         src={'/private-secure-3.svg'}
-                        width={296}
-                        height={287}
+                        width={888}
+                        height={861}
                         alt='Trusted Execution Environment Icon'
                         priority
                         draggable={false}
-                        className=''
+                        className='w-full h-full object-cover'
+                        quality={100}
                      />
                   </div>
 
