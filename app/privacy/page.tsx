@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
     <div className='w-full min-h-screen bg-black text-white'>
       {/* Header */}
       <div className='w-full max-w-[800px] mx-auto px-[16px] md:px-[24px] pt-[100px] md:pt-[140px] pb-[60px] md:pb-[80px]'>
-        <Link href='/v1' className='inline-flex items-center gap-[8px] text-[14px] text-white opacity-[.6] hover:opacity-100 transition-all duration-300 mb-[32px]'>
+        <Link href='/' className='inline-flex items-center gap-[8px] text-[14px] text-white opacity-[.6] hover:opacity-100 transition-all duration-300 mb-[32px]'>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -141,7 +141,7 @@ export default function PrivacyPolicy() {
       {/* Footer */}
       <div className='w-full border-t border-[#272727] py-[24px] px-[16px] md:px-[24px]'>
         <div className='w-full max-w-[800px] mx-auto flex flex-col md:flex-row items-center justify-between gap-[16px]'>
-          <Link href='/v1' className='flex items-center'>
+          <Link href='/' className='flex items-center'>
             <Image src='/brand/logo.svg' width={64} height={26} alt='LockIn' />
           </Link>
           <div className='flex items-center gap-[24px]'>
