@@ -4,9 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lottie from 'lottie-react';
-import heroAnimation from '../public/hero/hero-animation.json';
-import graphicAnimation from '../public/features/know-the-right-moment/graphic-animation.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,7 +185,7 @@ export default function page() {
       });
    }, [fadeToCenter, setActive, startProgress, updateOpacity]);
 
-  useEffect(() => {
+   useEffect(() => {
       nextRef.current = next;
    }, [next]);
 
@@ -230,7 +227,7 @@ export default function page() {
 
       startProgress();
 
-    return () => {
+      return () => {
          cancelAnimationFrame(rafId);
          clearTimeout(timerId);
          window.removeEventListener('load', handleLoad);
@@ -250,7 +247,7 @@ export default function page() {
    };
 
    //// Progress Bar Animation
-  useEffect(() => {
+   useEffect(() => {
       const trigger = document.querySelector('.sticky-parent-container');
       const pinEl = document.querySelector('.progress-bar-sticky-block');
 
@@ -437,9 +434,9 @@ export default function page() {
          yoyo: true,
          delay: 1.3,
       });
-  }, []);
+   }, []);
 
-  return (
+   return (
       <div className="min-h-screen bg-black">
          {/* Hero */}
          <div className='w-full h-[700px] md:h-[850px] lg:h-[900px] relative overflow-hidden'>
@@ -454,8 +451,8 @@ export default function page() {
                   priority
                   draggable={false}
                />
-          </div>
-          
+            </div>
+
             <div className='hero-cluster-svg hero-cluster-svg-2 w-[180px] h-[250px] absolute top-[200px] -right-[150px] md:right-[28px] lg:right-[90px] z-2 opacity-0'>
                <Image
                   src={'/hero/cluster-2.svg'}
@@ -466,8 +463,8 @@ export default function page() {
                   priority
                   draggable={false}
                />
-          </div>
-          
+            </div>
+
             <div className='hero-cluster-svg hero-cluster-svg-3 w-[130px] h-[160px] absolute top-[260px] md:top-[300px] -left-[60px] md:left-[28px] lg:left-[159px] z-2 opacity-0'>
                <Image
                   src={'/hero/cluster-3.svg'}
@@ -603,22 +600,13 @@ export default function page() {
                      <Link href={'/pricing'} className='flex items-center justify-center w-full h-full'>
                         <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Get Started</span>
                      </Link>
-            </div>
-        </div>
-        
-               {/* Image Wrapper */}
-               <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative'>
-                  {/* Lottie Animation - positioned behind owl, spanning full width */}
-                  <div className='absolute -top-[200px] md:-top-[410px] lg:-top-[560px] left-1/2 -translate-x-[55%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] h-[450px] md:h-[800px] lg:h-[1100px] xl:h-[1200px] z-0 pointer-events-none'>
-                     <Lottie 
-                        animationData={heroAnimation}
-                        loop={true}
-                        autoplay={true}
-                        className='w-full h-full'
-                     />
                   </div>
+               </div>
+
+               {/* Image Wrapper */}
+               <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px]'>
                   {/* Owl Image */}
-                  <div className='w-full h-[230px] md:h-[360px] flex relative left-[16px] md:left-[28px] lg:left-[35px] z-10'>
+                  <div className='w-full h-[230px] md:h-[360px] flex relative left-[16px] md:left-[28px] lg:left-[35px]'>
                      <Image
                         src={'/hero/owl.png'}
                         width={2935}
@@ -629,7 +617,7 @@ export default function page() {
                         draggable={false}
                         // quality={100}
                      />
-            </div>
+                  </div>
 
                   {/* Backed by Alliance */}
                   <div className='w-full flex items-center justify-center gap-[8px] md:gap-[11px]'>
@@ -643,7 +631,7 @@ export default function page() {
                         priority
                         draggable={false}
                      />
-          </div>
+                  </div>
                </div>
             </div>
          </div>
@@ -658,10 +646,10 @@ export default function page() {
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] pb-[180px] md:pb-[280px] lg:pb-[320px] px-[22px] md:px-[66px] sticky top-0 left-0 overflow-hidden'>
                      {/* Content Block */}
                      <div className='w-full max-w-[800px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px]'>
-                        <h2 className='flex max-md:max-w-[320px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[64px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal'>Find the Strongest Path to Any Deal</h2>
+                        <h2 className='flex max-md:max-w-[267px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[64px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal'>Find the Strongest Path to Any Deal</h2>
 
                         <span className='flex w-full max-w-[280px] md:max-w-[520px] lg:max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.22px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>LockIn maps your team's network across Telegram and X into a living relationship graph. Instantly figure out your best path to any account.</span>
-              </div>
+                     </div>
 
                      {/* Founder & CEO Block */}
                      {/* Back Layer */}
@@ -674,7 +662,7 @@ export default function page() {
 
                         {/* Back Layer Right */}
                         <div className='w-[335px] md:w-[480px] lg:w-[550px] h-full flex absolute right-0 top-0 bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px] opacity-[.7]'></div>
-            </div>
+                     </div>
 
                      {/* Main Layer */}
                      <div className='w-[335px] md:w-[480px] lg:w-[550px] h-[235px] md:h-[310px] lg:h-[360px] px-[16px] md:px-[24px] lg:px-[20px] pt-[14px] md:pt-[20px] lg:pt-[24px] flex items-start absolute left-1/2 -translate-x-1/2 bottom-[17px] md:bottom-[23px] lg:bottom-[29px] bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px]'>
@@ -688,14 +676,14 @@ export default function page() {
                            quality={100}
                            draggable={false}
                         />
-          </div>
+                     </div>
 
                      {/* Line Wrapper - removed, replaced with gradient fade */}
                      
                      {/* Gradient fade to hide card bottoms cleanly */}
                      <div className='w-full h-[80px] md:h-[110px] lg:h-[140px] absolute bottom-0 left-0 z-[10] pointer-events-none' style={{ background: 'linear-gradient(to top, black 0%, black 50%, transparent 100%)' }}></div>
-            </div>
-          </div>
+                  </div>
+               </div>
 
                {/* Know the Right Moment to Reach Out */}
                <div className='single-progress-block-2 w-full h-[300vh] relative'>
@@ -713,14 +701,14 @@ export default function page() {
                               </linearGradient>
                            </defs>
                         </svg>
-        </div>
+                     </div>
 
                      {/* Top Right Icon */}
                      <div className='single-progress-block-2-top-right-icon w-[108px] md:w-[138px] h-[108px] md:h-[138px] absolute -top-[13px] -right-[40px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.7]' style={{ filter: 'drop-shadow(0 6.664px 289.864px rgba(255, 255, 255, 0.11)) blur(2.970884323120117px)' }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none">
                            <path d="M36.0722 23.6109L58.0903 0H52.4686L33.5424 20.2379L18.7388 0H0L23.0487 31.4812L0 56.2164H5.62164L25.5784 34.8541L41.2253 56.2164H59.9641L36.0722 23.6109ZM8.33876 3.74776H15.8343L51.5317 52.4686H44.0362L8.33876 3.74776Z" fill="white" />
                         </svg>
-            </div>
+                     </div>
 
                      {/* Bottom Left Icon */}
                      <div className='single-progress-block-2-bottom-left-icon w-[173px] md:w-[223px] h-[173px] md:h-[223px] absolute bottom-[70px] md:bottom-[30px] lg:bottom-[38px] -left-[70px] md:-left-[34px] flex items-center justify-center z-2 rounded-full overflow-hidden border-2 border-[#272727] bg-[#0E0E0E] opacity-[.2] blur-[10px]' style={{ boxShadow: '0 8.751px 380.665px 0 rgba(255, 255, 255, 0.11)' }}>
@@ -733,7 +721,7 @@ export default function page() {
                            priority
                            draggable={false}
                         />
-            </div>
+                     </div>
 
                      {/* Bottom Right Icon */}
                      <div className='single-progress-block-2-bottom-right-icon w-[102px] h-[102px] absolute bottom-[60px] md:bottom-[50px] lg:bottom-[60px] -right-[26px] md:right-[66px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.6]' style={{ filter: 'drop-shadow(0 6.664px 289.864px rgba(255, 255, 255, 0.11)) blur(2.970884323120117px)' }}>
@@ -744,9 +732,9 @@ export default function page() {
 
                      {/* Content Block */}
                      <div className='w-full max-w-[680px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
-                        <h2 className='flex max-md:max-w-[340px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[48px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal lg:whitespace-nowrap'>Know the Right Moment to Reach Out</h2>
+                        <h2 className='flex max-md:max-w-[270px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[48px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal lg:whitespace-nowrap'>Know the Right Moment to Reach Out</h2>
 
-                        <span className='flex w-full max-md:max-w-[311px] md:max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.225px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>Define detailed, granular rules for how signals are detected and delivered, ensuring you're alerted only to the interactions that actually move deals forward.</span>
+                        <span className='flex w-full max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.22px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>Define detailed, granular rules for how signals are detected and delivered, ensuring you're alerted only to the interactions that actually move deals forward.</span>
                      </div>
 
                      {/* Notify Me Block */}
@@ -850,16 +838,20 @@ export default function page() {
                         </div>
                      </div>
 
-                     {/* Lottie Animation Card */}
-                     <div className='w-[360px] md:w-[520px] lg:w-[610px] h-[230px] md:h-[245px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'>
-                        <Lottie 
-                           animationData={graphicAnimation}
-                           loop={true}
-                           autoplay={true}
-                           className='w-full h-full'
-                        />
+                     {/* New Signal Block */}
+                     <div className='px-[7px] md:px-[9px] lg:px-[10px] py-[4px] md:py-[5px] lg:py-[6px] flex items-center justify-center gap-[5px] md:gap-[7px] lg:gap-[8px] rounded-[24px] md:rounded-[34px] lg:rounded-[40px] bg-[rgba(255,255,255,0.08)] backdrop-blur-[13px] md:backdrop-blur-[19px] lg:backdrop-blur-[22px] mt-[16px] md:mt-[16px] lg:mt-[18px]'>
+                        {/* Circle */}
+                        <div className='w-[6px] md:w-[9px] lg:w-[11px] h-[6px] md:h-[9px] lg:h-[11px] rounded-full bg-[#42ED8C]'></div>
+
+                        {/* Text */}
+                        <span className='text-[10px] md:text-[14px] lg:text-[16px] leading-[13px] md:leading-[18px] lg:leading-[21px] -tracking-[0.2px] md:-tracking-[0.277px] lg:-tracking-[0.322px] text-white font-semibold'>New Signal </span>
                      </div>
-              
+
+                     {/* Cards Block - Lottie placeholder, all cards removed */}
+                     <div className='w-[317px] md:w-[634px] lg:w-[738px] h-[81px] md:h-[151px] lg:h-[175px] absolute bottom-[21px] md:bottom-[30px] lg:bottom-[38px] left-1/2 -translate-x-1/2 md:-translate-x-[calc(50%-22px)] lg:-translate-x-[calc(50%-26px)] z-[2]'>
+                        {/* Lottie animation will go here */}
+                     </div>
+
                      {/* Line Wrapper - removed, replaced with gradient fade */}
                      
                      {/* Gradient fade to hide card bottoms cleanly */}
@@ -867,8 +859,8 @@ export default function page() {
 
                      {/* Bottom Gradient */}
                      <div className='absolute left-0 md:-bottom-[194px] lg:-bottom-[133px] w-full hidden md:flex h-[229px] z-0' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 37.57%)' }}></div>
-              </div>
-            </div>
+                  </div>
+               </div>
 
                {/* Expand Beyond Your Own Network */}
                <div className='single-progress-block-3 w-full h-[300vh] relative'>
@@ -878,7 +870,7 @@ export default function page() {
                         <h2 className='flex max-md:max-w-[260px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[64px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal lg:whitespace-nowrap'>Expand Beyond Your Own Network</h2>
 
                         <span className='flex w-full max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.22px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>Our shared intelligence graph spans 20k+ web3 organizations, 2m+ social profiles, and hundreds of Telegram hubs. Build new connections and opportunities across the broader ecosystem.</span>
-          </div>
+                     </div>
 
                      {/* Globe image block */}
                      <div className='w-full min-w-[620px] md:min-w-[875px] lg:min-w-[1016px] max-w-[1016px] h-auto absolute left-1/2 -translate-x-1/2 bottom-[25px] md:bottom-[34px] lg:bottom-[42px] flex'>
@@ -892,7 +884,7 @@ export default function page() {
                            draggable={false}
                            quality={100}
                         />
-        </div>
+                     </div>
 
                      {/* Bottom Gradient */}
                      <div className='absolute left-0 md:-bottom-[143px] lg:-bottom-[83px] w-full hidden md:flex h-[229px] z-0' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 37.57%)' }}></div>
@@ -1025,7 +1017,7 @@ export default function page() {
             </div>
          </div>
 
-      {/* Case Study */}
+         {/* Case Study */}
          <div className='w-full h-auto px-[16px] relative'>
             <div className='w-full max-w-[1000px] mx-auto p-[8px] md:p-[14px] lg:p-[20px] pb-[16px] md:pb-[20px] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] bg-black border border-[rgba(255,255,255,0.10)]'>
                <div className='w-full h-full flex max-lg:flex-col gap-[16px] md:gap-[24px] lg:gap-[28px]'>
@@ -1050,7 +1042,7 @@ export default function page() {
                         <h5 className='max-md:max-w-[260px] w-full text-[18px] md:text-[21px] leading-[26px] md:leading-[30px] -tracking-[0.2px] md:-tracking-[0.24px] text-white font-hedvig'>How LockIn Improved Nautilus's TEE Architecture</h5>
 
                         <span className='w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] -tracking-[0.25px] md:-tracking-[0.3px] text-white font-normal opacity-[.8]'>How LockIn improved Nautilus's TEE architecture to operate private and secure AI inference on Telegram data.</span>
-            </div>
+                     </div>
 
                      {/* Link */}
                      <div className='w-full flex'>
@@ -1069,13 +1061,13 @@ export default function page() {
                               </defs>
                            </svg>
                         </Link>
-          </div>
-        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
 
-      {/* Why Sales & BD Pros Love LockIn */}
+         {/* Why Sales & BD Pros Love LockIn */}
          <div className='w-full h-auto flex flex-col gap-[36px] md:gap-[56px] lg:gap-[68px] pt-[80px] md:pt-[140px] lg:pt-[200px] relative overflow-hidden'>
             {/* Content Block */}
             <div className='w-full max-w-[760px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
@@ -1114,8 +1106,8 @@ export default function page() {
                         />
 
                         <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{carouselData[0].name} <p className='inline-block opacity-[.8]'>/ {carouselData[0].role}</p></h5>
-            </div>
-            </div>
+                     </div>
+                  </div>
 
                   {/* Single Carousel Item */}
                   {
@@ -1146,7 +1138,7 @@ export default function page() {
                               />
 
                               <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{item.name} <p className='inline-block opacity-[.8]'>/ {item.role}</p></h5>
-          </div>
+                           </div>
                         </div>
                      ))
                   }
@@ -1182,7 +1174,7 @@ export default function page() {
                   </div>
                </div>
             </div>
-            
+
             {/* Progress Bar */}
             <div className='flex items-center justify-center gap-[8px] md:gap-[10px] mt-[18px] md:mt-[22px]'>
                {carouselData.map((_, i) => (
@@ -1197,19 +1189,19 @@ export default function page() {
                         className='h-full bg-white'
                         style={{ width: activeIndex === i ? '100%' : '0%' }}
                      />
-            </div>
+                  </div>
                ))}
-          </div>
-        </div>
+            </div>
+         </div>
 
          {/* Private & Security */}
          <div id="security" className='w-full h-auto flex flex-col items-center gap-[36px] md:gap-[48px] lg:gap-[60px] pt-[36px] md:pt-[80px] pb-[40px] md:pb-[90px] lg:pb-[140px] relative z-1'>
             {/* Cards Row 1 */}
             <div className='w-full max-w-[1050px] mx-auto flex flex-col lg:flex-row gap-[14px] lg:gap-[20px] px-[16px] md:px-[20px]'>
-               {/* Single Card - 60% */}
-               <div className='relative overflow-hidden w-full h-[132px] md:h-[176px] lg:h-[320px] rounded-[24px] lg:rounded-[36px] border border-[rgba(255,255,255,0.1)] bg-black backdrop-blur-[50px]'>
-                  {/* Image Block - left-positioned on mobile/tablet, left-aligned on desktop */}
-                  <div className='w-[173px] md:w-[302px] h-[179px] md:h-[312px] flex absolute top-[18px] md:top-[28px] lg:top-[13px] left-[196px] md:left-[368px] lg:left-[23px] max-lg:z-1'>
+               {/* Single Card */}
+               <div className='relative overflow-hidden w-full h-[132px] md:h-[155px] lg:h-[320px] rounded-[24px] md:rounded-[30px] border border-[#1a1a1a] bg-black backdrop-blur-[50px]'>
+                  {/* Image Block */}
+                  <div className='w-[173px] md:w-[302px] h-[179px] md:h-[312px] flex absolute top-[18px] md:-top-[20px] lg:top-[14px] right-0 md:right-[42px] lg:right-1/2 lg:translate-x-1/2 max-md:z-1'>
                      <Image
                         src={'/security/private-secure-1.svg'}
                         width={302}
@@ -1221,21 +1213,18 @@ export default function page() {
                      />
                   </div>
 
-                  {/* Desktop Gradient Overlay - matches Figma */}
-                  <div className='hidden lg:block absolute bottom-0 left-0 w-full h-[230px] z-[1]' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 43.91%)' }}></div>
+                  {/* Content Block */}
+                  <div className='absolute top-[18px] left-[18px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[168px] md:max-w-[250px] lg:max-w-full lg:p-[14px] md:lg:p-[22px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[14px]' style={{ background: 'max-lg:transparent, lg:linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 43.91%)' }}>
+                     <h2 className='text-[40px] leading-[100%] -tracking-[1.2px] text-white font-hedvig font-normal'>60%</h2>
 
-                  {/* Content Block - Mobile/Tablet: top-left, Desktop: centered in gradient */}
-                  <div className='absolute top-[18px] md:top-[28px] left-[18px] md:left-[28px] lg:bottom-[34px] lg:left-1/2 lg:-translate-x-1/2 lg:top-auto w-full max-w-[168px] md:max-w-[232px] lg:max-w-[301px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[18px] lg:text-center z-[2]'>
-                     <h2 className='text-[40px] md:text-[48px] leading-[100%] -tracking-[1.2px] lg:-tracking-[1.44px] text-white font-hedvig font-normal'>60%</h2>
-
-                     <span className='text-start lg:text-center text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[27px] lg:leading-[1.35] -tracking-[0.225px] md:-tracking-[0.2px] lg:-tracking-[0.3px] text-white font-normal opacity-[.8]'>Reduction in time spent prospecting</span>
-              </div>
+                     <span className='text-start lg:text-center text-[15px] md:text-[17px] leading-[22px] -tracking-[0.225px] md:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Reduction in time spent prospecting</span>
+                  </div>
                </div>
 
-               {/* Single Card - 3x */}
-               <div className='relative overflow-hidden w-full h-[132px] md:h-[176px] lg:h-[320px] rounded-[24px] border border-[rgba(255,255,255,0.1)] bg-black backdrop-blur-[50px]'>
-                  {/* Image Block - left-positioned on mobile/tablet, centered on desktop */}
-                  <div className='w-[206px] md:w-[403px] lg:w-[300px] h-[89px] md:h-[121px] lg:h-[105px] flex absolute top-1/2 -translate-y-1/2 lg:top-[55px] lg:translate-y-0 left-[198px] md:left-[339px] lg:left-auto lg:right-1/2 lg:translate-x-1/2 max-lg:z-1 overflow-hidden'>
+               {/* Single Card */}
+               <div className='relative overflow-hidden w-full h-[132px] md:h-[155px] lg:h-[320px] rounded-[24px] md:rounded-[30px] border border-[#1a1a1a] bg-black backdrop-blur-[50px]'>
+                  {/* Image Block */}
+                  <div className='w-[206px] md:w-[350px] lg:w-[300px] h-[89px] md:h-[105px] flex absolute top-1/2 -translate-y-1/2 md:top-[24px] md:translate-y-0 lg:top-[55px] right-0 md:right-0 lg:right-1/2 lg:translate-x-1/2 max-md:z-1 overflow-hidden'>
                      <Image
                         src={'/security/private-secure-2.svg'}
                         width={349}
@@ -1246,57 +1235,38 @@ export default function page() {
                         className='shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] w-full h-full'
                      />
                   </div>
-                  {/* Gradient mask for mobile/tablet - positioned at left edge of visual */}
-                  <div className='absolute top-0 left-[198px] md:left-[339px] w-[67px] h-full bg-gradient-to-r from-black to-transparent lg:hidden z-[2]'></div>
+                  {/* Gradient mask for mobile */}
+                  <div className='absolute top-0 left-[198px] w-[67px] h-full bg-gradient-to-r from-black to-transparent lg:hidden'></div>
 
                   {/* Content Block */}
-                  <div className='absolute top-[17px] md:top-[28px] left-[17px] md:left-[28px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[170px] md:max-w-[232px] lg:max-w-full lg:p-[14px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[18px]'>
-                     <h2 className='text-[40px] md:text-[48px] leading-[100%] -tracking-[1.2px] text-white font-hedvig font-normal'>3x</h2>
+                  <div className='absolute top-[18px] left-[18px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[170px] md:max-w-[250px] lg:max-w-full lg:p-[14px] md:lg:p-[22px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[14px]'>
+                     <h2 className='text-[40px] leading-[100%] -tracking-[1.2px] text-white font-hedvig font-normal'>3x</h2>
 
-                     <span className='text-start lg:text-center text-[15px] md:text-[18px] lg:text-[17px] leading-[22px] md:leading-[27px] -tracking-[0.225px] md:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Reduction in time spent prospecting</span>
+                     <span className='text-start lg:text-center text-[15px] md:text-[17px] leading-[22px] -tracking-[0.225px] md:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Reduction in time spent prospecting</span>
                   </div>
                </div>
 
-               {/* Single Card - 5x More qualified leads */}
-               <div className='relative overflow-hidden w-full h-[132px] md:h-[176px] lg:h-[320px] rounded-[24px] border border-[rgba(255,255,255,0.1)] bg-black backdrop-blur-[50px]'>
-                  {/* Leads List Visual - left-positioned on mobile/tablet, centered on desktop */}
-                  <div className='w-[190px] md:w-[296px] lg:w-[296px] h-[184px] md:h-[287px] lg:h-[287px] flex flex-col gap-[8px] md:gap-[10px] lg:gap-[10px] absolute top-[17px] md:top-[28px] lg:top-[25px] left-[198px] md:left-[368px] lg:left-auto lg:right-1/2 lg:translate-x-1/2 rounded-[13px] md:rounded-[21px] lg:rounded-[21px] overflow-hidden border border-[rgba(255,255,255,0.11)] shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] p-[14px] md:p-[24px] lg:p-[24px] max-lg:z-1'>
-                     {/* Row 1 - Active with avatar */}
-                     <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
-                        <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full overflow-hidden border border-[rgba(255,255,255,0.15)] flex-shrink-0'>
-                           <Image src='/security/avatar-top.png' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
-                        </div>
-                        <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px]' style={{ background: 'linear-gradient(-5deg, rgba(255,255,255,0.4) 32%, transparent 82%), linear-gradient(90deg, #1363A9 0%, #1363A9 100%)' }} />
-                     </div>
-                     {/* Row 2 - Active with avatar */}
-                     <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
-                        <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full overflow-hidden border border-[rgba(255,255,255,0.15)] flex-shrink-0'>
-                           <Image src='/security/avatar-bottom.png' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
-                        </div>
-                        <div className='w-[65%] h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px]' style={{ background: 'linear-gradient(-5deg, rgba(255,255,255,0.4) 32%, transparent 82%), linear-gradient(90deg, #1363A9 0%, #1363A9 100%)' }} />
-                     </div>
-                     {/* Row 3 - Inactive placeholder */}
-                     <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
-                        <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full bg-[#d9d9d9] opacity-10 flex-shrink-0' />
-                        <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px] bg-[#d9d9d9] opacity-10' />
-                     </div>
-                     {/* Row 4 - Inactive placeholder */}
-                     <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
-                        <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full bg-[#d9d9d9] opacity-10 flex-shrink-0' />
-                        <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px] bg-[#d9d9d9] opacity-10' />
-                     </div>
-                     {/* Row 5 - Inactive placeholder (partial visible) */}
-                     <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
-                        <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full bg-[#d9d9d9] opacity-10 flex-shrink-0' />
-                        <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px] bg-[#d9d9d9] opacity-10' />
-                     </div>
+               {/* Single Card */}
+               <div className='relative overflow-hidden w-full h-[132px] md:h-[155px] lg:h-[320px] rounded-[24px] md:rounded-[30px] border border-[#1a1a1a] bg-black backdrop-blur-[50px]'>
+                  {/* Image Block */}
+                  <div className='w-[190px] md:w-[250px] h-[184px] md:h-[242px] flex absolute top-[18px] md:top-[24px] lg:top-[12px] right-0 md:right-[42px] lg:right-1/2 lg:translate-x-1/2 rounded-[13px] md:rounded-[18px] overflow-hidden shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] max-md:z-1'>
+                     <Image
+                        src={'/security/private-secure-3.svg'}
+                        width={888}
+                        height={861}
+                        alt='Trusted Execution Environment Icon'
+                        priority
+                        draggable={false}
+                        className='w-full h-full object-cover'
+                        quality={100}
+                     />
                   </div>
 
-                  {/* Content Block with gradient overlay */}
-                  <div className='absolute top-[18px] md:top-[28px] left-[18px] md:left-[28px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[160px] md:max-w-[215px] lg:max-w-full lg:p-[14px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[18px] lg:bg-gradient-to-b lg:from-transparent lg:to-black lg:to-[44%]'>
-                     <h2 className='text-[40px] md:text-[48px] leading-[100%] -tracking-[1.2px] lg:-tracking-[1.44px] text-white font-hedvig font-normal'>5x</h2>
+                  {/* Content Block */}
+                  <div className='absolute top-[18px] left-[18px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[160px] md:max-w-[250px] lg:max-w-full lg:p-[14px] md:lg:p-[22px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[14px]'>
+                     <h2 className='text-[40px] leading-[100%] -tracking-[1.2px] text-white font-hedvig font-normal'>5x</h2>
 
-                     <span className='max-w-[160px] md:max-w-[215px] lg:max-w-[230px] w-full text-start lg:text-center text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[27px] lg:leading-[1.35] -tracking-[0.225px] md:-tracking-[0.2px] lg:-tracking-[0.3px] text-white font-normal opacity-[.8]'>More qualified leads identified</span>
+                     <span className='max-w-[160px] lg:max-w-[210px] w-full text-start lg:text-center text-[15px] md:text-[17px] leading-[22px] -tracking-[0.225px] md:-tracking-[0.2px] text-white font-normal opacity-[.8]'>More qualified leads identified</span>
                   </div>
                </div>
             </div>
@@ -1423,11 +1393,11 @@ export default function page() {
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
                            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
                               <path fillRule="evenodd" clipRule="evenodd" d="M5.40558 20.0258C2.2753 15.5578 3.07973 9.43824 7.25837 5.93101C11.437 2.42377 17.6034 2.69259 21.4609 6.55017C25.3185 10.4077 25.5873 16.5741 22.0801 20.7527C18.5729 24.9314 12.4533 25.7358 7.9853 22.6055L4.66856 23.3426L5.40558 20.0258Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Track up to 100 conversations</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
@@ -1436,22 +1406,22 @@ export default function page() {
                               <path d="M13.6406 3.95312C13.6406 9.30407 17.9783 13.6418 23.3293 13.6418" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M23.3293 13.6406C17.9783 13.6406 13.6406 17.9783 13.6406 23.3293" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M13.6418 23.3293C13.6418 17.9783 9.30407 13.6406 3.95312 13.6406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Daily AI-generated follow-up suggestions</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                               <path d="M25.1276 8.08008L19.2114 13.9962C18.7553 14.4524 18.0168 14.4524 17.5618 13.9962L15.0639 11.4984C14.6078 11.0422 13.8693 11.0422 13.4143 11.4984L6.46094 18.4517" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M25.1274 24.3293H2.87207V3.66992" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Standard sales pipeline tracking</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
@@ -1460,31 +1430,31 @@ export default function page() {
                               <path fillRule="evenodd" clipRule="evenodd" d="M20.4163 11.6667V11.6667C18.1612 11.6667 16.333 9.8385 16.333 7.58333V7.58333C16.333 5.32817 18.1612 3.5 20.4163 3.5V3.5C22.6715 3.5 24.4997 5.32817 24.4997 7.58333V7.58333C24.4997 9.8385 22.6715 11.6667 20.4163 11.6667Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 24.5007V24.5007C5.32817 24.5007 3.5 22.6725 3.5 20.4173V20.4173C3.5 18.1622 5.32817 16.334 7.58333 16.334V16.334C9.8385 16.334 11.6667 18.1622 11.6667 20.4173V20.4173C11.6667 22.6725 9.8385 24.5007 7.58333 24.5007Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path fillRule="evenodd" clipRule="evenodd" d="M24.4997 20.4173V20.4173C24.4997 18.1622 22.6715 16.334 20.4163 16.334V16.334C18.1612 16.334 16.333 18.1622 16.333 20.4173V20.4173C16.333 22.6725 18.1612 24.5007 20.4163 24.5007V24.5007C22.6715 24.5007 24.4997 22.6725 24.4997 20.4173Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Basic analytics dashboard</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                               <rect x="3.5" y="5.25" width="21" height="17.5" rx="4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M8.16699 10.4805L13.0724 12.6192C13.6648 12.8776 14.3378 12.8786 14.931 12.6221L19.8337 10.5022" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Email support</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Pro Plan */}
+                     </li>
+                  </ul>
+               </div>
+
+               {/* Pro Plan */}
                <div className='w-full h-auto rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#429DED] bg-black backdrop-blur-md p-[16px] lg:p-[24px]' style={{ boxShadow: '0 4px 54px 0 rgba(66, 157, 237, 0.25) inset' }}>
                   {/* Recomended Block */}
                   <div className='absolute top-[14px] lg:top-[24px] right-[14px] md:right-[16px] lg:right-[24px] flex items-center justify-center px-[8px] py-[3px] rounded-[40px] bg-[rgba(66,157,237,0.17)]'>
                      <span className='text-[13px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] font-normal text-[#429DED]'>Recommended</span>
-              </div>
+                  </div>
 
                   {/* Owl Image */}
                   <div className='w-[100px] md:w-[105px] lg:w-[170px] h-[63px] md:h-[67px] lg:h-[108px] flex items-center justify-center absolute top-[76px] md:top-[70px] lg:top-[72px] right-[10px] md:right-[16px] lg:right-[24px]'>
@@ -1531,11 +1501,11 @@ export default function page() {
                               <path d="M8.25747 25.4427C11.4168 25.4427 13.9788 22.8807 13.9788 19.7213C13.9788 16.562 11.418 14 8.25747 14C5.09697 14 2.53613 16.562 2.53613 19.7213" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M8.26317 25.4479C7.40217 25.4479 6.58667 25.2577 5.85401 24.9182L2.33301 25.666L3.06917 22.138C2.72734 21.403 2.53601 20.584 2.53601 19.7207" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M7.64983 14.0324C7.23217 13.0746 7 12.0304 7 10.9349C7 6.24845 11.1977 2.48828 16.3333 2.48828C21.469 2.48828 25.6667 6.24845 25.6667 10.9349C25.6667 13.7046 24.1943 16.1429 21.9345 17.6806C21.9357 18.5626 21.9333 19.7514 21.9333 20.9998L18.2712 19.1961C17.6447 19.3163 16.9972 19.3816 16.3333 19.3816C15.5085 19.3816 14.7082 19.2836 13.9452 19.1004" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Track up to 500 conversations</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
@@ -1552,11 +1522,11 @@ export default function page() {
                               <path d="M19.0225 12.9297C19.0225 15.9549 21.4748 18.4072 24.5 18.4072" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M24.5 18.4082C21.4748 18.4082 19.0225 20.8605 19.0225 23.8857" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M19.0224 23.8857C19.0224 20.8605 16.5701 18.4082 13.5449 18.4082" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>AI insights (lead intent, urgency detection)</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
@@ -1564,11 +1534,11 @@ export default function page() {
                               <path d="M5.83301 18.5365L11.7492 12.6203C12.2053 12.1642 12.9438 12.1642 13.3988 12.6203L15.8967 15.1182C16.3528 15.5743 17.0913 15.5743 17.5463 15.1182L24.4997 8.16602" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M21.3887 8.16602H24.5002V11.2775" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M24.5003 24.4171H2.24609V3.75781" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Custom sales pipeline stages</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
@@ -1578,11 +1548,11 @@ export default function page() {
                               <path d="M21.5837 11.6667V11.0833C21.5837 6.895 18.1887 3.5 14.0003 3.5V3.5C9.81199 3.5 6.41699 6.895 6.41699 11.0833V11.6667" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path fillRule="evenodd" clipRule="evenodd" d="M14.7292 24.7917H13.2708C12.4658 24.7917 11.8125 24.1383 11.8125 23.3333V23.3333C11.8125 22.5283 12.4658 21.875 13.2708 21.875H14.7292C15.5342 21.875 16.1875 22.5283 16.1875 23.3333V23.3333C16.1875 24.1383 15.5342 24.7917 14.7292 24.7917Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M16.1875 23.334H18.6667C19.9558 23.334 21 22.2898 21 21.0007V19.834" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Priority support</span>
-                </li>
+                     </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
@@ -1591,19 +1561,19 @@ export default function page() {
                               <circle cx="10.4997" cy="8.16667" r="4.66667" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M25.6667 23.3333V22.1667C25.6667 19.5893 23.5773 17.5 21 17.5V17.5" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <path d="M17.5 3.5C20.0773 3.5 22.1667 5.58934 22.1667 8.16667C22.1667 10.744 20.0773 12.8333 17.5 12.8333" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                           </svg>
                         </div>
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Team collaboration features</span>
-                </li>
-              </ul>
+                     </li>
+                  </ul>
+               </div>
             </div>
-          </div>
-          
+
             {/* Pricing Text Block */}
             <div className='w-full max-w-[270px] md:max-w-[420px] lg:max-w-[680px] mx-auto flex justify-center mt-[22px] md:mt-[36px] lg:mt-[50px] mb-[16px] md:mb-[24px] lg:mb-[32px]'>
                <span className='text-[14px] md:text-[17px] leading-[22px] md:leading-[26px] text-white opacity-[.8] text-center'>Need more than 500 conversations? Contact us for enterprise pricing.</span>
-        </div>
+            </div>
 
             {/* Contact Us Button */}
             <div className='rounded-[100px] border border-[#272727] relative z-1 group hover:bg-white transition-all duration-300'>
@@ -1620,7 +1590,7 @@ export default function page() {
             </div>
          </div>
 
-      {/* FAQ */}
+         {/* FAQ */}
          <div className='w-full h-auto flex flex-col items-center relative z-1 px-[16px] md:px-[24px] pt-[100px] md:pt-[160px] lg:pt-[220px] pb-[60px] md:pb-[120px] lg:pb-[160px]'>
             {/* Content Block */}
             <div className='w-full max-w-[760px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[22px] md:mb-[30px] lg:mb-[36px] relative z-1'>
@@ -1640,17 +1610,17 @@ export default function page() {
                            <svg className='w-[13px] h-auto' style={{ transform: activeFaq === i ? 'rotate(180deg)' : 'rotate(0)' }} xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
                               <path d="M0.75 0.75L6.41667 6.41667L12.0833 0.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                            </svg>
-                  </div>
+                        </div>
                      </div>
 
                      {/* Desc Wrapper */}
                      <div className='w-full flex'>
                         <span className='flex justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-white font-normal opacity-[.8]'>{item.desc}</span>
                      </div>
-              </div>
-            ))}
-          </div>
-        </div>
+                  </div>
+               ))}
+            </div>
+         </div>
 
          {/* Footer */}
          <div className='w-full h-auto flex flex-col items-center px-[16px] md:px-[18px] pt-[40px] md:pt-[60px] lg:pt-[80px] relative overflow-x-clip'>
@@ -1668,7 +1638,7 @@ export default function page() {
                   draggable={false}
                   className='w-full h-full object-contain'
                />
-        </div>
+            </div>
 
             {/* Content Block */}
             <div className='w-full max-w-[650px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[24px] md:mb-[40px] lg:mb-[56px] relative z-1'>
@@ -1683,16 +1653,16 @@ export default function page() {
                   <Link href='#pricing' className='flex items-center justify-center w-full h-full'>
                      <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Get Started</span>
                   </Link>
+               </div>
             </div>
-          </div>
-          
+
             {/* Footer Block */}
             <div className='w-full max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[16px] md:px-[24px] pt-[20px] md:pt-[24px] lg:pt-[48px]'>
                <div className='w-full max-w-[1110px] mx-auto flex flex-col md:flex-row items-start justify-between'>
                   {/* Left Block */}
                   <div className='flex flex-col'>
                      {/* Logo */}
-                     <Link href='/' className='flex max-w-[64px] h-auto mb-[8px] md:mb-[14px] lg:mb-[20px]'>
+                     <Link href='/v1' className='flex max-w-[64px] h-auto mb-[8px] md:mb-[14px] lg:mb-[20px]'>
                         <Image
                            src={'/brand/logo.svg'}
                            width={64}
@@ -1721,8 +1691,8 @@ export default function page() {
                                  </linearGradient>
                               </defs>
                            </svg>
-          </div>
-          
+                        </div>
+
                         {/* X (Twitter) */}
                         <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
                            <Link href='https://x.com/thelockinbot' target='_blank' className='absolute inset-0'></Link>
@@ -1730,8 +1700,8 @@ export default function page() {
                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
                               <path d="M10.6944 7L17.2222 0H15.5556L9.94444 6L5.55556 0H0L6.83333 9.33333L0 16.6667H1.66667L7.58333 10.3333L12.2222 16.6667H17.7778L10.6944 7ZM2.47222 1.11111H4.69444L15.2778 15.5556H13.0556L2.47222 1.11111Z" fill="white" />
                            </svg>
-          </div>
-          
+                        </div>
+
                         {/* LinkedIn */}
                         <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
                            <Link href='https://www.linkedin.com/company/lockinbot' target='_blank' className='absolute inset-0'></Link>
@@ -1747,9 +1717,9 @@ export default function page() {
                               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="white"/>
                            </svg>
                         </div>
-          </div>
-        </div>
-        
+                     </div>
+                  </div>
+
                   {/* Nav Block */}
                   <div className='flex items-start gap-[48px] md:gap-[56px] lg:gap-[70px] max-md:mt-[24px]'>
                      <div className='flex flex-col gap-[14px] md:gap-[16px]'>
@@ -1759,16 +1729,16 @@ export default function page() {
                            <Link href='#features' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Features</Link>
                            <Link href='#pricing' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Pricing</Link>
                            <Link href='#security' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Security</Link>
-          </div>
-        </div>
+                        </div>
+                     </div>
 
                      <div className='flex flex-col gap-[14px] md:gap-[16px]'>
                         <h5 className='w-full text-[14px] lg:text-[20px] leading-[20px] lg:leading-[36px] -tracking-[0.2px] lg:-tracking-[0.24px] text-white font-hedvig'>Company</h5>
 
                         <div className='flex flex-col gap-[10px] lg:gap-[12px]'>
                            <Link href='/blog' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Blog</Link>
-                           <Link href='/' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Careers</Link>
-    </div>
+                           <Link href='/v1' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Careers</Link>
+                        </div>
                      </div>
 
                      <div className='flex flex-col gap-[14px] md:gap-[16px]'>
@@ -1835,5 +1805,3 @@ export default function page() {
       </div>
    )
 }
-
-
