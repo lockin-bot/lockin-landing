@@ -652,9 +652,9 @@ export default function page() {
          <div id="features" className='w-full h-auto flex relative z-1'>
             {/* Top Gradient Fade - blends hero section into this section */}
             <div className='absolute top-0 left-0 w-full h-[500px] md:h-[650px] lg:h-[800px] -translate-y-[75%] pointer-events-none z-3' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 1) 100%)', filter: 'blur(80px)' }}></div>
-            <div className='w-full max-w-full mx-auto flex flex-col bg-black' style={{ borderBlock: '1px solid rgba(255, 255, 255, 0.10)' }}>
+            <div className='w-full max-w-full mx-auto flex flex-col bg-black'>
                {/* Find the Strongest Path to Any Deal Block */}
-               <div className='single-progress-block-1 w-full h-[300vh] relative'>
+               <div className='single-progress-block-1 w-full h-[250vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] pb-[180px] md:pb-[280px] lg:pb-[320px] px-[22px] md:px-[66px] sticky top-0 left-0 overflow-hidden'>
                      {/* Content Block */}
                      <div className='w-full max-w-[800px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px]'>
@@ -698,7 +698,7 @@ export default function page() {
           </div>
 
                {/* Know the Right Moment to Reach Out */}
-               <div className='single-progress-block-2 w-full h-[300vh] relative'>
+               <div className='single-progress-block-2 w-full h-[250vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[80px] md:pb-[120px] lg:pb-[150px] sticky top-0 left-0 overflow-hidden'>
                      {/* Top Left Icon */}
                      <div className='single-progress-block-2-top-left-icon w-[130px] md:w-[130px] h-[100px] md:h-[140px] absolute -top-[25px] -left-[40px] md:left-[23px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.34] blur-[5px]'>
@@ -871,7 +871,7 @@ export default function page() {
             </div>
 
                {/* Expand Beyond Your Own Network */}
-               <div className='single-progress-block-3 w-full h-[300vh] relative'>
+               <div className='single-progress-block-3 w-full h-[250vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[24px] md:pt-[30px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[150px] md:pb-[280px] lg:pb-[300px] sticky top-0 left-0 overflow-hidden bg-black'>
                      {/* Content Block */}
                      <div className='w-full max-w-[680px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
@@ -896,6 +896,9 @@ export default function page() {
 
                      {/* Bottom Gradient */}
                      <div className='absolute left-0 md:-bottom-[143px] lg:-bottom-[83px] w-full hidden md:flex h-[229px] z-0' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 37.57%)' }}></div>
+                     
+                     {/* Bottom Gradient Fade to #090821 */}
+                     <div className='absolute bottom-0 left-0 w-full h-[100px] md:h-[150px] lg:h-[200px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, transparent 0%, #090821 100%)' }}></div>
                   </div>
                </div>
             </div>
@@ -934,8 +937,8 @@ export default function page() {
 
          {/* Your Messages Are None Of Our Business */}
          <div className='w-full h-auto px-[12px] md:px-[36px] pt-[100px] md:pt-[140px] lg:pt-[180px] pb-[50px] md:pb-[60px] lg:pb-[70px] bg-black overflow-x-clip relative'>
-            {/* Top Gradient Fade - bleeds into previous section for smooth transition */}
-            <div className='absolute top-0 left-0 w-full h-[450px] md:h-[550px] lg:h-[650px] -translate-y-[85%] pointer-events-none z-2' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(15, 14, 56, 0.05) 20%, rgba(15, 14, 56, 0.15) 40%, rgba(15, 14, 56, 0.35) 60%, rgba(15, 14, 56, 0.6) 80%, rgba(15, 14, 56, 0.85) 100%)', filter: 'blur(60px)' }}></div>
+            {/* Top Gradient Fade - fades from #090821 (own network section) for smooth transition */}
+            <div className='absolute top-0 left-0 w-full h-[150px] md:h-[200px] lg:h-[250px] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, #090821 0%, #090821 20%, rgba(9, 8, 33, 0.5) 50%, transparent 100%)' }}></div>
             
             {/* Circle Gradient - moved higher for better blending */}
             <div className='absolute left-1/2 -translate-x-1/2 -top-[100px] md:-top-[50px] lg:-top-[280px] w-[814px] md:w-[1222px] lg:w-[1443px] h-[662px] md:h-[994px] lg:h-[1174px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px]'></div>
