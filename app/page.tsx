@@ -646,15 +646,18 @@ export default function page() {
           </div>
                </div>
             </div>
+            
+            {/* Bottom Gradient Fade to #090821 */}
+            <div className='absolute bottom-0 left-0 w-full h-[100px] md:h-[150px] lg:h-[200px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, transparent 0%, #090821 100%)' }}></div>
          </div>
 
          {/* Find the Strongest Path to Any Deal */}
-         <div id="features" className='w-full h-auto flex relative z-1'>
-            {/* Top Gradient Fade - blends hero section into this section */}
-            <div className='absolute top-0 left-0 w-full h-[500px] md:h-[650px] lg:h-[800px] -translate-y-[75%] pointer-events-none z-3' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 1) 100%)', filter: 'blur(80px)' }}></div>
+         <div id="features" className='w-full h-auto flex relative z-1 -mt-[1px]' style={{ backgroundColor: '#090821' }}>
+            {/* Top Gradient Fade - fades from #090821 for smooth transition */}
+            <div className='absolute top-0 left-0 w-full h-[150px] md:h-[200px] lg:h-[250px] -translate-y-[20px] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, #090821 0%, #090821 30%, rgba(9, 8, 33, 0.7) 60%, transparent 100%)' }}></div>
             <div className='w-full max-w-full mx-auto flex flex-col bg-black'>
                {/* Find the Strongest Path to Any Deal Block */}
-               <div className='single-progress-block-1 w-full h-[250vh] relative'>
+               <div className='single-progress-block-1 w-full h-[167vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] pb-[180px] md:pb-[280px] lg:pb-[320px] px-[22px] md:px-[66px] sticky top-0 left-0 overflow-hidden'>
                      {/* Content Block */}
                      <div className='w-full max-w-[800px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px]'>
@@ -698,7 +701,7 @@ export default function page() {
           </div>
 
                {/* Know the Right Moment to Reach Out */}
-               <div className='single-progress-block-2 w-full h-[250vh] relative'>
+               <div className='single-progress-block-2 w-full h-[167vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[80px] md:pb-[120px] lg:pb-[150px] sticky top-0 left-0 overflow-hidden'>
                      {/* Top Left Icon */}
                      <div className='single-progress-block-2-top-left-icon w-[130px] md:w-[130px] h-[100px] md:h-[140px] absolute -top-[25px] -left-[40px] md:left-[23px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.34] blur-[5px]'>
@@ -871,7 +874,7 @@ export default function page() {
             </div>
 
                {/* Expand Beyond Your Own Network */}
-               <div className='single-progress-block-3 w-full h-[250vh] relative'>
+               <div className='single-progress-block-3 w-full h-[167vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[24px] md:pt-[30px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[150px] md:pb-[280px] lg:pb-[300px] sticky top-0 left-0 overflow-hidden bg-black'>
                      {/* Content Block */}
                      <div className='w-full max-w-[680px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
@@ -906,7 +909,7 @@ export default function page() {
             {/* Progress Bar Wrapper */}
             <div className='sticky-parent-container absolute top-0 left-0 w-full h-full z-1 overflow-hidden pointer-events-none'>
                <div className='progress-bar-sticky-block fixed top-0 left-0 w-full h-dvh flex items-end opacity-0'>
-                  <div className='w-full h-[181px] flex items-end justify-center pb-[24px] gap-[8px]' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%)' }}>
+                  <div className='w-full h-[120px] flex items-end justify-center pb-[24px] gap-[8px]' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%)' }}>
                      <div className='flex flex-col items-center gap-[10px]'>
                         <span className='text-[13px] md:text-[16px] leading-[20px] -tracking-[0.32px] text-white font-medium'>Strongest Path</span>
 
