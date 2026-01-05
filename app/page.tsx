@@ -82,10 +82,6 @@ export default function page() {
    const nextRef = useRef<() => void>(() => { });
    const [activeFaq, setActiveFaq] = useState<number | null>(null);
    const [activePrevFaq, setActivePrevFaq] = useState<number | null>(null);
-   
-   // Lazy load graphic animation
-   const [loadGraphicAnimation, setLoadGraphicAnimation] = useState(false);
-   const graphicAnimationRef = useRef<HTMLDivElement>(null);
 
    const setActive = useCallback((idx: number) => {
       activeIndexRef.current = idx;
@@ -240,25 +236,6 @@ export default function page() {
          if (progressTweenRef.current) progressTweenRef.current.kill();
       };
    }, [measureBox, next, startProgress]);
-
-   // Lazy load graphic animation when near viewport
-   useEffect(() => {
-      const observer = new IntersectionObserver(
-         ([entry]) => {
-            if (entry.isIntersecting) {
-               setLoadGraphicAnimation(true);
-               observer.disconnect();
-            }
-         },
-         { rootMargin: '400px' } // Start loading 400px before visible
-      );
-      
-      if (graphicAnimationRef.current) {
-         observer.observe(graphicAnimationRef.current);
-      }
-      
-      return () => observer.disconnect();
-   }, []);
 
    const toggleFaq = (index: number) => {
       if (activeFaq === index) {
@@ -631,7 +608,6 @@ export default function page() {
                         loop
                         autoplay
                         style={{ width: '100%', height: '100%' }}
-                        renderConfig={{ freezeOnOffscreen: true }}
                      />
                   </div>
                   {/* Owl Image */}
@@ -644,9 +620,7 @@ export default function page() {
                         className='w-full h-full object-contain'
                         priority
                         draggable={false}
-                        sizes="(max-width: 768px) 260px, (max-width: 1536px) 440px, 500px"
-                        placeholder="blur"
-                        blurDataURL="data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAA0AAUAmJYgCdAEO/hOMAAD++P3N3vW9v/Mfof/markup/6X/5H+l/+R/pOgA"
+                        // quality={100}
                      />
             </div>
 
@@ -865,19 +839,13 @@ export default function page() {
                      </div>
 
                      {/* Lottie Animation Card */}
-                     <div 
-                        ref={graphicAnimationRef}
-                        className='w-[360px] md:w-[520px] lg:w-[610px] h-[192px] md:h-[277px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'
-                     >
-                        {loadGraphicAnimation && (
-                           <DotLottieReact
-                              src="/Graphic Animation V2.lottie"
-                              loop
-                              autoplay
-                              style={{ width: '100%', height: '100%' }}
-                              renderConfig={{ freezeOnOffscreen: true }}
-                           />
-                        )}
+                     <div className='w-[360px] md:w-[520px] lg:w-[610px] h-[192px] md:h-[277px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'>
+                        <DotLottieReact
+                           src="/Graphic Animation V2.lottie"
+                           loop
+                           autoplay
+                           style={{ width: '100%', height: '100%' }}
+                        />
                      </div>
               
                      {/* Line Wrapper - removed, replaced with gradient fade */}
