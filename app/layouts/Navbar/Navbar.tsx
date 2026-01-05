@@ -114,13 +114,13 @@ export default function Navbar() {
                <div className='w-full max-w-[500px] mx-auto h-full flex flex-col gap-[24px] pt-[24px]'>
                   {/* Navs */}
                   <div className='flex flex-col gap-[14px] pl-[8px]'>
-                     <Link href='/#features'>
+                     <Link href='/#features' onClick={() => setMenuOpen(false)}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Features</span>
                      </Link>
-                     <Link href='/#pricing'>
+                     <Link href='/#pricing' onClick={() => setMenuOpen(false)}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Pricing</span>
                      </Link>
-                     <Link href='/blog'>
+                     <Link href='/blog' onClick={() => setMenuOpen(false)}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
                      </Link>
                   </div>
@@ -134,7 +134,7 @@ export default function Navbar() {
                         backdropFilter: 'blur(162px)'
                      }}
                   >
-                     <Link href='/#pricing' className='flex items-center justify-center w-full h-full'>
+                     <Link href='/#pricing' onClick={() => setMenuOpen(false)} className='flex items-center justify-center w-full h-full'>
                         <span className='text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Get Started</span>
                      </Link>
                   </div>
