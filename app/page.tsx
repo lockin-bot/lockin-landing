@@ -346,20 +346,27 @@ export default function page() {
 
       gsap.set(icons, { opacity: 0 });
 
-      const tl = gsap.timeline({
-         scrollTrigger: {
-            trigger: singleProgressBlock2,
-            start: 'top top',
-            end: 'bottom bottom', // 🔥 gerçek 300vh scroll alanı
-            scrub: true,
-         }
-      });
+      // Only animate icons on tablet/desktop for better mobile performance
+      const isMobileDevice = window.innerWidth < 768;
+      
+      if (isMobileDevice) {
+         // On mobile, just show icons statically
+         gsap.set(icons, { opacity: 0.5 });
+      } else {
+         const tl = gsap.timeline({
+            scrollTrigger: {
+               trigger: singleProgressBlock2,
+               start: 'top top',
+               end: 'bottom bottom',
+               scrub: 0.5, // Smoother scrub reduces update frequency
+            }
+         });
 
-      // 300vh / 4 = 75vh ≈ timeline'da eşit böl
-      tl.to(singleProgressBlock2TopLeftIcon, { opacity: 1, duration: 1 })
-         .to(singleProgressBlock2TopRightIcon, { opacity: 1, duration: 1 })
-         .to(singleProgressBlock2BottomLeftIcon, { opacity: 1, duration: 1 })
-         .to(singleProgressBlock2BottomRightIcon, { opacity: 1, duration: 1 });
+         tl.to(singleProgressBlock2TopLeftIcon, { opacity: 1, duration: 1 })
+            .to(singleProgressBlock2TopRightIcon, { opacity: 1, duration: 1 })
+            .to(singleProgressBlock2BottomLeftIcon, { opacity: 1, duration: 1 })
+            .to(singleProgressBlock2BottomRightIcon, { opacity: 1, duration: 1 });
+      }
 
       gsap.to(progressBar3, {
          width: '100%',
@@ -710,7 +717,7 @@ export default function page() {
                <div className='single-progress-block-2 w-full h-[167vh] relative'>
                   <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[80px] md:pb-[120px] lg:pb-[150px] sticky top-0 left-0 overflow-hidden'>
                      {/* Top Left Icon */}
-                     <div className='single-progress-block-2-top-left-icon w-[130px] md:w-[130px] h-[100px] md:h-[140px] absolute -top-[25px] -left-[40px] md:left-[23px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.34] blur-[5px]'>
+                     <div className='single-progress-block-2-top-left-icon w-[130px] md:w-[130px] h-[100px] md:h-[140px] absolute -top-[25px] -left-[40px] md:left-[23px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.34] md:blur-[5px]'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="102" height="102" viewBox="0 0 102 102" fill="none">
                            <path d="M38.3658 88.585C35.3195 88.585 35.8663 87.4134 34.7728 84.5233L25.8682 55.1537L81.1704 20.6289L87.6536 22.3473L82.2639 37.0321L38.3658 88.585Z" fill="#DEDEDE" />
                            <path d="M38.3662 88.5919C40.7097 88.5919 41.7252 87.4983 43.0532 86.2484C45.0842 84.2955 71.175 58.9078 71.175 58.9078L55.1612 55.002L40.3191 64.3759L38.3662 87.8108V88.5919Z" fill="#D0D0D0" />
@@ -725,14 +732,14 @@ export default function page() {
         </div>
 
                      {/* Top Right Icon */}
-                     <div className='single-progress-block-2-top-right-icon w-[108px] md:w-[138px] h-[108px] md:h-[138px] absolute -top-[13px] -right-[40px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.7]' style={{ filter: 'drop-shadow(0 6.664px 289.864px rgba(255, 255, 255, 0.11)) blur(2.970884323120117px)' }}>
+                     <div className={`single-progress-block-2-top-right-icon w-[108px] md:w-[138px] h-[108px] md:h-[138px] absolute -top-[13px] -right-[40px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.7] ${!isMobile ? '[filter:drop-shadow(0_6.664px_289.864px_rgba(255,255,255,0.11))_blur(2.97px)]' : ''}`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none">
                            <path d="M36.0722 23.6109L58.0903 0H52.4686L33.5424 20.2379L18.7388 0H0L23.0487 31.4812L0 56.2164H5.62164L25.5784 34.8541L41.2253 56.2164H59.9641L36.0722 23.6109ZM8.33876 3.74776H15.8343L51.5317 52.4686H44.0362L8.33876 3.74776Z" fill="white" />
                         </svg>
             </div>
 
                      {/* Bottom Left Icon */}
-                     <div className='single-progress-block-2-bottom-left-icon w-[173px] md:w-[223px] h-[173px] md:h-[223px] absolute bottom-[70px] md:bottom-[30px] lg:bottom-[38px] -left-[70px] md:-left-[34px] flex items-center justify-center z-2 rounded-full overflow-hidden border-2 border-[#272727] bg-[#0E0E0E] opacity-[.2] blur-[10px]' style={{ boxShadow: '0 8.751px 380.665px 0 rgba(255, 255, 255, 0.11)' }}>
+                     <div className='single-progress-block-2-bottom-left-icon w-[173px] md:w-[223px] h-[173px] md:h-[223px] absolute bottom-[70px] md:bottom-[30px] lg:bottom-[38px] -left-[70px] md:-left-[34px] flex items-center justify-center z-2 rounded-full overflow-hidden border-2 border-[#272727] bg-[#0E0E0E] opacity-[.2] md:blur-[10px]' style={!isMobile ? { boxShadow: '0 8.751px 380.665px 0 rgba(255, 255, 255, 0.11)' } : undefined}>
                         <Image
                            src={'/features/find-the-strongest-path/bottom-left-image.jpg'}
                            width={400}
@@ -744,7 +751,7 @@ export default function page() {
             </div>
 
                      {/* Bottom Right Icon */}
-                     <div className='single-progress-block-2-bottom-right-icon w-[102px] h-[102px] absolute bottom-[60px] md:bottom-[50px] lg:bottom-[60px] -right-[26px] md:right-[66px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.6]' style={{ filter: 'drop-shadow(0 6.664px 289.864px rgba(255, 255, 255, 0.11)) blur(2.970884323120117px)' }}>
+                     <div className={`single-progress-block-2-bottom-right-icon w-[102px] h-[102px] absolute bottom-[60px] md:bottom-[50px] lg:bottom-[60px] -right-[26px] md:right-[66px] flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.6] ${!isMobile ? '[filter:drop-shadow(0_6.664px_289.864px_rgba(255,255,255,0.11))_blur(2.97px)]' : ''}`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="54" height="42" viewBox="0 0 54 42" fill="none">
                            <path d="M45.2333 3.46183C41.7768 1.84459 38.0809 0.66925 34.2169 0C33.7423 0.857955 33.1879 2.01192 32.8057 2.9299C28.6982 2.31218 24.6284 2.31218 20.5965 2.9299C20.2143 2.01192 19.6473 0.857955 19.1685 0C15.3004 0.66925 11.6002 1.84891 8.14365 3.47039C1.17174 14.0059 -0.71823 24.2797 0.226757 34.4076C4.85089 37.8607 9.33224 39.9585 13.738 41.3311C14.8258 39.834 15.7959 38.2425 16.6317 36.5653C15.0399 35.9605 13.5154 35.2141 12.0748 34.3475C12.457 34.0644 12.8308 33.7684 13.192 33.4638C21.9782 37.5734 31.5247 37.5734 40.206 33.4638C40.5714 33.7684 40.9452 34.0644 41.3232 34.3475C39.8784 35.2183 38.3496 35.9647 36.7579 36.5696C37.5937 38.2425 38.5596 39.8383 39.6516 41.3354C44.0616 39.9627 48.5471 37.8651 53.1712 34.4076C54.28 22.6667 51.2771 12.4873 45.2333 3.46183ZM17.8287 28.179C15.1912 28.179 13.0282 25.7167 13.0282 22.7182C13.0282 19.7197 15.145 17.2532 17.8287 17.2532C20.5125 17.2532 22.6754 19.7154 22.6293 22.7182C22.6334 25.7167 20.5125 28.179 17.8287 28.179ZM35.5693 28.179C32.9317 28.179 30.7687 25.7167 30.7687 22.7182C30.7687 19.7197 32.8855 17.2532 35.5693 17.2532C38.253 17.2532 40.416 19.7154 40.3698 22.7182C40.3698 25.7167 38.253 28.179 35.5693 28.179Z" fill="white" />
                         </svg>
@@ -766,7 +773,7 @@ export default function page() {
                         <div className='w-[282px] md:w-[552px] lg:w-[642px] h-[42px] md:h-[83px] lg:h-[96px] absolute left-1/2 -translate-x-1/2 bottom-[8px] md:bottom-[17px] lg:bottom-[19px] border border-[#272727] bg-black opacity-[.5] rounded-[368px] md:rounded-[754px] lg:rounded-[878px]'></div>
 
                         {/* Top Block */}
-                        <div className='w-full h-[48px] md:h-[93px] lg:h-[108px] px-[12px] md:px-[20px] lg:px-[24px] absolute left-1/2 -translate-x-1/2 top-0 border border-[#272727] bg-[#060606] rounded-[38px] md:rounded-[75px] lg:rounded-[88px] z-1 shadow-[0_5.145px_41.898px_0_rgba(255,255,255,0.11)] md:shadow-[0_10.55px_85.911px_0_rgba(255,255,255,0.11)] lg:shadow-[0_12.277px_99.969px_0_rgba(255,255,255,0.11)] flex items-center justify-center gap-[8px] md:gap-[18px] lg:gap-[21px]'>
+                        <div className='w-full h-[48px] md:h-[93px] lg:h-[108px] px-[12px] md:px-[20px] lg:px-[24px] absolute left-1/2 -translate-x-1/2 top-0 border border-[#272727] bg-[#060606] rounded-[38px] md:rounded-[75px] lg:rounded-[88px] z-1 md:shadow-[0_10.55px_85.911px_0_rgba(255,255,255,0.11)] lg:shadow-[0_12.277px_99.969px_0_rgba(255,255,255,0.11)] flex items-center justify-center gap-[8px] md:gap-[18px] lg:gap-[21px]'>
                            <svg className='w-[10px] md:w-[20px] lg:w-[23px] h-auto' xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                               <path d="M10.5032 16.8469C10.4015 16.4524 10.1958 16.0924 9.90774 15.8043C9.61964 15.5162 9.25961 15.3106 8.8651 15.2088L1.87138 13.4054C1.75206 13.3715 1.64705 13.2996 1.57227 13.2007C1.49749 13.1017 1.45703 12.9811 1.45703 12.857C1.45703 12.733 1.49749 12.6123 1.57227 12.5134C1.64705 12.4144 1.75206 12.3426 1.87138 12.3087L8.8651 10.5041C9.25947 10.4025 9.61941 10.197 9.90749 9.90911C10.1956 9.62123 10.4013 9.26143 10.5032 8.86713L12.3067 1.87341C12.3402 1.75361 12.412 1.64808 12.5111 1.5729C12.6102 1.49772 12.7312 1.45703 12.8556 1.45703C12.98 1.45703 13.1009 1.49772 13.2 1.5729C13.2991 1.64808 13.3709 1.75361 13.4045 1.87341L15.2068 8.86713C15.3085 9.26164 15.5142 9.62167 15.8023 9.90977C16.0903 10.1979 16.4504 10.4035 16.8449 10.5053L23.8386 12.3076C23.9589 12.3407 24.0649 12.4125 24.1405 12.5117C24.2161 12.611 24.257 12.7323 24.257 12.857C24.257 12.9818 24.2161 13.1031 24.1405 13.2024C24.0649 13.3016 23.9589 13.3733 23.8386 13.4065L16.8449 15.2088C16.4504 15.3106 16.0903 15.5162 15.8023 15.8043C15.5142 16.0924 15.3085 16.4524 15.2068 16.8469L13.4033 23.8407C13.3698 23.9604 13.298 24.066 13.1989 24.1412C13.0998 24.2163 12.9788 24.257 12.8544 24.257C12.73 24.257 12.6091 24.2163 12.5099 24.1412C12.4108 24.066 12.3391 23.9604 12.3055 23.8407L10.5032 16.8469Z" fill="white" stroke="white" strokeWidth="2.91542" strokeLinecap="round" strokeLinejoin="round" />
                            </svg>
