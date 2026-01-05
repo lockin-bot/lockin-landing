@@ -461,7 +461,7 @@ export default function page() {
   return (
       <div className="min-h-screen bg-black">
          {/* Hero */}
-         <div className='w-full h-[700px] md:h-[850px] lg:h-screen lg:min-h-[900px] relative overflow-hidden'>
+         <div className='w-full h-screen min-h-[700px] md:min-h-[850px] lg:min-h-[900px] relative overflow-hidden'>
             {/* Cluster SVGs - TEMPORARILY DISABLED */}
             {/* <div className='hero-cluster-svg hero-cluster-svg-1 w-[280px] h-[320px] absolute top-[220px] md:top-[340px] -left-[237px] md:left-[48px] lg:left-[113px] z-2 opacity-0'>
                <Image
@@ -601,7 +601,9 @@ export default function page() {
             </div>
 
             {/* Hero Content */}
-            <div className='w-full h-full flex flex-col items-center gap-[40px] md:gap-[24px] lg:gap-[8px] 2xl:gap-[24px] pt-[90px] md:pt-[110px] lg:pt-[120px] 2xl:pt-[140px] pb-0 2xl:pb-[80px] px-[12px] relative z-4 2xl:justify-center'>
+            <div className='w-full h-full flex flex-col items-center pt-[80px] md:pt-[100px] lg:pt-[120px] pb-[40px] md:pb-[60px] lg:pb-[60px] px-[12px] relative z-4'>
+               {/* Content Wrapper - centers content while respecting padding */}
+               <div className='w-full flex-1 flex flex-col items-center justify-center gap-[40px] md:gap-[24px] lg:gap-[8px]'>
                {/* Main Content */}
                <div className='w-full max-w-[587px] mx-auto flex flex-col items-center'>
                   {/* Hero Title */}
@@ -657,6 +659,7 @@ export default function page() {
                         draggable={false}
                      />
           </div>
+               </div>
                </div>
             </div>
             
