@@ -269,11 +269,9 @@ export default function page() {
 
       if (!trigger || !pinEl) return;
 
-      const pinHeight = (pinEl as HTMLElement).offsetHeight;
-
       ScrollTrigger.create({
          trigger,
-         start: `top-=${pinHeight - 80}px top`,
+         start: 'top top',
          end: 'bottom bottom',
 
          onEnter: () => {
@@ -282,23 +280,27 @@ export default function page() {
             (pinEl as HTMLElement).style.left = '0';
             (pinEl as HTMLElement).style.width = '100%';
             (pinEl as HTMLElement).style.opacity = '1';
+            (pinEl as HTMLElement).style.visibility = 'visible';
          },
 
          onLeave: () => {
             (pinEl as HTMLElement).style.position = 'absolute';
             (pinEl as HTMLElement).style.bottom = '0';
-            (pinEl as HTMLElement).style.bottom = '0';
+            (pinEl as HTMLElement).style.opacity = '0';
+            (pinEl as HTMLElement).style.visibility = 'hidden';
          },
 
          onEnterBack: () => {
             (pinEl as HTMLElement).style.position = 'fixed';
             (pinEl as HTMLElement).style.bottom = '0';
+            (pinEl as HTMLElement).style.opacity = '1';
+            (pinEl as HTMLElement).style.visibility = 'visible';
          },
 
          onLeaveBack: () => {
             (pinEl as HTMLElement).style.opacity = '0';
-            // (pinEl as HTMLElement).style.position = 'absolute';
-            (pinEl as HTMLElement).style.bottom = '0';
+            (pinEl as HTMLElement).style.visibility = 'hidden';
+            (pinEl as HTMLElement).style.position = 'absolute';
             (pinEl as HTMLElement).style.bottom = '0';
          }
       });
@@ -459,7 +461,7 @@ export default function page() {
   return (
       <div className="min-h-screen bg-black">
          {/* Hero */}
-         <div className='w-full h-[700px] md:h-[850px] lg:h-[900px] relative overflow-hidden'>
+         <div className='w-full h-[700px] md:h-[850px] lg:h-screen lg:min-h-[900px] relative overflow-hidden'>
             {/* Cluster SVGs - TEMPORARILY DISABLED */}
             {/* <div className='hero-cluster-svg hero-cluster-svg-1 w-[280px] h-[320px] absolute top-[220px] md:top-[340px] -left-[237px] md:left-[48px] lg:left-[113px] z-2 opacity-0'>
                <Image
@@ -534,7 +536,7 @@ export default function page() {
             </div> */}
 
             {/* Stars Left */}
-            <div className='w-[411px] md:w-[650px] h-[500px] md:h-[650px] absolute top-0 -left-[221px] md:-left-[322px] lg:left-0 z-3'>
+            <div className='w-[411px] md:w-[650px] 2xl:w-[850px] h-[500px] md:h-[650px] 2xl:h-[850px] absolute top-0 -left-[221px] md:-left-[322px] lg:left-0 z-3'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -546,7 +548,7 @@ export default function page() {
             </div>
 
             {/* Stars Right */}
-            <div className='w-[411px] md:w-[650px] h-[500px] md:h-[650px] absolute top-0 -right-[221px] md:-right-[322px] lg:right-0 z-3'>
+            <div className='w-[411px] md:w-[650px] 2xl:w-[850px] h-[500px] md:h-[650px] 2xl:h-[850px] absolute top-0 -right-[221px] md:-right-[322px] lg:right-0 z-3'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -559,7 +561,7 @@ export default function page() {
 
             {/* Circle Gradient Layer */}
             <div className='absolute top-0 left-0 w-full h-full z-1 pointer-events-none'>
-               <div className='w-[1000px] md:w-[1400px] lg:w-[1700px] h-[700px] md:h-[900px] lg:h-[1100px] absolute -top-[89px] -left-[232px] md:-left-[290px] lg:-left-[104px] 2xl:left-[136px] rounded-full bg-[#0F0E38] filter-[blur(249px)] md:filter-[blur(348px)] lg:filter-[blur(432px)]'></div>
+               <div className='w-[1000px] md:w-[1400px] lg:w-[1700px] 2xl:w-[2100px] h-[700px] md:h-[900px] lg:h-[1100px] 2xl:h-[1400px] absolute -top-[89px] -left-[232px] md:-left-[290px] lg:-left-[104px] 2xl:left-[136px] rounded-full bg-[#0F0E38] filter-[blur(249px)] md:filter-[blur(348px)] lg:filter-[blur(432px)]'></div>
             </div>
 
             {/* Tail Gradient Layer 1 */}
@@ -599,7 +601,7 @@ export default function page() {
             </div>
 
             {/* Hero Content */}
-            <div className='w-full h-full flex flex-col items-center gap-[40px] md:gap-[24px] lg:gap-[8px] pt-[90px] md:pt-[110px] lg:pt-[120px] px-[12px] relative z-4'>
+            <div className='w-full h-full flex flex-col items-center gap-[40px] md:gap-[24px] lg:gap-[8px] 2xl:gap-[24px] pt-[90px] md:pt-[110px] lg:pt-[120px] 2xl:pt-[140px] pb-0 2xl:pb-[80px] px-[12px] relative z-4 2xl:justify-center'>
                {/* Main Content */}
                <div className='w-full max-w-[587px] mx-auto flex flex-col items-center'>
                   {/* Hero Title */}
@@ -621,7 +623,7 @@ export default function page() {
                {/* Image Wrapper */}
                <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
-                  <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] z-0 pointer-events-none'>
+                  <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] 2xl:w-[2200px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] 2xl:h-[1500px] z-0 pointer-events-none'>
                      <DotLottieReact
                         src="/Hero V2.lottie"
                         loop
@@ -630,7 +632,7 @@ export default function page() {
                      />
                   </div>
                   {/* Owl Image */}
-                  <div className='w-full h-[230px] md:h-[360px] flex relative left-[16px] md:left-[28px] lg:left-[35px] z-10'>
+                  <div className='w-full h-[230px] md:h-[360px] lg:h-[380px] 2xl:h-[500px] flex relative left-[16px] md:left-[28px] lg:left-[35px] z-10'>
                      <Image
                         src={'/hero/owl.webp'}
                         width={2935}
@@ -639,19 +641,19 @@ export default function page() {
                         className='w-full h-full object-contain'
                         priority
                         draggable={false}
-                        sizes="(max-width: 768px) 260px, (max-width: 1536px) 440px, 500px"
+                        sizes="(max-width: 768px) 260px, (max-width: 1536px) 440px, 600px"
                      />
               </div>
 
                   {/* Backed by Alliance */}
-                  <div className='w-full flex items-center justify-center gap-[8px] md:gap-[11px]'>
-                     <span className='text-[15px] md:text-[20px] leading-[22px] md:leading-[150%] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-medium'>Backed by Alliance</span>
+                  <div className='w-full flex items-center justify-center gap-[8px] md:gap-[11px] lg:gap-[14px]'>
+                     <span className='text-[15px] md:text-[20px] lg:text-[24px] leading-[22px] md:leading-[150%] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-medium'>Backed by Alliance</span>
                      <Image
                         src={'/hero/alliance-logo.svg'}
                         width={24}
                         height={24}
                         alt='Alliance'
-                        className='w-[24px] h-[24px] object-contain'
+                        className='w-[24px] h-[24px] lg:w-[28px] lg:h-[28px] object-contain'
                         draggable={false}
                      />
           </div>
@@ -911,7 +913,7 @@ export default function page() {
 
             {/* Progress Bar Wrapper */}
             <div className='sticky-parent-container absolute top-0 left-0 w-full h-full z-1 overflow-hidden pointer-events-none'>
-               <div className='progress-bar-sticky-block fixed top-0 left-0 w-full h-dvh flex items-end opacity-0'>
+               <div className='progress-bar-sticky-block fixed top-0 left-0 w-full h-dvh flex items-end opacity-0 invisible'>
                   <div className='w-full h-[120px] flex items-end justify-center pb-[24px] gap-[8px]' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%)' }}>
                      <div className='flex flex-col items-center gap-[10px]'>
                         <span className='text-[13px] md:text-[16px] leading-[20px] -tracking-[0.32px] text-white font-medium'>Strongest Path</span>
@@ -947,10 +949,10 @@ export default function page() {
             <div className='absolute top-0 left-0 w-full h-[150px] md:h-[200px] lg:h-[250px] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, #090821 0%, #090821 20%, rgba(9, 8, 33, 0.5) 50%, transparent 100%)' }}></div>
             
             {/* Circle Gradient - moved higher for better blending */}
-            <div className='absolute left-1/2 -translate-x-1/2 -top-[100px] md:-top-[50px] lg:-top-[280px] w-[814px] md:w-[1222px] lg:w-[1443px] h-[662px] md:h-[994px] lg:h-[1174px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px]'></div>
+            <div className='absolute left-1/2 -translate-x-1/2 -top-[100px] md:-top-[50px] lg:-top-[280px] w-[814px] md:w-[1222px] lg:w-[1443px] 2xl:w-[1800px] h-[662px] md:h-[994px] lg:h-[1174px] 2xl:h-[1500px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px]'></div>
 
             {/* Stars Left */}
-            <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -961,8 +963,8 @@ export default function page() {
                />
             </div>
 
-            {/* Stars Left */}
-            <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
+            {/* Stars Right */}
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -985,7 +987,7 @@ export default function page() {
             </div>
 
             {/* Cards Block */}
-            <div className='w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[20px] relative z-1'>
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[20px] relative z-1'>
                {/* Single Cards 1 */}
                <div className='w-full h-auto px-[12px] md:px-[20px] flex flex-col items-center'>
                   {/* Icon Wrapper */}
@@ -1032,7 +1034,7 @@ export default function page() {
 
       {/* Case Study */}
          <div className='w-full h-auto px-[16px] relative'>
-            <div className='w-full max-w-[1000px] mx-auto p-[8px] md:p-[14px] lg:p-[20px] pb-[16px] md:pb-[20px] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] bg-black border border-[rgba(255,255,255,0.10)]'>
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto p-[8px] md:p-[14px] lg:p-[20px] pb-[16px] md:pb-[20px] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] bg-black border border-[rgba(255,255,255,0.10)]'>
                <div className='w-full h-full flex max-lg:flex-col gap-[16px] md:gap-[24px] lg:gap-[28px]'>
                   {/* Image Block */}
                   <div className='w-full max-w-full lg:min-w-[450px] lg:max-w-[450px] h-auto rounded-[12px] md:rounded-[22px] lg:rounded-[18px] overflow-hidden'>
@@ -1361,10 +1363,10 @@ export default function page() {
             </div>
 
             {/* Circle Gradient */}
-            <div className='w-[1208px] md:w-[1222px] lg:w-[1443px] h-[983px] md:h-[994px] lg:h-[1174px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
+            <div className='w-[1208px] md:w-[1222px] lg:w-[1443px] 2xl:w-[1800px] h-[983px] md:h-[994px] lg:h-[1174px] 2xl:h-[1500px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
 
             {/* Stars Left */}
-            <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -1375,8 +1377,8 @@ export default function page() {
                />
             </div>
 
-            {/* Stars Left */}
-            <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
+            {/* Stars Right */}
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -1388,7 +1390,7 @@ export default function page() {
             </div>
 
             {/* Plans Block */}
-            <div className='w-full max-w-[1000px] mx-auto flex flex-col-reverse md:flex-row gap-[12px] md:gap-[16px] lg:gap-[22px]'>
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex flex-col-reverse md:flex-row gap-[12px] md:gap-[16px] lg:gap-[22px]'>
                {/* Standart Plan */}
                <div className='w-full h-auto rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#272727] bg-black backdrop-blur-md p-[16px] lg:p-[24px]'>
                   {/* Title Text */}
@@ -1625,7 +1627,7 @@ export default function page() {
             </div>
 
             {/* FAQ Wrapper */}
-            <div className='w-full max-w-[1000px] flex flex-col'>
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] flex flex-col'>
                {faqData.map((item, i) => (
                   // Single Faq Item
                   <div className={`w-full ${activeFaq === i ? 'h-[200px] md:h-[185px] lg:h-[160px] bg-black rounded-[20px] md:rounded-[36px] border border-[#272727]' : 'h-[64px] md:h-[72px] border-t border-x border-t-transparent border-x-transparent'} ${(i !== faqData.length - 1 && i !== activePrevFaq) ? 'border-b border-b-[#272727]' : ''} overflow-hidden pl-[12px] md:pl-[24px] lg:pl-[28px] pr-[12px] md:pr-[18px] lg:pr-[28px] transition-[height,background] duration-300`} key={i}>
@@ -1652,10 +1654,10 @@ export default function page() {
          {/* Footer */}
          <div className='w-full h-auto flex flex-col items-center px-[16px] md:px-[18px] pt-[40px] md:pt-[60px] lg:pt-[80px] relative overflow-x-clip'>
             {/* Circle Gradient */}
-            <div className='w-[493px] md:w-[1061px] lg:w-[1481px] h-[493px] md:h-[1048px] lg:h-[1100px] absolute bottom-0 left-1/2 -translate-x-1/2 lg:rounded-full bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
+            <div className='w-[493px] md:w-[1061px] lg:w-[1481px] 2xl:w-[1900px] h-[493px] md:h-[1048px] lg:h-[1100px] 2xl:h-[1400px] absolute bottom-0 left-1/2 -translate-x-1/2 lg:rounded-full bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
 
             {/* Stars */}
-            <div className='w-[348px] md:w-[728px] h-[660px] md:h-[1380px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90'>
+            <div className='w-[348px] md:w-[728px] 2xl:w-[950px] h-[660px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -1683,7 +1685,7 @@ export default function page() {
           </div>
           
             {/* Footer Block */}
-            <div className='w-full max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[16px] md:px-[24px] pt-[20px] md:pt-[24px] lg:pt-[48px]'>
+            <div className='w-full max-w-[1200px] 2xl:max-w-[1400px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[16px] md:px-[24px] pt-[20px] md:pt-[24px] lg:pt-[48px]'>
                <div className='w-full max-w-[1110px] mx-auto flex flex-col md:flex-row items-start justify-between'>
                   {/* Left Block */}
                   <div className='flex flex-col'>
