@@ -4,9 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lottie from 'lottie-react';
-import heroAnimation from '../public/hero/hero-animation.json';
-import graphicAnimation from '../public/features/know-the-right-moment/graphic-animation.json';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +14,7 @@ const carouselData = [
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.png',
+      avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -27,7 +25,7 @@ const carouselData = [
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.png',
+      avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -38,7 +36,7 @@ const carouselData = [
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.png',
+      avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -523,7 +521,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-cover'
                />
@@ -536,7 +533,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-cover'
                />
@@ -550,12 +546,11 @@ export default function page() {
             {/* Tail Gradient Layer 1 */}
             <div className='hero-tail-gradient hero-tail-gradient-1 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/backgrounds/glows/glows-png-1.png'
+                  src='/backgrounds/glows/glows-png-1.webp'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 1'
                   className='w-full h-full object-cover'
-                  priority
                   draggable={false}
                />
             </div>
@@ -563,12 +558,11 @@ export default function page() {
             {/* Tail Gradient Layer 2 */}
             <div className='hero-tail-gradient hero-tail-gradient-2 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/backgrounds/glows/glows-png-2.png'
+                  src='/backgrounds/glows/glows-png-2.webp'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 2'
                   className='w-full h-full object-cover'
-                  priority
                   draggable={false}
                />
             </div>
@@ -576,12 +570,11 @@ export default function page() {
             {/* Tail Gradient Layer 3 */}
             <div className='hero-tail-gradient hero-tail-gradient-3 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/backgrounds/glows/glows-png-3.png'
+                  src='/backgrounds/glows/glows-png-3.webp'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 3'
                   className='w-full h-full object-cover'
-                  priority
                   draggable={false}
                />
             </div>
@@ -609,18 +602,18 @@ export default function page() {
                {/* Image Wrapper */}
                <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
-                  <div className='absolute -top-[200px] md:-top-[410px] lg:-top-[560px] left-1/2 -translate-x-[55%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] h-[450px] md:h-[800px] lg:h-[1100px] xl:h-[1200px] z-0 pointer-events-none'>
-                     <Lottie 
-                        animationData={heroAnimation}
-                        loop={true}
-                        autoplay={true}
-                        className='w-full h-full'
+                  <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] z-0 pointer-events-none'>
+                     <DotLottieReact
+                        src="/Hero V2.lottie"
+                        loop
+                        autoplay
+                        style={{ width: '100%', height: '100%' }}
                      />
                   </div>
                   {/* Owl Image */}
                   <div className='w-full h-[230px] md:h-[360px] flex relative left-[16px] md:left-[28px] lg:left-[35px] z-10'>
                      <Image
-                        src={'/hero/owl.png'}
+                        src={'/hero/owl.webp'}
                         width={2935}
                         height={2375}
                         alt='Owl'
@@ -640,7 +633,6 @@ export default function page() {
                         height={24}
                         alt='Alliance'
                         className='w-[24px] h-[24px] object-contain'
-                        priority
                         draggable={false}
                      />
           </div>
@@ -682,12 +674,11 @@ export default function page() {
                      {/* Main Layer */}
                      <div className='w-[335px] md:w-[480px] lg:w-[550px] h-[235px] md:h-[310px] lg:h-[360px] px-[16px] md:px-[24px] lg:px-[20px] pt-[14px] md:pt-[20px] lg:pt-[24px] flex items-start absolute left-1/2 -translate-x-1/2 bottom-[17px] md:bottom-[23px] lg:bottom-[29px] bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px]'>
                         <Image
-                           src={'/features/find-the-strongest-path/find-the-strongest-path.png'}
+                           src={'/features/find-the-strongest-path/find-the-strongest-path.webp'}
                            width={2371}
                            height={1128}
                            alt='Founder & CEO'
                            className='w-full h-auto'
-                           priority
                            quality={100}
                            draggable={false}
                         />
@@ -733,7 +724,6 @@ export default function page() {
                            height={400}
                            alt='Bottom Left Icon'
                            className='w-full h-auto'
-                           priority
                            draggable={false}
                         />
             </div>
@@ -776,7 +766,6 @@ export default function page() {
                                        height={1.7}
                                        alt='Text Line 1'
                                        className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       priority
                                        draggable={false}
                                     />
                                  </p> <p className='inline-block text-[#CC77F1] relative'>in my ICP
@@ -786,7 +775,6 @@ export default function page() {
                                        height={1.7}
                                        alt='Text Line 1'
                                        className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       priority
                                        draggable={false}
                                     />
                                  </p> is <p className='inline-block text-[#77F1D9] relative'>active
@@ -796,7 +784,6 @@ export default function page() {
                                        height={1.7}
                                        alt='Text Line 1'
                                        className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       priority
                                        draggable={false}
                                     />
                                  </p> in <p className='inline-block text-[#F1C477] relative'>any of my groups
@@ -806,7 +793,6 @@ export default function page() {
                                        height={1.7}
                                        alt='Text Line 1'
                                        className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       priority
                                        draggable={false}
                                     />
                                  </p> on <p className='inline-block text-[#F177BE] relative'>Telegram
@@ -816,7 +802,6 @@ export default function page() {
                                        height={1.7}
                                        alt='Text Line 1'
                                        className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       priority
                                        draggable={false}
                                     />
                                  </p>
@@ -854,12 +839,12 @@ export default function page() {
                      </div>
 
                      {/* Lottie Animation Card */}
-                     <div className='w-[360px] md:w-[520px] lg:w-[610px] h-[230px] md:h-[245px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'>
-                        <Lottie 
-                           animationData={graphicAnimation}
-                           loop={true}
-                           autoplay={true}
-                           className='w-full h-full'
+                     <div className='w-[360px] md:w-[520px] lg:w-[610px] h-[192px] md:h-[277px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'>
+                        <DotLottieReact
+                           src="/Graphic Animation V2.lottie"
+                           loop
+                           autoplay
+                           style={{ width: '100%', height: '100%' }}
                         />
                      </div>
               
@@ -886,12 +871,11 @@ export default function page() {
                      {/* Globe image block */}
                      <div className='w-full min-w-[620px] md:min-w-[875px] lg:min-w-[1016px] max-w-[1016px] h-auto absolute left-1/2 -translate-x-1/2 bottom-[25px] md:bottom-[34px] lg:bottom-[42px] flex'>
                         <Image
-                           src={'/features/expand-beyond/globe-expand-beyond.png'}
+                           src={'/features/expand-beyond/globe-expand-beyond.webp'}
                            width={4440}
                            height={1676}
                            alt='Globe'
                            className='w-full h-auto'
-                           priority
                            draggable={false}
                            quality={100}
                         />
@@ -953,7 +937,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-contain'
                />
@@ -966,7 +949,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-contain'
                />
@@ -994,7 +976,6 @@ export default function page() {
                         width={110}
                         height={55}
                         alt='Trusted Execution Environment Icon'
-                        priority
                         draggable={false}
                      />
                   </div>
@@ -1016,7 +997,6 @@ export default function page() {
                         width={95}
                         height={44}
                         alt='Trusted Execution Environment Icon'
-                        priority
                         draggable={false}
                      />
                   </div>
@@ -1038,11 +1018,10 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-full max-w-full lg:min-w-[450px] lg:max-w-[450px] h-auto rounded-[12px] md:rounded-[22px] lg:rounded-[18px] overflow-hidden'>
                      <Image
-                        src={'/testimonials/case-study.png'}
+                        src={'/testimonials/case-study.webp'}
                         width={1310}
                         height={804}
                         alt='Case Study'
-                        priority
                         draggable={false}
                         className='w-full h-auto object-cover'
                      />
@@ -1221,7 +1200,6 @@ export default function page() {
                         width={302}
                         height={312}
                         alt='Trusted Execution Environment Icon'
-                        priority
                         draggable={false}
                         className='shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] rounded-full'
                      />
@@ -1247,7 +1225,6 @@ export default function page() {
                         width={349}
                         height={121}
                         alt='Trusted Execution Environment Icon'
-                        priority
                         draggable={false}
                         className='shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] w-full h-full'
                      />
@@ -1270,14 +1247,14 @@ export default function page() {
                      {/* Row 1 - Active with avatar */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full overflow-hidden border border-[rgba(255,255,255,0.15)] flex-shrink-0'>
-                           <Image src='/security/avatar-top.png' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
+                           <Image src='/security/avatar-top.webp' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
                         </div>
                         <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px]' style={{ background: 'linear-gradient(-5deg, rgba(255,255,255,0.4) 32%, transparent 82%), linear-gradient(90deg, #1363A9 0%, #1363A9 100%)' }} />
                      </div>
                      {/* Row 2 - Active with avatar */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full overflow-hidden border border-[rgba(255,255,255,0.15)] flex-shrink-0'>
-                           <Image src='/security/avatar-bottom.png' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
+                           <Image src='/security/avatar-bottom.webp' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
                         </div>
                         <div className='w-[65%] h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px]' style={{ background: 'linear-gradient(-5deg, rgba(255,255,255,0.4) 32%, transparent 82%), linear-gradient(90deg, #1363A9 0%, #1363A9 100%)' }} />
                      </div>
@@ -1319,7 +1296,6 @@ export default function page() {
                            width={122}
                            height={50}
                            alt='Trusted Execution Environment Icon'
-                           priority
                            draggable={false}
                         />
                      </div>
@@ -1341,7 +1317,6 @@ export default function page() {
                            width={98}
                            height={66}
                            alt='Trusted Execution Environment Icon'
-                           priority
                            draggable={false}
                         />
                      </div>
@@ -1376,7 +1351,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-contain'
                />
@@ -1389,7 +1363,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-contain'
                />
@@ -1495,11 +1468,10 @@ export default function page() {
                   {/* Owl Image */}
                   <div className='w-[100px] md:w-[105px] lg:w-[170px] h-[63px] md:h-[67px] lg:h-[108px] flex items-center justify-center absolute top-[76px] md:top-[70px] lg:top-[72px] right-[10px] md:right-[16px] lg:right-[24px]'>
                      <Image
-                        src={'/pricing/pro-plan-owl.png'}
+                        src={'/pricing/pro-plan-owl.webp'}
                         width={210}
                         height={134}
                         alt='Pro Plan Owl'
-                        priority
                         draggable={false}
                         className='w-full h-full object-contain'
                      />
@@ -1670,7 +1642,6 @@ export default function page() {
                   width={1380}
                   height={728}
                   alt='Stars Left'
-                  priority
                   draggable={false}
                   className='w-full h-full object-contain'
                />

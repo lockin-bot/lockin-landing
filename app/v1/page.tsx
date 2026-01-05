@@ -13,7 +13,7 @@ const carouselData = [
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.png',
+      avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -24,7 +24,7 @@ const carouselData = [
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.png',
+      avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -35,7 +35,7 @@ const carouselData = [
       logoWidth: 203,
       logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.png',
+      avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
@@ -547,7 +547,7 @@ export default function page() {
             {/* Tail Gradient Layer 1 */}
             <div className='hero-tail-gradient hero-tail-gradient-1 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/backgrounds/glows/glows-png-1.png'
+                  src='/backgrounds/glows/glows-png-1.webp'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 1'
@@ -560,7 +560,7 @@ export default function page() {
             {/* Tail Gradient Layer 2 */}
             <div className='hero-tail-gradient hero-tail-gradient-2 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/backgrounds/glows/glows-png-2.png'
+                  src='/backgrounds/glows/glows-png-2.webp'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 2'
@@ -573,7 +573,7 @@ export default function page() {
             {/* Tail Gradient Layer 3 */}
             <div className='hero-tail-gradient hero-tail-gradient-3 w-full h-full absolute top-0 left-0 z-1 flex'>
                <Image
-                  src='/backgrounds/glows/glows-png-3.png'
+                  src='/backgrounds/glows/glows-png-3.webp'
                   width={1980}
                   height={1134}
                   alt='Tail Gradient Layer 3'
@@ -608,7 +608,7 @@ export default function page() {
                   {/* Owl Image */}
                   <div className='w-full h-[230px] md:h-[360px] flex relative left-[16px] md:left-[28px] lg:left-[35px]'>
                      <Image
-                        src={'/hero/owl.png'}
+                        src={'/hero/owl.webp'}
                         width={2935}
                         height={2375}
                         alt='Owl'
@@ -667,7 +667,7 @@ export default function page() {
                      {/* Main Layer */}
                      <div className='w-[335px] md:w-[480px] lg:w-[550px] h-[235px] md:h-[310px] lg:h-[360px] px-[16px] md:px-[24px] lg:px-[20px] pt-[14px] md:pt-[20px] lg:pt-[24px] flex items-start absolute left-1/2 -translate-x-1/2 bottom-[17px] md:bottom-[23px] lg:bottom-[29px] bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px]'>
                         <Image
-                           src={'/features/find-the-strongest-path/find-the-strongest-path.png'}
+                           src={'/features/find-the-strongest-path/find-the-strongest-path.webp'}
                            width={2371}
                            height={1128}
                            alt='Founder & CEO'
@@ -875,7 +875,7 @@ export default function page() {
                      {/* Globe image block */}
                      <div className='w-full min-w-[620px] md:min-w-[875px] lg:min-w-[1016px] max-w-[1016px] h-auto absolute left-1/2 -translate-x-1/2 bottom-[25px] md:bottom-[34px] lg:bottom-[42px] flex'>
                         <Image
-                           src={'/features/expand-beyond/globe-expand-beyond.png'}
+                           src={'/features/expand-beyond/globe-expand-beyond.webp'}
                            width={4440}
                            height={1676}
                            alt='Globe'
@@ -1024,7 +1024,7 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-full max-w-full lg:min-w-[450px] lg:max-w-[450px] h-auto rounded-[12px] md:rounded-[22px] lg:rounded-[18px] overflow-hidden'>
                      <Image
-                        src={'/testimonials/case-study.png'}
+                        src={'/testimonials/case-study.webp'}
                         width={1310}
                         height={804}
                         alt='Case Study'
@@ -1459,7 +1459,7 @@ export default function page() {
                   {/* Owl Image */}
                   <div className='w-[100px] md:w-[105px] lg:w-[170px] h-[63px] md:h-[67px] lg:h-[108px] flex items-center justify-center absolute top-[76px] md:top-[70px] lg:top-[72px] right-[10px] md:right-[16px] lg:right-[24px]'>
                      <Image
-                        src={'/pricing/pro-plan-owl.png'}
+                        src={'/pricing/pro-plan-owl.webp'}
                         width={210}
                         height={134}
                         alt='Pro Plan Owl'
