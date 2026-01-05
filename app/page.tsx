@@ -8,6 +8,20 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Hook to detect mobile
+function useIsMobile() {
+   const [isMobile, setIsMobile] = useState(false);
+   
+   useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 768);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+   }, []);
+   
+   return isMobile;
+}
+
 const carouselData = [
    {
       logo: '/testimonials/logo-1.svg',
@@ -82,6 +96,7 @@ export default function page() {
    const nextRef = useRef<() => void>(() => { });
    const [activeFaq, setActiveFaq] = useState<number | null>(null);
    const [activePrevFaq, setActivePrevFaq] = useState<number | null>(null);
+   const isMobile = useIsMobile();
 
    const setActive = useCallback((idx: number) => {
       activeIndexRef.current = idx;
@@ -620,9 +635,9 @@ export default function page() {
                         className='w-full h-full object-contain'
                         priority
                         draggable={false}
-                        // quality={100}
+                        sizes="(max-width: 768px) 260px, (max-width: 1536px) 440px, 500px"
                      />
-            </div>
+              </div>
 
                   {/* Backed by Alliance */}
                   <div className='w-full flex items-center justify-center gap-[8px] md:gap-[11px]'>
@@ -842,8 +857,8 @@ export default function page() {
                      <div className='w-[360px] md:w-[520px] lg:w-[610px] h-[192px] md:h-[277px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'>
                         <DotLottieReact
                            src="/Graphic Animation V2.lottie"
-                           loop
-                           autoplay
+                           loop={!isMobile}
+                           autoplay={!isMobile}
                            style={{ width: '100%', height: '100%' }}
                         />
                      </div>
