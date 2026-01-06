@@ -24,37 +24,28 @@ function useIsMobile() {
 
 const carouselData = [
    {
-      logo: '/testimonials/logo-1.svg',
-      logoWidth: 203,
-      logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
       avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
-      role: 'CEO at Goldman Sachs'
+      role: 'CEO'
    },
    {
-      logo: '/testimonials/logo-1.svg',
-      logoWidth: 203,
-      logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
       avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
-      role: 'CEO at Goldman Sachs'
+      role: 'CEO'
    },
    {
-      logo: '/testimonials/logo-1.svg',
-      logoWidth: 203,
-      logoHeight: 30,
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
       avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Bob Mark',
-      role: 'CEO at Goldman Sachs'
+      role: 'CEO'
    }
 ];
 
@@ -634,16 +625,16 @@ export default function page() {
                      />
                   </div>
                   {/* Owl Image */}
-                  <div className='w-full h-[230px] md:h-[360px] lg:h-[380px] 2xl:h-[500px] flex relative left-[16px] md:left-[28px] lg:left-[35px] z-10'>
+                  <div className='w-full h-[230px] md:h-[360px] lg:h-[380px] 2xl:h-[500px] flex justify-center z-10'>
                      <Image
-                        src={'/hero/owl.webp'}
-                        width={2935}
-                        height={2375}
+                        src={'/Owl (1).png'}
+                        width={1042}
+                        height={950}
                         alt='Owl'
                         className='w-full h-full object-contain'
                         priority
                         draggable={false}
-                        sizes="(max-width: 768px) 260px, (max-width: 1536px) 440px, 600px"
+                        unoptimized
                      />
               </div>
 
@@ -983,10 +974,6 @@ export default function page() {
                <h2 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>Your Messages Are None Of Our Business</h2>
 
                <span className='flex max-w-[300px] md:max-w-[580px] mx-auto text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] lg:leading-[28px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-normal opacity-[.8]'>Built on advanced TEE infrastructure—meaning your alpha, deal flow, and private group chats stay exactly that. Private.</span>
-
-               <h5 className='text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-medium inline-block mt-[20px] md:mt-[26px] lg:mt-[32px]'>
-                  See our <Link href='/' target='_blank' className='text-[#429DED] inline-block underline hover:text-[#429DED]/80 transition-all duration-300'>open source code</Link> and <Link href='/' target='_blank' className='text-[#429DED] inline-block underline hover:text-[#429DED]/80 transition-all duration-300'>attestations</Link>
-               </h5>
             </div>
 
             {/* Cards Block */}
@@ -1085,10 +1072,10 @@ export default function page() {
          </div>
 
       {/* Why Sales & BD Pros Love LockIn */}
-         <div className='w-full h-auto flex flex-col gap-[36px] md:gap-[56px] lg:gap-[68px] pt-[80px] md:pt-[140px] lg:pt-[200px] relative overflow-hidden'>
+         <div className='w-full h-auto flex flex-col gap-[24px] md:gap-[32px] lg:gap-[40px] pt-[80px] md:pt-[120px] lg:pt-[160px] pb-[40px] md:pb-[60px] lg:pb-[80px] relative overflow-hidden'>
             {/* Content Block */}
-            <div className='w-full max-w-[760px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
-               <h2 className='flex max-md:max-w-[280px] text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-center text-white font-hedvig font-normal'>Why Sales & BD Pros Love LockIn</h2>
+            <div className='w-full max-w-[760px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px]'>
+               <h2 className='flex max-md:max-w-[280px] text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-center text-white font-hedvig font-normal'>Sales & BD Pros Love LockIn</h2>
 
                <span className='flex justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-center text-white font-normal opacity-[.7]'>Built for the way Web3 deals actually happen—in Telegram groups and X threads</span>
             </div>
@@ -1097,19 +1084,9 @@ export default function page() {
             <div className='w-full flex justify-center overflow-hidden'>
                <div className='flex items-start gap-[12px] md:gap-[24px] will-change-transform' ref={containerRef}>
                   {/* Single Carousel Item */}
-                  <div className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px]'>
-                     {/* Svg Logo */}
-                     <Image
-                        src={carouselData[0].logo}
-                        width={carouselData[0].logoWidth}
-                        height={carouselData[0].logoHeight}
-                        alt='Logo'
-                        className={`w-auto h-full max-h-[26px] object-cover`}
-                        draggable={false}
-                     />
-
+                  <div className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px] p-[24px] md:p-[32px] lg:p-[40px]'>
                      {/* Desc */}
-                     <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>{carouselData[0].desc}</h2>
+                     <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>"{carouselData[0].desc}"</h2>
 
                      {/* Owner & Role */}
                      <div className='w-full flex items-center justify-center gap-[8px]'>
@@ -1123,25 +1100,15 @@ export default function page() {
                         />
 
                         <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{carouselData[0].name} <p className='inline-block opacity-[.8]'>/ {carouselData[0].role}</p></h5>
-            </div>
-            </div>
+                     </div>
+                  </div>
 
                   {/* Single Carousel Item */}
                   {
                      carouselData.map((item, i) => (
-                        <div key={i} className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px]'>
-                           {/* Svg Logo */}
-                           <Image
-                              src={item.logo}
-                              width={item.logoWidth}
-                              height={item.logoHeight}
-                              alt='Logo'
-                              className={`w-auto h-full max-h-[26px] object-cover`}
-                              draggable={false}
-                           />
-
+                        <div key={i} className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px] p-[24px] md:p-[32px] lg:p-[40px]'>
                            {/* Desc */}
-                           <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>{item.desc}</h2>
+                           <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>"{item.desc}"</h2>
 
                            {/* Owner & Role */}
                            <div className='w-full flex items-center justify-center gap-[8px]'>
@@ -1155,25 +1122,15 @@ export default function page() {
                               />
 
                               <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{item.name} <p className='inline-block opacity-[.8]'>/ {item.role}</p></h5>
-          </div>
+                           </div>
                         </div>
                      ))
                   }
 
                   {/* Single Carousel Item */}
-                  <div className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px]'>
-                     {/* Svg Logo */}
-                     <Image
-                        src={carouselData[carouselData.length - 1].logo}
-                        width={carouselData[carouselData.length - 1].logoWidth}
-                        height={carouselData[carouselData.length - 1].logoHeight}
-                        alt='Logo'
-                        className={`w-auto h-full max-h-[26px] object-cover`}
-                        draggable={false}
-                     />
-
+                  <div className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px] p-[24px] md:p-[32px] lg:p-[40px]'>
                      {/* Desc */}
-                     <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>{carouselData[carouselData.length - 1].desc}</h2>
+                     <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>"{carouselData[carouselData.length - 1].desc}"</h2>
 
                      {/* Owner & Role */}
                      <div className='w-full flex items-center justify-center gap-[8px]'>
@@ -1193,7 +1150,7 @@ export default function page() {
             </div>
             
             {/* Progress Bar */}
-            <div className='flex items-center justify-center gap-[8px] md:gap-[10px] mt-[18px] md:mt-[22px]'>
+            <div className='flex items-center justify-center gap-[8px] md:gap-[10px]'>
                {carouselData.map((_, i) => (
                   <div
                      key={i}
@@ -1211,13 +1168,10 @@ export default function page() {
           </div>
         </div>
 
-         {/* Private & Security */}
+         {/* Private & Security - COMMENTED OUT
          <div id="security" className='w-full h-auto flex flex-col items-center gap-[36px] md:gap-[48px] lg:gap-[60px] pt-[36px] md:pt-[80px] pb-[40px] md:pb-[90px] lg:pb-[140px] relative z-1'>
-            {/* Cards Row 1 */}
             <div className='w-full max-w-[1050px] mx-auto flex flex-col lg:flex-row gap-[14px] lg:gap-[20px] px-[16px] md:px-[20px]'>
-               {/* Single Card - 60% */}
                <div className='relative overflow-hidden w-full h-[132px] md:h-[176px] lg:h-[320px] rounded-[24px] lg:rounded-[36px] border border-[rgba(255,255,255,0.1)] bg-black backdrop-blur-[50px]'>
-                  {/* Image Block - left-positioned on mobile/tablet, left-aligned on desktop */}
                   <div className='w-[173px] md:w-[302px] h-[179px] md:h-[312px] flex absolute top-[18px] md:top-[28px] lg:top-[13px] left-[196px] md:left-[368px] lg:left-[23px] max-lg:z-1'>
                      <Image
                         src={'/security/private-secure-1.svg'}
@@ -1228,21 +1182,13 @@ export default function page() {
                         className='shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] rounded-full'
                      />
                   </div>
-
-                  {/* Desktop Gradient Overlay - matches Figma */}
                   <div className='hidden lg:block absolute bottom-0 left-0 w-full h-[230px] z-[1]' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 43.91%)' }}></div>
-
-                  {/* Content Block - Mobile/Tablet: top-left, Desktop: centered in gradient */}
                   <div className='absolute top-[18px] md:top-[28px] left-[18px] md:left-[28px] lg:bottom-[34px] lg:left-1/2 lg:-translate-x-1/2 lg:top-auto w-full max-w-[168px] md:max-w-[232px] lg:max-w-[301px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[18px] lg:text-center z-[2]'>
                      <h2 className='text-[40px] md:text-[48px] leading-[100%] -tracking-[1.2px] lg:-tracking-[1.44px] text-white font-hedvig font-normal'>60%</h2>
-
                      <span className='text-start lg:text-center text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[27px] lg:leading-[1.35] -tracking-[0.225px] md:-tracking-[0.2px] lg:-tracking-[0.3px] text-white font-normal opacity-[.8]'>Reduction in time spent prospecting</span>
               </div>
                </div>
-
-               {/* Single Card - 3x */}
                <div className='relative overflow-hidden w-full h-[132px] md:h-[176px] lg:h-[320px] rounded-[24px] border border-[rgba(255,255,255,0.1)] bg-black backdrop-blur-[50px]'>
-                  {/* Image Block - left-positioned on mobile/tablet, centered on desktop */}
                   <div className='w-[206px] md:w-[403px] lg:w-[300px] h-[89px] md:h-[121px] lg:h-[105px] flex absolute top-1/2 -translate-y-1/2 lg:top-[55px] lg:translate-y-0 left-[198px] md:left-[339px] lg:left-auto lg:right-1/2 lg:translate-x-1/2 max-lg:z-1 overflow-hidden'>
                      <Image
                         src={'/security/private-secure-2.svg'}
@@ -1253,67 +1199,48 @@ export default function page() {
                         className='shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] w-full h-full'
                      />
                   </div>
-                  {/* Gradient mask for mobile/tablet - positioned at left edge of visual */}
                   <div className='absolute top-0 left-[198px] md:left-[339px] w-[67px] h-full bg-gradient-to-r from-black to-transparent lg:hidden z-[2]'></div>
-
-                  {/* Content Block */}
                   <div className='absolute top-[17px] md:top-[28px] left-[17px] md:left-[28px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[170px] md:max-w-[232px] lg:max-w-full lg:p-[14px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[18px]'>
                      <h2 className='text-[40px] md:text-[48px] leading-[100%] -tracking-[1.2px] text-white font-hedvig font-normal'>3x</h2>
-
                      <span className='text-start lg:text-center text-[15px] md:text-[18px] lg:text-[17px] leading-[22px] md:leading-[27px] -tracking-[0.225px] md:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Reduction in time spent prospecting</span>
                   </div>
                </div>
-
-               {/* Single Card - 5x More qualified leads */}
                <div className='relative overflow-hidden w-full h-[132px] md:h-[176px] lg:h-[320px] rounded-[24px] border border-[rgba(255,255,255,0.1)] bg-black backdrop-blur-[50px]'>
-                  {/* Leads List Visual - left-positioned on mobile/tablet, centered on desktop */}
                   <div className='w-[190px] md:w-[296px] lg:w-[296px] h-[184px] md:h-[287px] lg:h-[287px] flex flex-col gap-[8px] md:gap-[10px] lg:gap-[10px] absolute top-[17px] md:top-[28px] lg:top-[25px] left-[198px] md:left-[368px] lg:left-auto lg:right-1/2 lg:translate-x-1/2 rounded-[13px] md:rounded-[21px] lg:rounded-[21px] overflow-hidden border border-[rgba(255,255,255,0.11)] shadow-[0_4px_54px_0_rgba(255,255,255,0.12)] p-[14px] md:p-[24px] lg:p-[24px] max-lg:z-1'>
-                     {/* Row 1 - Active with avatar */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full overflow-hidden border border-[rgba(255,255,255,0.15)] flex-shrink-0'>
                            <Image src='/security/avatar-top.webp' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
                         </div>
                         <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px]' style={{ background: 'linear-gradient(-5deg, rgba(255,255,255,0.4) 32%, transparent 82%), linear-gradient(90deg, #1363A9 0%, #1363A9 100%)' }} />
                      </div>
-                     {/* Row 2 - Active with avatar */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full overflow-hidden border border-[rgba(255,255,255,0.15)] flex-shrink-0'>
                            <Image src='/security/avatar-bottom.webp' width={33} height={33} alt='Avatar' className='w-full h-full object-cover' />
                         </div>
                         <div className='w-[65%] h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px]' style={{ background: 'linear-gradient(-5deg, rgba(255,255,255,0.4) 32%, transparent 82%), linear-gradient(90deg, #1363A9 0%, #1363A9 100%)' }} />
                      </div>
-                     {/* Row 3 - Inactive placeholder */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full bg-[#d9d9d9] opacity-10 flex-shrink-0' />
                         <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px] bg-[#d9d9d9] opacity-10' />
                      </div>
-                     {/* Row 4 - Inactive placeholder */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full bg-[#d9d9d9] opacity-10 flex-shrink-0' />
                         <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px] bg-[#d9d9d9] opacity-10' />
                      </div>
-                     {/* Row 5 - Inactive placeholder (partial visible) */}
                      <div className='w-full h-[30px] md:h-[38px] lg:h-[47px] bg-[rgba(255,255,255,0.1)] rounded-[22px] md:rounded-[28px] lg:rounded-[34px] flex items-center px-[5px] md:px-[6px] lg:px-[7px] gap-[6px] md:gap-[8px]'>
                         <div className='w-[22px] md:w-[28px] lg:w-[33px] h-[22px] md:h-[28px] lg:h-[33px] rounded-full bg-[#d9d9d9] opacity-10 flex-shrink-0' />
                         <div className='flex-1 h-[12px] md:h-[16px] lg:h-[19px] rounded-[16px] md:rounded-[20px] lg:rounded-[25px] bg-[#d9d9d9] opacity-10' />
                      </div>
                   </div>
-
-                  {/* Content Block with gradient overlay */}
                   <div className='absolute top-[18px] md:top-[28px] left-[18px] md:left-[28px] lg:bottom-0 lg:left-0 lg:top-auto w-full max-w-[160px] md:max-w-[215px] lg:max-w-full lg:p-[14px] lg:px-[20px] lg:py-[34px] flex flex-col items-start lg:items-center justify-start lg:justify-center gap-[12px] md:gap-[18px] lg:bg-gradient-to-b lg:from-transparent lg:to-black lg:to-[44%]'>
                      <h2 className='text-[40px] md:text-[48px] leading-[100%] -tracking-[1.2px] lg:-tracking-[1.44px] text-white font-hedvig font-normal'>5x</h2>
-
                      <span className='max-w-[160px] md:max-w-[215px] lg:max-w-[230px] w-full text-start lg:text-center text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[27px] lg:leading-[1.35] -tracking-[0.225px] md:-tracking-[0.2px] lg:-tracking-[0.3px] text-white font-normal opacity-[.8]'>More qualified leads identified</span>
                   </div>
                </div>
             </div>
-
-            {/* Cards Row 2 */}
             <div className='w-full flex items-center justify-center'>
                <div className='flex flex-col lg:flex-row items-center gap-[32px] lg:gap-[77px] px-[45px]'>
-                  {/* Single Card 1 */}
                   <div className='w-full md:max-w-[608px] lg:max-w-[457px] h-auto px-[12px] md:px-[24px] flex flex-col items-center'>
-                     {/* Icon Wrapper */}
                      <div className='w-[140px] h-[71px] flex items-center justify-center'>
                         <Image
                            src={'/security/private-secure-card-icon.svg'}
@@ -1323,18 +1250,12 @@ export default function page() {
                            draggable={false}
                         />
                      </div>
-
-                     {/* Content Block */}
                      <div className='w-full flex flex-col items-center gap-[16px] mt-[20px]'>
                         <h5 className='max-md:max-w-[274px] w-full text-[20px] md:text-[24px] leading-[28px] md:leading-[42px] -tracking-[0.2px] md:-tracking-[0.24px] text-center text-white font-hedvig'>Private & Secure</h5>
-
                         <span className='w-full text-[15px] md:text-[20px] leading-[22px] md:leading-[28px] -tracking-[0.25px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.8]'>All data encrypted in a Trusted Execution Environment. We never send your conversations to third-party AI providers.</span>
                      </div>
                   </div>
-
-                  {/* Single Card 2 */}
                   <div className='w-full md:max-w-[608px] lg:max-w-[457px] h-auto px-[12px] md:px-[24px] flex flex-col items-center'>
-                     {/* Icon Wrapper */}
                      <div className='w-[140px] h-[71px] flex items-center justify-center'>
                         <Image
                            src={'/features/build-for-web3/build-for-web-3-card-icon.svg'}
@@ -1344,17 +1265,15 @@ export default function page() {
                            draggable={false}
                         />
                      </div>
-
-                     {/* Content Block */}
                      <div className='w-full flex flex-col items-center gap-[16px] mt-[20px]'>
                         <h5 className='max-md:max-w-[274px] w-full text-[20px] md:text-[24px] leading-[28px] md:leading-[42px] -tracking-[0.2px] md:-tracking-[0.24px] text-center text-white font-hedvig'>Built for Web3</h5>
-
                         <span className='w-full text-[15px] md:text-[20px] leading-[22px] md:leading-[28px] -tracking-[0.25px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.8]'>Designed for L1s, L2s, and B2B crypto companies where deals happen in Telegram channels and X threads.</span>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+         */}
 
          {/* Transparent Pricing */}
          <div id="pricing" className='w-full h-auto flex flex-col items-center relative px-[16px] md:px-[24px] pt-[50px] md:pt-[80px] lg:pt-[110px] overflow-x-clip'>
@@ -1366,10 +1285,10 @@ export default function page() {
             </div>
 
             {/* Circle Gradient */}
-            <div className='w-[1208px] md:w-[1222px] lg:w-[1443px] 2xl:w-[1800px] h-[983px] md:h-[994px] lg:h-[1174px] 2xl:h-[1500px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
+            <div className='w-[1208px] md:w-[1222px] lg:w-[1443px] 2xl:w-[1800px] h-[650px] md:h-[700px] lg:h-[800px] 2xl:h-[1000px] absolute top-[50px] md:top-[80px] lg:top-[120px] left-1/2 -translate-x-1/2 rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
 
             {/* Stars Left */}
-            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[550px] md:h-[800px] 2xl:h-[1100px] absolute top-[50px] md:top-[80px] lg:top-[120px] -left-[221px] md:-left-[322px] lg:left-0'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -1381,7 +1300,7 @@ export default function page() {
             </div>
 
             {/* Stars Right */}
-            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[550px] md:h-[800px] 2xl:h-[1100px] absolute top-[50px] md:top-[80px] lg:top-[120px] -right-[221px] md:-right-[322px] lg:right-0'>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
