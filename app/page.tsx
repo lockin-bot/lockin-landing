@@ -627,7 +627,7 @@ export default function page() {
                   {/* Owl Image */}
                   <div className='w-full h-[230px] md:h-[360px] lg:h-[380px] 2xl:h-[500px] flex justify-center z-10'>
                      <Image
-                        src={'/Owl (1).png'}
+                        src={'/hero/owl-hero.webp'}
                         width={1042}
                         height={950}
                         alt='Owl'
