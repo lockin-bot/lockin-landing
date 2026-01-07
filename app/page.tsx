@@ -946,7 +946,7 @@ export default function page() {
             <div className='absolute left-1/2 -translate-x-1/2 -top-[100px] md:-top-[50px] lg:-top-[280px] w-[814px] md:w-[1222px] lg:w-[1443px] 2xl:w-[1800px] h-[662px] md:h-[994px] lg:h-[1174px] 2xl:h-[1500px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px]'></div>
 
             {/* Stars Left */}
-            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2'>
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -left-[221px] md:-left-[322px] lg:left-0 -translate-y-1/2' style={{ maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 85%)', WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 85%)' }}>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -958,7 +958,7 @@ export default function page() {
             </div>
 
             {/* Stars Right */}
-            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2'>
+            <div className='w-[411px] md:w-[728px] 2xl:w-[950px] h-[778px] md:h-[1380px] 2xl:h-[1800px] absolute top-1/2 -right-[221px] md:-right-[322px] lg:right-0 -translate-y-1/2' style={{ maskImage: 'linear-gradient(to left, black 0%, black 40%, transparent 85%)', WebkitMaskImage: 'linear-gradient(to left, black 0%, black 40%, transparent 85%)' }}>
                <Image
                   src={'/backgrounds/stars.svg'}
                   width={1380}
@@ -970,14 +970,14 @@ export default function page() {
             </div>
 
             {/* Content Block */}
-            <div className='w-full max-w-[800px] mx-auto flex flex-col items-center relative z-1 mb-[40px] lg:mb-[80px]'>
+            <div className='w-full max-w-[800px] mx-auto flex flex-col items-center relative z-[5] mb-[40px] lg:mb-[80px]'>
                <h2 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>Your Messages Are None Of Our Business</h2>
 
                <span className='flex max-w-[300px] md:max-w-[580px] mx-auto text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] lg:leading-[28px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-normal opacity-[.8]'>Built on advanced TEE infrastructure—meaning your alpha, deal flow, and private group chats stay exactly that. Private.</span>
             </div>
 
             {/* Cards Block */}
-            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[20px] relative z-1'>
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[20px] relative z-[5]'>
                {/* Single Cards 1 */}
                <div className='w-full h-auto px-[12px] md:px-[20px] flex flex-col items-center'>
                   {/* Icon Wrapper */}
