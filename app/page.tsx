@@ -556,7 +556,7 @@ export default function page() {
             </div>
 
             {/* Tail Gradient Layer 1 */}
-            <div className='hero-tail-gradient hero-tail-gradient-1 w-full h-full absolute top-0 left-0 z-1 flex'>
+            <div className='hero-tail-gradient hero-tail-gradient-1 w-full h-full absolute top-0 left-0 z-1 flex' style={{ maskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)' }}>
                <Image
                   src='/backgrounds/glows/glows-png-1.webp'
                   width={1980}
@@ -568,7 +568,7 @@ export default function page() {
             </div>
 
             {/* Tail Gradient Layer 2 */}
-            <div className='hero-tail-gradient hero-tail-gradient-2 w-full h-full absolute top-0 left-0 z-1 flex'>
+            <div className='hero-tail-gradient hero-tail-gradient-2 w-full h-full absolute top-0 left-0 z-1 flex' style={{ maskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)' }}>
                <Image
                   src='/backgrounds/glows/glows-png-2.webp'
                   width={1980}
@@ -580,7 +580,7 @@ export default function page() {
             </div>
 
             {/* Tail Gradient Layer 3 */}
-            <div className='hero-tail-gradient hero-tail-gradient-3 w-full h-full absolute top-0 left-0 z-1 flex'>
+            <div className='hero-tail-gradient hero-tail-gradient-3 w-full h-full absolute top-0 left-0 z-1 flex' style={{ maskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)' }}>
                <Image
                   src='/backgrounds/glows/glows-png-3.webp'
                   width={1980}
@@ -655,7 +655,7 @@ export default function page() {
             </div>
             
             {/* Bottom Gradient Fade to #090821 */}
-            <div className='absolute bottom-0 left-0 w-full h-[100px] md:h-[150px] lg:h-[200px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, transparent 0%, #090821 100%)' }}></div>
+            <div className='absolute bottom-0 left-0 w-full h-[280px] md:h-[420px] lg:h-[550px] pointer-events-none z-[2]' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(9,8,33,0.15) 20%, rgba(9,8,33,0.4) 45%, rgba(9,8,33,0.7) 65%, rgba(9,8,33,0.9) 80%, #090821 100%)' }}></div>
          </div>
 
          {/* Find the Strongest Path to Any Deal */}
