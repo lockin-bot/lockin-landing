@@ -596,7 +596,7 @@ export default function page() {
                {/* Content Wrapper - centers content while respecting padding */}
                <div className='w-full flex-1 flex flex-col items-center justify-center gap-[40px] md:gap-[24px] lg:gap-[8px]'>
                {/* Main Content */}
-               <div className='w-full max-w-[587px] mx-auto flex flex-col items-center'>
+               <div className='w-full max-w-[587px] mx-auto flex flex-col items-center mt-[16px] md:mt-[24px] lg:mt-[32px]'>
                   {/* Hero Title */}
                   <h1 className='text-[44px] md:text-[68px] lg:text-[76px] leading-[50px] md:leading-[72px] lg:leading-[84px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>Warm Paths,<br />Right Timing</h1>
 
@@ -614,7 +614,7 @@ export default function page() {
         </div>
         
                {/* Image Wrapper */}
-               <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative'>
+               <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative -mt-[16px] md:-mt-[20px] lg:-mt-[24px]'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
                   <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] 2xl:w-[2200px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] 2xl:h-[1500px] z-0 pointer-events-none'>
                      <DotLottieReact
@@ -1072,7 +1072,7 @@ export default function page() {
          </div>
 
       {/* Why Sales & BD Pros Love LockIn */}
-         <div className='w-full h-auto flex flex-col gap-[24px] md:gap-[32px] lg:gap-[40px] pt-[80px] md:pt-[120px] lg:pt-[160px] pb-[40px] md:pb-[60px] lg:pb-[80px] relative overflow-hidden'>
+         <div className='w-full h-auto flex flex-col gap-[24px] md:gap-[32px] lg:gap-[40px] pt-[100px] md:pt-[160px] lg:pt-[220px] pb-[50px] md:pb-[80px] lg:pb-[110px] relative overflow-hidden'>
             {/* Content Block */}
             <div className='w-full max-w-[760px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px]'>
                <h2 className='flex max-md:max-w-[280px] text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-center text-white font-hedvig font-normal'>Sales & BD Pros Love LockIn</h2>
