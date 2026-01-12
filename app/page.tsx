@@ -24,8 +24,9 @@ function useIsMobile() {
 
 // Hero Owl Lottie component that cycles through animations with crossfade
 const heroOwlLotties = ['/Hero Owl 1.lottie', '/Hero Owl 2.lottie', '/Hero Owl 3.lottie'];
-const OVERLAP_SECONDS = 2; // seconds before end to start next animation
-const FADE_DURATION = 1.5; // seconds for crossfade transition
+const OVERLAP_SECONDS = 3; // seconds before end to start next animation
+const FADE_DURATION = 2; // seconds for crossfade transition
+const PLAYBACK_SPEED = 1.5; // animation speed multiplier
 
 function HeroOwlLottie() {
    const [animations, setAnimations] = useState<{ index: number; key: number; opacity: number }[]>([
@@ -62,7 +63,7 @@ function HeroOwlLottie() {
 
          // Wait for the animation to be ready to get duration
          const handleLoad = () => {
-            const duration = dotLottie.duration; // duration in seconds
+            const duration = dotLottie.duration / PLAYBACK_SPEED; // actual duration accounting for speed
             const transitionTime = Math.max(0, (duration - OVERLAP_SECONDS)) * 1000;
             
             timerRef.current = setTimeout(() => {
@@ -102,6 +103,7 @@ function HeroOwlLottie() {
                <DotLottieReact
                   src={heroOwlLotties[anim.index]}
                   autoplay
+                  speed={PLAYBACK_SPEED}
                   dotLottieRefCallback={anim.opacity === 1 ? dotLottieRefCallback : undefined}
                   style={{ width: '100%', height: '100%' }}
                />
