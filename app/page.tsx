@@ -23,7 +23,7 @@ function useIsMobile() {
 }
 
 // Hero Owl Lottie component that cycles through animations with crossfade
-const heroOwlLotties = ['/Hero Owl 1.lottie', '/Hero Owl 2.lottie', '/Hero Owl 3.lottie'];
+const heroOwlLotties = ['/hero/owl-1.lottie', '/hero/owl-2.lottie', '/hero/owl-3.lottie'];
 const OVERLAP_SECONDS = 3; // seconds before end to start next animation
 const FADE_DURATION = 2; // seconds for crossfade transition
 const PLAYBACK_SPEED = 1.5; // animation speed multiplier
