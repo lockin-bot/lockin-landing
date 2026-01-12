@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { DotLottieReact, type DotLottie } from '@lottiefiles/dotlottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +20,95 @@ function useIsMobile() {
    }, []);
    
    return isMobile;
+}
+
+// Hero Owl Lottie component that cycles through animations with crossfade
+const heroOwlLotties = ['/Hero Owl 1.lottie', '/Hero Owl 2.lottie', '/Hero Owl 3.lottie'];
+const OVERLAP_SECONDS = 2; // seconds before end to start next animation
+const FADE_DURATION = 1.5; // seconds for crossfade transition
+
+function HeroOwlLottie() {
+   const [animations, setAnimations] = useState<{ index: number; key: number; opacity: number }[]>([
+      { index: 0, key: 0, opacity: 1 }
+   ]);
+   const keyCounterRef = useRef(1);
+   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+   const startNextAnimation = useCallback(() => {
+      setAnimations(prev => {
+         const currentIndex = prev[prev.length - 1].index;
+         const nextIndex = (currentIndex + 1) % heroOwlLotties.length;
+         const newKey = keyCounterRef.current++;
+         
+         // Add new animation, mark old one to fade out
+         return [
+            ...prev.map(a => ({ ...a, opacity: 0 })),
+            { index: nextIndex, key: newKey, opacity: 1 }
+         ];
+      });
+
+      // Remove old animations after fade completes
+      setTimeout(() => {
+         setAnimations(prev => prev.filter(a => a.opacity === 1));
+      }, FADE_DURATION * 1000);
+   }, []);
+
+   const dotLottieRefCallback = useCallback((dotLottie: DotLottie | null) => {
+      if (dotLottie) {
+         // Clear any existing timer
+         if (timerRef.current) {
+            clearTimeout(timerRef.current);
+         }
+
+         // Wait for the animation to be ready to get duration
+         const handleLoad = () => {
+            const duration = dotLottie.duration; // duration in seconds
+            const transitionTime = Math.max(0, (duration - OVERLAP_SECONDS)) * 1000;
+            
+            timerRef.current = setTimeout(() => {
+               startNextAnimation();
+            }, transitionTime);
+         };
+
+         // Check if already loaded
+         if (dotLottie.isLoaded) {
+            handleLoad();
+         } else {
+            dotLottie.addEventListener('load', handleLoad);
+         }
+      }
+   }, [startNextAnimation]);
+
+   // Cleanup timers on unmount
+   useEffect(() => {
+      return () => {
+         if (timerRef.current) {
+            clearTimeout(timerRef.current);
+         }
+      };
+   }, []);
+
+   return (
+      <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] 2xl:w-[2200px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] 2xl:h-[1500px] z-0 pointer-events-none'>
+         {animations.map((anim) => (
+            <div
+               key={anim.key}
+               className='absolute inset-0'
+               style={{
+                  opacity: anim.opacity,
+                  transition: `opacity ${FADE_DURATION}s ease-in-out`
+               }}
+            >
+               <DotLottieReact
+                  src={heroOwlLotties[anim.index]}
+                  autoplay
+                  dotLottieRefCallback={anim.opacity === 1 ? dotLottieRefCallback : undefined}
+                  style={{ width: '100%', height: '100%' }}
+               />
+            </div>
+         ))}
+      </div>
+   );
 }
 
 const carouselData = [
@@ -616,14 +705,7 @@ export default function page() {
                {/* Image Wrapper */}
                <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative -mt-[16px] md:-mt-[20px] lg:-mt-[24px]'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
-                  <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] 2xl:w-[2200px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] 2xl:h-[1500px] z-0 pointer-events-none'>
-                     <DotLottieReact
-                        src="/Hero V2.lottie"
-                        loop
-                        autoplay
-                        style={{ width: '100%', height: '100%' }}
-                     />
-                  </div>
+                  <HeroOwlLottie />
                   {/* Owl Image */}
                   <div className='w-full h-[230px] md:h-[360px] lg:h-[380px] 2xl:h-[500px] flex justify-center z-10'>
                      <Image
