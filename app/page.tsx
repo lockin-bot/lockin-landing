@@ -750,7 +750,7 @@ export default function page() {
             <div className='w-full flex flex-col relative z-[2]'>
                
                {/* Section 1: Find the Strongest Path - Visual Left, Text Right */}
-               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[60px] md:pt-[80px] lg:pt-[200px] pb-[40px] md:pb-[50px] lg:pb-[60px] px-[12px] md:px-[24px] lg:px-[24px] relative'>
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[60px] md:pt-[80px] lg:pt-[200px] pb-[40px] md:pb-[50px] lg:pb-[60px] px-[12px] md:px-[24px] lg:px-0 relative'>
                   <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
                      
                      {/* Visual Card - Left */}
@@ -871,7 +871,7 @@ export default function page() {
                </div>
                
                {/* Section 2: Know the Right Moment - Text Left, Visual Right */}
-               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto py-[40px] md:py-[50px] lg:py-[60px] px-[12px] md:px-[24px] lg:px-[24px] relative'>
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto py-[40px] md:py-[50px] lg:py-[60px] px-[12px] md:px-[24px] lg:px-0 relative'>
                   <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
                      
                      {/* Text Content - Left */}
@@ -927,7 +927,7 @@ export default function page() {
                </div>
                
                {/* Section 3: Expand Beyond Network - Visual Left, Text Right */}
-               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[40px] md:pt-[50px] lg:pt-[60px] pb-[120px] md:pb-[160px] lg:pb-[200px] px-[12px] md:px-[24px] lg:px-[24px] relative'>
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[40px] md:pt-[50px] lg:pt-[60px] pb-[120px] md:pb-[160px] lg:pb-[200px] px-[12px] md:px-[24px] lg:px-0 relative'>
                   <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
                      
                      {/* Visual Card - Left (Globe Network) */}
