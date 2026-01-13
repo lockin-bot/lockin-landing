@@ -85,12 +85,6 @@ export default function Navbar() {
 
                {/* Right Nav */}
                <div className='hidden lg:flex items-center gap-[20px]'>
-                  <div className='flex items-center group'>
-                     <Link href='/#pricing'>
-                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Book a Demo</span>
-                     </Link>
-                  </div>
-
                   {/* Get Started Button */}
                   <div
                      className='w-[120px] h-[38px] rounded-[38px] flex items-center justify-center group bg-[rgba(255,255,255,0.10)] hover:bg-white transition-all duration-300'
