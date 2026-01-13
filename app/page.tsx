@@ -113,6 +113,99 @@ function HeroOwlLottie() {
    );
 }
 
+// Signal Card Carousel - cycles between cards with fade + slide animation
+const signalCards = [
+   {
+      name: 'Stani Kulechov',
+      company: 'Aave',
+      message: '"Our GHO stablecoin contracts need auditing before mainnet. Any auditors with lending protocol experience?"',
+      platform: 'Post',
+      avatar: '/features/know-the-right-moment/stani-kulechov.png',
+      icon: '/features/find-strongest-path/x-icon.svg',
+   },
+   {
+      name: 'Mert Mumtaz',
+      company: 'Helius',
+      message: '"Need recommendations for security audits = preferably someone who\'s done Solana programs."',
+      platform: 'Solana Devs',
+      avatar: '/features/know-the-right-moment/mert-mumtaz.png',
+      icon: '/features/know-the-right-moment/telegram-send-icon.svg',
+   },
+];
+
+const CARD_DISPLAY_DURATION = 3000; // ms to show each card
+const CARD_TRANSITION_DURATION = 500; // ms for fade + slide animation
+
+function SignalCardCarousel() {
+   const [activeIndex, setActiveIndex] = useState(0);
+   const [isAnimating, setIsAnimating] = useState(false);
+   const [direction, setDirection] = useState<'up' | 'down'>('up');
+
+   useEffect(() => {
+      const interval = setInterval(() => {
+         setIsAnimating(true);
+         setDirection('up');
+         
+         // After exit animation completes, switch card and animate in
+         setTimeout(() => {
+            setActiveIndex((prev) => (prev + 1) % signalCards.length);
+            setDirection('down');
+            
+            // Reset animation state after enter animation
+            setTimeout(() => {
+               setIsAnimating(false);
+            }, CARD_TRANSITION_DURATION);
+         }, CARD_TRANSITION_DURATION);
+      }, CARD_DISPLAY_DURATION);
+
+      return () => clearInterval(interval);
+   }, []);
+
+   const card = signalCards[activeIndex];
+
+   return (
+      <div className='absolute top-[365px] left-1/2 -translate-x-1/2 w-[441px] max-w-[calc(100%-48px)] z-10'>
+         <div
+            className='w-full bg-[rgba(0,0,0,0.4)] backdrop-blur-[25px] border-[0.884px] border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] p-[23px] flex items-start gap-[21px] transition-all'
+            style={{
+               transform: isAnimating 
+                  ? direction === 'up' 
+                     ? 'translateY(-20px)' 
+                     : 'translateY(20px)'
+                  : 'translateY(0)',
+               opacity: isAnimating ? 0 : 1,
+               transitionDuration: `${CARD_TRANSITION_DURATION}ms`,
+               transitionTimingFunction: 'ease-in-out',
+            }}
+         >
+            {/* Avatar */}
+            <div className='w-[57px] h-[57px] rounded-full border-[0.385px] border-white/20 overflow-hidden bg-[#090e21] flex-shrink-0'>
+               <Image src={card.avatar} width={57} height={57} alt={card.name} className='w-full h-full object-cover' />
+            </div>
+            
+            {/* Content */}
+            <div className='flex flex-col gap-[17px] flex-1 min-w-0'>
+               <div className='flex flex-col gap-[10px]'>
+                  <p className='text-[19px] leading-[21px] tracking-[-0.39px] text-white/80'>
+                     <span className='text-white font-semibold'>{card.name}</span> · {card.company}
+                  </p>
+                  <p className='text-[17px] leading-[26px] tracking-[-0.33px] text-white opacity-80 text-shadow-[0px_0px_20px_rgba(255,255,255,0.45)]'>
+                     {card.message}
+                  </p>
+               </div>
+               
+               {/* Platform indicator */}
+               <div className='flex items-center gap-[6px]'>
+                  <Image src={card.icon} width={16} height={16} alt={card.platform} className='w-[16px] h-[16px] opacity-80' />
+                  <span className='text-[17px] leading-[21px] tracking-[-0.33px] text-white opacity-80 text-shadow-[0px_0px_20px_rgba(255,255,255,0.45)]'>{card.platform}</span>
+                  <span className='text-[17px] leading-[21px] tracking-[-0.33px] text-white opacity-80 text-shadow-[0px_0px_20px_rgba(255,255,255,0.45)]'>· Just now</span>
+               </div>
+            </div>
+         </div>
+      </div>
+   );
+}
+
 const carouselData = [
    {
       desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
@@ -889,7 +982,7 @@ export default function page() {
                         <div className='w-[500px] h-[580px] bg-black border border-[#272727] rounded-[24px] overflow-hidden relative origin-top-left scale-[0.70] md:scale-[0.72] lg:scale-100'>
                            
                            {/* Signal Rule Card */}
-                           <div className='absolute top-[50px] left-1/2 -translate-x-1/2 w-[440px] max-w-[calc(100%-48px)] bg-[#060606] border border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] px-[27px] py-[26px] flex flex-col items-center gap-[10px]'>
+                           <div className='absolute top-[20px] left-1/2 -translate-x-1/2 w-[440px] max-w-[calc(100%-48px)] bg-[#060606] border border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] px-[27px] py-[26px] flex flex-col items-center gap-[10px]'>
                               {/* Star sparkle icon */}
                               <Image src='/features/know-the-right-moment/star-4point.svg' width={51} height={51} alt='Star' className='w-[50px] h-[50px] -mb-[8px]' />
                               
@@ -911,15 +1004,17 @@ export default function page() {
                               </div>
                            </div>
                            
-                           {/* Lottie Animation */}
-                           <div className='absolute top-[180px] left-[-20px] right-[-20px] bottom-[-20px]'>
-                              <DotLottieReact
-                                 src='/Graphic Animation V2.lottie'
-                                 loop
-                                 autoplay
-                                 className='w-full h-full scale-[1.03]'
-                              />
+                           {/* Scanning your network pill */}
+                           <div className='absolute top-[279px] left-1/2 -translate-x-1/2 z-10'>
+                              <div className='flex items-center gap-[8px] bg-[#0a0a0a] border border-[#272727] rounded-full px-[14px] py-[8px]'>
+                                 <div className='w-[8px] h-[8px] rounded-full bg-[#4ade80] shadow-[0px_0px_8px_rgba(74,222,128,0.6)]' />
+                                 <span className='text-white/80 text-[15px] tracking-[-0.3px]'>Scanning your network...</span>
+                              </div>
                            </div>
+
+                           {/* Animated Card Carousel */}
+                           <SignalCardCarousel />
+
                            
                         </div>
                      </div>
