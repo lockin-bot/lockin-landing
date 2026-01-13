@@ -288,8 +288,8 @@ export default function BlogPage() {
         </div>
         
         {/* Footer Block */}
-        <div className='w-full max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[16px] md:px-[24px] pt-[20px] md:pt-[24px] lg:pt-[48px] relative z-1'>
-          <div className='w-full max-w-[1110px] mx-auto flex flex-col md:flex-row items-start justify-between'>
+        <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[24px] md:px-[32px] lg:px-[48px] pt-[20px] md:pt-[24px] lg:pt-[48px] relative z-1'>
+          <div className='w-full mx-auto flex flex-col md:flex-row items-start justify-between'>
             {/* Left Block */}
             <div className='flex flex-col'>
               {/* Logo */}
@@ -374,7 +374,7 @@ export default function BlogPage() {
                 <div className='flex flex-col gap-[10px] lg:gap-[12px]'>
                   <Link href='/privacy' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Privacy</Link>
                   <Link href='/terms' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Terms</Link>
-                  <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookie Policy</Link>
+                  <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookies</Link>
                 </div>
               </div>
             </div>

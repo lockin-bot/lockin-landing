@@ -1,16 +1,45 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Navbar() {
    const [menuOpen, setMenuOpen] = useState(false);
+   const [visible, setVisible] = useState(true);
+   const [lastScrollY, setLastScrollY] = useState(0);
+
+   useEffect(() => {
+      const handleScroll = () => {
+         const currentScrollY = window.scrollY;
+         
+         // Always show navbar at the top of the page
+         if (currentScrollY < 100) {
+            setVisible(true);
+         } else if (currentScrollY > lastScrollY) {
+            // Scrolling down - hide navbar (unless menu is open)
+            if (!menuOpen) {
+               setVisible(false);
+            }
+         } else {
+            // Scrolling up - show navbar
+            setVisible(true);
+         }
+         
+         setLastScrollY(currentScrollY);
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => window.removeEventListener('scroll', handleScroll);
+   }, [lastScrollY, menuOpen]);
 
    return (
-      <div className='fixed top-0 left-0 w-full py-[10px] md:py-[14px] px-[12px] md:px-[20px] z-10'>
+      <div 
+         className='fixed top-0 left-0 w-full py-[10px] md:py-[14px] px-[12px] md:px-[20px] z-10 transition-transform duration-300 ease-in-out'
+         style={{ transform: visible ? 'translateY(0)' : 'translateY(-100%)' }}
+      >
          {/* Navbar Inner */}
          <div
-            className={`w-full max-w-[900px] ${menuOpen ? 'h-[260px] md:h-[270px]' : 'h-[48px] md:h-[54px]'} mx-auto flex flex-col ${menuOpen ? 'rounded-[20px]' : 'rounded-[20px] md:rounded-[100px]'} py-[6px] md:py-[8px] pl-[6px] md:pl-[8px] lg:pl-[20px] pr-[6px] md:pr-[8px] lg:pr-[10px] overflow-hidden will-change-auto`}
+            className={`w-full max-w-[1000px] ${menuOpen ? 'h-[260px] md:h-[270px]' : 'h-[48px] md:h-[54px]'} mx-auto flex flex-col ${menuOpen ? 'rounded-[20px]' : 'rounded-[20px] md:rounded-[100px]'} py-[6px] md:py-[8px] pl-[6px] md:pl-[8px] lg:pl-[20px] pr-[6px] md:pr-[8px] lg:pr-[10px] overflow-hidden will-change-auto`}
             style={{
                background: 'rgba(0, 0, 0, 0.16)',
                border: '1px solid rgba(255, 255, 255, 0.06)',

@@ -26,7 +26,7 @@ function useIsMobile() {
 const heroOwlLotties = ['/hero/owl-1.lottie', '/hero/owl-2.lottie', '/hero/owl-3.lottie'];
 const OVERLAP_SECONDS = 3; // seconds before end to start next animation
 const FADE_DURATION = 2; // seconds for crossfade transition
-const PLAYBACK_SPEED = 1.5; // animation speed multiplier
+const PLAYBACK_SPEED = 1.6; // animation speed multiplier
 
 function HeroOwlLottie() {
    const [animations, setAnimations] = useState<{ index: number; key: number; opacity: number }[]>([
@@ -742,288 +742,274 @@ export default function page() {
             <div className='absolute bottom-0 left-0 w-full h-[280px] md:h-[420px] lg:h-[550px] pointer-events-none z-[2]' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(9,8,33,0.15) 20%, rgba(9,8,33,0.4) 45%, rgba(9,8,33,0.7) 65%, rgba(9,8,33,0.9) 80%, #090821 100%)' }}></div>
          </div>
 
-         {/* Find the Strongest Path to Any Deal */}
-         <div id="features" className='w-full h-auto flex relative z-1 -mt-[1px]' style={{ backgroundColor: '#090821' }}>
-            {/* Top Gradient Fade - fades from #090821 for smooth transition */}
-            <div className='absolute top-0 left-0 w-full h-[150px] md:h-[200px] lg:h-[250px] -translate-y-[20px] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, #090821 0%, #090821 30%, rgba(9, 8, 33, 0.7) 60%, transparent 100%)' }}></div>
-            <div className='w-full max-w-full mx-auto flex flex-col bg-black'>
-               {/* Find the Strongest Path to Any Deal Block */}
-               <div className='single-progress-block-1 w-full h-[167vh] relative'>
-                  <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] pb-[180px] md:pb-[280px] lg:pb-[320px] px-[22px] md:px-[66px] sticky top-0 left-0 overflow-hidden'>
-                     {/* Content Block */}
-                     <div className='w-full max-w-[800px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px]'>
-                        <h2 className='flex max-md:max-w-[320px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[64px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal'>Find the Strongest Path to Any Deal</h2>
+         {/* Features Section - Figma Design */}
+         <div id="features" className='w-full relative z-1 -mt-[1px] bg-black'>
+{/* Top Gradient Fade */}
+            <div className='absolute top-0 left-0 w-full h-[150px] md:h-[200px] lg:h-[250px] -translate-y-[20px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, #090821 0%, #090821 30%, rgba(9, 8, 33, 0.7) 60%, transparent 100%)' }}></div>
 
-                        <span className='flex w-full max-w-[280px] md:max-w-[520px] lg:max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.22px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>LockIn maps your team's network across Telegram and X into a living relationship graph. Instantly figure out your best path to any account.</span>
-              </div>
-
-                     {/* Founder & CEO Block */}
-                     {/* Back Layer */}
-                     <div className='absolute bottom-[12px] md:bottom-[17px] lg:bottom-[21px] left-1/2 -translate-x-1/2
-                  w-[355px] md:w-[520px] lg:w-[600px] h-[235px] md:h-[310px] lg:h-[360px]
-                  drop-shadow-[0_6.719px_54.712pxrgba(255,255,255,0.11)] md:drop-shadow-[0_12.047px_98.093px_rgba(255,255,255,0.11)] lg:drop-shadow-[0_14px_114px_rgba(255,255,255,0.11)]
-                  '>
-                        {/* Back Layer Left */}
-                        <div className='w-[335px] md:w-[480px] lg:w-[550px] h-full flex absolute left-0 top-0 bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px] opacity-[.7]'></div>
-
-                        {/* Back Layer Right */}
-                        <div className='w-[335px] md:w-[480px] lg:w-[550px] h-full flex absolute right-0 top-0 bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px] opacity-[.7]'></div>
-            </div>
-
-                     {/* Main Layer */}
-                     <div className='w-[335px] md:w-[480px] lg:w-[550px] h-[235px] md:h-[310px] lg:h-[360px] px-[16px] md:px-[24px] lg:px-[20px] pt-[14px] md:pt-[20px] lg:pt-[24px] flex items-start absolute left-1/2 -translate-x-1/2 bottom-[17px] md:bottom-[23px] lg:bottom-[29px] bg-black border border-[#272727] rounded-[16px] md:rounded-[24px] lg:rounded-[28px]'>
-                        <Image
-                           src={'/features/find-the-strongest-path/find-the-strongest-path.webp'}
-                           width={2371}
-                           height={1128}
-                           alt='Founder & CEO'
-                           className='w-full h-auto'
-                           quality={100}
-                           draggable={false}
-                        />
-          </div>
-
-                     {/* Line Wrapper - removed, replaced with gradient fade */}
+            <div className='w-full flex flex-col relative z-[2]'>
+               
+               {/* Section 1: Find the Strongest Path - Visual Left, Text Right */}
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[60px] md:pt-[80px] lg:pt-[200px] pb-[40px] md:pb-[50px] lg:pb-[60px] px-[12px] md:px-[24px] lg:px-[24px] relative'>
+                  <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
                      
-                     {/* Gradient fade to hide card bottoms cleanly */}
-                     <div className='w-full h-[80px] md:h-[110px] lg:h-[140px] absolute bottom-0 left-0 z-[10] pointer-events-none' style={{ background: 'linear-gradient(to top, black 0%, black 50%, transparent 100%)' }}></div>
-            </div>
-          </div>
-
-               {/* Know the Right Moment to Reach Out */}
-               <div className='single-progress-block-2 w-full h-[167vh] relative'>
-                  <div className='w-full h-screen flex flex-col items-center justify-center pt-[20px] md:pt-[28px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[80px] md:pb-[120px] lg:pb-[150px] sticky top-0 left-0 overflow-hidden'>
-                     {/* Top Left Icon */}
-                     <div className='single-progress-block-2-top-left-icon w-[130px] md:w-[130px] h-[100px] md:h-[140px] absolute -top-[25px] -left-[40px] md:left-[23px] hidden md:flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.34] md:blur-[5px]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="102" height="102" viewBox="0 0 102 102" fill="none">
-                           <path d="M38.3658 88.585C35.3195 88.585 35.8663 87.4134 34.7728 84.5233L25.8682 55.1537L81.1704 20.6289L87.6536 22.3473L82.2639 37.0321L38.3658 88.585Z" fill="#DEDEDE" />
-                           <path d="M38.3662 88.5919C40.7097 88.5919 41.7252 87.4983 43.0532 86.2484C45.0842 84.2955 71.175 58.9078 71.175 58.9078L55.1612 55.002L40.3191 64.3759L38.3662 87.8108V88.5919Z" fill="#D0D0D0" />
-                           <path d="M39.9319 64.6831L77.7402 92.5706C82.0365 94.9141 85.1612 93.7423 86.2548 88.5866L101.644 16.0948C103.206 9.76738 99.2221 6.9552 95.082 8.82999L4.77962 43.6698C-1.39156 46.1695 -1.31344 49.6067 3.68599 51.0909L26.8865 58.3557L80.5523 24.5314C83.0521 22.969 85.3955 23.8283 83.5208 25.5469L39.9319 64.6831Z" fill="url(#paint0_linear_122_1771)" />
-                           <defs>
-                              <linearGradient id="paint0_linear_122_1771" x1="62.5786" y1="48.556" x2="82.1076" y2="79.8025" gradientUnits="userSpaceOnUse">
-                                 <stop stopColor="#EDEDED" />
-                                 <stop offset="1" stopColor="white" />
-                              </linearGradient>
-                           </defs>
-                        </svg>
-        </div>
-
-                     {/* Top Right Icon */}
-                     <div className='single-progress-block-2-top-right-icon w-[108px] md:w-[138px] h-[108px] md:h-[138px] absolute -top-[13px] -right-[40px] hidden md:flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.7] md:[filter:drop-shadow(0_6.664px_289.864px_rgba(255,255,255,0.11))_blur(2.97px)]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none">
-                           <path d="M36.0722 23.6109L58.0903 0H52.4686L33.5424 20.2379L18.7388 0H0L23.0487 31.4812L0 56.2164H5.62164L25.5784 34.8541L41.2253 56.2164H59.9641L36.0722 23.6109ZM8.33876 3.74776H15.8343L51.5317 52.4686H44.0362L8.33876 3.74776Z" fill="white" />
-                        </svg>
-            </div>
-
-                     {/* Bottom Left Icon */}
-                     <div className='single-progress-block-2-bottom-left-icon w-[173px] md:w-[223px] h-[173px] md:h-[223px] absolute bottom-[70px] md:bottom-[30px] lg:bottom-[38px] -left-[70px] md:-left-[34px] hidden md:flex items-center justify-center z-2 rounded-full overflow-hidden border-2 border-[#272727] bg-[#0E0E0E] opacity-[.2] md:blur-[10px]' style={{ boxShadow: '0 8.751px 380.665px 0 rgba(255, 255, 255, 0.11)' }}>
-                        <Image
-                           src={'/features/find-the-strongest-path/bottom-left-image.jpg'}
-                           width={400}
-                           height={400}
-                           alt='Bottom Left Icon'
-                           className='w-full h-auto'
-                           draggable={false}
-                        />
-            </div>
-
-                     {/* Bottom Right Icon */}
-                     <div className='single-progress-block-2-bottom-right-icon w-[102px] h-[102px] absolute bottom-[60px] md:bottom-[50px] lg:bottom-[60px] -right-[26px] md:right-[66px] hidden md:flex items-center justify-center z-2 rounded-full border-2 border-[#272727] bg-[#0E0E0E] opacity-[.6] md:[filter:drop-shadow(0_6.664px_289.864px_rgba(255,255,255,0.11))_blur(2.97px)]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="54" height="42" viewBox="0 0 54 42" fill="none">
-                           <path d="M45.2333 3.46183C41.7768 1.84459 38.0809 0.66925 34.2169 0C33.7423 0.857955 33.1879 2.01192 32.8057 2.9299C28.6982 2.31218 24.6284 2.31218 20.5965 2.9299C20.2143 2.01192 19.6473 0.857955 19.1685 0C15.3004 0.66925 11.6002 1.84891 8.14365 3.47039C1.17174 14.0059 -0.71823 24.2797 0.226757 34.4076C4.85089 37.8607 9.33224 39.9585 13.738 41.3311C14.8258 39.834 15.7959 38.2425 16.6317 36.5653C15.0399 35.9605 13.5154 35.2141 12.0748 34.3475C12.457 34.0644 12.8308 33.7684 13.192 33.4638C21.9782 37.5734 31.5247 37.5734 40.206 33.4638C40.5714 33.7684 40.9452 34.0644 41.3232 34.3475C39.8784 35.2183 38.3496 35.9647 36.7579 36.5696C37.5937 38.2425 38.5596 39.8383 39.6516 41.3354C44.0616 39.9627 48.5471 37.8651 53.1712 34.4076C54.28 22.6667 51.2771 12.4873 45.2333 3.46183ZM17.8287 28.179C15.1912 28.179 13.0282 25.7167 13.0282 22.7182C13.0282 19.7197 15.145 17.2532 17.8287 17.2532C20.5125 17.2532 22.6754 19.7154 22.6293 22.7182C22.6334 25.7167 20.5125 28.179 17.8287 28.179ZM35.5693 28.179C32.9317 28.179 30.7687 25.7167 30.7687 22.7182C30.7687 19.7197 32.8855 17.2532 35.5693 17.2532C38.253 17.2532 40.416 19.7154 40.3698 22.7182C40.3698 25.7167 38.253 28.179 35.5693 28.179Z" fill="white" />
-                        </svg>
-                     </div>
-
-                     {/* Content Block */}
-                     <div className='w-full max-w-[680px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
-                        <h2 className='flex max-md:max-w-[340px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[48px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal lg:whitespace-nowrap'>Know the Right Moment to Reach Out</h2>
-
-                        <span className='flex w-full max-md:max-w-[311px] md:max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.225px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>Define detailed, granular rules for how signals are detected and delivered, ensuring you're alerted only to the interactions that actually move deals forward.</span>
-                     </div>
-
-                     {/* Notify Me Block */}
-                     <div className='w-[325px] md:w-[637px] lg:w-[741px] h-[62px] md:h-[121px] lg:h-[141px] relative'>
-                        {/* Little Block */}
-                        <div className='w-[254px] md:w-[497px] lg:w-[579px] h-[38px] md:h-[75px] lg:h-[87px] absolute left-1/2 -translate-x-1/2 bottom-0 border border-[#272727] bg-black opacity-[.1] rounded-[368px] md:rounded-[754px] lg:rounded-[878px]'></div>
-
-                        {/* Middle Block */}
-                        <div className='w-[282px] md:w-[552px] lg:w-[642px] h-[42px] md:h-[83px] lg:h-[96px] absolute left-1/2 -translate-x-1/2 bottom-[8px] md:bottom-[17px] lg:bottom-[19px] border border-[#272727] bg-black opacity-[.5] rounded-[368px] md:rounded-[754px] lg:rounded-[878px]'></div>
-
-                        {/* Top Block */}
-                        <div className='w-full h-[48px] md:h-[93px] lg:h-[108px] px-[12px] md:px-[20px] lg:px-[24px] absolute left-1/2 -translate-x-1/2 top-0 border border-[#272727] bg-[#060606] rounded-[38px] md:rounded-[75px] lg:rounded-[88px] z-1 md:shadow-[0_10.55px_85.911px_0_rgba(255,255,255,0.11)] lg:shadow-[0_12.277px_99.969px_0_rgba(255,255,255,0.11)] flex items-center justify-center gap-[8px] md:gap-[18px] lg:gap-[21px]'>
-                           <svg className='w-[10px] md:w-[20px] lg:w-[23px] h-auto' xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                              <path d="M10.5032 16.8469C10.4015 16.4524 10.1958 16.0924 9.90774 15.8043C9.61964 15.5162 9.25961 15.3106 8.8651 15.2088L1.87138 13.4054C1.75206 13.3715 1.64705 13.2996 1.57227 13.2007C1.49749 13.1017 1.45703 12.9811 1.45703 12.857C1.45703 12.733 1.49749 12.6123 1.57227 12.5134C1.64705 12.4144 1.75206 12.3426 1.87138 12.3087L8.8651 10.5041C9.25947 10.4025 9.61941 10.197 9.90749 9.90911C10.1956 9.62123 10.4013 9.26143 10.5032 8.86713L12.3067 1.87341C12.3402 1.75361 12.412 1.64808 12.5111 1.5729C12.6102 1.49772 12.7312 1.45703 12.8556 1.45703C12.98 1.45703 13.1009 1.49772 13.2 1.5729C13.2991 1.64808 13.3709 1.75361 13.4045 1.87341L15.2068 8.86713C15.3085 9.26164 15.5142 9.62167 15.8023 9.90977C16.0903 10.1979 16.4504 10.4035 16.8449 10.5053L23.8386 12.3076C23.9589 12.3407 24.0649 12.4125 24.1405 12.5117C24.2161 12.611 24.257 12.7323 24.257 12.857C24.257 12.9818 24.2161 13.1031 24.1405 13.2024C24.0649 13.3016 23.9589 13.3733 23.8386 13.4065L16.8449 15.2088C16.4504 15.3106 16.0903 15.5162 15.8023 15.8043C15.5142 16.0924 15.3085 16.4524 15.2068 16.8469L13.4033 23.8407C13.3698 23.9604 13.298 24.066 13.1989 24.1412C13.0998 24.2163 12.9788 24.257 12.8544 24.257C12.73 24.257 12.6091 24.2163 12.5099 24.1412C12.4108 24.066 12.3391 23.9604 12.3055 23.8407L10.5032 16.8469Z" fill="white" stroke="white" strokeWidth="2.91542" strokeLinecap="round" strokeLinejoin="round" />
-                           </svg>
-
-                           {/* Content */}
-                           <div className='flex flex-col items-start gap-[8px] md:gap-[16px] lg:gap-[18px]'>
-                              <h5 className='whitespace-nowrap text-[9px] md:text-[18px] lg:text-[21px] leading-[11px] md:leading-[21px] lg:leading-[24.4px] -tracking-[0.18px] md:-tracking-[0.36px] lg:-tracking-[0.419px] text-white font-medium inline-block'>
-                                 When <p className='inline-block text-[#7796F1] relative'>anyone
-                                    <Image
-                                       src={'/features/find-the-strongest-path/text-line-1.svg'}
-                                       width={71}
-                                       height={1.7}
-                                       alt='Text Line 1'
-                                       className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       draggable={false}
-                                    />
-                                 </p> <p className='inline-block text-[#CC77F1] relative'>in my ICP
-                                    <Image
-                                       src={'/features/find-the-strongest-path/text-line-2.svg'}
-                                       width={87}
-                                       height={1.7}
-                                       alt='Text Line 1'
-                                       className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       draggable={false}
-                                    />
-                                 </p> is <p className='inline-block text-[#77F1D9] relative'>active
-                                    <Image
-                                       src={'/features/find-the-strongest-path/text-line-3.svg'}
-                                       width={56}
-                                       height={1.7}
-                                       alt='Text Line 1'
-                                       className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       draggable={false}
-                                    />
-                                 </p> in <p className='inline-block text-[#F1C477] relative'>any of my groups
-                                    <Image
-                                       src={'/features/find-the-strongest-path/text-line-4.svg'}
-                                       width={165}
-                                       height={1.7}
-                                       alt='Text Line 1'
-                                       className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       draggable={false}
-                                    />
-                                 </p> on <p className='inline-block text-[#F177BE] relative'>Telegram
-                                    <Image
-                                       src={'/features/find-the-strongest-path/text-line-5.svg'}
-                                       width={88}
-                                       height={1.7}
-                                       alt='Text Line 1'
-                                       className='absolute -bottom-[1.5px] md:-bottom-[3px] left-0 w-full h-auto'
-                                       draggable={false}
-                                    />
-                                 </p>
-
-                              </h5>
-
-                              {/* Notify me on telegram */}
-                              <div className='flex items-center gap-[3px] md:gap-[6px] lg:gap-[7px]'>
-                                 {/* Single signal Alert */}
-                                 <div className='w-[100px] md:w-[194px] lg:w-[227px] h-[14px] md:h-[27px] lg:h-[32px] flex items-center justify-center gap-[3px] md:gap-[6px] lg:gap-[7px] bg-[rgba(255,255,255,0.10)] rounded-[38px] md:rounded-[75px] lg:rounded-[88px]'>
-                                    <svg className='w-[6px] md:w-[12px] lg:w-[14px] h-auto' xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                                       <g opacity="0.8">
-                                          <path fillRule="evenodd" clipRule="evenodd" d="M5.56348 10.5156V10.8151C5.56348 11.2012 5.71694 11.5715 5.99009 11.8444C6.26323 12.1173 6.63365 12.2705 7.01978 12.2702C7.40596 12.2704 7.77637 12.1171 8.0495 11.844C8.32262 11.571 8.47607 11.2007 8.47607 10.8145V10.5156" fill="white" />
-                                          <path d="M5.56348 10.5156V10.8151C5.56348 11.2012 5.71694 11.5715 5.99009 11.8444C6.26323 12.1173 6.63365 12.2705 7.01978 12.2702V12.2702C7.40596 12.2704 7.77637 12.1171 8.0495 11.844C8.32262 11.571 8.47607 11.2007 8.47607 10.8145V10.5156" stroke="white" strokeWidth="0.876923" strokeLinecap="round" strokeLinejoin="round" />
-                                          <path fillRule="evenodd" clipRule="evenodd" d="M10.493 10.5151C11.1561 10.5151 11.6937 9.97749 11.6937 9.31436C11.6934 8.97749 11.5597 8.65446 11.3217 8.41601L10.524 7.61885V5.25134C10.524 3.31329 8.95286 1.74219 7.01481 1.74219C5.07676 1.74219 3.50566 3.31329 3.50566 5.25134V7.61885L2.70791 8.41601C2.46996 8.65446 2.33621 8.97749 2.33594 9.31436C2.33594 9.63281 2.46244 9.93821 2.68762 10.1634C2.9128 10.3886 3.2182 10.5151 3.53665 10.5151H10.493Z" fill="white" stroke="white" strokeWidth="0.876923" strokeLinecap="round" strokeLinejoin="round" />
-                                       </g>
-                                    </svg>
-
-                                    <span className='text-[7.5px] md:text-[15px] lg:text-[17px] leading-[9px] md:leading-[18px] lg:leading-[21px] -tracking-[0.15px] md:-tracking-[0.3px] lg:-tracking-[0.349px] text-white font-normal'>Notify me on Telegram</span>
+                     {/* Visual Card - Left */}
+                     <div className='w-full max-w-[350px] md:max-w-[360px] lg:max-w-[500px] md:w-[360px] lg:w-[500px] h-[406px] md:h-[420px] lg:h-[580px] relative flex-shrink-0 order-2 md:order-1 overflow-hidden'>
+                        <div className='w-[500px] h-[580px] bg-[#060606] border border-[#272727] rounded-[24px] overflow-hidden relative origin-top-left scale-[0.70] md:scale-[0.72] lg:scale-100'>
+                           {/* Connection Card 1 - Hayden Adams */}
+                           <div className='absolute top-[23px] left-[18px] right-[20px] h-[297px] bg-black border border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] overflow-hidden'>
+                              {/* Vertical connection line */}
+                              <div className='absolute left-[33px] top-[45px] w-[17px] h-[202px]'>
+                                 <Image src='/features/find-strongest-path/connection-line-1.svg' width={17} height={202} alt='Connection' className='w-full h-full' />
+                              </div>
+                              
+                              {/* Header - Hayden Adams */}
+                              <div className='absolute left-[60px] top-[29px] flex items-center gap-[14px]'>
+                                 <div className='w-[31px] h-[31px] rounded-full overflow-hidden border border-[#1f1f1f]'>
+                                    <Image src='/features/find-strongest-path/hayden-adams.png' width={31} height={31} alt='Hayden Adams' className='w-full h-full object-cover' unoptimized />
                                  </div>
-
-                                 {/* Single signal Alert */}
-                                 <div className='w-[66px] md:w-[128px] lg:w-[150px] h-[14px] md:h-[27px] lg:h-[32px] flex items-center justify-center gap-[3px] md:gap-[6px] lg:gap-[7px] bg-[rgba(255,255,255,0.10)] rounded-[38px] md:rounded-[75px] lg:rounded-[88px]'>
-                                    <svg className='w-[6px] md:w-[12px] lg:w-[14px] h-auto' xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                                       <g opacity="0.8">
-                                          <path d="M7.03027 1.02148C10.1795 1.02148 12.7324 3.57443 12.7324 6.72363C12.7324 9.87287 10.1795 12.4258 7.03027 12.4258C3.88107 12.4257 1.32812 9.87285 1.32812 6.72363C1.32816 3.57445 3.88109 1.02152 7.03027 1.02148ZM6.67578 3.35742C6.43383 3.35766 6.2373 3.55389 6.2373 3.7959V7.07227C6.2373 7.31428 6.43383 7.51051 6.67578 7.51074L6.67676 7.50977L6.67773 7.51074H9.39746C9.63956 7.51067 9.83594 7.31438 9.83594 7.07227C9.8357 6.83036 9.63941 6.63386 9.39746 6.63379H7.11426V3.7959C7.11426 3.55374 6.91794 3.35742 6.67578 3.35742Z" fill="white" />
-                                       </g>
-                                    </svg>
-
-                                    <span className='text-[7.5px] md:text-[15px] lg:text-[17px] leading-[9px] md:leading-[18px] lg:leading-[21px] -tracking-[0.15px] md:-tracking-[0.3px] lg:-tracking-[0.349px] text-white font-normal'>Once a week</span>
+                                 <span className='text-white font-semibold text-[19px] leading-[26px] tracking-[-0.4px]'>Hayden Adams</span>
+                                 <span className='w-[5px] h-[5px] rounded-full bg-white/50'></span>
+                                 <span className='text-white/50 text-[19px] leading-[26px] tracking-[-0.4px]'>Founder & CEO</span>
+                              </div>
+                              
+                              {/* Andrew avatar */}
+                              <div className='absolute left-[60px] top-[90px] w-[61px] h-[61px] rounded-full overflow-hidden border border-[#1f1f1f]'>
+                                 <Image src='/features/find-strongest-path/andrew-avatar.png' width={62} height={62} alt='Andrew' className='w-full h-full object-cover' unoptimized />
+                              </div>
+                              
+                              {/* Telegram icon */}
+                              <div className='absolute left-[95px] top-[125px] w-[30px] h-[30px] rounded-full bg-black border border-[#1f1f1f] flex items-center justify-center'>
+                                 <Image src='/features/find-strongest-path/telegram-icon.svg' width={14} height={14} alt='Telegram' className='w-[14px] h-[14px]' />
+                              </div>
+                              
+                              {/* Andrew text */}
+                              <p className='absolute left-[139px] top-[89px] text-white text-[22px] leading-[31px] tracking-[-0.45px] w-[348px]'>
+                                 <span className='font-semibold'>Andrew</span> from your team has a direct Telegram connection
+                              </p>
+                              
+                              {/* DeFi Founders */}
+                              <div className='absolute left-[60px] top-[178px] w-[30px] h-[30px] rounded-full bg-[#dd007a] border border-[#1f1f1f] overflow-hidden'>
+                                 <div className='absolute left-[2px] top-[2px] w-[24px] h-[24px]'>
+                                    <img src='/features/find-strongest-path/defi-icon.png' alt='DeFi' className='w-full h-full object-cover' />
                                  </div>
                               </div>
+                              <p className='absolute left-[108px] top-[181px] text-white text-[19px] leading-[26px] tracking-[-0.4px]'>
+                                 Both in <span className='text-[#7796f1]'>DeFi Founders</span> group
+                              </p>
+                              
+                              {/* Uniswap Governance */}
+                              <div className='absolute left-[60px] top-[229px] w-[30px] h-[30px] rounded-full bg-[#bd3ce8] border border-[#1f1f1f] overflow-hidden'>
+                                 <div className='absolute h-[23px] left-[2px] top-[3px] w-[24px]'>
+                                    <div className='absolute inset-0 overflow-hidden'>
+                                       <img src='/features/find-strongest-path/uniswap-icon.png' alt='Uniswap' className='absolute h-[234%] left-[-123%] top-[-41%] w-[345%] max-w-none' />
+                                    </div>
+                                 </div>
+                              </div>
+                              <p className='absolute left-[108px] top-[231px] text-white text-[19px] leading-[26px] tracking-[-0.4px]'>
+                                 Both in <span className='text-[#7796f1]'>Uniswap Governance</span> group
+                              </p>
+                           </div>
+                           
+                           {/* Connection Card 2 - Amelia Daly */}
+                           <div className='absolute top-[332px] left-[18px] right-[20px] h-[223px] bg-black border border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] overflow-hidden'>
+                              {/* Vertical connection line */}
+                              <div className='absolute left-[33px] top-[45px] w-[17px] h-[142px]'>
+                                 <Image src='/features/find-strongest-path/connection-line-2.svg' width={17} height={142} alt='Connection' className='w-full h-full' />
+                              </div>
+                              
+                              {/* Header - Amelia Daly */}
+                              <div className='absolute left-[60px] top-[29px] flex items-center gap-[14px]'>
+                                 <div className='w-[31px] h-[31px] rounded-full overflow-hidden border border-[#1f1f1f]'>
+                                    <Image src='/features/find-strongest-path/amelia-daly.png' width={31} height={31} alt='Amelia Daly' className='w-full h-full object-cover' unoptimized />
+                                 </div>
+                                 <span className='text-white font-semibold text-[19px] leading-[26px] tracking-[-0.4px]'>Amelia Daly</span>
+                                 <span className='w-[5px] h-[5px] rounded-full bg-white/50'></span>
+                                 <span className='text-white/50 text-[19px] leading-[26px] tracking-[-0.4px]'>Head of Partnerships</span>
+                              </div>
+                              
+                              {/* Jesse avatar */}
+                              <div className='absolute left-[60px] top-[90px] w-[61px] h-[61px] rounded-full overflow-hidden border border-[#1f1f1f]'>
+                                 <Image src='/features/find-strongest-path/jesse-avatar.png' width={60} height={60} alt='Jesse' className='w-full h-full object-cover' unoptimized />
+                              </div>
+                              
+                              {/* X icon */}
+                              <div className='absolute left-[95px] top-[125px] w-[30px] h-[30px] rounded-full bg-black border border-[#1f1f1f] flex items-center justify-center'>
+                                 <Image src='/features/find-strongest-path/x-icon.svg' width={14} height={14} alt='X' className='w-[14px] h-[14px]' />
+                              </div>
+                              
+                              {/* Jesse text */}
+                              <p className='absolute left-[139px] top-[89px] text-white text-[22px] leading-[31px] tracking-[-0.45px] w-[300px]'>
+                                 <span className='font-semibold'>Jesse</span> from your team has a direct Twitter (X) connection
+                              </p>
+                              
+                              {/* Web3 Builders */}
+                              <div className='absolute left-[60px] top-[171px] w-[30px] h-[30px] rounded-full bg-[#dd007a] border border-[#1f1f1f] overflow-hidden'>
+                                 <div className='absolute h-[31px] left-[-8px] top-[-1px] w-[44px]'>
+                                    <div className='absolute inset-0 overflow-hidden'>
+                                       <img src='/features/find-strongest-path/web3-icon.png' alt='Web3' className='absolute h-[168%] left-[-123%] top-[-34%] w-[237%] max-w-none' />
+                                    </div>
+                                 </div>
+                              </div>
+                              <p className='absolute left-[108px] top-[167px] text-white text-[19px] leading-[26px] tracking-[-0.4px]'>
+                                 Both in <span className='text-[#7796f1]'>Web3 Builders</span> group
+                              </p>
                            </div>
                         </div>
                      </div>
-
-                     {/* Lottie Animation Card */}
-                     <div className='w-[360px] md:w-[520px] lg:w-[610px] h-[192px] md:h-[277px] lg:h-[325px] absolute bottom-[50px] md:bottom-[50px] lg:bottom-[30px] left-1/2 -translate-x-1/2 z-[2] pointer-events-none'>
-                        <DotLottieReact
-                           src="/Graphic Animation V2.lottie"
-                           loop={!isMobile}
-                           autoplay={!isMobile}
-                           style={{ width: '100%', height: '100%' }}
-                        />
+                     
+                     {/* Text Content - Right */}
+                     <div className='flex flex-col items-start gap-[18px] max-w-[499px] order-1 md:order-2 text-center md:text-left'>
+                        <h2 className='text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-white font-hedvig font-normal'>
+                           Find the Strongest Path to Any Deal
+                        </h2>
+                        <p className='text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] -tracking-[0.25px] md:-tracking-[0.3px] text-white/80'>
+                           LockIn maps your team's network across Telegram and X into a living relationship graph. Instantly figure out your best path to any account.
+                        </p>
                      </div>
-              
-                     {/* Line Wrapper - removed, replaced with gradient fade */}
-                     
-                     {/* Gradient fade to hide card bottoms cleanly */}
-                     <div className='w-full h-[100px] md:h-[140px] lg:h-[170px] absolute bottom-0 left-0 z-[10] pointer-events-none' style={{ background: 'linear-gradient(to top, black 0%, black 50%, transparent 100%)' }}></div>
-
-                     {/* Bottom Gradient */}
-                     <div className='absolute left-0 md:-bottom-[194px] lg:-bottom-[133px] w-full hidden md:flex h-[229px] z-0' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 37.57%)' }}></div>
-              </div>
-            </div>
-
-               {/* Expand Beyond Your Own Network */}
-               <div className='single-progress-block-3 w-full h-[167vh] relative'>
-                  <div className='w-full h-screen flex flex-col items-center justify-center pt-[24px] md:pt-[30px] lg:pt-[44px] px-[16px] md:px-[46px] pb-[150px] md:pb-[280px] lg:pb-[300px] sticky top-0 left-0 overflow-hidden bg-black'>
-                     {/* Content Block */}
-                     <div className='w-full max-w-[680px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[20px] md:mb-[30px] lg:mb-[34px]'>
-                        <h2 className='flex max-md:max-w-[260px] text-[28px] md:text-[38px] lg:text-[44px] leading-[32px] md:leading-[48px] lg:leading-[64px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-center text-white font-hedvig font-normal lg:whitespace-nowrap'>Expand Beyond Your Own Network</h2>
-
-                        <span className='flex w-full max-w-[751px] text-[15px] md:text-[18px] lg:text-[20px] leading-[22px] md:leading-[26px] lg:leading-[28px] -tracking-[0.22px] md:-tracking-[0.3px] text-center text-white font-normal opacity-[.7]'>Our shared intelligence graph spans 20k+ web3 organizations, 2m+ social profiles, and hundreds of Telegram hubs. Build new connections and opportunities across the broader ecosystem.</span>
-          </div>
-
-                     {/* Globe image block */}
-                     <div className='w-full min-w-[620px] md:min-w-[875px] lg:min-w-[1016px] max-w-[1016px] h-auto absolute left-1/2 -translate-x-1/2 bottom-[25px] md:bottom-[34px] lg:bottom-[42px] flex'>
-                        <Image
-                           src={'/features/expand-beyond/globe-expand-beyond.webp'}
-                           width={4440}
-                           height={1676}
-                           alt='Globe'
-                           className='w-full h-auto'
-                           draggable={false}
-                           quality={100}
-                        />
-        </div>
-
-                     {/* Bottom Gradient */}
-                     <div className='absolute left-0 md:-bottom-[143px] lg:-bottom-[83px] w-full hidden md:flex h-[229px] z-0' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 37.57%)' }}></div>
-                     
-                     {/* Bottom Gradient Fade to #090821 */}
-                     <div className='absolute bottom-0 left-0 w-full h-[100px] md:h-[150px] lg:h-[200px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, transparent 0%, #090821 100%)' }}></div>
                   </div>
                </div>
-            </div>
-
-            {/* Progress Bar Wrapper */}
-            <div className='sticky-parent-container absolute top-0 left-0 w-full h-full z-1 overflow-hidden pointer-events-none'>
-               <div className='progress-bar-sticky-block fixed top-0 left-0 w-full h-dvh flex items-end opacity-0 invisible'>
-                  <div className='w-full h-[120px] flex items-end justify-center pb-[24px] gap-[8px]' style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%)' }}>
-                     <div className='flex flex-col items-center gap-[10px]'>
-                        <span className='text-[13px] md:text-[16px] leading-[20px] -tracking-[0.32px] text-white font-medium'>Strongest Path</span>
-
-                        <div className='w-[100px] md:w-[161px] h-[4px] rounded-[100px] bg-[rgba(255,255,255,0.20)] overflow-hidden'>
-                           <div className='progress-bar-1 w-0 h-full bg-white'></div>
-                        </div>
+               
+               {/* Section 2: Know the Right Moment - Text Left, Visual Right */}
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto py-[40px] md:py-[50px] lg:py-[60px] px-[12px] md:px-[24px] lg:px-[24px] relative'>
+                  <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
+                     
+                     {/* Text Content - Left */}
+                     <div className='flex flex-col items-start gap-[18px] max-w-[504px] order-1 text-center md:text-left'>
+                        <h2 className='text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-white font-hedvig font-normal'>
+                           Know the Right Moment to Reach Out
+                        </h2>
+                        <p className='text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] -tracking-[0.25px] md:-tracking-[0.3px] text-white/80 max-w-[433px]'>
+                           Define detailed, granular rules for how signals are detected and delivered, ensuring you're alerted only to the interactions that actually move deals forward.
+                        </p>
                      </div>
-
-                     <div className='flex flex-col items-center gap-[10px]'>
-                        <span className='text-[13px] md:text-[16px] leading-[20px] -tracking-[0.32px] text-white font-medium'>Reach Out</span>
-
-                        <div className='w-[100px] md:w-[161px] h-[4px] rounded-[100px] bg-[rgba(255,255,255,0.20)] overflow-hidden'>
-                           <div className='progress-bar-2 w-0 h-full bg-white'></div>
-                        </div>
-                     </div>
-
-                     <div className='flex flex-col items-center gap-[10px]'>
-                        <span className='text-[13px] md:text-[16px] leading-[20px] -tracking-[0.32px] text-white font-medium'>Own Network</span>
-
-                        <div className='w-[100px] md:w-[161px] h-[4px] rounded-[100px] bg-[rgba(255,255,255,0.20)] overflow-hidden'>
-                           <div className='progress-bar-3 w-0 h-full bg-white'></div>
+                     
+                     {/* Visual Card - Right */}
+                     <div className='w-full max-w-[350px] md:max-w-[361px] lg:max-w-[501px] md:w-[361px] lg:w-[501px] h-[406px] md:h-[420px] lg:h-[580px] relative flex-shrink-0 order-2 overflow-hidden'>
+                        <div className='w-[500px] h-[580px] bg-black border border-[#272727] rounded-[24px] overflow-hidden relative origin-top-left scale-[0.70] md:scale-[0.72] lg:scale-100'>
+                           
+                           {/* Signal Rule Card */}
+                           <div className='absolute top-[50px] left-1/2 -translate-x-1/2 w-[440px] max-w-[calc(100%-48px)] bg-[#060606] border border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] px-[27px] py-[26px] flex flex-col items-center gap-[10px]'>
+                              {/* Star sparkle icon */}
+                              <Image src='/features/know-the-right-moment/star-4point.svg' width={51} height={51} alt='Star' className='w-[50px] h-[50px] -mb-[8px]' />
+                              
+                              {/* Rule text with underlines */}
+                              <p className='text-white text-center text-[18px] leading-[28px] tracking-[-0.35px] font-medium max-w-[386px]'>
+                                 When <span className='text-[#7796f1] underline decoration-dotted decoration-[#7796f1]/60 underline-offset-[6px] decoration-[1.5px]'>anyone</span> <span className='text-[#cc77f1] underline decoration-dotted decoration-[#cc77f1]/60 underline-offset-[6px] decoration-[1.5px]'>in my ICP</span> is <span className='text-[#77f1d9] underline decoration-dotted decoration-[#77f1d9]/60 underline-offset-[6px] decoration-[1.5px]'>active</span> in <span className='text-[#f1c477] underline decoration-dotted decoration-[#f1c477]/60 underline-offset-[6px] decoration-[1.5px]'>any of my groups</span> on <span className='text-[#f177be] underline decoration-dotted decoration-[#f177be]/60 underline-offset-[6px] decoration-[1.5px]'>Telegram</span>
+                              </p>
+                              
+                              {/* Action buttons */}
+                              <div className='flex items-center gap-[6px]'>
+                                 <div className='flex items-center gap-[6px] bg-white/10 rounded-full px-[9px] py-[4px]'>
+                                    <Image src='/features/know-the-right-moment/bell-icon-new.svg' width={12} height={12} alt='Bell' className='w-[12px] h-[12px] opacity-80' />
+                                    <span className='text-white/80 text-[15px] tracking-[-0.3px]'>Notify me on <span className='text-white'>Telegram</span></span>
+                                 </div>
+                                 <div className='flex items-center gap-[6px] bg-white/10 rounded-full px-[9px] py-[4px]'>
+                                    <Image src='/features/know-the-right-moment/clock-icon-new.svg' width={12} height={12} alt='Clock' className='w-[12px] h-[12px] opacity-80' />
+                                    <span className='text-white text-[15px] tracking-[-0.3px]'>Once a week</span>
+                                 </div>
+                              </div>
+                           </div>
+                           
+                           {/* Lottie Animation */}
+                           <div className='absolute top-[180px] left-[-20px] right-[-20px] bottom-[-20px]'>
+                              <DotLottieReact
+                                 src='/Graphic Animation V2.lottie'
+                                 loop
+                                 autoplay
+                                 className='w-full h-full scale-[1.03]'
+                              />
+                           </div>
+                           
                         </div>
                      </div>
                   </div>
                </div>
+               
+               {/* Section 3: Expand Beyond Network - Visual Left, Text Right */}
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[40px] md:pt-[50px] lg:pt-[60px] pb-[120px] md:pb-[160px] lg:pb-[200px] px-[12px] md:px-[24px] lg:px-[24px] relative'>
+                  <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
+                     
+                     {/* Visual Card - Left (Globe Network) */}
+                     <div className='w-full max-w-[350px] md:max-w-[360px] lg:max-w-[500px] md:w-[360px] lg:w-[500px] h-[406px] md:h-[420px] lg:h-[580px] relative flex-shrink-0 order-2 md:order-1 overflow-hidden'>
+                        <div className='w-[500px] h-[580px] bg-[#060606] border border-[#272727] rounded-[24px] overflow-hidden relative origin-top-left scale-[0.70] md:scale-[0.72] lg:scale-100'>
+                           {/* Globe wireframe background */}
+                           <div className='absolute w-[175%] h-auto left-[-35%] top-[14%]'>
+                              <Image
+                                 src='/features/expand-beyond/globe-wireframe.svg'
+                                 width={798}
+                                 height={805}
+                                 alt='Globe Wireframe'
+                                 className='w-full h-auto opacity-100'
+                                 draggable={false}
+                              />
+                           </div>
+                           
+                           {/* Network connection lines */}
+                           <div className='absolute w-[106%] h-auto left-[8%] top-[29%]'>
+                              <Image
+                                 src='/features/expand-beyond/network-lines.svg'
+                                 width={532}
+                                 height={324}
+                                 alt='Network Lines'
+                                 className='w-full h-auto'
+                                 draggable={false}
+                              />
+                           </div>
+                           
+                           {/* Avatar 1 - Top left (pixel art) */}
+                           <div className='absolute left-[4%] top-[45%] w-[53px] h-[53px] rounded-full border border-white/15 overflow-hidden'>
+                              <Image src='/features/expand-beyond/avatar-1.png' width={52} height={52} alt='Avatar' className='w-full h-full object-cover' />
+                           </div>
+                           
+                           {/* Avatar 2 - Top right */}
+                           <div className='absolute right-[-2%] top-[45%] w-[47px] h-[48px] rounded-full border border-white/15 overflow-hidden'>
+                              <Image src='/features/expand-beyond/avatar-2.png' width={48} height={48} alt='Avatar' className='w-full h-full object-cover' />
+                           </div>
+                           
+                           {/* Avatar 3 - Top center (pink ninja) */}
+                           <div className='absolute left-[29%] top-[25%] w-[45px] h-[45px] rounded-full border border-white/15 overflow-hidden'>
+                              <Image src='/features/expand-beyond/avatar-3.png' width={45} height={45} alt='Avatar' className='w-full h-full object-cover' />
+                           </div>
+                           
+                           {/* Avatar 4 - Center (main person) */}
+                           <div className='absolute left-[45%] top-[38%] w-[63px] h-[63px] rounded-full border border-white/15 overflow-hidden'>
+                              <Image src='/features/expand-beyond/avatar-4.png' width={66} height={66} alt='Avatar' className='w-full h-full object-cover' />
+                           </div>
+                           
+                           {/* Avatar 5 - Bottom left */}
+                           <div className='absolute left-[25%] top-[79%] w-[63px] h-[63px] rounded-full border border-white/15 overflow-hidden'>
+                              <Image src='/features/expand-beyond/avatar-5.png' width={67} height={63} alt='Avatar' className='w-full h-full object-cover' />
+                           </div>
+                           
+                           {/* Avatar 6 - Bottom right */}
+                           <div className='absolute right-[12%] top-[74%] w-[63px] h-[63px] rounded-full border border-white/15 overflow-hidden'>
+                              <Image src='/features/expand-beyond/avatar-6.png' width={62} height={61} alt='Avatar' className='w-full h-full object-cover' />
+                           </div>
+                        </div>
+                     </div>
+                     
+                     {/* Text Content - Right */}
+                     <div className='flex flex-col items-start gap-[18px] max-w-[499px] order-1 md:order-2 text-center md:text-left'>
+                        <h2 className='text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-white font-hedvig font-normal'>
+                           Expand Beyond Your Own Network
+                        </h2>
+                        <p className='text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] -tracking-[0.25px] md:-tracking-[0.3px] text-white/80'>
+                           Our shared intelligence graph spans 20k+ web3 organizations, 2m+ social profiles, and hundreds of Telegram hubs. Build new connections and opportunities across the broader ecosystem.
+                        </p>
+                     </div>
+                  </div>
+                  
+               </div>
             </div>
+            
+            {/* Bottom Gradient Fade - full width */}
+            <div className='absolute bottom-0 left-0 w-full h-[100px] md:h-[150px] lg:h-[200px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, transparent 0%, #090821 100%)' }}></div>
          </div>
 
          {/* Your Messages Are None Of Our Business */}
-         <div className='w-full h-auto px-[12px] md:px-[36px] pt-[100px] md:pt-[140px] lg:pt-[180px] pb-[50px] md:pb-[60px] lg:pb-[70px] bg-black overflow-x-clip relative'>
-            {/* Top Gradient Fade - fades from #090821 (own network section) for smooth transition */}
+         <div id="security" className='w-full h-auto px-[12px] md:px-[36px] pt-[100px] md:pt-[140px] lg:pt-[180px] pb-[50px] md:pb-[60px] lg:pb-[70px] bg-black overflow-x-clip relative'>
+            {/* Top Gradient Fade */}
             <div className='absolute top-0 left-0 w-full h-[150px] md:h-[200px] lg:h-[250px] pointer-events-none z-[3]' style={{ background: 'linear-gradient(to bottom, #090821 0%, #090821 20%, rgba(9, 8, 33, 0.5) 50%, transparent 100%)' }}></div>
             
             {/* Circle Gradient - moved higher for better blending */}
@@ -1134,7 +1120,7 @@ export default function page() {
 
                      {/* Link */}
                      <div className='w-full flex'>
-                        <Link href='/' target='_blank' className='flex items-center gap-[8px] group'>
+                        <Link href='/blog/case-study-nautilus' className='flex items-center gap-[8px] group'>
                            <h5 className='text-[14px] md:text-[16px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-[#429DED] font-medium inline-block group-hover:text-[#429DED]/80 transition-all duration-300'>Read the full case study</h5>
 
                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none">
@@ -1691,8 +1677,8 @@ export default function page() {
           </div>
           
             {/* Footer Block */}
-            <div className='w-full max-w-[1200px] 2xl:max-w-[1400px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[16px] md:px-[24px] pt-[20px] md:pt-[24px] lg:pt-[48px]'>
-               <div className='w-full max-w-[1110px] mx-auto flex flex-col md:flex-row items-start justify-between'>
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[24px] md:px-[32px] lg:px-[48px] pt-[20px] md:pt-[24px] lg:pt-[48px]'>
+               <div className='w-full mx-auto flex flex-col md:flex-row items-start justify-between'>
                   {/* Left Block */}
                   <div className='flex flex-col'>
                      {/* Logo */}
@@ -1781,7 +1767,7 @@ export default function page() {
                         <div className='flex flex-col gap-[10px] lg:gap-[12px]'>
                            <Link href='/privacy' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Privacy</Link>
                            <Link href='/terms' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Terms</Link>
-                           <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookie Policy</Link>
+                           <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookies</Link>
                         </div>
                      </div>
                   </div>
