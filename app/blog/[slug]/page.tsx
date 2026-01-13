@@ -423,7 +423,7 @@ export default function BlogPostPage() {
             </div>
 
         {/* Content */}
-        <div className='w-full max-w-[800px] mx-auto flex flex-col items-start relative z-2'>
+        <div className='w-full max-w-[1000px] mx-auto flex flex-col items-start relative z-2'>
           {/* Back Link */}
           <Link href="/blog" className='flex items-center gap-[8px] mb-[24px] md:mb-[32px] group'>
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none" className='rotate-180'>
@@ -461,7 +461,7 @@ export default function BlogPostPage() {
 
       {/* Article Content */}
       <div className='w-full px-[16px] md:px-[24px] pb-[60px] md:pb-[80px] lg:pb-[100px]'>
-        <article className='w-full max-w-[700px] mx-auto prose prose-invert prose-lg
+        <article className='w-full max-w-[1000px] mx-auto prose prose-invert prose-lg
           [&>p]:text-[16px] [&>p]:md:text-[18px] [&>p]:leading-[28px] [&>p]:md:leading-[32px] [&>p]:-tracking-[0.15px] [&>p]:text-white [&>p]:font-normal [&>p]:opacity-[.85] [&>p]:mb-[24px] [&>p]:md:mb-[28px]
           [&>h2]:text-[24px] [&>h2]:md:text-[32px] [&>h2]:leading-[32px] [&>h2]:md:leading-[40px] [&>h2]:-tracking-[0.48px] [&>h2]:md:-tracking-[0.64px] [&>h2]:text-white [&>h2]:font-hedvig [&>h2]:font-normal [&>h2]:mt-[40px] [&>h2]:md:mt-[56px] [&>h2]:mb-[16px] [&>h2]:md:mb-[24px]
           [&>h3]:text-[20px] [&>h3]:md:text-[24px] [&>h3]:leading-[28px] [&>h3]:md:leading-[32px] [&>h3]:-tracking-[0.4px] [&>h3]:md:-tracking-[0.48px] [&>h3]:text-white [&>h3]:font-hedvig [&>h3]:font-normal [&>h3]:mt-[32px] [&>h3]:md:mt-[40px] [&>h3]:mb-[12px] [&>h3]:md:mb-[16px]
@@ -477,7 +477,7 @@ export default function BlogPostPage() {
 
       {/* Divider */}
       <div className='w-full px-[16px] md:px-[24px]'>
-        <div className='w-full max-w-[700px] mx-auto h-px bg-[#272727]'></div>
+        <div className='w-full max-w-[1000px] mx-auto h-px bg-[#272727]'></div>
             </div>
 
       {/* Related Posts */}
@@ -539,12 +539,12 @@ export default function BlogPostPage() {
             <Link href='/#pricing' className='flex items-center justify-center w-full h-full'>
               <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Get Started</span>
             </Link>
-                </div>
-              </div>
+          </div>
+        </div>
 
         {/* Footer Block */}
-        <div className='w-full max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[16px] md:px-[24px] pt-[20px] md:pt-[24px] lg:pt-[48px] relative z-1'>
-          <div className='w-full max-w-[1110px] mx-auto flex flex-col md:flex-row items-start justify-between'>
+        <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[24px] md:px-[32px] lg:px-[48px] pt-[20px] md:pt-[24px] lg:pt-[48px] relative z-1'>
+          <div className='w-full mx-auto flex flex-col md:flex-row items-start justify-between'>
             {/* Left Block */}
             <div className='flex flex-col'>
                   {/* Logo */}

@@ -116,7 +116,7 @@ export default function BlogPage() {
         </div>
 
         {/* Content */}
-        <div className='w-full max-w-[800px] mx-auto flex flex-col items-center relative z-2'>
+        <div className='w-full max-w-[1000px] mx-auto flex flex-col items-center relative z-2'>
           <h1 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>
             LockIn's Latest News
           </h1>
