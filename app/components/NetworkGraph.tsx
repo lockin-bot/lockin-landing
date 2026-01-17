@@ -50,7 +50,7 @@ export function NetworkGraph() {
   })
 
   return (
-    <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center overflow-visible mx-auto">
+    <div className="relative w-full max-w-[320px] md:max-w-[400px] aspect-square flex items-center justify-center overflow-hidden mx-auto">
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 400 400"
@@ -116,7 +116,7 @@ export function NetworkGraph() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 2 + (i * 0.15), duration: 0.4 }}
                 className={cn(
-                  "absolute px-2 py-0.5 md:px-2.5 md:py-1 rounded-lg text-[10px] md:text-xs font-semibold whitespace-nowrap border shadow-sm",
+                  "absolute px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap border shadow-sm hidden md:block",
                   node.connectionType.color === "emerald" && "bg-emerald-950/80 border-emerald-700 text-emerald-300",
                   node.connectionType.color === "purple" && "bg-purple-950/80 border-purple-700 text-purple-300",
                   node.connectionType.color === "blue" && "bg-blue-950/80 border-blue-700 text-blue-300",

@@ -176,13 +176,24 @@ function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
   )
 }
 
+// Step title component for consistent styling
+function StepTitle({ number, title }: { number: number; title: string }) {
+  return (
+    <div className="flex flex-col items-center md:items-start mb-4 md:mb-3">
+      <span className="text-white text-base md:text-sm font-medium text-center md:text-left">
+        <span className="text-emerald-400">{number}.</span> {title}
+      </span>
+    </div>
+  )
+}
+
 export function ProcessDemo() {
   const [showModal, setShowModal] = useState(false)
 
   return (
     <div className="w-full max-w-[1000px] mx-auto">
       {/* Three columns */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
         {/* Column 1: Build list */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -190,9 +201,7 @@ export function ProcessDemo() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex flex-col"
         >
-          <span className="text-white text-sm font-medium mb-3">
-            <span className="text-emerald-400">1.</span> Build your target list
-          </span>
+          <StepTitle number={1} title="Build your target list" />
           <div className="bg-[#111] border border-gray-800 rounded-xl p-4 flex-1">
             {/* List header */}
             <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-800">
@@ -240,9 +249,7 @@ export function ProcessDemo() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex flex-col"
         >
-          <span className="text-white text-sm font-medium mb-3">
-            <span className="text-emerald-400">2.</span> Set up signal monitoring
-          </span>
+          <StepTitle number={2} title="Set up signal monitoring" />
           <div className="bg-[#111] border border-gray-800 rounded-xl p-4 flex-1">
             {/* Signal header */}
             <div className="flex items-center justify-between mb-4">
@@ -285,9 +292,7 @@ export function ProcessDemo() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col"
         >
-          <span className="text-white text-sm font-medium mb-3">
-            <span className="text-emerald-400">3.</span> Identify the warmest path
-          </span>
+          <StepTitle number={3} title="Identify the warmest path" />
           <div className="space-y-3 flex-1">
             {/* Signal detected card */}
             <motion.div

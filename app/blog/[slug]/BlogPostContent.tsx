@@ -1,41 +1,24 @@
 'use client';
 
-import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAllPostMetadata, getAllCategories, PostMetadata } from './posts';
+import { ReactNode } from 'react';
+import { PostMetadata } from '../posts';
 
-// Get posts from the registry
-const allPosts = getAllPostMetadata();
+interface BlogPostContentProps {
+  metadata: PostMetadata;
+  relatedPosts: PostMetadata[];
+  children: ReactNode;
+}
 
-// Mark the first post as featured (or you can add a 'featured' field to metadata)
-const FEATURED_SLUG = 'introducing-lockin';
-
-// Get dynamic categories from posts, plus "All"
-const categories = ["All", ...getAllCategories()];
-
-export default function BlogPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredPosts = useMemo(() => {
-    return allPosts.filter(post => {
-      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-      const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, searchQuery]);
-
-  const featuredPost = allPosts.find(post => post.slug === FEATURED_SLUG);
-  const regularPosts = filteredPosts.filter(post => post.slug !== FEATURED_SLUG);
+export function BlogPostContent({ metadata, relatedPosts, children }: BlogPostContentProps) {
 
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <div className='w-full h-auto relative overflow-hidden pt-[120px] md:pt-[160px] lg:pt-[200px] pb-[60px] md:pb-[80px] lg:pb-[100px] px-[16px] md:px-[24px]'>
+      <div className='w-full h-auto relative overflow-hidden pt-[100px] md:pt-[140px] lg:pt-[160px] pb-[40px] md:pb-[60px] lg:pb-[80px] px-[16px] md:px-[24px]'>
         {/* Circle Gradient */}
-        <div className='absolute left-1/2 -translate-x-1/2 top-0 w-[814px] md:w-[1222px] lg:w-[1443px] h-[500px] md:h-[700px] lg:h-[800px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
+        <div className='absolute left-1/2 -translate-x-1/2 top-0 w-[814px] md:w-[1222px] lg:w-[1443px] h-[400px] md:h-[600px] lg:h-[700px] rounded-[169px] lg:rounded-[200px] bg-[#0F0E38] blur-[137px] lg:blur-[162px] z-0'></div>
 
         {/* Stars Left */}
         <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-0 -left-[221px] md:-left-[322px] lg:left-0 z-1'>
@@ -48,7 +31,7 @@ export default function BlogPage() {
             draggable={false}
             className='w-full h-full object-contain'
           />
-          </div>
+        </div>
 
         {/* Stars Right */}
         <div className='w-[411px] md:w-[728px] h-[778px] md:h-[1380px] absolute top-0 -right-[221px] md:-right-[322px] lg:right-0 z-1'>
@@ -64,145 +47,103 @@ export default function BlogPage() {
         </div>
 
         {/* Content */}
-        <div className='w-full max-w-[1000px] mx-auto flex flex-col items-center relative z-2'>
-          <h1 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>
-            LockIn Blog
-          </h1>
+        <div className='w-full max-w-[800px] mx-auto flex flex-col items-start relative z-2'>
+          {/* Back Link */}
+          <Link href="/blog" className='flex items-center gap-[8px] mb-[24px] md:mb-[32px] group'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none" className='rotate-180'>
+              <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='group-hover:stroke-white transition-all duration-300' />
+            </svg>
+            <span className='text-[14px] md:text-[16px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5] group-hover:opacity-100 transition-all duration-300'>Back to Blog</span>
+          </Link>
 
-          <span className='flex max-w-[300px] md:max-w-[580px] mx-auto text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] lg:leading-[28px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-normal opacity-[.8]'>
-            Insights on Web3 sales strategy, relationship intelligence, and growing your pipeline
-          </span>
+          {/* Category & Meta */}
+          <div className='flex items-center gap-[12px] mb-[16px] md:mb-[20px]'>
+            <span className='px-[12px] py-[4px] rounded-[40px] bg-[rgba(255,255,255,0.10)] text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white font-medium'>{metadata.category}</span>
+            <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{metadata.date}</span>
+            <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white opacity-[.3]'>•</span>
+            <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{metadata.readTime}</span>
+          </div>
+
+          {/* Title */}
+          <h1 className='text-[32px] md:text-[48px] lg:text-[56px] leading-[38px] md:leading-[54px] lg:leading-[64px] -tracking-[1.28px] md:-tracking-[1.92px] lg:-tracking-[2.24px] text-white font-hedvig font-normal mb-[20px] md:mb-[28px]'>{metadata.title}</h1>
+
+          {/* Author */}
+          <div className='flex items-center gap-[12px]'>
+            {metadata.author.avatar ? (
+              <Image
+                src={metadata.author.avatar}
+                alt={metadata.author.name}
+                width={48}
+                height={48}
+                className='w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full object-cover'
+              />
+            ) : (
+              <div className='w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center'>
+                <span className='text-[16px] md:text-[18px] text-white font-medium'>{metadata.author.name.charAt(0)}</span>
+              </div>
+            )}
+            <div className='flex flex-col'>
+              <span className='text-[14px] md:text-[16px] leading-[20px] -tracking-[0.15px] text-white font-medium'>{metadata.author.name}</span>
+              <span className='text-[13px] md:text-[14px] leading-[18px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{metadata.author.role}</span>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Gradient Fade */}
         <div className='absolute bottom-0 left-0 w-full h-[150px] md:h-[200px] pointer-events-none z-[1]' style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 100%)' }}></div>
       </div>
 
-      {/* Filter & Search Section */}
-      <div className='w-full px-[16px] md:px-[24px] pb-[40px] md:pb-[60px]'>
-        <div className='w-full max-w-[1000px] mx-auto flex flex-col md:flex-row items-center justify-between gap-[20px] md:gap-[24px]'>
-          {/* Categories */}
-          <div className='flex flex-wrap items-center justify-center gap-[8px] md:gap-[12px]'>
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-[14px] md:px-[18px] py-[8px] md:py-[10px] rounded-[100px] text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] font-medium transition-all duration-300 ${selectedCategory === category
-                    ? 'bg-white text-black'
-                    : 'bg-[rgba(255,255,255,0.10)] text-white hover:bg-[rgba(255,255,255,0.20)]'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+      {/* Article Content */}
+      <div className='w-full px-[16px] md:px-[24px] pb-[60px] md:pb-[80px] lg:pb-[100px]'>
+        <article className='w-full max-w-[800px] mx-auto prose prose-invert prose-lg
+          [&>p]:text-[17px] [&>p]:md:text-[19px] [&>p]:leading-[28px] [&>p]:md:leading-[30px] [&>p]:-tracking-[0.1px] [&>p]:text-white/90 [&>p]:font-normal [&>p]:mb-[20px] [&>p]:md:mb-[24px]
+          [&>h2]:text-[24px] [&>h2]:md:text-[30px] [&>h2]:leading-[30px] [&>h2]:md:leading-[38px] [&>h2]:-tracking-[0.48px] [&>h2]:md:-tracking-[0.6px] [&>h2]:text-white [&>h2]:font-hedvig [&>h2]:font-normal [&>h2]:mt-[48px] [&>h2]:md:mt-[64px] [&>h2]:mb-[16px] [&>h2]:md:mb-[20px]
+          [&>h3]:text-[19px] [&>h3]:md:text-[22px] [&>h3]:leading-[26px] [&>h3]:md:leading-[30px] [&>h3]:-tracking-[0.3px] [&>h3]:md:-tracking-[0.4px] [&>h3]:text-white [&>h3]:font-hedvig [&>h3]:font-normal [&>h3]:mt-[36px] [&>h3]:md:mt-[48px] [&>h3]:mb-[12px] [&>h3]:md:mb-[16px]
+          [&>ul]:mb-[20px] [&>ul]:md:mb-[24px] [&>ul]:pl-[24px]
+          [&>ul>li]:text-[17px] [&>ul>li]:md:text-[19px] [&>ul>li]:leading-[28px] [&>ul>li]:md:leading-[30px] [&>ul>li]:-tracking-[0.1px] [&>ul>li]:text-white/90 [&>ul>li]:font-normal [&>ul>li]:mb-[10px] [&>ul>li]:md:mb-[12px]
+          [&>ol]:mb-[20px] [&>ol]:md:mb-[24px] [&>ol]:pl-[24px]
+          [&>ol>li]:text-[17px] [&>ol>li]:md:text-[19px] [&>ol>li]:leading-[28px] [&>ol>li]:md:leading-[30px] [&>ol>li]:-tracking-[0.1px] [&>ol>li]:text-white/90 [&>ol>li]:font-normal [&>ol>li]:mb-[10px] [&>ol>li]:md:mb-[12px]
+          [&_strong]:text-white [&_strong]:font-semibold
+        '>
+          {children}
+        </article>
+      </div>
 
-          {/* Search */}
-          <div className='w-full md:w-auto relative'>
-            <input
-              type="text"
-              placeholder="Search articles..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className='w-full md:w-[280px] h-[44px] md:h-[48px] px-[16px] md:px-[20px] rounded-[100px] bg-[rgba(255,255,255,0.10)] border border-[#272727] text-white text-[14px] md:text-[15px] placeholder:text-white/50 focus:outline-none focus:border-[#429DED] transition-all duration-300'
-            />
-            <svg className='absolute right-[16px] top-1/2 -translate-y-1/2 w-[18px] h-[18px] opacity-50' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" color="white" />
-            </svg>
-          </div>
+      {/* Divider */}
+      <div className='w-full px-[16px] md:px-[24px]'>
+        <div className='w-full max-w-[800px] mx-auto h-px bg-[#272727]'></div>
+      </div>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <div className='w-full px-[16px] md:px-[24px] py-[60px] md:py-[80px] lg:py-[100px]'>
+          <div className='w-full max-w-[800px] mx-auto'>
+            <h2 className='text-[24px] md:text-[32px] lg:text-[36px] leading-[32px] md:leading-[40px] lg:leading-[44px] -tracking-[0.48px] md:-tracking-[0.64px] lg:-tracking-[0.72px] text-white font-hedvig font-normal mb-[24px] md:mb-[32px] lg:mb-[40px]'>Related Articles</h2>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-[16px] md:gap-[20px] lg:gap-[24px]'>
+              {relatedPosts.map((relatedPost) => (
+                <Link href={`/blog/${relatedPost.slug}`} key={relatedPost.slug}>
+                  <div className='w-full h-full rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#272727] bg-black p-[20px] md:p-[24px] lg:p-[28px]'>
+                    {/* Category & Meta */}
+                    <div className='flex items-center gap-[10px] mb-[12px] md:mb-[14px]'>
+                      <span className='text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white font-medium opacity-[.5]'>{relatedPost.category}</span>
+                      <span className='text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white opacity-[.3]'>•</span>
+                      <span className='text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{relatedPost.readTime}</span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className='text-[18px] md:text-[21px] lg:text-[24px] leading-[24px] md:leading-[28px] lg:leading-[32px] -tracking-[0.2px] md:-tracking-[0.24px] text-white font-hedvig font-normal mb-[10px] md:mb-[12px] group-hover:text-[#429DED] transition-all duration-300'>{relatedPost.title}</h3>
+
+                    {/* Excerpt */}
+                    <p className='text-[14px] md:text-[15px] leading-[20px] md:leading-[22px] -tracking-[0.15px] text-white font-normal opacity-[.7]'>{relatedPost.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* Featured Post */}
-      {featuredPost && selectedCategory === "All" && searchQuery === "" && (
-        <div className='w-full px-[16px] md:px-[24px] pb-[40px] md:pb-[60px]'>
-          <div className='w-full max-w-[1000px] mx-auto'>
-            <Link href={`/blog/${featuredPost.slug}`}>
-              <div className='w-full rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#272727] bg-black p-[20px] md:p-[32px] lg:p-[40px] relative overflow-hidden'>
-                {/* Background glow */}
-                <div className='absolute top-0 right-0 w-[400px] h-[400px] bg-[#0F0E38] blur-[120px] opacity-50 z-0'></div>
-
-                <div className='relative z-1'>
-                  {/* Category & Meta */}
-                  <div className='flex items-center gap-[12px] mb-[12px] md:mb-[16px]'>
-                    <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white font-medium opacity-[.5]'>{featuredPost.category}</span>
-                    <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white opacity-[.3]'>•</span>
-                    <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{featuredPost.date}</span>
-                    <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white opacity-[.3]'>•</span>
-                    <span className='text-[13px] md:text-[15px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{featuredPost.readTime}</span>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className='text-[24px] md:text-[36px] lg:text-[44px] leading-[30px] md:leading-[44px] lg:leading-[52px] -tracking-[0.48px] md:-tracking-[0.72px] lg:-tracking-[0.88px] text-white font-hedvig font-normal mb-[12px] md:mb-[16px]'>{featuredPost.title}</h2>
-
-                  {/* Excerpt */}
-                  <p className='text-[14px] md:text-[17px] leading-[22px] md:leading-[26px] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-normal opacity-[.7] max-w-[700px]'>{featuredPost.excerpt}</p>
-
-                  {/* Read More */}
-                  <div className='flex items-center gap-[8px] mt-[20px] md:mt-[28px]'>
-                    <span className='text-[14px] md:text-[16px] leading-[20px] -tracking-[0.15px] text-[#429DED] font-medium'>Read article</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none">
-                      <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </Link>
-              </div>
-            </div>
       )}
 
-      {/* Blog Grid */}
-      <div className='w-full px-[16px] md:px-[24px] pb-[80px] md:pb-[120px] lg:pb-[160px]'>
-        <div className='w-full max-w-[1000px] mx-auto'>
-          {/* Grid */}
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-[16px] md:gap-[20px] lg:gap-[24px]'>
-            {regularPosts.map((post) => (
-              <Link href={`/blog/${post.slug}`} key={post.slug} className='h-full'>
-                <div className='w-full h-full rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#272727] bg-black p-[20px] md:p-[24px] lg:p-[28px] flex flex-col'>
-                  {/* Category & Meta */}
-                  <div className='flex items-center gap-[10px] mb-[12px] md:mb-[14px]'>
-                    <span className='text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white font-medium opacity-[.5]'>{post.category}</span>
-                    <span className='text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white opacity-[.3]'>•</span>
-                    <span className='text-[12px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{post.readTime}</span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className='text-[18px] md:text-[21px] lg:text-[24px] leading-[24px] md:leading-[28px] lg:leading-[32px] -tracking-[0.2px] md:-tracking-[0.24px] text-white font-hedvig font-normal mb-[10px] md:mb-[12px]'>{post.title}</h3>
-
-                  {/* Excerpt */}
-                  <p className='text-[14px] md:text-[15px] leading-[20px] md:leading-[22px] -tracking-[0.15px] text-white font-normal opacity-[.7] flex-grow'>{post.excerpt}</p>
-
-                  {/* Date & Read More */}
-                  <div className='flex items-center justify-between mt-[16px] md:mt-[20px]'>
-                    <span className='text-[13px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.4]'>{post.date}</span>
-                    <div className='flex items-center gap-[6px]'>
-                      <span className='text-[13px] md:text-[14px] leading-[20px] -tracking-[0.15px] text-[#429DED] font-medium'>Read</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="6" height="20" viewBox="0 0 8 24" fill="none">
-                        <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* No Results */}
-          {filteredPosts.length === 0 && (
-            <div className='w-full py-[60px] md:py-[80px] flex flex-col items-center'>
-              <span className='text-[17px] md:text-[20px] leading-[26px] -tracking-[0.2px] text-white font-normal opacity-[.7]'>No articles found</span>
-              <button
-                onClick={() => { setSelectedCategory("All"); setSearchQuery(""); }}
-                className='mt-[16px] text-[14px] md:text-[16px] leading-[20px] -tracking-[0.15px] text-[#429DED] font-medium hover:text-[#429DED]/80 transition-all duration-300'
-              >
-                Clear filters
-              </button>
-          </div>
-        )}
-        </div>
-          </div>
-          
       {/* Footer CTA */}
       <div className='w-full h-auto flex flex-col items-center px-[16px] md:px-[18px] pt-[40px] md:pt-[60px] lg:pt-[80px] relative overflow-hidden bg-black'>
         {/* Circle Gradient */}
@@ -219,8 +160,8 @@ export default function BlogPage() {
             draggable={false}
             className='w-full h-full object-contain'
           />
-          </div>
-          
+        </div>
+
         {/* Content Block */}
         <div className='w-full max-w-[650px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[24px] md:mb-[40px] lg:mb-[56px] relative z-1'>
           <h2 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal'>Ready to Lock In More Deals?</h2>
@@ -234,7 +175,7 @@ export default function BlogPage() {
             </Link>
           </div>
         </div>
-        
+
         {/* Footer Block */}
         <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] min-h-[290px] md:min-h-[210px] lg:min-h-[280px] h-auto mx-auto bg-black border border-[#272727] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] backdrop-blur-[27px] px-[24px] md:px-[32px] lg:px-[48px] pt-[20px] md:pt-[24px] lg:pt-[48px] relative z-1'>
           <div className='w-full mx-auto flex flex-col md:flex-row items-start justify-between'>
@@ -262,9 +203,9 @@ export default function BlogPage() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                     <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
-                    <path d="M7.0411 11.4029L13.7081 16.3205C14.4657 16.7338 15.0167 16.5271 15.2095 15.618L17.9231 2.83507C18.1986 1.71932 17.4961 1.22343 16.766 1.55402L0.84248 7.69754C-0.245722 8.13833 -0.231947 8.74442 0.649634 9.00614L4.74072 10.2872L14.204 4.32274C14.6447 4.04724 15.058 4.19877 14.7274 4.50181L7.0411 11.4029Z" fill="url(#paint0_linear_blog_footer)" />
+                    <path d="M7.0411 11.4029L13.7081 16.3205C14.4657 16.7338 15.0167 16.5271 15.2095 15.618L17.9231 2.83507C18.1986 1.71932 17.4961 1.22343 16.766 1.55402L0.84248 7.69754C-0.245722 8.13833 -0.231947 8.74442 0.649634 9.00614L4.74072 10.2872L14.204 4.32274C14.6447 4.04724 15.058 4.19877 14.7274 4.50181L7.0411 11.4029Z" fill="url(#paint0_linear_post_footer)" />
                     <defs>
-                      <linearGradient id="paint0_linear_blog_footer" x1="11.0345" y1="8.55915" x2="14.4782" y2="14.069" gradientUnits="userSpaceOnUse">
+                      <linearGradient id="paint0_linear_post_footer" x1="11.0345" y1="8.55915" x2="14.4782" y2="14.069" gradientUnits="userSpaceOnUse">
                         <stop stopColor="#EDEDED" />
                         <stop offset="1" stopColor="white" />
                       </linearGradient>
@@ -322,7 +263,7 @@ export default function BlogPage() {
                 <div className='flex flex-col gap-[10px] lg:gap-[12px]'>
                   <Link href='/privacy' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Privacy</Link>
                   <Link href='/terms' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Terms</Link>
-                  <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookies</Link>
+                  <Link href='/cookies' className='text-[14px] lg:text-[17px] leading-[24px] -tracking-[0.3px] opacity-[.8] font-normal text-white hover:opacity-100 transition-all duration-300'>Cookie Policy</Link>
                 </div>
               </div>
             </div>
@@ -334,9 +275,9 @@ export default function BlogPage() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 18" fill="none">
                   <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                   <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
-                  <path d="M7.0411 11.4029L13.7081 16.3205C14.4657 16.7338 15.0167 16.5271 15.2095 15.618L17.9231 2.83507C18.1986 1.71932 17.4961 1.22343 16.766 1.55402L0.84248 7.69754C-0.245722 8.13833 -0.231947 8.74442 0.649634 9.00614L4.74072 10.2872L14.204 4.32274C14.6447 4.04724 15.058 4.19877 14.7274 4.50181L7.0411 11.4029Z" fill="url(#paint0_linear_blog_footer_mobile)" />
+                  <path d="M7.0411 11.4029L13.7081 16.3205C14.4657 16.7338 15.0167 16.5271 15.2095 15.618L17.9231 2.83507C18.1986 1.71932 17.4961 1.22343 16.766 1.55402L0.84248 7.69754C-0.245722 8.13833 -0.231947 8.74442 0.649634 9.00614L4.74072 10.2872L14.204 4.32274C14.6447 4.04724 15.058 4.19877 14.7274 4.50181L7.0411 11.4029Z" fill="url(#paint0_linear_post_footer_mobile)" />
                   <defs>
-                    <linearGradient id="paint0_linear_blog_footer_mobile" x1="11.0345" y1="8.55915" x2="14.4782" y2="14.069" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="paint0_linear_post_footer_mobile" x1="11.0345" y1="8.55915" x2="14.4782" y2="14.069" gradientUnits="userSpaceOnUse">
                       <stop stopColor="#EDEDED" />
                       <stop offset="1" stopColor="white" />
                     </linearGradient>
