@@ -50,7 +50,7 @@ export function NetworkGraph() {
   })
 
   return (
-    <div className="relative w-full max-w-[320px] md:max-w-[400px] aspect-square flex items-center justify-center overflow-hidden mx-auto">
+    <div className="relative w-full max-w-[320px] md:max-w-[400px] aspect-square flex items-center justify-center overflow-hidden md:overflow-visible mx-auto">
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 400 400"

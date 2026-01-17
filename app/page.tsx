@@ -1476,10 +1476,10 @@ export default function page() {
                      </div>
                   </div>
 
-                  {/* Get Started Btn */}
+                  {/* Book a Demo Btn */}
                   <div className='w-full h-[40px] lg:h-[48px] rounded-[28px] lg:rounded-[100px] flex items-center justify-center border border-[rgba(255,255,255,0.15)] mt-[10px] lg:mt-[16px] mb-[18px] lg:mb-[24px] group hover:bg-white transition-all duration-300 relative'>
-                     <Link href={'/pricing'} className='flex items-center justify-center w-full h-full'>
-                        <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black transition-all duration-300'>Get Started</span>
+                     <Link href={'/demo'} className='flex items-center justify-center w-full h-full'>
+                        <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black transition-all duration-300'>Book a Demo</span>
                      </Link>
                   </div>
 
@@ -1582,10 +1582,10 @@ export default function page() {
                      </div>
                   </div>
 
-                  {/* Get Started Btn */}
+                  {/* Book a Demo Btn */}
                   <div className='w-full h-[40px] lg:h-[48px] rounded-[28px] lg:rounded-[100px] flex items-center justify-center border border-[rgba(255,255,255,0.15)] mt-[10px] lg:mt-[16px] mb-[18px] lg:mb-[24px] group bg-white hover:bg-black transition-all duration-300 relative'>
-                     <Link href={'/pricing'} className='flex items-center justify-center w-full h-full'>
-                        <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-black group-hover:text-white transition-all duration-300'>Get Started</span>
+                     <Link href={'/demo'} className='flex items-center justify-center w-full h-full'>
+                        <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-black group-hover:text-white transition-all duration-300'>Book a Demo</span>
                      </Link>
                   </div>
 
