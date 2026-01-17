@@ -23,10 +23,10 @@ const hedvig = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "LockIn | Lead Intelligence for Web3",
+  title: "LockIn | Sales Intelligence on Telegram and X",
   description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
   openGraph: {
-    title: "LockIn | Lead Intelligence for Web3",
+    title: "LockIn | Sales Intelligence on Telegram and X",
     description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LockIn | Lead Intelligence for Web3",
+    title: "LockIn | Sales Intelligence on Telegram and X",
     description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
     images: ["/brand/og-image.png"],
   },

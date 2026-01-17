@@ -208,7 +208,16 @@ function SignalCardCarousel() {
 
 const carouselData = [
    {
-      desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
+      desc: 'This is the sales product we always needed',
+      avatar: '/testimonials/nick.jpeg',
+      avatarWidth: 30,
+      avatarHeight: 30,
+      name: 'Nick Handy',
+      role: 'Head of GTM, Snag Solutions',
+      logo: '/testimonials/snag.avif'
+   },
+   {
+      desc: 'You couldn\'t think of a 2nd testimonial?',
       avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
@@ -216,15 +225,7 @@ const carouselData = [
       role: 'CEO'
    },
    {
-      desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
-      avatar: '/testimonials/ceo-image.webp',
-      avatarWidth: 30,
-      avatarHeight: 30,
-      name: 'Bob Mark',
-      role: 'CEO'
-   },
-   {
-      desc: 'Built for the way Web3 deals actually happen – in Telegram groups and X threads for the way Web3 deals actually happen',
+      desc: 'You couldn\'t think of a 3rd testimonial?',
       avatar: '/testimonials/ceo-image.webp',
       avatarWidth: 30,
       avatarHeight: 30,
@@ -235,28 +236,28 @@ const carouselData = [
 
 const faqData = [
    {
-      question: 'How does LockIn know which conversations are sales-related?',
-      desc: 'LockIn uses AI to automatically identify and categorize conversations relevant to your business from all your Telegram chats. It analyzes message content, context, and patterns to distinguish sales opportunities from casual conversations.'
+      question: 'Is my data private and secure?',
+      desc: 'LockIn uses Trusted Execution Environments (TEE) to process your data. Your messages and contacts never leave the secure enclave, and we cannot access the content of your conversations.'
    },
    {
-      question: 'Do I need to add the bot to each Telegram chat?',
-      desc: 'No, LockIn works seamlessly in the background across all your Telegram conversations. Once set up, it automatically monitors and tracks relevant conversations without requiring manual configuration for each chat.'
+      question: 'What networks does LockIn support?',
+      desc: 'We support Telegram and X / Twitter, as well as an integration with Hubspot.'
    },
    {
-      question: 'Is my business data private and secure?',
-      desc: 'Absolutely. All your data is encrypted inside a Trusted Execution Environment (TEE), meaning your messages, deal flow, and private group chats stay completely private. We never send your conversations to third-party AI providers.'
+      question: 'How do you identify the strongest path to a target account?',
+      desc: 'We analyze your connected networks to find shared groups, mutual follows, teammate connections, and active DM relationships to surface the strongest path to any target account.'
    },
    {
-      question: 'Can I customize the sales pipeline stages?',
-      desc: 'Yes, Pro plan users can create custom sales pipeline stages to match their specific workflow. You can define your own stages, labels, and criteria for how deals progress through your pipeline.'
+      question: "What if I don't have many connections?",
+      desc: "Our shared intelligence graph spans 20k+ web3 organizations, 2m+ social profiles, and hundreds of Telegram hubs. Even with a small network, you'll discover paths through the broader ecosystem."
    },
    {
-      question: 'How accurate is the AI in detecting sales opportunities?',
-      desc: 'Our AI has been trained specifically on sales and BD conversations in Web3 and tech industries. Users report high accuracy in identifying leads and deal progress, with continuous improvements based on feedback.'
+      question: 'Can I try before I commit?',
+      desc: "We offer a 30-day money-back guarantee. If LockIn doesn't help you close more deals, we'll refund you in full."
    },
    {
-      question: 'Can I export my data to other CRM systems?',
-      desc: 'Yes, you can export your deal data, contact lists, and conversation history. We support CSV exports and are working on direct integrations with popular CRM platforms.'
+      question: 'How is pricing structured?',
+      desc: 'Pricing is per-seat, per-year. Company enrichments have an additional cost. Volume discounts available for teams of 10+.'
    }
 ]
 
@@ -636,7 +637,7 @@ export default function page() {
   return (
       <div className="min-h-screen bg-black">
          {/* Hero */}
-         <div className='w-full h-screen min-h-[700px] md:min-h-[850px] lg:min-h-[900px] relative overflow-hidden'>
+         <div className='w-full h-screen min-h-[700px] md:min-h-[850px] lg:min-h-[900px] max-h-[1100px] relative overflow-hidden'>
             {/* Cluster SVGs - TEMPORARILY DISABLED */}
             {/* <div className='hero-cluster-svg hero-cluster-svg-1 w-[280px] h-[320px] absolute top-[220px] md:top-[340px] -left-[237px] md:left-[48px] lg:left-[113px] z-2 opacity-0'>
                <Image
@@ -787,16 +788,16 @@ export default function page() {
                   {/* Desc */}
                   <span className='flex max-w-[300px] md:max-w-[480px] mx-auto text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] lg:leading-[28px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-normal opacity-[.8]'>Unify your team's Telegram and X networks—revealing warm paths, buying signals, and more deals</span>
 
-                  {/* Get Started Button */}
+                  {/* Book A Demo Button */}
                   <div
-                     className='w-[170px] md:w-[210px] h-[48px] md:h-[58px] rounded-[28px] flex items-center justify-center mt-[10px] md:mt-[16px] group border-[3px] border-[#8d8d8d] hover:border-black bg-white hover:bg-black transition-all duration-300'
+                     className='w-[170px] md:w-[210px] h-[48px] md:h-[58px] rounded-[28px] flex items-center justify-center mt-[20px] md:mt-[28px] group border-[3px] border-[#8d8d8d] hover:border-black bg-white hover:bg-black transition-all duration-300'
                   >
-                     <Link href={'/pricing'} className='flex items-center justify-center w-full h-full'>
-                        <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Get Started</span>
+                     <Link href='/demo' className='flex items-center justify-center w-full h-full'>
+                        <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Book A Demo</span>
                      </Link>
             </div>
         </div>
-        
+
                {/* Image Wrapper */}
                <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative -mt-[16px] md:-mt-[20px] lg:-mt-[24px]'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
@@ -868,7 +869,7 @@ export default function page() {
                               
                               {/* Andrew avatar */}
                               <div className='absolute left-[60px] top-[90px] w-[61px] h-[61px] rounded-full overflow-hidden border border-[#1f1f1f]'>
-                                 <Image src='/features/find-strongest-path/andrew-avatar.png' width={62} height={62} alt='Andrew' className='w-full h-full object-cover' unoptimized />
+                                 <Image src='/features/find-strongest-path/sarah-avatar.png' width={62} height={62} alt='Sarah' className='w-full h-full object-cover' unoptimized />
                               </div>
                               
                               {/* Telegram icon */}
@@ -878,7 +879,7 @@ export default function page() {
                               
                               {/* Andrew text */}
                               <p className='absolute left-[139px] top-[89px] text-white text-[22px] leading-[31px] tracking-[-0.45px] w-[348px]'>
-                                 <span className='font-semibold'>Andrew</span> from your team has a direct Telegram connection
+                                 <span className='font-semibold'>Sarah</span> from your team has a direct Telegram connection
                               </p>
                               
                               {/* DeFi Founders */}
@@ -1246,29 +1247,13 @@ export default function page() {
             </div>
 
             {/* Carousel Container */}
-            <div className='w-full flex justify-center overflow-hidden'>
+            <div className='w-full flex justify-center overflow-hidden relative'>
+               {/* Left gradient overlay */}
+               <div className='hidden xl:block absolute left-0 top-0 bottom-0 w-[calc((100%-1200px)/2)] bg-gradient-to-r from-black to-transparent z-10 pointer-events-none' />
+               {/* Right gradient overlay */}
+               <div className='hidden xl:block absolute right-0 top-0 bottom-0 w-[calc((100%-1200px)/2)] bg-gradient-to-l from-black to-transparent z-10 pointer-events-none' />
                <div className='flex items-start gap-[12px] md:gap-[24px] will-change-transform' ref={containerRef}>
-                  {/* Single Carousel Item */}
-                  <div className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px] p-[24px] md:p-[32px] lg:p-[40px]'>
-                     {/* Desc */}
-                     <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>"{carouselData[0].desc}"</h2>
-
-                     {/* Owner & Role */}
-                     <div className='w-full flex items-center justify-center gap-[8px]'>
-                        <Image
-                           src={carouselData[0].avatar}
-                           width={carouselData[0].avatarWidth}
-                           height={carouselData[0].avatarHeight}
-                           alt='Avatar'
-                           className='w-full max-w-[26px] h-full max-h-[26px] object-cover rounded-full'
-                           draggable={false}
-                        />
-
-                        <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{carouselData[0].name} <p className='inline-block opacity-[.8]'>/ {carouselData[0].role}</p></h5>
-                     </div>
-                  </div>
-
-                  {/* Single Carousel Item */}
+                  {/* Carousel Items */}
                   {
                      carouselData.map((item, i) => (
                         <div key={i} className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px] p-[24px] md:p-[32px] lg:p-[40px]'>
@@ -1284,36 +1269,32 @@ export default function page() {
                                  alt='Avatar'
                                  className='w-full max-w-[26px] h-full max-h-[26px] object-cover rounded-full'
                                  draggable={false}
+                                 loading="eager"
                               />
 
                               <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{item.name} <p className='inline-block opacity-[.8]'>/ {item.role}</p></h5>
                            </div>
+
+                           {/* Logo */}
+                           {item.logo && (
+                              <div className='flex items-center justify-center mt-[8px]'>
+                                 <Image
+                                    src={item.logo}
+                                    width={100}
+                                    height={40}
+                                    alt='Company Logo'
+                                    className='h-[24px] md:h-[32px] w-auto object-contain opacity-80'
+                                    draggable={false}
+                                    loading="eager"
+                                 />
+                              </div>
+                           )}
                         </div>
                      ))
                   }
-
-                  {/* Single Carousel Item */}
-                  <div className='shrink-0 w-[290px] md:w-[550px] lg:w-[650px] h-auto flex flex-col items-center gap-[16px] md:gap-[24px] p-[24px] md:p-[32px] lg:p-[40px]'>
-                     {/* Desc */}
-                     <h2 className='text-[15px] md:text-[20px] lg:text-[22px] leading-[21px] md:leading-[30px] -tracking-[0.6px] md:-tracking-[0.8px] lg:-tracking-[0.88px] text-white text-center font-normal'>"{carouselData[carouselData.length - 1].desc}"</h2>
-
-                     {/* Owner & Role */}
-                     <div className='w-full flex items-center justify-center gap-[8px]'>
-                        <Image
-                           src={carouselData[carouselData.length - 1].avatar}
-                           width={carouselData[carouselData.length - 1].avatarWidth}
-                           height={carouselData[carouselData.length - 1].avatarHeight}
-                           alt='Avatar'
-                           className='w-full max-w-[26px] h-full max-h-[26px] object-cover rounded-full'
-                           draggable={false}
-                        />
-
-                        <h5 className='inline-block text-[13px] md:text-[16px] leading-[20px] md:leading-[24px] -tracking-[0.225px] md:-tracking-[0.3px] text-white font-normal'>{carouselData[carouselData.length - 1].name} <p className='inline-block opacity-[.8]'>/ {carouselData[carouselData.length - 1].role}</p></h5>
-                     </div>
-                  </div>
                </div>
             </div>
-            
+
             {/* Progress Bar */}
             <div className='flex items-center justify-center gap-[8px] md:gap-[10px]'>
                {carouselData.map((_, i) => (
@@ -1483,12 +1464,12 @@ export default function page() {
                   {/* Title Text */}
                   <div className='w-full flex flex-col gap-[6px] mb-[18px] lg:mb-[22px]'>
                      <h5 className='text-[18px] lg:text-[24px] leading-[100%] text-white font-hedvig font-normal'>Standard Plan</h5>
-                     <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Perfect for individuals and small teams</span>
+                     <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Perfect for solo founders and individuals</span>
                   </div>
 
                   {/* Price Block */}
                   <div className='flex items-center gap-[8px] lg:gap-[16px]'>
-                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>$120</h1>
+                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>$125</h1>
                      <div className='flex flex-col gap-[2px]'>
                         <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per month,</span>
                         <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per seat</span>
@@ -1502,7 +1483,7 @@ export default function page() {
                      </Link>
                   </div>
 
-                  <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>7-day free trial, no credit card required</span>
+                  <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>30-day money-back guarantee</span>
 
                   {/* Features List */}
                   <ul className='w-full flex flex-col gap-[12px] lg:gap-[18px]'>
@@ -1513,7 +1494,18 @@ export default function page() {
                   </svg>
                         </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Track up to 100 conversations</span>
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Enrich your Telegram and X networks</span>
+                </li>
+
+                     <li className='flex items-center gap-[10px]'>
+                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                              <path d="M25.1276 8.08008L19.2114 13.9962C18.7553 14.4524 18.0168 14.4524 17.5618 13.9962L15.0639 11.4984C14.6078 11.0422 13.8693 11.0422 13.4143 11.4984L6.46094 18.4517" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M25.1274 24.3293H2.87207V3.66992" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                        </div>
+
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Set up to 10 signal monitors</span>
                 </li>
 
                      <li className='flex items-center gap-[10px]'>
@@ -1526,31 +1518,7 @@ export default function page() {
                   </svg>
                         </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Daily AI-generated follow-up suggestions</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M25.1276 8.08008L19.2114 13.9962C18.7553 14.4524 18.0168 14.4524 17.5618 13.9962L15.0639 11.4984C14.6078 11.0422 13.8693 11.0422 13.4143 11.4984L6.46094 18.4517" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M25.1274 24.3293H2.87207V3.66992" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Standard sales pipeline tracking</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 11.6667V11.6667C5.32817 11.6667 3.5 9.8385 3.5 7.58333V7.58333C3.5 5.32817 5.32817 3.5 7.58333 3.5V3.5C9.8385 3.5 11.6667 5.32817 11.6667 7.58333V7.58333C11.6667 9.8385 9.8385 11.6667 7.58333 11.6667Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M20.4163 11.6667V11.6667C18.1612 11.6667 16.333 9.8385 16.333 7.58333V7.58333C16.333 5.32817 18.1612 3.5 20.4163 3.5V3.5C22.6715 3.5 24.4997 5.32817 24.4997 7.58333V7.58333C24.4997 9.8385 22.6715 11.6667 20.4163 11.6667Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 24.5007V24.5007C5.32817 24.5007 3.5 22.6725 3.5 20.4173V20.4173C3.5 18.1622 5.32817 16.334 7.58333 16.334V16.334C9.8385 16.334 11.6667 18.1622 11.6667 20.4173V20.4173C11.6667 22.6725 9.8385 24.5007 7.58333 24.5007Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M24.4997 20.4173V20.4173C24.4997 18.1622 22.6715 16.334 20.4163 16.334V16.334C18.1612 16.334 16.333 18.1622 16.333 20.4173V20.4173C16.333 22.6725 18.1612 24.5007 20.4163 24.5007V24.5007C22.6715 24.5007 24.4997 22.6725 24.4997 20.4173Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Basic analytics dashboard</span>
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>AI search and discovery</span>
                 </li>
 
                      <li className='flex items-center gap-[10px]'>
@@ -1561,7 +1529,21 @@ export default function page() {
                   </svg>
                         </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Email support</span>
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Sales outreach tracking</span>
+                </li>
+
+                     <li className='flex items-center gap-[10px]'>
+                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                              <path fillRule="evenodd" clipRule="evenodd" d="M22.1663 19.8327H20.9997C20.3557 19.8327 19.833 19.31 19.833 18.666V12.8327C19.833 12.1887 20.3557 11.666 20.9997 11.666H22.1663C23.4555 11.666 24.4997 12.7102 24.4997 13.9993V17.4993C24.4997 18.7885 23.4555 19.8327 22.1663 19.8327Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path fillRule="evenodd" clipRule="evenodd" d="M7 19.8327H5.83333C4.54417 19.8327 3.5 18.7885 3.5 17.4993V13.9993C3.5 12.7102 4.54417 11.666 5.83333 11.666H7C7.644 11.666 8.16667 12.1887 8.16667 12.8327V18.666C8.16667 19.31 7.644 19.8327 7 19.8327Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M21.5837 11.6667V11.0833C21.5837 6.895 18.1887 3.5 14.0003 3.5V3.5C9.81199 3.5 6.41699 6.895 6.41699 11.0833V11.6667" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path fillRule="evenodd" clipRule="evenodd" d="M14.7292 24.7917H13.2708C12.4658 24.7917 11.8125 24.1383 11.8125 23.3333V23.3333C11.8125 22.5283 12.4658 21.875 13.2708 21.875H14.7292C15.5342 21.875 16.1875 22.5283 16.1875 23.3333V23.3333C16.1875 24.1383 15.5342 24.7917 14.7292 24.7917Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M16.1875 23.334H18.6667C19.9558 23.334 21 22.2898 21 21.0007V19.834" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                        </div>
+
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Live 24/7 support</span>
                 </li>
               </ul>
             </div>
@@ -1588,12 +1570,12 @@ export default function page() {
                   {/* Title Text */}
                   <div className='w-full flex flex-col gap-[6px] mb-[18px] lg:mb-[22px]'>
                      <h5 className='text-[18px] lg:text-[24px] leading-[100%] text-white font-hedvig font-normal'>Pro Plan</h5>
-                     <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>For serious sales professionals</span>
+                     <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>For teams and serious sales professionals</span>
                   </div>
 
                   {/* Price Block */}
                   <div className='flex items-center gap-[8px] lg:gap-[16px]'>
-                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>$150</h1>
+                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>$200</h1>
                      <div className='flex flex-col gap-[2px]'>
                         <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per month,</span>
                         <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per seat</span>
@@ -1607,67 +1589,42 @@ export default function page() {
                      </Link>
                   </div>
 
-                  <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>7-day free trial, no credit card required</span>
+                  <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>30-day money-back guarantee</span>
 
                   {/* Features List */}
                   <ul className='w-full flex flex-col gap-[12px] lg:gap-[18px]'>
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M8.25747 25.4427C11.4168 25.4427 13.9788 22.8807 13.9788 19.7213C13.9788 16.562 11.418 14 8.25747 14C5.09697 14 2.53613 16.562 2.53613 19.7213" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M8.26317 25.4479C7.40217 25.4479 6.58667 25.2577 5.85401 24.9182L2.33301 25.666L3.06917 22.138C2.72734 21.403 2.53601 20.584 2.53601 19.7207" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M7.64983 14.0324C7.23217 13.0746 7 12.0304 7 10.9349C7 6.24845 11.1977 2.48828 16.3333 2.48828C21.469 2.48828 25.6667 6.24845 25.6667 10.9349C25.6667 13.7046 24.1943 16.1429 21.9345 17.6806C21.9357 18.5626 21.9333 19.7514 21.9333 20.9998L18.2712 19.1961C17.6447 19.3163 16.9972 19.3816 16.3333 19.3816C15.5085 19.3816 14.7082 19.2836 13.9452 19.1004" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M6 14L11.5 19.5L22 9" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                         </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Track up to 500 conversations</span>
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>Everything in the Standard plan</span>
                 </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M7.00033 19.834V24.5007" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M4.66699 22.1673H9.33366" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M19.8333 3.5V8.16667" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M17.5 5.83333H22.1667" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M7.58301 5.83398C7.58301 8.08915 9.41117 9.91732 11.6663 9.91732" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M11.6663 9.91602C9.41117 9.91602 7.58301 11.7442 7.58301 13.9993" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M7.58333 13.9993C7.58333 11.7442 5.75517 9.91602 3.5 9.91602" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M3.5 9.91732C5.75517 9.91732 7.58333 8.08915 7.58333 5.83398" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M13.5439 18.4072C16.5691 18.4072 19.0214 15.9549 19.0214 12.9297" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M19.0225 12.9297C19.0225 15.9549 21.4748 18.4072 24.5 18.4072" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M24.5 18.4082C21.4748 18.4082 19.0225 20.8605 19.0225 23.8857" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M19.0224 23.8857C19.0224 20.8605 16.5701 18.4082 13.5449 18.4082" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 11.6667V11.6667C5.32817 11.6667 3.5 9.8385 3.5 7.58333V7.58333C3.5 5.32817 5.32817 3.5 7.58333 3.5V3.5C9.8385 3.5 11.6667 5.32817 11.6667 7.58333V7.58333C11.6667 9.8385 9.8385 11.6667 7.58333 11.6667Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path fillRule="evenodd" clipRule="evenodd" d="M20.4163 11.6667V11.6667C18.1612 11.6667 16.333 9.8385 16.333 7.58333V7.58333C16.333 5.32817 18.1612 3.5 20.4163 3.5V3.5C22.6715 3.5 24.4997 5.32817 24.4997 7.58333V7.58333C24.4997 9.8385 22.6715 11.6667 20.4163 11.6667Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 24.5007V24.5007C5.32817 24.5007 3.5 22.6725 3.5 20.4173V20.4173C3.5 18.1622 5.32817 16.334 7.58333 16.334V16.334C9.8385 16.334 11.6667 18.1622 11.6667 20.4173V20.4173C11.6667 22.6725 9.8385 24.5007 7.58333 24.5007Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path fillRule="evenodd" clipRule="evenodd" d="M24.4997 20.4173V20.4173C24.4997 18.1622 22.6715 16.334 20.4163 16.334V16.334C18.1612 16.334 16.333 18.1622 16.333 20.4173V20.4173C16.333 22.6725 18.1612 24.5007 20.4163 24.5007V24.5007C22.6715 24.5007 24.4997 22.6725 24.4997 20.4173Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                         </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>AI insights (lead intent, urgency detection)</span>
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Company contact enrichment credit ($100/mo. value)</span>
                 </li>
 
                      <li className='flex items-center gap-[10px]'>
                         <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M5.83301 18.5365L11.7492 12.6203C12.2053 12.1642 12.9438 12.1642 13.3988 12.6203L15.8967 15.1182C16.3528 15.5743 17.0913 15.5743 17.5463 15.1182L24.4997 8.16602" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M21.3887 8.16602H24.5002V11.2775" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M24.5003 24.4171H2.24609V3.75781" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M21 7L7 21" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M7 7H21V21" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                         </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Custom sales pipeline stages</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M22.1663 19.8327H20.9997C20.3557 19.8327 19.833 19.31 19.833 18.666V12.8327C19.833 12.1887 20.3557 11.666 20.9997 11.666H22.1663C23.4555 11.666 24.4997 12.7102 24.4997 13.9993V17.4993C24.4997 18.7885 23.4555 19.8327 22.1663 19.8327Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M7 19.8327H5.83333C4.54417 19.8327 3.5 18.7885 3.5 17.4993V13.9993C3.5 12.7102 4.54417 11.666 5.83333 11.666H7C7.644 11.666 8.16667 12.1887 8.16667 12.8327V18.666C8.16667 19.31 7.644 19.8327 7 19.8327Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M21.5837 11.6667V11.0833C21.5837 6.895 18.1887 3.5 14.0003 3.5V3.5C9.81199 3.5 6.41699 6.895 6.41699 11.0833V11.6667" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M14.7292 24.7917H13.2708C12.4658 24.7917 11.8125 24.1383 11.8125 23.3333V23.3333C11.8125 22.5283 12.4658 21.875 13.2708 21.875H14.7292C15.5342 21.875 16.1875 22.5283 16.1875 23.3333V23.3333C16.1875 24.1383 15.5342 24.7917 14.7292 24.7917Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M16.1875 23.334H18.6667C19.9558 23.334 21 22.2898 21 21.0007V19.834" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Priority support</span>
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Discounted network seats</span>
                 </li>
 
                      <li className='flex items-center gap-[10px]'>
@@ -1682,13 +1639,23 @@ export default function page() {
 
                         <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Team collaboration features</span>
                 </li>
+
+                     <li className='flex items-center gap-[10px]'>
+                        <div className='w-[18px] lg:w-[19px] h-[18px] lg:h-[19px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 13.107 13.099" fill="none">
+                              <path d="M12.027 6.222a3.33 3.33 0 0 0-1.209-1.201c-.382-.222-.777-.363-1.223-.424V3a1.17 1.17 0 0 0 .722-1.097 1.2 1.2 0 0 0-1.2-1.206 1.21 1.21 0 0 0-1.21 1.206c0 .49.26.908.707 1.097v1.588a3.49 3.49 0 0 0-1.064.334L3.275 1.685c.03-.113.056-.23.056-.353 0-.738-.598-1.336-1.336-1.336S.66.594.66 1.332s.598 1.336 1.336 1.336c.252 0 .485-.074.686-.195l.28.212L6.797 5.45c-.203.186-.392.398-.543.636-.306.485-.493 1.018-.493 1.6v.12a3.35 3.35 0 0 0 .21 1.156c.116.316.286.604.497.864l-1.274 1.277c-.377-.14-.8-.047-1.085.238-.194.193-.303.456-.302.73s.108.535.303.73.456.303.73.303.537-.108.73-.303.303-.456.302-.73a1.03 1.03 0 0 0-.048-.31l1.316-1.316c.18.125.375.23.585.32a3.42 3.42 0 0 0 1.369.288h.09c.552 0 1.073-.13 1.562-.395a3.23 3.23 0 0 0 1.224-1.153c.307-.49.475-1.033.475-1.63v-.03c0-.587-.136-1.128-.42-1.624zM10.42 8.984c-.357.397-.768.642-1.232.642H9.1c-.265 0-.525-.073-.778-.207a1.8 1.8 0 0 1-.682-.621c-.184-.26-.284-.544-.284-.845v-.09c0-.296.057-.577.2-.842.153-.3.36-.515.635-.694s.558-.265.88-.265h.03c.29 0 .567.057.827.19a1.75 1.75 0 0 1 .65.591 1.88 1.88 0 0 1 .291.83l.007.187c0 .407-.156.784-.467 1.126z" fill="#429DED"/>
+                  </svg>
+                        </div>
+
+                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>HubSpot integration support</span>
+                </li>
               </ul>
             </div>
           </div>
           
             {/* Pricing Text Block */}
             <div className='w-full max-w-[270px] md:max-w-[420px] lg:max-w-[680px] mx-auto flex justify-center mt-[22px] md:mt-[36px] lg:mt-[50px] mb-[16px] md:mb-[24px] lg:mb-[32px]'>
-               <span className='text-[14px] md:text-[17px] leading-[22px] md:leading-[26px] text-white opacity-[.8] text-center'>Need more than 500 conversations? Contact us for enterprise pricing.</span>
+               <span className='text-[14px] md:text-[17px] leading-[22px] md:leading-[26px] text-white opacity-[.8] text-center'>Need more than 10 seats? Contact us for enterprise pricing.</span>
         </div>
 
             {/* Contact Us Button */}
@@ -1731,7 +1698,7 @@ export default function page() {
 
                      {/* Desc Wrapper */}
                      <div className='w-full flex'>
-                        <span className='flex justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-white font-normal opacity-[.8]'>{item.desc}</span>
+                        <span className='flex text-left w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-white font-normal opacity-[.8]'>{item.desc}</span>
                      </div>
               </div>
             ))}
@@ -1759,14 +1726,14 @@ export default function page() {
             <div className='w-full max-w-[650px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[24px] md:mb-[40px] lg:mb-[56px] relative z-1'>
                <h2 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal'>Ready to Lock In More Deals?</h2>
 
-               <span className='flex max-w-[300px] md:max-w-[480px] lg:max-w-[420px] justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-center text-white font-normal opacity-[.7]'>Join top Web3 teams turning Telegram noise into qualified pipeline</span>
+               <span className='flex max-w-[300px] md:max-w-[520px] lg:max-w-[520px] justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-center text-white font-normal opacity-[.7]'>Book a demo to see how LockIn reveals your hidden network on Telegram and X.</span>
 
-               {/* Get Started Button */}
+               {/* Book A Demo Button */}
                <div
                   className='w-[170px] md:w-[210px] h-[48px] md:h-[58px] rounded-[28px] flex items-center justify-center mt-[10px] md:mt-[16px] group border-[3px] border-[#8d8d8d] hover:border-black bg-white hover:bg-black transition-all duration-300'
                >
-                  <Link href='#pricing' className='flex items-center justify-center w-full h-full'>
-                     <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Get Started</span>
+                  <Link href='/demo' className='flex items-center justify-center w-full h-full'>
+                     <span className='text-[18px] md:text-[20px] leading-normal -tracking-[0.6px] md:-tracking-[0.72px] font-semibold text-black group-hover:text-white transition-all duration-300'>Book A Demo</span>
                   </Link>
             </div>
           </div>
@@ -1788,13 +1755,13 @@ export default function page() {
                         />
                      </Link>
 
-                     <span className='flex justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-white font-normal opacity-[.8]'>Lead intelligence for Web3</span>
+                     <span className='flex justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-white font-normal opacity-[.8]'>Sales intelligence platform for Telegram and X</span>
 
                      {/* Social Icons */}
                      <div className='hidden md:flex items-center gap-[14px] md:mt-[14px] lg:mt-[30px]'>
                         {/* Telegram */}
                         <div className='w-[44px] h-[44px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
-                           <Link href='https://t.me/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                           <Link href='https://t.me/thelockinbot' target='_blank' className='absolute inset-0'></Link>
                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                               <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                               <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
@@ -1819,20 +1786,13 @@ export default function page() {
           
                         {/* LinkedIn */}
                         <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
-                           <Link href='https://www.linkedin.com/company/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                           <Link href='https://www.linkedin.com/company/lockin-bot/' target='_blank' className='absolute inset-0'></Link>
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
                               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/>
                            </svg>
                         </div>
 
-                        {/* Instagram */}
-                        <div className='w-[38px] h-[38px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.50)] transition-all duration-300 relative'>
-                           <Link href='https://www.instagram.com/lockinbot' target='_blank' className='absolute inset-0'></Link>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="white"/>
-                           </svg>
                         </div>
-          </div>
         </div>
         
                   {/* Nav Block */}
@@ -1871,7 +1831,7 @@ export default function page() {
                   <div className='flex md:hidden items-center gap-[12px] mt-[28px] flex-wrap'>
                      {/* Telegram */}
                      <div className='whitespace-nowrap w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
-                        <Link href='https://t.me/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                        <Link href='https://t.me/thelockinbot' target='_blank' className='absolute inset-0'></Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 18" fill="none">
                            <path d="M6.76629 15.6159C6.22912 15.6159 6.32553 15.4093 6.1327 14.8997L4.5625 9.72079L14.3143 3.63281L15.4575 3.93583L14.5071 6.52529L6.76629 15.6159Z" fill="#DEDEDE" />
                            <path d="M6.76562 15.6184C7.17887 15.6184 7.35794 15.4256 7.59211 15.2052C7.95025 14.8608 12.551 10.384 12.551 10.384L9.72719 9.69531L7.10999 11.3483L6.76562 15.4807V15.6184Z" fill="#D0D0D0" />
@@ -1895,20 +1855,13 @@ export default function page() {
 
                      {/* LinkedIn */}
                      <div className='w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
-                        <Link href='https://www.linkedin.com/company/lockinbot' target='_blank' className='absolute inset-0'></Link>
+                        <Link href='https://www.linkedin.com/company/lockin-bot/' target='_blank' className='absolute inset-0'></Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/>
                         </svg>
                      </div>
 
-                     {/* Instagram */}
-                     <div className='w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center relative'>
-                        <Link href='https://www.instagram.com/lockinbot' target='_blank' className='absolute inset-0'></Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="white"/>
-                        </svg>
                      </div>
-                  </div>
                </div>
             </div>
 

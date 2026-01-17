@@ -93,8 +93,8 @@ export default function Navbar() {
                         backdropFilter: 'blur(162px)'
                      }}
                   >
-                     <Link href='/#pricing' className='flex items-center justify-center w-full h-full'>
-                        <span className='text-[15px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Get Started</span>
+                     <Link href='/demo' className='flex items-center justify-center w-full h-full'>
+                        <span className='text-[15px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Book A Demo</span>
                      </Link>
                   </div>
                </div>
@@ -157,8 +157,8 @@ export default function Navbar() {
                         backdropFilter: 'blur(162px)'
                      }}
                   >
-                     <Link href='/#pricing' onClick={() => setMenuOpen(false)} className='flex items-center justify-center w-full h-full'>
-                        <span className='text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Get Started</span>
+                     <Link href='/demo' onClick={() => setMenuOpen(false)} className='flex items-center justify-center w-full h-full'>
+                        <span className='text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Book A Demo</span>
                      </Link>
                   </div>
                </div>

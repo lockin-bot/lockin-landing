@@ -4,6 +4,9 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { NetworkGraph } from '../../components/NetworkGraph';
+import { SignalCards } from '../../components/SignalCards';
+import { ProcessDemo } from '../../components/ProcessDemo';
 
 interface BlogPost {
   slug: string;
@@ -15,6 +18,7 @@ interface BlogPost {
   author: {
     name: string;
     role: string;
+    avatar?: string;
   };
   content: React.ReactNode;
 }
@@ -22,358 +26,158 @@ interface BlogPost {
 const blogPosts: Record<string, BlogPost> = {
   "introducing-lockin": {
     slug: "introducing-lockin",
-    title: "Introducing LockIn: Lead Intelligence for Web3",
-    date: "Oct 25, 2025",
-    excerpt: "Today we're launching LockIn to help Web3 teams surface qualified leads from the noise of Telegram and X.",
+    title: "Introducing LockIn",
+    date: "Jan 15, 2026",
+    excerpt: "Three months of cold outreach. The warm path was sitting across the table from me the whole time.",
     category: "Product",
     readTime: "5 min read",
     author: {
-      name: "LockIn Team",
-      role: "Product"
+      name: "Andrew Jiang",
+      role: "Co-founder and CEO",
+      avatar: "/features/find-strongest-path/andrew-avatar.png"
     },
     content: (
       <>
-        <p>Today we're excited to announce the launch of LockIn – a new way for Web3 sales and BD teams to surface qualified leads from the noise of Telegram and X.</p>
+        <p>Last year I spent a month trying to get a meeting with a target account. I sent Telegram DMs, replied to their tweets, asked around for intros. Nothing.</p>
 
-        <p>After talking to dozens of BD and sales teams in crypto, we kept hearing the same problem: deals happen in Telegram groups and X threads, but there's no good way to track them. Traditional CRMs don't work because they're built for email sequences and cold calling – not for the fast-moving, relationship-driven world of Web3.</p>
+        <p>Then my co-founder mentioned he went to college with their CEO. He even had an active DM with him!</p>
 
-        <h2>The Problem We're Solving</h2>
+        <p>Like many teams, we had a visibility problem in sales. Our team knew hundreds of the right people - we just couldn't see the connections. They were buried in Telegram groups, X follows, our investors' and team's networks.</p>
 
-        <p>If you're in Web3 BD, you know the pain. You're in hundreds of Telegram groups. You're tracking conversations across X, Discord, and direct messages. You're trying to remember who you talked to, what was said, and when you should follow up.</p>
+        {/* Network visualization */}
+        <div className="w-full py-[24px] md:py-[40px] my-[32px] md:my-[48px]">
+          <NetworkGraph />
+        </div>
 
-        <p>Most teams end up with a mess of spreadsheets, Notion databases, and memory. Important leads slip through the cracks. Warm intros get forgotten. And deals that should have closed never do.</p>
+        <p>Around the same time, I found a Telegram message in a large group from a founder asking for exactly what we sold. Posted three weeks earlier, so by the time I messaged, they had already found a solution.</p>
 
-        <h2>How LockIn Works</h2>
+        <p>Opportunities hiding in plain sight amongst thousands of messages across Telegram and X. I was catching maybe 1% of what mattered.</p>
 
-        <p>LockIn connects to your Telegram and X accounts and uses AI to automatically identify and track sales conversations. It builds a living relationship graph of your network, showing you:</p>
+        <p>The two problems were connected. A warm intro at the wrong moment is noise. The right signal with no path in is just frustration. You need to know your strongest path in and reach out when intent is highest.</p>
 
-        <ul>
-          <li><strong>Warm paths</strong> to any account through your existing connections</li>
-          <li><strong>Buying signals</strong> when prospects show intent in group chats</li>
-          <li><strong>Follow-up reminders</strong> so nothing falls through the cracks</li>
-          <li><strong>Deal pipeline</strong> tracking across all your conversations</li>
-        </ul>
+        {/* Signal cards */}
+        <div className="w-full py-[24px] md:py-[40px] my-[32px] md:my-[48px]">
+          <SignalCards />
+        </div>
 
-        <h2>Privacy First</h2>
+        <h2>So we built LockIn.</h2>
 
-        <p>We know your conversations are sensitive. That's why we built LockIn with privacy as a core principle:</p>
+        <p>The idea is simple: make your team's collective network visible, and surface the signals that tell you when to activate it.</p>
 
-        <ul>
-          <li>All data is encrypted inside a Trusted Execution Environment (TEE)</li>
-          <li>We never send your conversations to third-party AI providers</li>
-          <li>All proofs and code are posted to the blockchain for verification</li>
-        </ul>
+        <p>When you connect your Telegram and X accounts, we map everything. Every group you're in. Every follow. Every shared connection across your team. When you look up a company, you see every path in - who knows someone, how they're connected, how strong the relationship is. The "does anyone know someone at X?" question gets answered before you ask it.</p>
 
-        <h2>Get Started</h2>
+        <p>Then we use monitor your network. You tell us what signals matter - someone evaluating tools in your space, a company hiring for roles that indicate growth, a founder posting about a problem you solve - and we watch the firehose for you. When something hits, you see the signal and the warm path together. Here's what's happening, here's who can get you in the door.</p>
 
-        <p>LockIn is available today with a 7-day free trial. We're starting with two plans:</p>
+        <p>It's not complicated. It's just the two things that actually matter for selling in crypto: warm paths and perfect timing.</p>
 
-        <ul>
-          <li><strong>Standard ($120/month)</strong>: Track up to 100 conversations with daily AI suggestions</li>
-          <li><strong>Pro ($150/month)</strong>: Track up to 500 conversations with advanced AI insights and custom pipelines</li>
-        </ul>
+        {/* Process demo */}
+        <div className="w-full py-[24px] md:py-[40px] my-[32px] md:my-[48px]">
+          <ProcessDemo />
+        </div>
 
-        <p>Ready to stop losing deals to Telegram chaos? <Link href="/pricing" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Get started today</Link>.</p>
+        <p>One more thing: all your messages and data stay inside a <Link href="/blog/how-to-build-ai-without-giving-up-privacy" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Trusted Execution Environment</Link>. Even we can't see them. It's an insane technical challenge, but crypto is a sensitive industry - your alpha and deal flow need to stay private.</p>
+
+        <h2>Why LockIn will help you win</h2>
+
+        <p>AI has made it trivial to automate outreach. Everyone's inbox is now flooded with AI-generated spam. Response rates are approaching zero. The channel is burned.</p>
+
+        <p>What's left is relationships and relevance. Warm intros. The right timing. The stuff that always worked better but was hard to systematize.</p>
+
+        <p>We're not building another database of contacts to blast. We're building the thing we needed when we were doing BD ourselves - a way to see the network we're sitting on, catch the signals we kept missing, and combine the two so that when an opportunity shows up, you know exactly who can get you there.</p>
+
+        <p>If you're running BD or sales at a crypto company and any of this sounds familiar - if you know the game but can't see the board - I'd like to talk.</p>
+
+        <p>DM me on <Link href="https://x.com/andrewjiang" target="_blank" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">X</Link> or <Link href="https://t.me/axjiang" target="_blank" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Telegram</Link>, or <Link href="/demo" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">book a demo</Link>.</p>
       </>
     )
   },
-  "why-web3-sales-different": {
-    slug: "why-web3-sales-different",
-    title: "Why Web3 Sales is Different",
-    date: "Oct 20, 2025",
-    excerpt: "Deals in Web3 don't happen in CRM tools or cold email sequences. They happen in Telegram groups, X threads, and Discord servers.",
-    category: "Insights",
-    readTime: "4 min read",
-    author: {
-      name: "LockIn Team",
-      role: "Insights"
-    },
-    content: (
-      <>
-        <p>If you've ever tried to apply traditional SaaS sales tactics to Web3, you know it doesn't work. Cold emails go unanswered. LinkedIn outreach feels tone-deaf. And the CRM you set up sits empty while deals actually happen in Telegram groups you forgot you joined.</p>
-
-        <h2>The Web3 Sales Reality</h2>
-
-        <p>Deals in crypto happen differently. They're built on relationships, reputation, and being in the right place at the right time. Here's what makes Web3 sales unique:</p>
-
-        <h3>1. Community-First Discovery</h3>
-
-        <p>Prospects don't find you through Google ads or cold emails. They find you in the Telegram groups and X threads where they already spend time. Building presence and reputation in these communities is essential.</p>
-
-        <h3>2. Relationship-Driven Closes</h3>
-
-        <p>In Web3, who you know matters. Warm intros from mutual connections can 10x your close rate. The challenge is tracking all your relationships across fragmented platforms.</p>
-
-        <h3>3. Speed Matters</h3>
-
-        <p>Crypto moves fast. A prospect who's interested today might have closed with a competitor tomorrow. You need to catch buying signals immediately and act on them.</p>
-
-        <h3>4. Trust is Everything</h3>
-
-        <p>With so many scams and rug pulls in the space, trust is the most valuable currency. Building genuine relationships over time is more important than any sales technique.</p>
-
-        <h2>What This Means for Sales Teams</h2>
-
-        <p>Traditional sales tools don't work because they're built for a different model. You need tools that:</p>
-
-        <ul>
-          <li>Work where your conversations actually happen (Telegram, X, Discord)</li>
-          <li>Help you track relationships, not just deals</li>
-          <li>Surface warm intros and connection paths</li>
-          <li>Alert you to buying signals in real-time</li>
-        </ul>
-
-        <p>That's exactly what we built LockIn to do. <Link href="/pricing" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Learn more about how it works</Link>.</p>
-      </>
-    )
-  },
-  "tee-security-deep-dive": {
-    slug: "tee-security-deep-dive",
-    title: "How We Keep Your Messages Private with TEE",
-    date: "Oct 15, 2025",
-    excerpt: "A technical deep-dive into how LockIn uses Trusted Execution Environments to ensure your conversations never leave a secure enclave.",
+  "how-to-build-ai-without-giving-up-privacy": {
+    slug: "how-to-build-ai-without-giving-up-privacy",
+    title: "How to Build AI Solutions Without Giving Up Privacy",
+    date: "Jan 10, 2026",
+    excerpt: "To be useful, AI needs your private context - messages, contacts, history. In crypto, that context is economically sensitive. Here's how we built LockIn so even we can't see your data.",
     category: "Security",
     readTime: "8 min read",
     author: {
-      name: "LockIn Team",
-      role: "Engineering"
+      name: "Andrew Jiang",
+      role: "Co-founder and CEO",
+      avatar: "/features/find-strongest-path/andrew-avatar.png"
     },
     content: (
       <>
-        <p>When we tell people that LockIn processes their Telegram messages with AI, the first question is always about privacy. How can they trust us with their sensitive business conversations?</p>
+        <p>AI is becoming the interface to everything. It drafts, summarizes, searches, and decides. But the trade is rarely stated plainly: to be useful, AI needs your private context - messages, contacts, history, intent.</p>
 
-        <p>The answer is: they don't have to trust us. We built LockIn so that even we can't see your messages. Here's how.</p>
+        <p>In crypto, that context isn't just personal. It's economically sensitive. Deal flow. Alpha. Founder chats. Allocation discussions. Timing. Relationships. If it leaks, it doesn't just embarrass you - it can be exploited.</p>
 
-        <h2>What is a Trusted Execution Environment?</h2>
+        <p>Most AI products still follow the same pattern: ingest user data, decrypt it server-side, run a model, store outputs (and often inputs), and pray your access controls stay perfect forever.</p>
 
-        <p>A Trusted Execution Environment (TEE) is a secure area within a processor that runs code in isolation from the rest of the system. Think of it as a locked room that even the building owner can't enter.</p>
+        <p>They won't.</p>
 
-        <p>When your messages are processed in a TEE:</p>
+        <p>"Encryption-at-rest" is not a privacy strategy. It protects data while it's sitting still. The moment you use that data - embedding it, classifying it, routing it to an LLM - it becomes plaintext somewhere in memory. And plaintext is where real failures happen: a debug log, an over-broad role, a compromised host, a vendor retention setting you didn't intend.</p>
+
+        <p>If you're building AI on sensitive data, the goal isn't better privacy promises. It's building systems where even the operator can't see the data.</p>
+
+        <p>At LockIn, we're building sales intelligence off Telegram and X networks - surfacing warm paths and intent signals. The raw content is deeply sensitive, so we designed around a stronger requirement: privacy that can be verified, not merely asserted.</p>
+
+        <h2>The privacy gap in AI products</h2>
+
+        <p>AI systems don't just store data - they transform it. And transformation creates copies. A single message becomes chunks. Chunks become embeddings. Embeddings become retrieved context. Context becomes prompts. Prompts become outputs. Every step is another surface where sensitive content can accidentally end up.</p>
+
+        <p>That's why AI privacy failures rarely look like a dramatic breach. They look like normal engineering:</p>
 
         <ul>
-          <li>The data is encrypted in memory</li>
-          <li>No one – not even us – can see what's being processed</li>
-          <li>The code running inside can be verified by anyone</li>
+          <li>A request body captured by observability</li>
+          <li>A queue that retries and persists payloads</li>
+          <li>A "temporary" debug flag that ships to prod</li>
+          <li>A contractor pulling samples to evaluate quality</li>
+          <li>A vendor system retaining more than you assumed</li>
         </ul>
 
-        <h2>How LockIn Uses TEE</h2>
+        <p>The default architecture makes plaintext easy to touch.</p>
 
-        <p>When you connect your Telegram account to LockIn, here's what happens:</p>
+        <p>So the real question isn't "do we encrypt?" It's: <strong>Where is plaintext allowed to exist - and who can access that place?</strong></p>
+
+        <h2>TEEs and attestation</h2>
+
+        <p>If you want "even the operator can't see it," you need two building blocks:</p>
 
         <ol>
-          <li><strong>Secure Connection</strong>: Your session token is encrypted and sent directly to the TEE</li>
-          <li><strong>Message Processing</strong>: All AI analysis happens inside the secure enclave</li>
-          <li><strong>Results Only</strong>: Only the extracted insights (lead scores, follow-up suggestions) leave the TEE – never your raw messages</li>
+          <li>A place where plaintext is protected from the infrastructure running it</li>
+          <li>A way to prove what code is running in that place</li>
         </ol>
 
-        <h2>Verification and Attestation</h2>
+        <p>That's what Trusted Execution Environments (TEEs) and attestation give you.</p>
 
-        <p>How do you know we're actually running the code we say we are? Through attestation.</p>
+        <h3>What is a TEE?</h3>
 
-        <p>The TEE produces cryptographic proofs that show exactly what code is running inside. We publish these attestations on-chain, so anyone can verify that:</p>
+        <p>A TEE is hardware-backed isolated compute. Think of it as a sealed room: data can enter, results can leave, but the host machine can't look inside while computation happens. No casual admin access. No "just SSH in." No scraping memory from the outside.</p>
 
-        <ul>
-          <li>The code matches our open-source repository</li>
-          <li>No unauthorized access is possible</li>
-          <li>Your data is being handled as promised</li>
-        </ul>
+        <p>This changes the rules. Plaintext is no longer "server default." It becomes a tightly controlled exception.</p>
 
-        <h2>Why This Matters</h2>
+        <h3>"Prove it" with attestation</h3>
 
-        <p>In Web3, trust is everything. We didn't want to ask you to "just trust us" with your sensitive business conversations. With TEE, you don't have to. The math and cryptography guarantee your privacy.</p>
+        <p>A sealed room is great - unless nobody can verify what's inside.</p>
 
-        <p>Want to learn more? Check out our <Link href="/" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">open source code</Link> and <Link href="/" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">attestation proofs</Link>.</p>
+        <p>Attestation is the cryptographic proof a TEE can produce that says: this is the software I'm running. If the code changes, the measurement changes. If the measurement changes, verification fails. If verification fails, sensitive workflows don't run.</p>
+
+        <p>That's how you replace "trust us" with "verify us."</p>
+
+        <h3>The privacy lifecycle</h3>
+
+        <p>Once you enforce the boundary, the lifecycle becomes simple and auditable:</p>
+
+        <p><strong>Encrypted → Enters enclave → Decrypted (inside) → Processed → Re-encrypted → Leaves enclave</strong></p>
+
+        <p>Plaintext exists in exactly one place: inside hardware-protected memory running verified code.</p>
+
+        <p>This is how we built LockIn. Your messages never leave a secure enclave. Even we can't see them. And you don't have to take our word for it - you can verify it.</p>
       </>
     )
   },
-  "telegram-sales-playbook": {
-    slug: "telegram-sales-playbook",
-    title: "The Ultimate Telegram Sales Playbook for Web3",
-    date: "Oct 10, 2025",
-    excerpt: "Learn how top BD teams are using Telegram to close deals, build relationships, and grow their pipeline in the crypto ecosystem.",
-    category: "Guide",
-    readTime: "12 min read",
-    author: {
-      name: "LockIn Team",
-      role: "Growth"
-    },
-    content: (
-      <>
-        <p>Telegram is where Web3 deals happen. If you're not active on Telegram, you're missing out on the most important sales channel in crypto. Here's everything you need to know.</p>
-
-        <h2>Why Telegram Matters</h2>
-
-        <p>Unlike LinkedIn or email, Telegram is where crypto-native teams actually spend their time. It's where:</p>
-
-        <ul>
-          <li>Projects announce launches and updates</li>
-          <li>Community members discuss and share alpha</li>
-          <li>Partnerships get discussed and closed</li>
-          <li>Trust gets built through consistent presence</li>
-        </ul>
-
-        <h2>Setting Up Your Telegram Presence</h2>
-
-        <h3>Profile Optimization</h3>
-        <ul>
-          <li>Use a professional photo (not a PFP unless you're well-known)</li>
-          <li>Bio should clearly state your role and company</li>
-          <li>Include relevant links (X, website)</li>
-        </ul>
-
-        <h3>Groups to Join</h3>
-        <ul>
-          <li>Your target customers' community groups</li>
-          <li>Ecosystem-specific groups (Solana Builders, Ethereum Devs, etc.)</li>
-          <li>Industry groups (DeFi, NFTs, Infrastructure, etc.)</li>
-          <li>Regional groups if relevant</li>
-        </ul>
-
-        <h2>Engagement Strategies</h2>
-
-        <h3>Add Value First</h3>
-        <p>Don't join groups and immediately start pitching. Spend time understanding the community, answering questions, and sharing useful insights. Build reputation before selling.</p>
-
-        <h3>Timing Matters</h3>
-        <p>Pay attention to when your target audience is active. Most crypto communities are global, but there are peak times. Use tools like LockIn to track activity patterns.</p>
-
-        <h3>DM Etiquette</h3>
-        <p>Cold DMs are tricky on Telegram. Best practices:</p>
-        <ul>
-          <li>Build rapport in groups first</li>
-          <li>Reference something specific they said or did</li>
-          <li>Keep initial message short and value-focused</li>
-          <li>Don't pitch immediately – start a conversation</li>
-        </ul>
-
-        <h2>Tracking and Follow-Up</h2>
-
-        <p>The biggest challenge with Telegram sales is tracking. Conversations are scattered across dozens of groups and DMs. This is where LockIn helps – automatically tracking your conversations and surfacing the ones that matter.</p>
-
-        <p>Ready to level up your Telegram sales game? <Link href="/pricing" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Try LockIn free for 7 days</Link>.</p>
-      </>
-    )
-  },
-  "case-study-nautilus": {
-    slug: "case-study-nautilus",
-    title: "How Nautilus 3x'd Their Deal Flow with LockIn",
-    date: "Oct 5, 2025",
-    excerpt: "Nautilus was drowning in Telegram notifications. Here's how they used LockIn to surface the conversations that actually mattered.",
-    category: "Case Study",
-    readTime: "6 min read",
-    author: {
-      name: "LockIn Team",
-      role: "Customer Success"
-    },
-    content: (
-      <>
-        <p>Nautilus is a leading infrastructure provider in the Solana ecosystem. Their BD team was managing relationships across 200+ Telegram groups – and they were drowning.</p>
-
-        <h2>The Challenge</h2>
-
-        <p>"We were in so many groups that important conversations were getting lost," says their Head of BD. "A potential partnership would message, and by the time we saw it, they'd already moved on."</p>
-
-        <p>Key problems:</p>
-        <ul>
-          <li>200+ Telegram groups to monitor</li>
-          <li>No systematic way to track conversations</li>
-          <li>Warm intros getting missed</li>
-          <li>Manual spreadsheet tracking failing</li>
-        </ul>
-
-        <h2>The Solution</h2>
-
-        <p>Nautilus deployed LockIn across their 4-person BD team. Within the first week:</p>
-
-        <ul>
-          <li>LockIn identified 47 active conversations they had lost track of</li>
-          <li>The relationship graph revealed 12 warm intro paths to target accounts</li>
-          <li>Automated alerts caught 3 buying signals they would have missed</li>
-        </ul>
-
-        <h2>The Results</h2>
-
-        <p>After 3 months with LockIn:</p>
-
-        <ul>
-          <li><strong>3x increase</strong> in qualified pipeline</li>
-          <li><strong>60% reduction</strong> in time spent on manual tracking</li>
-          <li><strong>5 deals closed</strong> directly from recovered conversations</li>
-        </ul>
-
-        <p>"LockIn is now essential to how we do BD," says their team lead. "We can't imagine going back to the old way."</p>
-
-        <h2>Key Takeaways</h2>
-
-        <ul>
-          <li>Don't underestimate how many conversations slip through the cracks</li>
-          <li>Warm intro paths are often hidden in your existing network</li>
-          <li>Real-time alerts on buying signals can make the difference</li>
-        </ul>
-
-        <p>Want similar results? <Link href="/pricing" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Start your free trial today</Link>.</p>
-      </>
-    )
-  },
-  "ai-sales-intelligence": {
-    slug: "ai-sales-intelligence",
-    title: "The Future of AI-Powered Sales Intelligence",
-    date: "Sep 30, 2025",
-    excerpt: "How artificial intelligence is transforming the way sales teams identify, qualify, and close deals in the modern era.",
-    category: "Insights",
-    readTime: "7 min read",
-    author: {
-      name: "LockIn Team",
-      role: "Product"
-    },
-    content: (
-      <>
-        <p>AI is transforming every aspect of sales – from lead generation to closing. But most AI sales tools are built for traditional enterprise sales. Web3 needs something different.</p>
-
-        <h2>The State of AI in Sales</h2>
-
-        <p>Today's AI sales tools excel at:</p>
-        <ul>
-          <li>Email personalization at scale</li>
-          <li>Call transcription and analysis</li>
-          <li>CRM data enrichment</li>
-          <li>Predictive lead scoring</li>
-        </ul>
-
-        <p>But they fail in Web3 because they're built for the wrong channels and workflows.</p>
-
-        <h2>What Web3 Sales AI Needs</h2>
-
-        <h3>1. Native Telegram & X Integration</h3>
-        <p>The AI needs to understand conversations happening in Telegram groups and X threads – not just email and Salesforce.</p>
-
-        <h3>2. Relationship Intelligence</h3>
-        <p>In Web3, relationships matter more than data. AI should map your network and surface connection paths, not just lead scores.</p>
-
-        <h3>3. Real-Time Signal Detection</h3>
-        <p>Crypto moves fast. AI should alert you to buying signals immediately, not in a daily digest.</p>
-
-        <h3>4. Privacy-First Architecture</h3>
-        <p>Your conversations contain alpha and sensitive deal information. AI processing should happen in secure enclaves, not on third-party cloud servers.</p>
-
-        <h2>The LockIn Approach</h2>
-
-        <p>We built LockIn from the ground up for Web3 sales:</p>
-
-        <ul>
-          <li><strong>Native integrations</strong> with Telegram and X</li>
-          <li><strong>Relationship graph</strong> that maps your entire network</li>
-          <li><strong>Real-time alerts</strong> on buying signals and activity</li>
-          <li><strong>TEE architecture</strong> for complete privacy</li>
-        </ul>
-
-        <p>The future of AI in Web3 sales isn't about automating cold outreach – it's about surfacing the right opportunities from your existing relationships and communities.</p>
-
-        <p>Ready to see what AI-powered Web3 sales looks like? <Link href="/pricing" className="text-[#429DED] underline hover:text-[#429DED]/80 transition-all duration-300">Try LockIn free</Link>.</p>
-      </>
-    )
-  }
 };
+
+// Archived posts - content preserved for future use
+// See app/blog/page.tsx for the archived post metadata
 
 export default function BlogPostPage() {
   const params = useParams();
@@ -423,7 +227,7 @@ export default function BlogPostPage() {
             </div>
 
         {/* Content */}
-        <div className='w-full max-w-[1000px] mx-auto flex flex-col items-start relative z-2'>
+        <div className='w-full max-w-[800px] mx-auto flex flex-col items-start relative z-2'>
           {/* Back Link */}
           <Link href="/blog" className='flex items-center gap-[8px] mb-[24px] md:mb-[32px] group'>
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none" className='rotate-180'>
@@ -445,9 +249,19 @@ export default function BlogPostPage() {
 
           {/* Author */}
           <div className='flex items-center gap-[12px]'>
-            <div className='w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center'>
-              <span className='text-[16px] md:text-[18px] text-white font-medium'>{post.author.name.charAt(0)}</span>
-            </div>
+            {post.author.avatar ? (
+              <Image
+                src={post.author.avatar}
+                alt={post.author.name}
+                width={48}
+                height={48}
+                className='w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full object-cover'
+              />
+            ) : (
+              <div className='w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full bg-[rgba(255,255,255,0.10)] flex items-center justify-center'>
+                <span className='text-[16px] md:text-[18px] text-white font-medium'>{post.author.name.charAt(0)}</span>
+              </div>
+            )}
             <div className='flex flex-col'>
               <span className='text-[14px] md:text-[16px] leading-[20px] -tracking-[0.15px] text-white font-medium'>{post.author.name}</span>
               <span className='text-[13px] md:text-[14px] leading-[18px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>{post.author.role}</span>
@@ -461,14 +275,14 @@ export default function BlogPostPage() {
 
       {/* Article Content */}
       <div className='w-full px-[16px] md:px-[24px] pb-[60px] md:pb-[80px] lg:pb-[100px]'>
-        <article className='w-full max-w-[1000px] mx-auto prose prose-invert prose-lg
-          [&>p]:text-[16px] [&>p]:md:text-[18px] [&>p]:leading-[28px] [&>p]:md:leading-[32px] [&>p]:-tracking-[0.15px] [&>p]:text-white [&>p]:font-normal [&>p]:opacity-[.85] [&>p]:mb-[24px] [&>p]:md:mb-[28px]
-          [&>h2]:text-[24px] [&>h2]:md:text-[32px] [&>h2]:leading-[32px] [&>h2]:md:leading-[40px] [&>h2]:-tracking-[0.48px] [&>h2]:md:-tracking-[0.64px] [&>h2]:text-white [&>h2]:font-hedvig [&>h2]:font-normal [&>h2]:mt-[40px] [&>h2]:md:mt-[56px] [&>h2]:mb-[16px] [&>h2]:md:mb-[24px]
-          [&>h3]:text-[20px] [&>h3]:md:text-[24px] [&>h3]:leading-[28px] [&>h3]:md:leading-[32px] [&>h3]:-tracking-[0.4px] [&>h3]:md:-tracking-[0.48px] [&>h3]:text-white [&>h3]:font-hedvig [&>h3]:font-normal [&>h3]:mt-[32px] [&>h3]:md:mt-[40px] [&>h3]:mb-[12px] [&>h3]:md:mb-[16px]
-          [&>ul]:mb-[24px] [&>ul]:md:mb-[28px] [&>ul]:pl-[20px]
-          [&>ul>li]:text-[16px] [&>ul>li]:md:text-[18px] [&>ul>li]:leading-[28px] [&>ul>li]:md:leading-[32px] [&>ul>li]:-tracking-[0.15px] [&>ul>li]:text-white [&>ul>li]:font-normal [&>ul>li]:opacity-[.85] [&>ul>li]:mb-[8px] [&>ul>li]:md:mb-[12px]
-          [&>ol]:mb-[24px] [&>ol]:md:mb-[28px] [&>ol]:pl-[20px]
-          [&>ol>li]:text-[16px] [&>ol>li]:md:text-[18px] [&>ol>li]:leading-[28px] [&>ol>li]:md:leading-[32px] [&>ol>li]:-tracking-[0.15px] [&>ol>li]:text-white [&>ol>li]:font-normal [&>ol>li]:opacity-[.85] [&>ol>li]:mb-[8px] [&>ol>li]:md:mb-[12px]
+        <article className='w-full max-w-[800px] mx-auto prose prose-invert prose-lg
+          [&>p]:text-[17px] [&>p]:md:text-[19px] [&>p]:leading-[28px] [&>p]:md:leading-[30px] [&>p]:-tracking-[0.1px] [&>p]:text-white/90 [&>p]:font-normal [&>p]:mb-[20px] [&>p]:md:mb-[24px]
+          [&>h2]:text-[24px] [&>h2]:md:text-[30px] [&>h2]:leading-[30px] [&>h2]:md:leading-[38px] [&>h2]:-tracking-[0.48px] [&>h2]:md:-tracking-[0.6px] [&>h2]:text-white [&>h2]:font-hedvig [&>h2]:font-normal [&>h2]:mt-[48px] [&>h2]:md:mt-[64px] [&>h2]:mb-[16px] [&>h2]:md:mb-[20px]
+          [&>h3]:text-[19px] [&>h3]:md:text-[22px] [&>h3]:leading-[26px] [&>h3]:md:leading-[30px] [&>h3]:-tracking-[0.3px] [&>h3]:md:-tracking-[0.4px] [&>h3]:text-white [&>h3]:font-hedvig [&>h3]:font-normal [&>h3]:mt-[36px] [&>h3]:md:mt-[48px] [&>h3]:mb-[12px] [&>h3]:md:mb-[16px]
+          [&>ul]:mb-[20px] [&>ul]:md:mb-[24px] [&>ul]:pl-[24px]
+          [&>ul>li]:text-[17px] [&>ul>li]:md:text-[19px] [&>ul>li]:leading-[28px] [&>ul>li]:md:leading-[30px] [&>ul>li]:-tracking-[0.1px] [&>ul>li]:text-white/90 [&>ul>li]:font-normal [&>ul>li]:mb-[10px] [&>ul>li]:md:mb-[12px]
+          [&>ol]:mb-[20px] [&>ol]:md:mb-[24px] [&>ol]:pl-[24px]
+          [&>ol>li]:text-[17px] [&>ol>li]:md:text-[19px] [&>ol>li]:leading-[28px] [&>ol>li]:md:leading-[30px] [&>ol>li]:-tracking-[0.1px] [&>ol>li]:text-white/90 [&>ol>li]:font-normal [&>ol>li]:mb-[10px] [&>ol>li]:md:mb-[12px]
           [&_strong]:text-white [&_strong]:font-semibold
         '>
           {post.content}
@@ -477,13 +291,13 @@ export default function BlogPostPage() {
 
       {/* Divider */}
       <div className='w-full px-[16px] md:px-[24px]'>
-        <div className='w-full max-w-[1000px] mx-auto h-px bg-[#272727]'></div>
+        <div className='w-full max-w-[800px] mx-auto h-px bg-[#272727]'></div>
             </div>
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <div className='w-full px-[16px] md:px-[24px] py-[60px] md:py-[80px] lg:py-[100px]'>
-          <div className='w-full max-w-[1000px] mx-auto'>
+          <div className='w-full max-w-[800px] mx-auto'>
             <h2 className='text-[24px] md:text-[32px] lg:text-[36px] leading-[32px] md:leading-[40px] lg:leading-[44px] -tracking-[0.48px] md:-tracking-[0.64px] lg:-tracking-[0.72px] text-white font-hedvig font-normal mb-[24px] md:mb-[32px] lg:mb-[40px]'>Related Articles</h2>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-[16px] md:gap-[20px] lg:gap-[24px]'>

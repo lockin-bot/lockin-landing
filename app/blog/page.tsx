@@ -17,54 +17,58 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     slug: "introducing-lockin",
-    title: "Introducing LockIn: Lead Intelligence for Web3",
-    date: "Oct 25, 2025",
-    excerpt: "Today we're launching LockIn to help Web3 teams surface qualified leads from the noise of Telegram and X. After talking to dozens of BD and sales teams in crypto, we kept hearing the same problem.",
+    title: "Introducing LockIn",
+    date: "Jan 15, 2026",
+    excerpt: "Cold outreach is quickly becoming a thing of the past. We built LockIn to reveal warm paths to your target accounts on Telegram and X and surface buying intent and signals.",
     category: "Product",
     readTime: "5 min read",
     featured: true
   },
   {
-    slug: "why-web3-sales-different",
-    title: "Why Web3 Sales is Different",
-    date: "Oct 20, 2025",
-    excerpt: "Deals in Web3 don't happen in CRM tools or cold email sequences. They happen in Telegram groups, X threads, and Discord servers.",
-    category: "Insights",
-    readTime: "4 min read"
-  },
-  {
-    slug: "tee-security-deep-dive",
-    title: "How We Keep Your Messages Private with TEE",
-    date: "Oct 15, 2025",
-    excerpt: "A technical deep-dive into how LockIn uses Trusted Execution Environments to ensure your conversations never leave a secure enclave.",
+    slug: "how-to-build-ai-without-giving-up-privacy",
+    title: "How to Build AI Solutions Without Giving Up Privacy",
+    date: "Jan 10, 2026",
+    excerpt: "To be useful, AI needs your private context - messages, contacts, history. In crypto, that context is economically sensitive. Here's how we built LockIn so even we can't see your data.",
     category: "Security",
     readTime: "8 min read"
   },
-  {
-    slug: "telegram-sales-playbook",
-    title: "The Ultimate Telegram Sales Playbook for Web3",
-    date: "Oct 10, 2025",
-    excerpt: "Learn how top BD teams are using Telegram to close deals, build relationships, and grow their pipeline in the crypto ecosystem.",
-    category: "Guide",
-    readTime: "12 min read"
-  },
-  {
-    slug: "case-study-nautilus",
-    title: "How Nautilus 3x'd Their Deal Flow with LockIn",
-    date: "Oct 5, 2025",
-    excerpt: "Nautilus was drowning in Telegram notifications. Here's how they used LockIn to surface the conversations that actually mattered.",
-    category: "Case Study",
-    readTime: "6 min read"
-  },
-  {
-    slug: "ai-sales-intelligence",
-    title: "The Future of AI-Powered Sales Intelligence",
-    date: "Sep 30, 2025",
-    excerpt: "How artificial intelligence is transforming the way sales teams identify, qualify, and close deals in the modern era.",
-    category: "Insights",
-    readTime: "7 min read"
-  }
 ];
+
+// Archived posts - uncomment to restore
+// const archivedPosts: BlogPost[] = [
+//   {
+//     slug: "why-web3-sales-different",
+//     title: "Why Web3 Sales is Different",
+//     date: "Oct 20, 2025",
+//     excerpt: "Deals in Web3 don't happen in CRM tools or cold email sequences. They happen in Telegram groups, X threads, and Discord servers.",
+//     category: "Insights",
+//     readTime: "4 min read"
+//   },
+//   {
+//     slug: "tee-security-deep-dive",
+//     title: "How We Keep Your Messages Private with TEE",
+//     date: "Oct 15, 2025",
+//     excerpt: "A technical deep-dive into how LockIn uses Trusted Execution Environments to ensure your conversations never leave a secure enclave.",
+//     category: "Security",
+//     readTime: "8 min read"
+//   },
+//   {
+//     slug: "telegram-sales-playbook",
+//     title: "The Ultimate Telegram Sales Playbook for Web3",
+//     date: "Oct 10, 2025",
+//     excerpt: "Learn how top BD teams are using Telegram to close deals, build relationships, and grow their pipeline in the crypto ecosystem.",
+//     category: "Guide",
+//     readTime: "12 min read"
+//   },
+//   {
+//     slug: "ai-sales-intelligence",
+//     title: "The Future of AI-Powered Sales Intelligence",
+//     date: "Sep 30, 2025",
+//     excerpt: "How artificial intelligence is transforming the way sales teams identify, qualify, and close deals in the modern era.",
+//     category: "Insights",
+//     readTime: "7 min read"
+//   }
+// ];
 
 const categories = ["All", "Product", "Guide", "Security", "Insights", "Case Study"];
 
@@ -118,11 +122,11 @@ export default function BlogPage() {
         {/* Content */}
         <div className='w-full max-w-[1000px] mx-auto flex flex-col items-center relative z-2'>
           <h1 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>
-            LockIn's Latest News
+            LockIn Blog
           </h1>
 
           <span className='flex max-w-[300px] md:max-w-[580px] mx-auto text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] lg:leading-[28px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-white font-normal opacity-[.8]'>
-            The latest on Web3 sales, lead intelligence, and building relationships in crypto
+            Insights on Web3 sales strategy, relationship intelligence, and growing your pipeline
           </span>
         </div>
 
