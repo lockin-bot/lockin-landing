@@ -1,7 +1,11 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+function cn(...classes: (string | boolean | undefined)[]) {
+  return classes.filter(Boolean).join(' ')
+}
 
 // Telegram icon
 const TelegramIcon = ({ className }: { className?: string }) => (
@@ -58,17 +62,59 @@ const companies = [
   { name: 'Jito', type: 'MEV', stage: 'Series A', logo: '/avatars/jito.png' },
 ]
 
-// Intro Request Modal
-function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const [sent, setSent] = useState(false)
+// Sparkles icon for AI typing indicator
+const SparklesIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+    <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clipRule="evenodd" />
+  </svg>
+)
 
-  const handleSend = () => {
-    setSent(true)
-    setTimeout(() => {
-      setSent(false)
-      onClose()
-    }, 1500)
-  }
+// Intro Request Modal with typing animation
+function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [typedMessage, setTypedMessage] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
+  const [isSent, setIsSent] = useState(false)
+
+  const fullMessage = "Hey Sarah, saw Mert just posted about hiring engineers at Helius. Could you intro me? I think our infra solution could help them scale their RPC services."
+
+  // Reset state when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setTypedMessage('')
+      setIsTyping(true)
+      setIsSent(false)
+    }
+  }, [isOpen])
+
+  // Typing animation effect
+  useEffect(() => {
+    if (isOpen && isTyping) {
+      let i = 0
+      const interval = setInterval(() => {
+        if (i < fullMessage.length) {
+          setTypedMessage(fullMessage.substring(0, i + 1))
+          i++
+        } else {
+          clearInterval(interval)
+          setIsTyping(false)
+        }
+      }, 18)
+      return () => clearInterval(interval)
+    }
+  }, [isOpen, isTyping, fullMessage])
+
+  // Auto-send after typing completes
+  useEffect(() => {
+    if (isOpen && !isTyping && typedMessage === fullMessage && !isSent) {
+      const timer = setTimeout(() => {
+        setIsSent(true)
+        setTimeout(() => {
+          onClose()
+        }, 1500)
+      }, 800)
+      return () => clearTimeout(timer)
+    }
+  }, [isOpen, isTyping, typedMessage, fullMessage, isSent, onClose])
 
   return (
     <AnimatePresence>
@@ -79,7 +125,7 @@ function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={() => !isTyping && onClose()}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
           />
 
@@ -90,18 +136,31 @@ function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] bg-[#111] border border-gray-800 rounded-2xl shadow-2xl z-50 overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-800">
               <div className="flex items-center gap-3">
-                <img
-                  src="/avatars/sarah-chen.jpg"
-                  alt="Sarah Chen"
-                  className="w-8 h-8 rounded-full object-cover"
-                />
+                {isTyping ? (
+                  <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
+                    <SparklesIcon className="w-4 h-4 text-purple-400 animate-pulse" />
+                  </div>
+                ) : (
+                  <img
+                    src="/avatars/sarah-chen.jpg"
+                    alt="Sarah Chen"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                )}
                 <div>
-                  <div className="text-white text-sm font-medium">Request intro via Sarah</div>
-                  <div className="text-gray-500 text-xs">Your teammate</div>
+                  <div className="text-white text-sm font-medium">Message Sarah</div>
+                  <div className="text-xs h-4">
+                    {isTyping ? (
+                      <span className="text-purple-400 font-medium">AI drafting message...</span>
+                    ) : (
+                      <span className="text-gray-500">via Telegram</span>
+                    )}
+                  </div>
                 </div>
               </div>
               <button
@@ -127,12 +186,13 @@ function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                 </div>
               </div>
 
-              {/* Message */}
+              {/* Message with typing animation */}
               <div className="mb-4">
                 <label className="text-gray-500 text-xs mb-2 block">Message to Sarah</label>
-                <div className="bg-gray-900/50 rounded-xl p-3 border border-gray-800 focus-within:border-blue-500/50 transition-colors">
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    Hey Sarah, saw Mert just posted about hiring engineers at Helius. Could you intro me? I think our infra solution could help them scale their RPC services.
+                <div className="bg-gray-900/50 rounded-xl p-3 border border-gray-800 min-h-[100px]">
+                  <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap">
+                    {typedMessage}
+                    {isTyping && <span className="inline-block w-0.5 h-4 bg-purple-400 animate-pulse ml-0.5 align-middle" />}
                   </p>
                 </div>
               </div>
@@ -149,25 +209,35 @@ function IntroModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
 
             {/* Footer */}
             <div className="p-4 border-t border-gray-800 bg-[#0D0D0D]">
-              <button
-                onClick={handleSend}
-                disabled={sent}
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-sm font-medium flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-              >
-                {sent ? (
-                  <>
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Request Sent!
-                  </>
+              <div className="h-10 flex items-center justify-center">
+                {isSent ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex items-center gap-2 text-emerald-400 font-medium"
+                  >
+                    <div className="h-5 w-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                      <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    Message sent!
+                  </motion.div>
                 ) : (
-                  <>
+                  <button
+                    disabled={isTyping}
+                    className={cn(
+                      "w-full py-2.5 rounded-xl text-sm font-medium flex items-center justify-center gap-2 transition-all",
+                      isTyping
+                        ? "bg-gray-800 text-gray-500 cursor-not-allowed"
+                        : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white"
+                    )}
+                  >
                     <SendIcon className="w-4 h-4" />
-                    Send Request
-                  </>
+                    Send Message
+                  </button>
                 )}
-              </button>
+              </div>
             </div>
           </motion.div>
         </>
