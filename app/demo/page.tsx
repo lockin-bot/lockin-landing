@@ -51,7 +51,7 @@ export default function DemoPage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-[40px] md:mb-[56px]"
           >
-            <h1 className='text-[36px] md:text-[52px] lg:text-[60px] leading-[42px] md:leading-[58px] lg:leading-[68px] -tracking-[1.44px] md:-tracking-[2.08px] lg:-tracking-[2.4px] text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>
+            <h1 className='text-[28px] md:text-[52px] lg:text-[60px] leading-[34px] md:leading-[58px] lg:leading-[68px] -tracking-[1.12px] md:-tracking-[2.08px] lg:-tracking-[2.4px] text-white font-hedvig font-normal mb-[16px] md:mb-[20px]'>
               You know the game.
               <br />
               <span className="text-purple-400">Now see the entire board.</span>
@@ -66,14 +66,15 @@ export default function DemoPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex justify-center"
+            className="flex justify-center w-full"
           >
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/10">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/10 w-full max-w-[520px]">
               <InlineWidget
                 url={CALENDLY_URL}
                 styles={{
-                  width: '520px',
-                  height: '620px',
+                  width: '100%',
+                  height: '650px',
+                  minWidth: '320px',
                 }}
                 pageSettings={{
                   backgroundColor: 'ffffff',
