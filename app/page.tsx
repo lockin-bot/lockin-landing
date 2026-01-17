@@ -877,9 +877,9 @@ export default function page() {
                                  <Image src='/features/find-strongest-path/telegram-icon.svg' width={14} height={14} alt='Telegram' className='w-[14px] h-[14px]' />
                               </div>
                               
-                              {/* Andrew text */}
-                              <p className='absolute left-[139px] top-[89px] text-white text-[22px] leading-[31px] tracking-[-0.45px] w-[348px]'>
-                                 <span className='font-semibold'>Sarah</span> from your team has a direct Telegram connection
+                              {/* Sarah text */}
+                              <p className='absolute left-[139px] top-[89px] text-white text-[22px] leading-[31px] tracking-[-0.45px] w-[300px]'>
+                                 <span className='font-semibold'>Sarah</span> from your team has a direct DM connection
                               </p>
                               
                               {/* DeFi Founders */}
@@ -934,7 +934,7 @@ export default function page() {
                               
                               {/* Jesse text */}
                               <p className='absolute left-[139px] top-[89px] text-white text-[22px] leading-[31px] tracking-[-0.45px] w-[300px]'>
-                                 <span className='font-semibold'>Jesse</span> from your team has a direct Twitter (X) connection
+                                 <span className='font-semibold'>Jesse</span> from your team has a direct DM connection
                               </p>
                               
                               {/* Web3 Builders */}
