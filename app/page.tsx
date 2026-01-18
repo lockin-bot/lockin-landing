@@ -243,11 +243,11 @@ const faqData = [
       desc: 'LockIn uses Trusted Execution Environments (TEE) to process your data. Your messages and contacts never leave the secure enclave, and we cannot access the content of your conversations.'
    },
    {
-      question: 'What networks does LockIn support?',
+      question: 'What platforms does LockIn work with?',
       desc: 'We support Telegram and X / Twitter, as well as an integration with Hubspot.'
    },
    {
-      question: 'How do you identify the strongest path to a target account?',
+      question: 'How does LockIn find the best intro path?',
       desc: 'We analyze your connected networks to find shared groups, mutual follows, teammate connections, and active DM relationships to surface the strongest path to any target account.'
    },
    {
@@ -255,11 +255,11 @@ const faqData = [
       desc: "Our shared intelligence graph spans 20k+ web3 organizations, 2m+ social profiles, and hundreds of Telegram hubs. Even with a small network, you'll discover paths through the broader ecosystem."
    },
    {
-      question: 'Can I try before I commit?',
+      question: 'What if LockIn doesn\\'t work for me?',
       desc: "We offer a 30-day money-back guarantee. If LockIn doesn't help you close more deals, we'll refund you in full."
    },
    {
-      question: 'How is pricing structured?',
+      question: 'How much does LockIn cost?',
       desc: 'Pricing is per-seat, per-year. Company enrichments have an additional cost. Volume discounts available for teams of 10+.'
    }
 ]
@@ -1730,7 +1730,7 @@ export default function page() {
             <div className='w-full max-w-[650px] mx-auto flex flex-col items-center gap-[10px] lg:gap-[16px] mb-[24px] md:mb-[40px] lg:mb-[56px] relative z-1'>
                <h2 className='text-[40px] md:text-[64px] lg:text-[72px] leading-[46px] md:leading-[70px] lg:leading-[80px] -tracking-[2.28px] md:-tracking-[3.28px] lg:-tracking-[3.52px] text-center text-white font-hedvig font-normal'>Ready to Lock In More Deals?</h2>
 
-               <span className='flex max-w-[300px] md:max-w-[520px] lg:max-w-[520px] justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-center text-white font-normal opacity-[.7]'>Book a demo to see how LockIn reveals your hidden network on Telegram and X.</span>
+               <span className='flex max-w-[300px] md:max-w-[520px] lg:max-w-[520px] justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-center text-white font-normal opacity-[.7]'>Book a demo to reveal your hidden network on Telegram and X.</span>
 
                {/* Book A Demo Button */}
                <div
