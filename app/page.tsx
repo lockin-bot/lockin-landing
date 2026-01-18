@@ -1198,9 +1198,9 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-full max-w-full lg:min-w-[450px] lg:max-w-[450px] h-auto rounded-[12px] md:rounded-[22px] lg:rounded-[18px] overflow-hidden'>
                      <Image
-                        src={'/testimonials/case-study-dark.png'}
-                        width={1310}
-                        height={804}
+                        src={'/testimonials/case-study-dark.webp'}
+                        width={900}
+                        height={600}
                         alt='Security Guide'
                         draggable={false}
                         className='w-full h-auto object-cover'

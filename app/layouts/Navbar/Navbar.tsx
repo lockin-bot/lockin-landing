@@ -86,7 +86,7 @@ export default function Navbar() {
                {/* Right Nav */}
                <div className='hidden lg:flex items-center gap-[20px]'>
                   <div className='flex items-center group'>
-                     <Link href='https://app.heylockin.com'>
+                     <Link href='https://app.lockin.bot'>
                         <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Login</span>
                      </Link>
                   </div>
@@ -152,7 +152,7 @@ export default function Navbar() {
                      <Link href='/blog' onClick={() => setMenuOpen(false)}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
                      </Link>
-                     <Link href='https://app.heylockin.com' onClick={() => setMenuOpen(false)}>
+                     <Link href='https://app.lockin.bot' onClick={() => setMenuOpen(false)}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Login</span>
                      </Link>
                   </div>
