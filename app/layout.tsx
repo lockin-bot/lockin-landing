@@ -24,10 +24,11 @@ const hedvig = localFont({
 
 export const metadata: Metadata = {
   title: "LockIn | Sales Intelligence on Telegram and X",
-  description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
+  description: "Unify your team's Telegram and X networks - revealing warm paths, buying signals, and more deals.",
   openGraph: {
     title: "LockIn | Sales Intelligence on Telegram and X",
-    description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
+    description: "Unify your team's Telegram and X networks - revealing warm paths, buying signals, and more deals.",
+    siteName: "LockIn",
     images: [
       {
         url: "/brand/og-image.png",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "LockIn | Sales Intelligence on Telegram and X",
-    description: "LockIn helps you close more deals by automating deal tracking, follow-up reminders, and outbound campaigns all within Telegram.",
+    description: "Unify your team's Telegram and X networks - revealing warm paths, buying signals, and more deals.",
     images: ["/brand/og-image.png"],
   },
 };
