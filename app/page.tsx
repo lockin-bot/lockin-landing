@@ -226,12 +226,13 @@ const carouselData = [
       logo: '/testimonials/gotologo.webp'
    },
    {
-      desc: 'You couldn\'t think of a 3rd testimonial?',
-      avatar: '/testimonials/ceo-image.webp',
+      desc: 'Telegram and X are where my deals happen, but the signal gets lost in the noise. LockIn surfaces the opportunities I would have missed.',
+      avatar: '/testimonials/brian.jpeg',
       avatarWidth: 30,
       avatarHeight: 30,
-      name: 'Bob Mark',
-      role: 'CEO'
+      name: 'Brian Smocovich',
+      role: 'Pistachio Fi',
+      logo: '/testimonials/pistachio.avif'
    }
 ];
 
