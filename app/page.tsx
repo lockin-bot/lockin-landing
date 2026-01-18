@@ -232,7 +232,8 @@ const carouselData = [
       avatarHeight: 30,
       name: 'Brian Smocovich',
       role: 'Founder',
-      logo: '/testimonials/pistachio.avif'
+      logo: '/testimonials/pistachio.avif',
+      logoHeight: 26
    }
 ];
 
@@ -1197,7 +1198,7 @@ export default function page() {
                   {/* Image Block */}
                   <div className='w-full max-w-full lg:min-w-[450px] lg:max-w-[450px] h-auto rounded-[12px] md:rounded-[22px] lg:rounded-[18px] overflow-hidden'>
                      <Image
-                        src={'/testimonials/case-study.webp'}
+                        src={'/testimonials/case-study-dark.png'}
                         width={1310}
                         height={804}
                         alt='Security Guide'
@@ -1285,7 +1286,8 @@ export default function page() {
                                     width={100}
                                     height={40}
                                     alt='Company Logo'
-                                    className='h-[24px] md:h-[32px] w-auto object-contain opacity-80'
+                                    className='w-auto object-contain opacity-80'
+                                    style={{ height: item.logoHeight ? `${item.logoHeight}px` : '32px' }}
                                     draggable={false}
                                     loading="eager"
                                  />
