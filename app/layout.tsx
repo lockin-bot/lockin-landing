@@ -23,7 +23,7 @@ const hedvig = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lockin.bot"),
+  metadataBase: new URL("https://heylockin.com"),
   title: "Sales Intelligence on Telegram and X",
   description: "Unify your team's Telegram and X networks - revealing warm paths, buying signals, and more deals.",
   openGraph: {
