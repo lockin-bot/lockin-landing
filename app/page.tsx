@@ -217,7 +217,7 @@ const carouselData = [
       logo: '/testimonials/snag.avif'
    },
    {
-      desc: 'LockIn helped me uncover warm intros I didn\\'t know existed. Closed two enterprise deals in my first month using paths through my own network.',
+      desc: 'LockIn helped me uncover warm intros I didn\'t know existed.',
       avatar: '/testimonials/frankie.jpg',
       avatarWidth: 30,
       avatarHeight: 30,
