@@ -255,7 +255,7 @@ const faqData = [
       desc: "Our shared intelligence graph spans 20k+ web3 organizations, 2m+ social profiles, and hundreds of Telegram hubs. Even with a small network, you'll discover paths through the broader ecosystem."
    },
    {
-      question: 'What if LockIn doesn\\'t work for me?',
+      question: "What if LockIn doesn't work for me?",
       desc: "We offer a 30-day money-back guarantee. If LockIn doesn't help you close more deals, we'll refund you in full."
    },
    {
