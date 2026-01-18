@@ -1209,14 +1209,14 @@ export default function page() {
                      <div className='w-full flex flex-col gap-[6px] md:gap-[10px]'>
                         <span className='text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-semibold opacity-[.4]'>Security Guide</span>
 
-                        <h5 className='max-md:max-w-[260px] w-full text-[18px] md:text-[21px] leading-[26px] md:leading-[30px] -tracking-[0.2px] md:-tracking-[0.24px] text-white font-hedvig'>How LockIn Improved Nautilus's TEE Architecture</h5>
+                        <h5 className='max-md:max-w-[260px] w-full text-[18px] md:text-[21px] leading-[26px] md:leading-[30px] -tracking-[0.2px] md:-tracking-[0.24px] text-white font-hedvig'>How to Build AI Solutions Without Giving Up Privacy</h5>
 
-                        <span className='w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] -tracking-[0.25px] md:-tracking-[0.3px] text-white font-normal opacity-[.8]'>How LockIn improved Nautilus's TEE architecture to operate private and secure AI inference on Telegram data.</span>
+                        <span className='w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[26px] -tracking-[0.25px] md:-tracking-[0.3px] text-white font-normal opacity-[.8]'>To be useful, AI needs your private context - messages, contacts, history. In crypto, that context is economically sensitive. Here's how we built LockIn so even we can't see your data.</span>
             </div>
 
                      {/* Link */}
                      <div className='w-full flex'>
-                        <Link href='/blog/case-study-nautilus' className='flex items-center gap-[8px] group'>
+                        <Link href='/blog/how-to-build-ai-without-giving-up-privacy' className='flex items-center gap-[8px] group'>
                            <h5 className='text-[14px] md:text-[16px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-[#429DED] font-medium inline-block group-hover:text-[#429DED]/80 transition-all duration-300'>Read the full guide</h5>
 
                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none">
