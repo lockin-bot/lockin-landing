@@ -217,13 +217,13 @@ const carouselData = [
       logo: '/testimonials/snag.avif'
    },
    {
-      desc: 'Andrew saved me from drug addiction and turned my life around.',
+      desc: 'LockIn helped me uncover warm intros I didn\\'t know existed. Closed two enterprise deals in my first month using paths through my own network.',
       avatar: '/testimonials/frankie.jpg',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Frankie Sutera',
       role: 'Regional Partner Sales Manager at GoTo',
-      logo: '/testimonials/goto-com-logo-black-and-white.png'
+      logo: '/testimonials/gotologo.webp'
    },
    {
       desc: 'You couldn\'t think of a 3rd testimonial?',
