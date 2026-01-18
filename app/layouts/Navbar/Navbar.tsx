@@ -85,6 +85,12 @@ export default function Navbar() {
 
                {/* Right Nav */}
                <div className='hidden lg:flex items-center gap-[20px]'>
+                  <div className='flex items-center group'>
+                     <Link href='/login'>
+                        <span className='text-[16px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Login</span>
+                     </Link>
+                  </div>
+
                   {/* Get Started Button */}
                   <div
                      className='w-[120px] h-[38px] rounded-[38px] flex items-center justify-center group bg-[rgba(255,255,255,0.10)] hover:bg-white transition-all duration-300'
@@ -145,6 +151,9 @@ export default function Navbar() {
                      </Link>
                      <Link href='/blog' onClick={() => setMenuOpen(false)}>
                         <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Blog</span>
+                     </Link>
+                     <Link href='/login' onClick={() => setMenuOpen(false)}>
+                        <span className='text-[17px] leading-[150%] font-medium text-white opacity-[.8] group-hover:opacity-100 transition-all duration-300'>Login</span>
                      </Link>
                   </div>
 
