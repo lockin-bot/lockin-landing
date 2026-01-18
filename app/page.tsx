@@ -1188,7 +1188,7 @@ export default function page() {
             </div>
          </div>
 
-      {/* Case Study */}
+      {/* Security Guide */}
          <div className='w-full h-auto px-[16px] relative'>
             <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto p-[8px] md:p-[14px] lg:p-[20px] pb-[16px] md:pb-[20px] rounded-[20px] md:rounded-[28px] lg:rounded-[36px] bg-black border border-[rgba(255,255,255,0.10)]'>
                <div className='w-full h-full flex max-lg:flex-col gap-[16px] md:gap-[24px] lg:gap-[28px]'>
@@ -1198,7 +1198,7 @@ export default function page() {
                         src={'/testimonials/case-study.webp'}
                         width={1310}
                         height={804}
-                        alt='Case Study'
+                        alt='Security Guide'
                         draggable={false}
                         className='w-full h-auto object-cover'
                      />
@@ -1207,7 +1207,7 @@ export default function page() {
                   {/* Content Block */}
                   <div className='w-full flex items-stretch flex-col justify-between gap-[24px] max-md:pl-[14px]'>
                      <div className='w-full flex flex-col gap-[6px] md:gap-[10px]'>
-                        <span className='text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-semibold opacity-[.4]'>Case Study</span>
+                        <span className='text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-semibold opacity-[.4]'>Security Guide</span>
 
                         <h5 className='max-md:max-w-[260px] w-full text-[18px] md:text-[21px] leading-[26px] md:leading-[30px] -tracking-[0.2px] md:-tracking-[0.24px] text-white font-hedvig'>How LockIn Improved Nautilus's TEE Architecture</h5>
 
@@ -1217,7 +1217,7 @@ export default function page() {
                      {/* Link */}
                      <div className='w-full flex'>
                         <Link href='/blog/case-study-nautilus' className='flex items-center gap-[8px] group'>
-                           <h5 className='text-[14px] md:text-[16px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-[#429DED] font-medium inline-block group-hover:text-[#429DED]/80 transition-all duration-300'>Read the full case study</h5>
+                           <h5 className='text-[14px] md:text-[16px] leading-[20px] md:leading-[22px] -tracking-[0.15px] md:-tracking-[0.2px] text-center text-[#429DED] font-medium inline-block group-hover:text-[#429DED]/80 transition-all duration-300'>Read the full guide</h5>
 
                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 8 24" fill="none">
                               <path d="M1.32812 17.3307L6.66146 11.9974L1.32812 6.66406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
