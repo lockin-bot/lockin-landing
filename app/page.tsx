@@ -213,25 +213,25 @@ const carouselData = [
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Nick Handy',
-      role: 'Head of GTM, Snag Solutions',
+      role: 'Head of GTM',
       logo: '/testimonials/snag.avif'
    },
    {
-      desc: 'LockIn helped me uncover warm intros I didn\'t know existed.',
-      avatar: '/testimonials/frankie.jpg',
+      desc: 'LockIn helped me uncover warm connections I didn\'t know existed.',
+      avatar: '/testimonials/frankiesutera.jpg',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Frankie Sutera',
-      role: 'Regional Partner Sales Manager at GoTo',
+      role: 'Regional Partner Sales Manager',
       logo: '/testimonials/gotologo.webp'
    },
    {
-      desc: 'Telegram and X are where my deals happen, but the signal gets lost in the noise. LockIn surfaces the opportunities I would have missed.',
+      desc: 'On Telegram and X, signal gets lost in the noise. LockIn surfaces the opportunities I would have missed.',
       avatar: '/testimonials/brian.jpeg',
       avatarWidth: 30,
       avatarHeight: 30,
       name: 'Brian Smocovich',
-      role: 'Pistachio Fi',
+      role: 'Founder',
       logo: '/testimonials/pistachio.avif'
    }
 ];
