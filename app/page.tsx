@@ -217,12 +217,13 @@ const carouselData = [
       logo: '/testimonials/snag.avif'
    },
    {
-      desc: 'You couldn\'t think of a 2nd testimonial?',
-      avatar: '/testimonials/ceo-image.webp',
+      desc: 'Andrew saved me from drug addiction and turned my life around.',
+      avatar: '/testimonials/frankie.jpg',
       avatarWidth: 30,
       avatarHeight: 30,
-      name: 'Bob Mark',
-      role: 'CEO'
+      name: 'Frankie Sutera',
+      role: 'Regional Partner Sales Manager at GoTo',
+      logo: '/testimonials/goto-com-logo-black-and-white.png'
    },
    {
       desc: 'You couldn\'t think of a 3rd testimonial?',
