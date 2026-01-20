@@ -112,7 +112,7 @@ export default function page() {
    }, []);
 
    const updateOpacity = useCallback(() => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !gsapRef.current) return;
       const items = containerRef.current.children;
       const centerIndex = Math.floor(items.length / 2);
       gsapRef.current.set(items, {
@@ -121,7 +121,7 @@ export default function page() {
    }, []);
 
    const fadeToCenter = useCallback((targetIndex: number) => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !gsapRef.current) return;
       const items = containerRef.current.children;
       gsapRef.current.to(items, {
          opacity: (i: number) => (i === targetIndex ? 1 : 0.2),
@@ -131,7 +131,7 @@ export default function page() {
    }, []);
 
    const measureBox = useCallback(() => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !gsapRef.current) return;
 
       const items = containerRef.current.children;
       const firstBox = items[0] as HTMLElement;
@@ -152,10 +152,10 @@ export default function page() {
    }, [setActive, updateOpacity]);
 
    const startProgress = useCallback((targetIndex?: number): void => {
-      if (!progressRefs.current.length) return;
+      if (!progressRefs.current.length || !gsapRef.current) return;
       // reset all bars
       progressRefs.current.forEach((bar) => {
-         if (bar) gsapRef.current.set(bar, { width: '0%' });
+         if (bar && gsapRef.current) gsapRef.current.set(bar, { width: '0%' });
       });
 
       // kill previous tween
@@ -166,7 +166,7 @@ export default function page() {
 
       const idx = targetIndex ?? activeIndexRef.current;
       const activeBar = progressRefs.current[idx];
-      if (!activeBar) return;
+      if (!activeBar || !gsapRef.current) return;
 
       progressTweenRef.current = gsapRef.current.fromTo(
          activeBar,
@@ -184,7 +184,7 @@ export default function page() {
    }, []);
 
    const next = useCallback(() => {
-      if (!containerRef.current || !boxWidthRef.current) return;
+      if (!containerRef.current || !boxWidthRef.current || !gsapRef.current) return;
 
       const track = containerRef.current;
       const stepWidth = boxWidthRef.current + gapRef.current;
@@ -214,7 +214,7 @@ export default function page() {
    }, [next]);
 
    const prev = useCallback(() => {
-      if (!containerRef.current || !boxWidthRef.current) return;
+      if (!containerRef.current || !boxWidthRef.current || !gsapRef.current) return;
 
       const track = containerRef.current;
       const stepWidth = boxWidthRef.current + gapRef.current;
@@ -272,6 +272,8 @@ export default function page() {
 
    //// Progress Bar Animation
   useEffect(() => {
+      if (!gsapReady || !ScrollTriggerRef.current || !gsapRef.current) return;
+
       const trigger = document.querySelector('.sticky-parent-container');
       const pinEl = document.querySelector('.progress-bar-sticky-block');
 
@@ -384,7 +386,7 @@ export default function page() {
             scrub: true,
          }
       });
-   }, []);
+   }, [gsapReady]);
 
    //// Hero Anim - TEMPORARILY DISABLED
    // useEffect(() => {
@@ -431,6 +433,8 @@ export default function page() {
 
    // Aurora Borealis-style animation - deferred for performance
    useEffect(() => {
+      if (!gsapReady || !gsapRef.current) return;
+
       // Defer animations until after page is interactive
       const startAnimations = () => {
          // Start with visible base opacity
@@ -476,7 +480,7 @@ export default function page() {
             setTimeout(startAnimations, 1000);
          }
       }
-  }, []);
+  }, [gsapReady]);
 
   return (
       <div className="min-h-screen bg-black">
