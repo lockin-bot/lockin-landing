@@ -493,7 +493,7 @@ export default function page() {
   }, [gsapReady]);
 
   return (
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-black" data-brave={isBrave}>
          {/* Hero */}
          <div className='w-full h-screen min-h-[700px] md:min-h-[850px] lg:min-h-[900px] max-h-[1100px] relative overflow-hidden'>
             {/* Cluster SVGs - TEMPORARILY DISABLED */}
@@ -596,9 +596,11 @@ export default function page() {
             </div>
 
             {/* Circle Gradient Layer */}
+            {!isBrave && (
             <div className='absolute top-0 left-0 w-full h-full z-1 pointer-events-none'>
                <div className='w-[1000px] md:w-[1400px] lg:w-[1700px] 2xl:w-[2100px] h-[700px] md:h-[900px] lg:h-[1100px] 2xl:h-[1400px] absolute -top-[89px] -left-[232px] md:-left-[290px] lg:-left-[104px] 2xl:left-[136px] rounded-full bg-[#0F0E38] filter-[blur(249px)] md:filter-[blur(348px)] lg:filter-[blur(432px)]'></div>
             </div>
+            )}
 
             {/* Tail Gradient Layer 1 */}
             <div className='hero-tail-gradient hero-tail-gradient-1 w-full h-full absolute top-0 left-0 z-1 flex' style={{ maskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, rgba(0,0,0,0.5) 70%, transparent 90%)' }}>

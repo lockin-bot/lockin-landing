@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./brave-optimizations.css";
 import Navbar from "./layouts/Navbar/Navbar";
 
 const inter = Inter({
