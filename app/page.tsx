@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useIsMobile } from './hooks/useIsMobile';
+import { useBrave } from './hooks/useBrave';
 
 // Lazy load animation-heavy components
 const HeroOwlLottie = dynamic(() => import('./components/home/HeroOwlLottie').then(mod => ({ default: mod.HeroOwlLottie })), {
@@ -86,12 +87,19 @@ export default function page() {
    const [activeFaq, setActiveFaq] = useState<number | null>(null);
    const [activePrevFaq, setActivePrevFaq] = useState<number | null>(null);
    const isMobile = useIsMobile();
+   const isBrave = useBrave();
    const [gsapReady, setGsapReady] = useState(false);
    const gsapRef = useRef<any>(null);
    const ScrollTriggerRef = useRef<any>(null);
 
    // Defer GSAP initialization for better initial load performance
+   // Skip heavy animations for Brave browser
    useEffect(() => {
+      if (isBrave) {
+         // Skip GSAP for Brave - causes performance issues
+         return;
+      }
+
       const timer = setTimeout(async () => {
          const [gsapModule, scrollTriggerModule] = await Promise.all([
             import('gsap'),
@@ -104,7 +112,7 @@ export default function page() {
          setGsapReady(true);
       }, 100);
       return () => clearTimeout(timer);
-   }, []);
+   }, [isBrave]);
 
    const setActive = useCallback((idx: number) => {
       activeIndexRef.current = idx;
@@ -653,7 +661,7 @@ export default function page() {
                {/* Image Wrapper */}
                <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative -mt-[16px] md:-mt-[20px] lg:-mt-[24px]'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
-                  <HeroOwlLottie />
+                  {!isBrave && <HeroOwlLottie />}
                   {/* Owl Image */}
                   <div className='w-full h-[230px] md:h-[360px] lg:h-[380px] 2xl:h-[500px] flex justify-center z-10'>
                      <Image
@@ -866,7 +874,7 @@ export default function page() {
                            </div>
 
                            {/* Animated Card Carousel */}
-                           <SignalCardCarousel />
+                           {!isBrave && <SignalCardCarousel />}
 
                            
                         </div>
