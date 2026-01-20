@@ -3,9 +3,6 @@ import React, { useRef, useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { DotLottieReact, type DotLottie } from '@lottiefiles/dotlottie-react';
 import { useIsMobile } from './hooks/useIsMobile';
 
 // Lazy load animation-heavy components
@@ -84,17 +81,26 @@ export default function page() {
    const activeIndexRef = useRef(0);
    const [activeIndex, setActiveIndex] = useState(0);
    const progressRefs = useRef<HTMLDivElement[]>([]);
-   const progressTweenRef = useRef<gsap.core.Tween | null>(null);
+   const progressTweenRef = useRef<any>(null);
    const nextRef = useRef<() => void>(() => { });
    const [activeFaq, setActiveFaq] = useState<number | null>(null);
    const [activePrevFaq, setActivePrevFaq] = useState<number | null>(null);
    const isMobile = useIsMobile();
    const [gsapReady, setGsapReady] = useState(false);
+   const gsapRef = useRef<any>(null);
+   const ScrollTriggerRef = useRef<any>(null);
 
    // Defer GSAP initialization for better initial load performance
    useEffect(() => {
-      const timer = setTimeout(() => {
-         gsap.registerPlugin(ScrollTrigger);
+      const timer = setTimeout(async () => {
+         const [gsapModule, scrollTriggerModule] = await Promise.all([
+            import('gsap'),
+            import('gsap/ScrollTrigger')
+         ]);
+
+         gsapRef.current = gsapModule.default;
+         ScrollTriggerRef.current = scrollTriggerModule.ScrollTrigger;
+         gsapModule.default.registerPlugin(scrollTriggerModule.ScrollTrigger);
          setGsapReady(true);
       }, 100);
       return () => clearTimeout(timer);
@@ -109,7 +115,7 @@ export default function page() {
       if (!containerRef.current) return;
       const items = containerRef.current.children;
       const centerIndex = Math.floor(items.length / 2);
-      gsap.set(items, {
+      gsapRef.current.set(items, {
          opacity: (i: number) => (i === centerIndex ? 1 : 0.2)
       });
    }, []);
@@ -117,7 +123,7 @@ export default function page() {
    const fadeToCenter = useCallback((targetIndex: number) => {
       if (!containerRef.current) return;
       const items = containerRef.current.children;
-      gsap.to(items, {
+      gsapRef.current.to(items, {
          opacity: (i: number) => (i === targetIndex ? 1 : 0.2),
          duration: 0.6,
          ease: 'power2.inOut'
@@ -140,7 +146,7 @@ export default function page() {
       gapRef.current = Number.isNaN(computedGap) ? 0 : computedGap;
 
       // reset track position after resize
-      gsap.set(containerRef.current, { x: 0 });
+      gsapRef.current.set(containerRef.current, { x: 0 });
       setActive(0);
       updateOpacity();
    }, [setActive, updateOpacity]);
@@ -149,7 +155,7 @@ export default function page() {
       if (!progressRefs.current.length) return;
       // reset all bars
       progressRefs.current.forEach((bar) => {
-         if (bar) gsap.set(bar, { width: '0%' });
+         if (bar) gsapRef.current.set(bar, { width: '0%' });
       });
 
       // kill previous tween
@@ -162,7 +168,7 @@ export default function page() {
       const activeBar = progressRefs.current[idx];
       if (!activeBar) return;
 
-      progressTweenRef.current = gsap.fromTo(
+      progressTweenRef.current = gsapRef.current.fromTo(
          activeBar,
          { width: '0%' },
          {
@@ -190,14 +196,14 @@ export default function page() {
       startProgress(nextActive);
       fadeToCenter(targetIndex);
 
-      gsap.to(track, {
+      gsapRef.current.to(track, {
          x: `-=${stepWidth}`,
          duration: 1,
          ease: 'power2.inOut',
          onComplete: () => {
             // move first to end and reset position
             track.appendChild(track.children[0]);
-            gsap.set(track, { x: 0 });
+            gsapRef.current.set(track, { x: 0 });
             updateOpacity();
          }
       });
@@ -220,10 +226,10 @@ export default function page() {
       startProgress(prevActive);
       // move last to front then animate back to zero
       track.prepend(track.children[track.children.length - 1]);
-      gsap.set(track, { x: -stepWidth });
+      gsapRef.current.set(track, { x: -stepWidth });
       fadeToCenter(targetIndex);
 
-      gsap.to(track, {
+      gsapRef.current.to(track, {
          x: 0,
          duration: 1,
          ease: 'power2.inOut',
@@ -271,7 +277,7 @@ export default function page() {
 
       if (!trigger || !pinEl) return;
 
-      ScrollTrigger.create({
+      ScrollTriggerRef.current.create({
          trigger,
          start: 'top top',
          end: 'bottom bottom',
@@ -316,7 +322,7 @@ export default function page() {
 
       if (!progressBar1 || !progressBar2 || !progressBar3 || !singleProgressBlock1 || !singleProgressBlock2 || !singleProgressBlock3) return;
 
-      gsap.to(progressBar1, {
+      gsapRef.current.to(progressBar1, {
          width: '100%',
          scrollTrigger: {
             trigger: singleProgressBlock1,
@@ -326,7 +332,7 @@ export default function page() {
          }
       });
 
-      gsap.to(progressBar2, {
+      gsapRef.current.to(progressBar2, {
          width: '100%',
          scrollTrigger: {
             trigger: singleProgressBlock2,
@@ -352,9 +358,9 @@ export default function page() {
             singleProgressBlock2BottomRightIcon,
          ];
 
-         gsap.set(icons, { opacity: 0 });
+         gsapRef.current.set(icons, { opacity: 0 });
 
-         const tl = gsap.timeline({
+         const tl = gsapRef.current.timeline({
             scrollTrigger: {
                trigger: singleProgressBlock2,
                start: 'top top',
@@ -369,7 +375,7 @@ export default function page() {
             .to(singleProgressBlock2BottomRightIcon, { opacity: 1, duration: 1 });
       }
 
-      gsap.to(progressBar3, {
+      gsapRef.current.to(progressBar3, {
          width: '100%',
          scrollTrigger: {
             trigger: singleProgressBlock3,
@@ -382,9 +388,9 @@ export default function page() {
 
    //// Hero Anim - TEMPORARILY DISABLED
    // useEffect(() => {
-   //    gsap.set(".hero-cluster-svg", { autoAlpha: 0 });
+   //    gsapRef.current.set(".hero-cluster-svg", { autoAlpha: 0 });
 
-   //    const tl = gsap.timeline({
+   //    const tl = gsapRef.current.timeline({
    //       repeat: -1,
    //       defaults: { ease: "power2.inOut" }
    //    });
@@ -428,12 +434,12 @@ export default function page() {
       // Defer animations until after page is interactive
       const startAnimations = () => {
          // Start with visible base opacity
-         gsap.set(".hero-tail-gradient-1", { autoAlpha: 0.15 });
-         gsap.set(".hero-tail-gradient-2", { autoAlpha: 0.1 });
-         gsap.set(".hero-tail-gradient-3", { autoAlpha: 0.1 });
+         gsapRef.current.set(".hero-tail-gradient-1", { autoAlpha: 0.15 });
+         gsapRef.current.set(".hero-tail-gradient-2", { autoAlpha: 0.1 });
+         gsapRef.current.set(".hero-tail-gradient-3", { autoAlpha: 0.1 });
 
          // Layer 1 - primary glow, most visible
-         gsap.to(".hero-tail-gradient-1", {
+         gsapRef.current.to(".hero-tail-gradient-1", {
             autoAlpha: 0.75,
             duration: 2,
             ease: "sine.inOut",
@@ -442,7 +448,7 @@ export default function page() {
          });
 
          // Layer 2 - offset timing
-         gsap.to(".hero-tail-gradient-2", {
+         gsapRef.current.to(".hero-tail-gradient-2", {
             autoAlpha: 0.7,
             duration: 2.5,
             ease: "sine.inOut",
@@ -452,7 +458,7 @@ export default function page() {
          });
 
          // Layer 3 - creates depth variation
-         gsap.to(".hero-tail-gradient-3", {
+         gsapRef.current.to(".hero-tail-gradient-3", {
             autoAlpha: 0.65,
             duration: 3,
             ease: "sine.inOut",
