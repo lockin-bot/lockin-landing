@@ -240,6 +240,8 @@ export default function page() {
    }, [fadeToCenter, setActive, startProgress, updateOpacity]);
 
    useEffect(() => {
+      if (!gsapReady) return;
+
       measureBox();
 
       const rafId = requestAnimationFrame(measureBox);
@@ -258,7 +260,7 @@ export default function page() {
          window.removeEventListener('resize', measureBox);
          if (progressTweenRef.current) progressTweenRef.current.kill();
       };
-   }, [measureBox, next, startProgress]);
+   }, [gsapReady]);
 
    const toggleFaq = (index: number) => {
       if (activeFaq === index) {
