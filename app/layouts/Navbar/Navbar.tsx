@@ -9,23 +9,31 @@ export default function Navbar() {
    const [lastScrollY, setLastScrollY] = useState(0);
 
    useEffect(() => {
+      let ticking = false;
+
       const handleScroll = () => {
-         const currentScrollY = window.scrollY;
-         
-         // Always show navbar at the top of the page
-         if (currentScrollY < 100) {
-            setVisible(true);
-         } else if (currentScrollY > lastScrollY) {
-            // Scrolling down - hide navbar (unless menu is open)
-            if (!menuOpen) {
-               setVisible(false);
-            }
-         } else {
-            // Scrolling up - show navbar
-            setVisible(true);
+         if (!ticking) {
+            window.requestAnimationFrame(() => {
+               const currentScrollY = window.scrollY;
+
+               // Always show navbar at the top of the page
+               if (currentScrollY < 100) {
+                  setVisible(true);
+               } else if (currentScrollY > lastScrollY) {
+                  // Scrolling down - hide navbar (unless menu is open)
+                  if (!menuOpen) {
+                     setVisible(false);
+                  }
+               } else {
+                  // Scrolling up - show navbar
+                  setVisible(true);
+               }
+
+               setLastScrollY(currentScrollY);
+               ticking = false;
+            });
+            ticking = true;
          }
-         
-         setLastScrollY(currentScrollY);
       };
 
       window.addEventListener('scroll', handleScroll, { passive: true });

@@ -600,41 +600,53 @@ export default function page() {
    //       });
    // }, []);
 
-   // Aurora Borealis-style animation - smooth, constant, visible
+   // Aurora Borealis-style animation - deferred for performance
    useEffect(() => {
-      // Start with visible base opacity
-      gsap.set(".hero-tail-gradient-1", { autoAlpha: 0.15 });
-      gsap.set(".hero-tail-gradient-2", { autoAlpha: 0.1 });
-      gsap.set(".hero-tail-gradient-3", { autoAlpha: 0.1 });
+      // Defer animations until after page is interactive
+      const startAnimations = () => {
+         // Start with visible base opacity
+         gsap.set(".hero-tail-gradient-1", { autoAlpha: 0.15 });
+         gsap.set(".hero-tail-gradient-2", { autoAlpha: 0.1 });
+         gsap.set(".hero-tail-gradient-3", { autoAlpha: 0.1 });
 
-      // Layer 1 - primary glow, most visible
-      gsap.to(".hero-tail-gradient-1", {
-         autoAlpha: 0.75,
-         duration: 2,
-         ease: "sine.inOut",
-         repeat: -1,
-         yoyo: true,
-      });
+         // Layer 1 - primary glow, most visible
+         gsap.to(".hero-tail-gradient-1", {
+            autoAlpha: 0.75,
+            duration: 2,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+         });
 
-      // Layer 2 - offset timing
-      gsap.to(".hero-tail-gradient-2", {
-         autoAlpha: 0.7,
-         duration: 2.5,
-         ease: "sine.inOut",
-         repeat: -1,
-         yoyo: true,
-         delay: 0.7,
-      });
+         // Layer 2 - offset timing
+         gsap.to(".hero-tail-gradient-2", {
+            autoAlpha: 0.7,
+            duration: 2.5,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: 0.7,
+         });
 
-      // Layer 3 - creates depth variation
-      gsap.to(".hero-tail-gradient-3", {
-         autoAlpha: 0.65,
-         duration: 3,
-         ease: "sine.inOut",
-         repeat: -1,
-         yoyo: true,
-         delay: 1.3,
-      });
+         // Layer 3 - creates depth variation
+         gsap.to(".hero-tail-gradient-3", {
+            autoAlpha: 0.65,
+            duration: 3,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: 1.3,
+         });
+      };
+
+      // Use requestIdleCallback or setTimeout to defer animations
+      if (typeof window !== 'undefined') {
+         if ('requestIdleCallback' in window) {
+            requestIdleCallback(startAnimations, { timeout: 2000 });
+         } else {
+            setTimeout(startAnimations, 1000);
+         }
+      }
   }, []);
 
   return (

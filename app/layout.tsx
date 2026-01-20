@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "LockIn",
     images: [
       {
-        url: "/brand/og-image.png",
+        url: "/brand/og-image.webp",
         width: 1200,
         height: 630,
         alt: "LockIn - Warm Paths, Right Timing",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sales Intelligence on Telegram and X",
     description: "Unify your team's Telegram and X networks - revealing warm paths, buying signals, and more deals.",
-    images: ["/brand/og-image.png"],
+    images: ["/brand/og-image.webp"],
   },
 };
 
