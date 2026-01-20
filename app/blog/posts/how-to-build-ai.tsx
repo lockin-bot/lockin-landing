@@ -10,7 +10,7 @@ export const metadata: PostMetadata = {
   author: {
     name: 'Andrew Jiang',
     role: 'Co-founder and CEO',
-    avatar: '/features/find-strongest-path/andrew-avatar.png',
+    avatar: '/features/find-strongest-path/andrew-avatar.webp',
   },
   // Optional: custom social card image
   // socialImage: '/social/how-to-build-ai.png',

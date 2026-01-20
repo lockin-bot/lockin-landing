@@ -734,6 +734,8 @@ export default function page() {
                   height={728}
                   alt='Stars Left'
                   draggable={false}
+                  priority
+                  fetchPriority='high'
                   className='w-full h-full object-cover'
                />
             </div>
@@ -875,7 +877,7 @@ export default function page() {
                               {/* Header - Hayden Adams */}
                               <div className='absolute left-[60px] top-[29px] flex items-center gap-[14px]'>
                                  <div className='w-[31px] h-[31px] rounded-full overflow-hidden border border-[#1f1f1f]'>
-                                    <Image src='/features/find-strongest-path/hayden-adams.png' width={31} height={31} alt='Hayden Adams' className='w-full h-full object-cover' unoptimized />
+                                    <Image src='/features/find-strongest-path/hayden-adams.webp' width={31} height={31} alt='Hayden Adams' className='w-full h-full object-cover' unoptimized />
                                  </div>
                                  <span className='text-white font-semibold text-[19px] leading-[26px] tracking-[-0.4px]'>Hayden Adams</span>
                                  <span className='w-[5px] h-[5px] rounded-full bg-white/50'></span>
@@ -884,7 +886,7 @@ export default function page() {
                               
                               {/* Andrew avatar */}
                               <div className='absolute left-[60px] top-[90px] w-[61px] h-[61px] rounded-full overflow-hidden border border-[#1f1f1f]'>
-                                 <Image src='/features/find-strongest-path/sarah-avatar.png' width={62} height={62} alt='Sarah' className='w-full h-full object-cover' unoptimized />
+                                 <Image src='/features/find-strongest-path/sarah-avatar.webp' width={62} height={62} alt='Sarah' className='w-full h-full object-cover' unoptimized />
                               </div>
                               
                               {/* Telegram icon */}
@@ -900,7 +902,7 @@ export default function page() {
                               {/* DeFi Founders */}
                               <div className='absolute left-[60px] top-[178px] w-[30px] h-[30px] rounded-full bg-[#dd007a] border border-[#1f1f1f] overflow-hidden'>
                                  <div className='absolute left-[2px] top-[2px] w-[24px] h-[24px]'>
-                                    <img src='/features/find-strongest-path/defi-icon.png' alt='DeFi' className='w-full h-full object-cover' />
+                                    <img src='/features/find-strongest-path/defi-icon.webp' alt='DeFi' className='w-full h-full object-cover' />
                                  </div>
                               </div>
                               <p className='absolute left-[108px] top-[181px] text-white text-[19px] leading-[26px] tracking-[-0.4px]'>
@@ -911,7 +913,7 @@ export default function page() {
                               <div className='absolute left-[60px] top-[229px] w-[30px] h-[30px] rounded-full bg-[#bd3ce8] border border-[#1f1f1f] overflow-hidden'>
                                  <div className='absolute h-[23px] left-[2px] top-[3px] w-[24px]'>
                                     <div className='absolute inset-0 overflow-hidden'>
-                                       <img src='/features/find-strongest-path/uniswap-icon.png' alt='Uniswap' className='absolute h-[234%] left-[-123%] top-[-41%] w-[345%] max-w-none' />
+                                       <img src='/features/find-strongest-path/uniswap-icon.webp' alt='Uniswap' className='absolute h-[234%] left-[-123%] top-[-41%] w-[345%] max-w-none' />
                                     </div>
                                  </div>
                               </div>
@@ -930,7 +932,7 @@ export default function page() {
                               {/* Header - Amelia Daly */}
                               <div className='absolute left-[60px] top-[29px] flex items-center gap-[14px]'>
                                  <div className='w-[31px] h-[31px] rounded-full overflow-hidden border border-[#1f1f1f]'>
-                                    <Image src='/features/find-strongest-path/amelia-daly.png' width={31} height={31} alt='Amelia Daly' className='w-full h-full object-cover' unoptimized />
+                                    <Image src='/features/find-strongest-path/amelia-daly.webp' width={31} height={31} alt='Amelia Daly' className='w-full h-full object-cover' unoptimized />
                                  </div>
                                  <span className='text-white font-semibold text-[19px] leading-[26px] tracking-[-0.4px]'>Amelia Daly</span>
                                  <span className='w-[5px] h-[5px] rounded-full bg-white/50'></span>
@@ -939,7 +941,7 @@ export default function page() {
                               
                               {/* Jesse avatar */}
                               <div className='absolute left-[60px] top-[90px] w-[61px] h-[61px] rounded-full overflow-hidden border border-[#1f1f1f]'>
-                                 <Image src='/features/find-strongest-path/jesse-avatar.png' width={60} height={60} alt='Jesse' className='w-full h-full object-cover' unoptimized />
+                                 <Image src='/features/find-strongest-path/jesse-avatar.webp' width={60} height={60} alt='Jesse' className='w-full h-full object-cover' unoptimized />
                               </div>
                               
                               {/* X icon */}
@@ -956,7 +958,7 @@ export default function page() {
                               <div className='absolute left-[60px] top-[171px] w-[30px] h-[30px] rounded-full bg-[#dd007a] border border-[#1f1f1f] overflow-hidden'>
                                  <div className='absolute h-[31px] left-[-8px] top-[-1px] w-[44px]'>
                                     <div className='absolute inset-0 overflow-hidden'>
-                                       <img src='/features/find-strongest-path/web3-icon.png' alt='Web3' className='absolute h-[168%] left-[-123%] top-[-34%] w-[237%] max-w-none' />
+                                       <img src='/features/find-strongest-path/web3-icon.webp' alt='Web3' className='absolute h-[168%] left-[-123%] top-[-34%] w-[237%] max-w-none' />
                                     </div>
                                  </div>
                               </div>
