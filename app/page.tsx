@@ -2,209 +2,22 @@
 import React, { useRef, useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DotLottieReact, type DotLottie } from '@lottiefiles/dotlottie-react';
+import { useIsMobile } from './hooks/useIsMobile';
 
-gsap.registerPlugin(ScrollTrigger);
+// Lazy load animation-heavy components
+const HeroOwlLottie = dynamic(() => import('./components/home/HeroOwlLottie').then(mod => ({ default: mod.HeroOwlLottie })), {
+  ssr: false,
+  loading: () => <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] 2xl:w-[2200px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] 2xl:h-[1500px] z-0' />
+});
 
-// Hook to detect mobile
-function useIsMobile() {
-   const [isMobile, setIsMobile] = useState(false);
-   
-   useEffect(() => {
-      const checkMobile = () => setIsMobile(window.innerWidth < 768);
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-      return () => window.removeEventListener('resize', checkMobile);
-   }, []);
-   
-   return isMobile;
-}
-
-// Hero Owl Lottie component that cycles through animations with crossfade
-const heroOwlLotties = ['/hero/owl-1.lottie', '/hero/owl-2.lottie', '/hero/owl-3.lottie'];
-const OVERLAP_SECONDS = 3; // seconds before end to start next animation
-const FADE_DURATION = 2; // seconds for crossfade transition
-const PLAYBACK_SPEED = 1.6; // animation speed multiplier
-
-function HeroOwlLottie() {
-   const [animations, setAnimations] = useState<{ index: number; key: number; opacity: number }[]>([
-      { index: 0, key: 0, opacity: 1 }
-   ]);
-   const keyCounterRef = useRef(1);
-   const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-   const startNextAnimation = useCallback(() => {
-      setAnimations(prev => {
-         const currentIndex = prev[prev.length - 1].index;
-         const nextIndex = (currentIndex + 1) % heroOwlLotties.length;
-         const newKey = keyCounterRef.current++;
-         
-         // Add new animation, mark old one to fade out
-         return [
-            ...prev.map(a => ({ ...a, opacity: 0 })),
-            { index: nextIndex, key: newKey, opacity: 1 }
-         ];
-      });
-
-      // Remove old animations after fade completes
-      setTimeout(() => {
-         setAnimations(prev => prev.filter(a => a.opacity === 1));
-      }, FADE_DURATION * 1000);
-   }, []);
-
-   const dotLottieRefCallback = useCallback((dotLottie: DotLottie | null) => {
-      if (dotLottie) {
-         // Clear any existing timer
-         if (timerRef.current) {
-            clearTimeout(timerRef.current);
-         }
-
-         // Wait for the animation to be ready to get duration
-         const handleLoad = () => {
-            const duration = dotLottie.duration / PLAYBACK_SPEED; // actual duration accounting for speed
-            const transitionTime = Math.max(0, (duration - OVERLAP_SECONDS)) * 1000;
-            
-            timerRef.current = setTimeout(() => {
-               startNextAnimation();
-            }, transitionTime);
-         };
-
-         // Check if already loaded
-         if (dotLottie.isLoaded) {
-            handleLoad();
-         } else {
-            dotLottie.addEventListener('load', handleLoad);
-         }
-      }
-   }, [startNextAnimation]);
-
-   // Cleanup timers on unmount
-   useEffect(() => {
-      return () => {
-         if (timerRef.current) {
-            clearTimeout(timerRef.current);
-         }
-      };
-   }, []);
-
-   return (
-      <div className='absolute -top-[120px] md:-top-[310px] lg:-top-[560px] left-1/2 -translate-x-[50%] md:-translate-x-1/2 w-[500px] md:w-[1050px] lg:w-[1600px] xl:w-[1800px] 2xl:w-[2200px] h-[345px] md:h-[724px] lg:h-[1100px] xl:h-[1240px] 2xl:h-[1500px] z-0 pointer-events-none'>
-         {animations.map((anim) => (
-            <div
-               key={anim.key}
-               className='absolute inset-0'
-               style={{
-                  opacity: anim.opacity,
-                  transition: `opacity ${FADE_DURATION}s ease-in-out`
-               }}
-            >
-               <DotLottieReact
-                  src={heroOwlLotties[anim.index]}
-                  autoplay
-                  speed={PLAYBACK_SPEED}
-                  dotLottieRefCallback={anim.opacity === 1 ? dotLottieRefCallback : undefined}
-                  style={{ width: '100%', height: '100%' }}
-               />
-            </div>
-         ))}
-      </div>
-   );
-}
-
-// Signal Card Carousel - cycles between cards with fade + slide animation
-const signalCards = [
-   {
-      name: 'Stani Kulechov',
-      company: 'Aave',
-      message: '"Our GHO stablecoin contracts need auditing before mainnet. Any auditors with lending protocol experience?"',
-      platform: 'Post',
-      avatar: '/features/know-the-right-moment/stani-kulechov.png',
-      icon: '/features/find-strongest-path/x-icon.svg',
-   },
-   {
-      name: 'Mert Mumtaz',
-      company: 'Helius',
-      message: '"Need recommendations for security audits = preferably someone who\'s done Solana programs."',
-      platform: 'Solana Devs',
-      avatar: '/features/know-the-right-moment/mert-mumtaz.png',
-      icon: '/features/know-the-right-moment/telegram-send-icon.svg',
-   },
-];
-
-const CARD_DISPLAY_DURATION = 3000; // ms to show each card
-const CARD_TRANSITION_DURATION = 500; // ms for fade + slide animation
-
-function SignalCardCarousel() {
-   const [activeIndex, setActiveIndex] = useState(0);
-   const [isAnimating, setIsAnimating] = useState(false);
-   const [direction, setDirection] = useState<'up' | 'down'>('up');
-
-   useEffect(() => {
-      const interval = setInterval(() => {
-         setIsAnimating(true);
-         setDirection('up');
-         
-         // After exit animation completes, switch card and animate in
-         setTimeout(() => {
-            setActiveIndex((prev) => (prev + 1) % signalCards.length);
-            setDirection('down');
-            
-            // Reset animation state after enter animation
-            setTimeout(() => {
-               setIsAnimating(false);
-            }, CARD_TRANSITION_DURATION);
-         }, CARD_TRANSITION_DURATION);
-      }, CARD_DISPLAY_DURATION);
-
-      return () => clearInterval(interval);
-   }, []);
-
-   const card = signalCards[activeIndex];
-
-   return (
-      <div className='absolute top-[365px] left-1/2 -translate-x-1/2 w-[441px] max-w-[calc(100%-48px)] z-10'>
-         <div
-            className='w-full bg-[rgba(0,0,0,0.4)] backdrop-blur-[25px] border-[0.884px] border-[#272727] rounded-[20px] shadow-[0px_4px_84px_0px_rgba(255,255,255,0.19)] p-[23px] flex items-start gap-[21px] transition-all'
-            style={{
-               transform: isAnimating 
-                  ? direction === 'up' 
-                     ? 'translateY(-20px)' 
-                     : 'translateY(20px)'
-                  : 'translateY(0)',
-               opacity: isAnimating ? 0 : 1,
-               transitionDuration: `${CARD_TRANSITION_DURATION}ms`,
-               transitionTimingFunction: 'ease-in-out',
-            }}
-         >
-            {/* Avatar */}
-            <div className='w-[57px] h-[57px] rounded-full border-[0.385px] border-white/20 overflow-hidden bg-[#090e21] flex-shrink-0'>
-               <Image src={card.avatar} width={57} height={57} alt={card.name} className='w-full h-full object-cover' />
-            </div>
-            
-            {/* Content */}
-            <div className='flex flex-col gap-[17px] flex-1 min-w-0'>
-               <div className='flex flex-col gap-[10px]'>
-                  <p className='text-[19px] leading-[21px] tracking-[-0.39px] text-white/80'>
-                     <span className='text-white font-semibold'>{card.name}</span> · {card.company}
-                  </p>
-                  <p className='text-[17px] leading-[26px] tracking-[-0.33px] text-white opacity-80 text-shadow-[0px_0px_20px_rgba(255,255,255,0.45)]'>
-                     {card.message}
-                  </p>
-               </div>
-               
-               {/* Platform indicator */}
-               <div className='flex items-center gap-[6px]'>
-                  <Image src={card.icon} width={16} height={16} alt={card.platform} className='w-[16px] h-[16px] opacity-80' />
-                  <span className='text-[17px] leading-[21px] tracking-[-0.33px] text-white opacity-80 text-shadow-[0px_0px_20px_rgba(255,255,255,0.45)]'>{card.platform}</span>
-                  <span className='text-[17px] leading-[21px] tracking-[-0.33px] text-white opacity-80 text-shadow-[0px_0px_20px_rgba(255,255,255,0.45)]'>· Just now</span>
-               </div>
-            </div>
-         </div>
-      </div>
-   );
-}
+const SignalCardCarousel = dynamic(() => import('./components/home/SignalCardCarousel').then(mod => ({ default: mod.SignalCardCarousel })), {
+  ssr: false,
+  loading: () => <div className='absolute top-[365px] left-1/2 -translate-x-1/2 w-[441px] max-w-[calc(100%-48px)] h-[200px]' />
+});
 
 const carouselData = [
    {
@@ -276,6 +89,16 @@ export default function page() {
    const [activeFaq, setActiveFaq] = useState<number | null>(null);
    const [activePrevFaq, setActivePrevFaq] = useState<number | null>(null);
    const isMobile = useIsMobile();
+   const [gsapReady, setGsapReady] = useState(false);
+
+   // Defer GSAP initialization for better initial load performance
+   useEffect(() => {
+      const timer = setTimeout(() => {
+         gsap.registerPlugin(ScrollTrigger);
+         setGsapReady(true);
+      }, 100);
+      return () => clearTimeout(timer);
+   }, []);
 
    const setActive = useCallback((idx: number) => {
       activeIndexRef.current = idx;
