@@ -489,7 +489,7 @@ export default function page() {
   return (
       <div className="min-h-screen bg-black" data-brave={isBrave}>
          {/* Hero */}
-         <div className='w-full h-screen min-h-[700px] md:min-h-[850px] lg:min-h-[900px] max-h-[1100px] relative overflow-hidden'>
+         <div className='w-full h-auto min-h-screen md:min-h-[850px] lg:min-h-[900px] relative overflow-hidden'>
             {/* Cluster SVGs - TEMPORARILY DISABLED */}
             {/* <div className='hero-cluster-svg hero-cluster-svg-1 w-[280px] h-[320px] absolute top-[220px] md:top-[340px] -left-[237px] md:left-[48px] lg:left-[113px] z-2 opacity-0'>
                <Image
