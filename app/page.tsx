@@ -19,6 +19,16 @@ const SignalCardCarousel = dynamic(() => import('./components/home/SignalCardCar
 
 const carouselData = [
    {
+      desc: "Web3's linkedin is called LockIn. Soon the world will know.",
+      avatar: '/testimonials/charles-nicolas.jpeg',
+      avatarWidth: 30,
+      avatarHeight: 30,
+      name: 'Charles Nicolas',
+      role: 'Clique',
+      logo: '/hero/clique.svg',
+      logoHeight: 22
+   },
+   {
       desc: 'This is the sales product we always needed',
       avatar: '/testimonials/nick.jpeg',
       avatarWidth: 30,
@@ -75,6 +85,19 @@ const faqData = [
    }
 ]
 
+const backingCompanyWordmarks = [
+   { name: 'Awaken', logoSrc: '/hero/awaken.svg', logoAlt: 'Awaken', logoClass: 'max-w-[90%]' },
+   { name: 'Clique', logoSrc: '/hero/clique.svg', logoAlt: 'Clique', logoClass: 'max-w-[74%]' },
+   { name: 'Alliance', logoSrc: '/hero/alliance.svg', logoAlt: 'Alliance', logoClass: 'max-w-[94%]' },
+   { name: 'Sui', logoSrc: '/hero/sui.svg', logoAlt: 'Sui', logoClass: 'max-w-[78%]' },
+   { name: 'GiftedArt', logoSrc: '/hero/giftedart.svg', logoAlt: 'GiftedArt', logoClass: 'max-w-[76%]' },
+   { name: 'PistachioFi', logoSrc: '/hero/pistachiofi.svg', logoAlt: 'PistachioFi', logoClass: 'max-w-[88%]' },
+   { name: 'Tie', logoSrc: '/hero/tie.svg', logoAlt: 'Tie', logoClass: 'max-w-[68%]' },
+   { name: 'Walrus', logoSrc: '/hero/walrus.svg', logoAlt: 'Walrus', logoClass: 'max-w-[88%]' },
+   { name: 'Movimentum', logoSrc: '/hero/movimentum.svg', logoAlt: 'Movimentum', logoClass: 'max-w-[80%]' },
+   { name: 'Fido', logoSrc: '/hero/fido.png', logoAlt: 'Fido', logoClass: 'max-w-[80%]' },
+];
+
 export default function page() {
    const containerRef = useRef<HTMLDivElement | null>(null);
    const boxWidthRef = useRef(0);
@@ -86,6 +109,7 @@ export default function page() {
    const nextRef = useRef<() => void>(() => { });
    const [activeFaq, setActiveFaq] = useState<number | null>(null);
    const [activePrevFaq, setActivePrevFaq] = useState<number | null>(null);
+   const [pricingCycle, setPricingCycle] = useState<'annual' | 'monthly'>('annual');
    const isMobile = useIsMobile();
    const isBrave = useBrave();
    const [gsapReady, setGsapReady] = useState(false);
@@ -655,7 +679,7 @@ export default function page() {
         </div>
 
                {/* Image Wrapper */}
-               <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center gap-[18px] md:gap-0 lg:gap-[16px] relative -mt-[16px] md:-mt-[20px] lg:-mt-[24px]'>
+               <div className='max-w-[260px] md:max-w-[440px] 2xl:max-w-[500px] w-full h-auto flex flex-col items-center relative -mt-[16px] md:-mt-[20px] lg:-mt-[24px]'>
                   {/* Lottie Animation - positioned behind owl, spanning full width */}
                   <HeroOwlLottie />
                   {/* Owl Image */}
@@ -672,18 +696,31 @@ export default function page() {
                      />
               </div>
 
-                  {/* Backed by Alliance */}
-                  <div className='w-full flex items-center justify-center gap-[8px] md:gap-[11px] lg:gap-[14px]'>
-                     <span className='text-[15px] md:text-[20px] lg:text-[24px] leading-[22px] md:leading-[150%] -tracking-[0.15px] md:-tracking-[0.2px] text-white font-medium'>Backed by Alliance</span>
-                     <Image
-                        src={'/hero/alliance-logo.svg'}
-                        width={24}
-                        height={24}
-                        alt='Alliance'
-                        className='w-[24px] h-[24px] lg:w-[28px] lg:h-[28px] object-contain'
-                        draggable={false}
-                     />
-          </div>
+               </div>
+
+               {/* Backed by */}
+               <div className='w-full max-w-[1120px] flex flex-col items-center gap-[12px] md:gap-[16px] lg:gap-[20px] px-[10px] md:px-[16px] lg:px-[24px] mt-[44px] md:mt-[58px] lg:mt-[74px]'>
+                  <span className='text-[14px] md:text-[18px] lg:text-[20px] leading-[20px] md:leading-[150%] -tracking-[0.12px] md:-tracking-[0.18px] text-white/90 font-medium'>Trusted by leading teams</span>
+                  <div className='w-full grid grid-cols-5 gap-x-[12px] md:gap-x-[20px] lg:gap-x-[28px] gap-y-[8px] md:gap-y-[10px] lg:gap-y-[12px]'>
+                     {backingCompanyWordmarks.map((company) => (
+                        <div key={company.name} className='w-full h-[34px] md:h-[40px] lg:h-[44px] flex items-center justify-center rounded-[10px] bg-[linear-gradient(180deg,rgba(255,255,255,0.03)_0%,rgba(255,255,255,0.012)_100%)] px-[10px] md:px-[13px] lg:px-[15px]'>
+                           {company.logoSrc ? (
+                              <div className='w-full h-[18px] md:h-[21px] lg:h-[24px] flex items-center justify-center'>
+                                 <Image
+                                    src={company.logoSrc}
+                                    width={96}
+                                    height={24}
+                                    alt={company.logoAlt ?? company.name}
+                                    className={`${company.logoClass ?? 'max-w-[86%]'} h-full w-auto object-contain`}
+                                    draggable={false}
+                                 />
+                              </div>
+                           ) : (
+                              <span className={`text-white/85 whitespace-nowrap ${company.sizeClass} ${company.fontClass}`}>{company.name}</span>
+                           )}
+                        </div>
+                     ))}
+                  </div>
                </div>
                </div>
             </div>
@@ -700,7 +737,7 @@ export default function page() {
             <div className='w-full flex flex-col relative z-[2]'>
                
                {/* Section 1: Find the Strongest Path - Visual Left, Text Right */}
-               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[60px] md:pt-[80px] lg:pt-[200px] pb-[40px] md:pb-[50px] lg:pb-[60px] px-[12px] md:px-[24px] lg:px-0 relative'>
+               <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto pt-[40px] md:pt-[60px] lg:pt-[180px] pb-[40px] md:pb-[50px] lg:pb-[60px] px-[12px] md:px-[24px] lg:px-0 relative'>
                   <div className='w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-[56px]'>
                      
                      {/* Visual Card - Left */}
@@ -1285,6 +1322,24 @@ export default function page() {
                <h2 className='flex max-md:max-w-[280px] text-[28px] md:text-[42px] lg:text-[44px] leading-[36px] md:leading-[54px] lg:leading-[58px] -tracking-[0.56px] md:-tracking-[0.72px] lg:-tracking-[0.84px] text-center text-white font-hedvig font-normal'>Transparent Pricing</h2>
 
                <span className='flex justify-center w-full text-[14px] md:text-[17px] leading-[20px] md:leading-[22px] -tracking-[0.22px] md:-tracking-[0.4px] text-center text-white font-normal opacity-[.7]'>Choose the plan that scales with your team</span>
+
+               <div className='inline-flex items-center rounded-[100px] border border-[rgba(255,255,255,0.15)] p-[4px] bg-[rgba(255,255,255,0.04)]'>
+                  <button
+                     type='button'
+                     onClick={() => setPricingCycle('annual')}
+                     className={`px-[14px] md:px-[18px] py-[8px] rounded-[100px] text-[13px] md:text-[15px] leading-[18px] md:leading-[20px] font-semibold transition-all duration-300 ${pricingCycle === 'annual' ? 'bg-white text-black' : 'text-white/75 hover:text-white'}`}
+                  >
+                     Annual
+                  </button>
+                  <button
+                     type='button'
+                     onClick={() => setPricingCycle('monthly')}
+                     className={`px-[14px] md:px-[18px] py-[8px] rounded-[100px] text-[13px] md:text-[15px] leading-[18px] md:leading-[20px] font-semibold transition-all duration-300 ${pricingCycle === 'monthly' ? 'bg-white text-black' : 'text-white/75 hover:text-white'}`}
+                  >
+                     Monthly
+                  </button>
+               </div>
+
             </div>
 
             {/* Circle Gradient */}
@@ -1315,104 +1370,13 @@ export default function page() {
             </div>
 
             {/* Plans Block */}
-            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex flex-col-reverse md:flex-row gap-[12px] md:gap-[16px] lg:gap-[22px]'>
-               {/* Standart Plan */}
-               <div className='w-full h-auto rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#272727] bg-black backdrop-blur-md p-[16px] lg:p-[24px]'>
-                  {/* Title Text */}
-                  <div className='w-full flex flex-col gap-[6px] mb-[18px] lg:mb-[22px]'>
-                     <h5 className='text-[18px] lg:text-[24px] leading-[100%] text-white font-hedvig font-normal'>Standard Plan</h5>
-                     <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Perfect for solo founders and individuals</span>
-                  </div>
-
-                  {/* Price Block */}
-                  <div className='flex items-center gap-[8px] lg:gap-[16px]'>
-                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>$125</h1>
-                     <div className='flex flex-col gap-[2px]'>
-                        <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per month,</span>
-                        <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per seat</span>
-                     </div>
-                  </div>
-
-                  {/* Book a Demo Btn */}
-                  <div className='w-full h-[40px] lg:h-[48px] rounded-[28px] lg:rounded-[100px] flex items-center justify-center border border-[rgba(255,255,255,0.15)] mt-[10px] lg:mt-[16px] mb-[18px] lg:mb-[24px] group hover:bg-white transition-all duration-300 relative'>
-                     <Link href={'/demo'} className='flex items-center justify-center w-full h-full'>
-                        <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black transition-all duration-300'>Book a Demo</span>
-                     </Link>
-                  </div>
-
-                  <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>30-day money-back guarantee</span>
-
-                  {/* Features List */}
-                  <ul className='w-full flex flex-col gap-[12px] lg:gap-[18px]'>
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M5.40558 20.0258C2.2753 15.5578 3.07973 9.43824 7.25837 5.93101C11.437 2.42377 17.6034 2.69259 21.4609 6.55017C25.3185 10.4077 25.5873 16.5741 22.0801 20.7527C18.5729 24.9314 12.4533 25.7358 7.9853 22.6055L4.66856 23.3426L5.40558 20.0258Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Enrich your Telegram and X networks</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M25.1276 8.08008L19.2114 13.9962C18.7553 14.4524 18.0168 14.4524 17.5618 13.9962L15.0639 11.4984C14.6078 11.0422 13.8693 11.0422 13.4143 11.4984L6.46094 18.4517" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M25.1274 24.3293H2.87207V3.66992" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Set up to 10 signal monitors</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M3.95312 13.6418C9.30407 13.6418 13.6418 9.30407 13.6418 3.95312" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M13.6406 3.95312C13.6406 9.30407 17.9783 13.6418 23.3293 13.6418" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M23.3293 13.6406C17.9783 13.6406 13.6406 17.9783 13.6406 23.3293" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M13.6418 23.3293C13.6418 17.9783 9.30407 13.6406 3.95312 13.6406" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>AI search and discovery</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <rect x="3.5" y="5.25" width="21" height="17.5" rx="4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M8.16699 10.4805L13.0724 12.6192C13.6648 12.8776 14.3378 12.8786 14.931 12.6221L19.8337 10.5022" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Sales outreach tracking</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M22.1663 19.8327H20.9997C20.3557 19.8327 19.833 19.31 19.833 18.666V12.8327C19.833 12.1887 20.3557 11.666 20.9997 11.666H22.1663C23.4555 11.666 24.4997 12.7102 24.4997 13.9993V17.4993C24.4997 18.7885 23.4555 19.8327 22.1663 19.8327Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M7 19.8327H5.83333C4.54417 19.8327 3.5 18.7885 3.5 17.4993V13.9993C3.5 12.7102 4.54417 11.666 5.83333 11.666H7C7.644 11.666 8.16667 12.1887 8.16667 12.8327V18.666C8.16667 19.31 7.644 19.8327 7 19.8327Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M21.5837 11.6667V11.0833C21.5837 6.895 18.1887 3.5 14.0003 3.5V3.5C9.81199 3.5 6.41699 6.895 6.41699 11.0833V11.6667" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M14.7292 24.7917H13.2708C12.4658 24.7917 11.8125 24.1383 11.8125 23.3333V23.3333C11.8125 22.5283 12.4658 21.875 13.2708 21.875H14.7292C15.5342 21.875 16.1875 22.5283 16.1875 23.3333V23.3333C16.1875 24.1383 15.5342 24.7917 14.7292 24.7917Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M16.1875 23.334H18.6667C19.9558 23.334 21 22.2898 21 21.0007V19.834" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Live 24/7 support</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Pro Plan */}
-               <div className='w-full h-auto rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#429DED] bg-black backdrop-blur-md p-[16px] lg:p-[24px]' style={{ boxShadow: '0 4px 54px 0 rgba(66, 157, 237, 0.25) inset' }}>
-                  {/* Recomended Block */}
+            <div className='w-full max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex flex-col md:flex-row gap-[12px] md:gap-[16px] lg:gap-[22px]'>
+               {/* Pro Plan */}
+               <div className='w-full h-auto rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#429DED] bg-black backdrop-blur-md p-[16px] lg:p-[24px] relative' style={{ boxShadow: '0 4px 54px 0 rgba(66, 157, 237, 0.25) inset' }}>
                   <div className='absolute top-[14px] lg:top-[24px] right-[14px] md:right-[16px] lg:right-[24px] flex items-center justify-center px-[8px] py-[3px] rounded-[40px] bg-[rgba(66,157,237,0.17)]'>
                      <span className='text-[13px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] font-normal text-[#429DED]'>Recommended</span>
-              </div>
+                  </div>
 
-                  {/* Owl Image */}
                   <div className='w-[100px] md:w-[105px] lg:w-[170px] h-[63px] md:h-[67px] lg:h-[108px] flex items-center justify-center absolute top-[76px] md:top-[70px] lg:top-[72px] right-[10px] md:right-[16px] lg:right-[24px]'>
                      <Image
                         src={'/pricing/pro-plan-owl.webp'}
@@ -1424,22 +1388,27 @@ export default function page() {
                      />
                   </div>
 
-                  {/* Title Text */}
                   <div className='w-full flex flex-col gap-[6px] mb-[18px] lg:mb-[22px]'>
                      <h5 className='text-[18px] lg:text-[24px] leading-[100%] text-white font-hedvig font-normal'>Pro Plan</h5>
                      <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>For teams and serious sales professionals</span>
                   </div>
 
-                  {/* Price Block */}
                   <div className='flex items-center gap-[8px] lg:gap-[16px]'>
-                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>$200</h1>
+                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>
+                        {`$${pricingCycle === 'annual' ? 200 : 250}`}
+                     </h1>
                      <div className='flex flex-col gap-[2px]'>
-                        <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per month,</span>
-                        <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.5]'>per seat</span>
+                        <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.6]'>per seat / month</span>
+                        <span className='text-[13px] lg:text-[15px] leading-[16px] lg:leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>
+                           {pricingCycle === 'annual' ? 'billed annually' : 'month-to-month'}
+                        </span>
                      </div>
                   </div>
 
-                  {/* Book a Demo Btn */}
+                  <span className='flex mt-[6px] text-[13px] lg:text-[15px] leading-[18px] lg:leading-[20px] text-[#7FC0FF]'>
+                     {pricingCycle === 'annual' ? 'Save 20% vs. monthly billing.' : 'Switch to annual and save 20%.'}
+                  </span>
+
                   <div className='w-full h-[40px] lg:h-[48px] rounded-[28px] lg:rounded-[100px] flex items-center justify-center border border-[rgba(255,255,255,0.15)] mt-[10px] lg:mt-[16px] mb-[18px] lg:mb-[24px] group bg-white hover:bg-black transition-all duration-300 relative'>
                      <Link href={'/demo'} className='flex items-center justify-center w-full h-full'>
                         <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-black group-hover:text-white transition-all duration-300'>Book a Demo</span>
@@ -1448,85 +1417,69 @@ export default function page() {
 
                   <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>30-day money-back guarantee</span>
 
-                  {/* Features List */}
-                  <ul className='w-full flex flex-col gap-[12px] lg:gap-[18px]'>
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M6 14L11.5 19.5L22 9" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
+                  <ul className='w-full flex flex-col gap-[10px] lg:gap-[14px]'>
+                     {[
+                        'Network enrichment across Telegram and X',
+                        'Signal monitoring and warm-path discovery',
+                        'AI search and buying-signal alerts',
+                        'Sales outreach tracking',
+                        'Team collaboration seats'
+                     ].map((feature) => (
+                        <li key={feature} className='flex items-start gap-[10px]'>
+                           <span className='w-[6px] h-[6px] rounded-full bg-[#429DED] mt-[7px] flex-shrink-0'></span>
+                           <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>{feature}</span>
+                        </li>
+                     ))}
+                  </ul>
+               </div>
 
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>Everything in the Standard plan</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 11.6667V11.6667C5.32817 11.6667 3.5 9.8385 3.5 7.58333V7.58333C3.5 5.32817 5.32817 3.5 7.58333 3.5V3.5C9.8385 3.5 11.6667 5.32817 11.6667 7.58333V7.58333C11.6667 9.8385 9.8385 11.6667 7.58333 11.6667Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M20.4163 11.6667V11.6667C18.1612 11.6667 16.333 9.8385 16.333 7.58333V7.58333C16.333 5.32817 18.1612 3.5 20.4163 3.5V3.5C22.6715 3.5 24.4997 5.32817 24.4997 7.58333V7.58333C24.4997 9.8385 22.6715 11.6667 20.4163 11.6667Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M7.58333 24.5007V24.5007C5.32817 24.5007 3.5 22.6725 3.5 20.4173V20.4173C3.5 18.1622 5.32817 16.334 7.58333 16.334V16.334C9.8385 16.334 11.6667 18.1622 11.6667 20.4173V20.4173C11.6667 22.6725 9.8385 24.5007 7.58333 24.5007Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M24.4997 20.4173V20.4173C24.4997 18.1622 22.6715 16.334 20.4163 16.334V16.334C18.1612 16.334 16.333 18.1622 16.333 20.4173V20.4173C16.333 22.6725 18.1612 24.5007 20.4163 24.5007V24.5007C22.6715 24.5007 24.4997 22.6725 24.4997 20.4173Z" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Company contact enrichment credit ($100/mo. value)</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M21 7L7 21" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M7 7H21V21" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Discounted network seats</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[22px] lg:w-[24px] h-[22px] lg:h-[24px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <path d="M18.6663 23.3333V22.1667C18.6663 19.5893 16.577 17.5 13.9997 17.5H6.99967C4.42235 17.5 2.33301 19.5893 2.33301 22.1667V23.3333" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <circle cx="10.4997" cy="8.16667" r="4.66667" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M25.6667 23.3333V22.1667C25.6667 19.5893 23.5773 17.5 21 17.5V17.5" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              <path d="M17.5 3.5C20.0773 3.5 22.1667 5.58934 22.1667 8.16667C22.1667 10.744 20.0773 12.8333 17.5 12.8333" stroke="#429DED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>Team collaboration features</span>
-                </li>
-
-                     <li className='flex items-center gap-[10px]'>
-                        <div className='w-[18px] lg:w-[19px] h-[18px] lg:h-[19px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 13.107 13.099" fill="none">
-                              <path d="M12.027 6.222a3.33 3.33 0 0 0-1.209-1.201c-.382-.222-.777-.363-1.223-.424V3a1.17 1.17 0 0 0 .722-1.097 1.2 1.2 0 0 0-1.2-1.206 1.21 1.21 0 0 0-1.21 1.206c0 .49.26.908.707 1.097v1.588a3.49 3.49 0 0 0-1.064.334L3.275 1.685c.03-.113.056-.23.056-.353 0-.738-.598-1.336-1.336-1.336S.66.594.66 1.332s.598 1.336 1.336 1.336c.252 0 .485-.074.686-.195l.28.212L6.797 5.45c-.203.186-.392.398-.543.636-.306.485-.493 1.018-.493 1.6v.12a3.35 3.35 0 0 0 .21 1.156c.116.316.286.604.497.864l-1.274 1.277c-.377-.14-.8-.047-1.085.238-.194.193-.303.456-.302.73s.108.535.303.73.456.303.73.303.537-.108.73-.303.303-.456.302-.73a1.03 1.03 0 0 0-.048-.31l1.316-1.316c.18.125.375.23.585.32a3.42 3.42 0 0 0 1.369.288h.09c.552 0 1.073-.13 1.562-.395a3.23 3.23 0 0 0 1.224-1.153c.307-.49.475-1.033.475-1.63v-.03c0-.587-.136-1.128-.42-1.624zM10.42 8.984c-.357.397-.768.642-1.232.642H9.1c-.265 0-.525-.073-.778-.207a1.8 1.8 0 0 1-.682-.621c-.184-.26-.284-.544-.284-.845v-.09c0-.296.057-.577.2-.842.153-.3.36-.515.635-.694s.558-.265.88-.265h.03c.29 0 .567.057.827.19a1.75 1.75 0 0 1 .65.591 1.88 1.88 0 0 1 .291.83l.007.187c0 .407-.156.784-.467 1.126z" fill="#429DED"/>
-                  </svg>
-                        </div>
-
-                        <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>HubSpot integration support</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-            {/* Pricing Text Block */}
-            <div className='w-full max-w-[270px] md:max-w-[420px] lg:max-w-[680px] mx-auto flex justify-center mt-[22px] md:mt-[36px] lg:mt-[50px] mb-[16px] md:mb-[24px] lg:mb-[32px]'>
-               <span className='text-[14px] md:text-[17px] leading-[22px] md:leading-[26px] text-white opacity-[.8] text-center'>Need more than 10 seats? Contact us for enterprise pricing.</span>
-        </div>
-
-            {/* Contact Us Button */}
-            <div className='rounded-[100px] border border-[#272727] relative z-1 group hover:bg-white transition-all duration-300'>
-               <Link className='px-[20px] py-[13px] w-full h-full flex items-center justify-center gap-[8px]' href={'/'}>
-                  <span className='flex text-[15px] lg:text-[20px] leading-[22px] lg:leading-[24px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white group-hover:text-black transition-all duration-300 font-semibold'>Contact Us</span>
-
-                  <div className='w-[24px] lg:w-[28px] h-[24px] lg:h-[28px] [&>svg]:w-full [&>svg]:h-full flex items-center justify-center'>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                        <path className='group-hover:stroke-black transition-all duration-300' fillRule="evenodd" clipRule="evenodd" d="M17.0848 23.2263L23.4501 6.05295C23.7966 5.11729 22.8854 4.20729 21.9509 4.55379L4.77176 10.9238C3.69726 11.3228 3.78126 12.8698 4.89309 13.1486L12.8661 15.1518L14.8576 23.1038C15.1376 24.2168 16.6858 24.302 17.0848 23.2263V23.2263Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path className='group-hover:stroke-black transition-all duration-300' d="M23.1815 4.81836L12.8682 15.155" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                     </svg>
+               {/* Enterprise Plan */}
+               <div className='w-full h-auto rounded-[20px] md:rounded-[28px] lg:rounded-[36px] border border-[#272727] bg-black backdrop-blur-md p-[16px] lg:p-[24px]'>
+                  <div className='w-full flex flex-col gap-[6px] mb-[18px] lg:mb-[22px]'>
+                     <h5 className='text-[18px] lg:text-[24px] leading-[100%] text-white font-hedvig font-normal'>Enterprise Plan</h5>
+                     <span className='text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.8]'>Custom seating and support for larger organizations</span>
                   </div>
-               </Link>
+
+                  <div className='flex items-center gap-[8px] lg:gap-[16px]'>
+                     <h1 className='text-[42px] lg:text-[60px] leading-[52px] lg:leading-[70px] -tracking-[1.56px] lg:-tracking-[2.22px] text-white font-hedvig font-normal'>Custom</h1>
+                     <div className='flex flex-col gap-[2px]'>
+                        <span className='text-[14px] lg:text-[17px] leading-[16px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal opacity-[.6]'>custom seats</span>
+                        <span className='text-[13px] lg:text-[15px] leading-[16px] lg:leading-[20px] -tracking-[0.15px] text-white font-normal opacity-[.5]'>custom terms</span>
+                     </div>
+                  </div>
+
+                  <span className='flex mt-[6px] text-[13px] lg:text-[15px] leading-[18px] lg:leading-[20px] text-white/55'>
+                     Volume discounts available.
+                  </span>
+
+                  <div className='w-full h-[40px] lg:h-[48px] rounded-[28px] lg:rounded-[100px] flex items-center justify-center border border-[rgba(255,255,255,0.15)] mt-[10px] lg:mt-[16px] mb-[18px] lg:mb-[24px] group hover:bg-white transition-all duration-300 relative'>
+                     <Link href={'/demo'} className='flex items-center justify-center w-full h-full'>
+                        <span className='text-[14px] lg:text-[17px] leading-[150%] -tracking-[0.2px] font-semibold text-white group-hover:text-black transition-all duration-300'>Contact Sales</span>
+                     </Link>
+                  </div>
+
+                  <span className='flex mb-[14px] lg:mb-[22px] text-[14px] lg:text-[17px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-semibold'>Includes everything in Pro, plus:</span>
+
+                  <ul className='w-full flex flex-col gap-[10px] lg:gap-[14px]'>
+                     {[
+                        'Custom seat counts and volume pricing',
+                        'Dedicated onboarding and workspace setup',
+                        'SSO/SAML and advanced role permissions',
+                        'OpenClaw Agent API access',
+                     ].map((feature) => (
+                        <li key={feature} className='flex items-start gap-[10px]'>
+                           <span className='w-[6px] h-[6px] rounded-full bg-white/70 mt-[7px] flex-shrink-0'></span>
+                           <span className='text-[14px] lg:text-[16px] leading-[20px] lg:leading-[22px] -tracking-[0.15px] lg:-tracking-[0.2px] text-white font-normal'>{feature}</span>
+                        </li>
+                     ))}
+                  </ul>
+               </div>
+            </div>
+
+            <div className='w-full max-w-[760px] mx-auto flex justify-center mt-[22px] md:mt-[36px] lg:mt-[50px] mb-[16px] md:mb-[24px] lg:mb-[32px]'>
+               <span className='text-[14px] md:text-[17px] leading-[22px] md:leading-[26px] text-white opacity-[.8] text-center'>
+                  Enterprise pricing is tailored to your seat count and security requirements.
+               </span>
             </div>
          </div>
 
@@ -1730,5 +1683,3 @@ export default function page() {
       </div>
    )
 }
-
-
