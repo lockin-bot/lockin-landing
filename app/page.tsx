@@ -85,7 +85,16 @@ const faqData = [
    }
 ]
 
-const backingCompanyWordmarks = [
+type BackingCompanyWordmark = {
+   name: string;
+   logoSrc?: string;
+   logoAlt?: string;
+   logoClass?: string;
+   sizeClass?: string;
+   fontClass?: string;
+};
+
+const backingCompanyWordmarks: BackingCompanyWordmark[] = [
    { name: 'Awaken', logoSrc: '/hero/awaken.svg', logoAlt: 'Awaken', logoClass: 'max-w-[90%]' },
    { name: 'Clique', logoSrc: '/hero/clique.svg', logoAlt: 'Clique', logoClass: 'max-w-[74%]' },
    { name: 'Alliance', logoSrc: '/hero/alliance.svg', logoAlt: 'Alliance', logoClass: 'max-w-[94%]' },
