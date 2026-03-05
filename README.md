@@ -19,6 +19,11 @@ Then run the app:
 ./run.sh
 ```
 
+`./run` uses development mode with hot-reload and binds to port `3000` by default.
+If you need a different port, run with `PORT=3001 ./run`.
+By default it uses webpack in dev for more reliable file watching in nested workspaces.
+To force Turbopack instead: `DEV_BUNDLER=turbo ./run`.
+
 You can also run the development server directly:
 
 ```bash
